@@ -1,15 +1,20 @@
 # HA Production Gate
 
-<p align="center">
-  <strong>Soft Dual ritual:</strong> Safe must ALLOW · Hostile must REFUSE · sealed receipt · named ε.<br/>
-  Rust owns the physics gate. Python is glue. Soft · not MEASURED · not HIL.
-</p>
+## What you’re looking at
+
+A **command-line check** for robot / autonomy physics claims.
+
+You clone this repo, build a few Rust binaries, run one command.  
+You get a **pass/fail board** plus JSON receipts — not a website, not a ROS package, not a simulator you drive by hand.
+
+The picture below is the **companion desk UI** from the Hardware Atom workshop (same Safe/Hostile idea).  
+**This clone does not open that window.** This clone runs the CLI ritual.
 
 <p align="center">
   <a href="#quick-start">Quick Start</a> ·
-  <a href="START_HERE_PRODUCTION_GATE_V1.md">Start here</a> ·
-  <a href="#honesty">Honesty</a> ·
-  <a href="CONTRIBUTING.md">Contributing</a>
+  <a href="#what-a-person-gets">What you get</a> ·
+  <a href="#what-this-is-not">What this is not</a> ·
+  <a href="START_HERE_PRODUCTION_GATE_V1.md">Start here</a>
 </p>
 
 <p align="center">
@@ -18,37 +23,76 @@
   <a href="LICENSE"><img src="https://img.shields.io/github/license/StanByriukov02/ha-production-gate" alt="license"></a>
 </p>
 
-```text
-./scripts/bootstrap.sh   # or scripts\bootstrap.ps1 on Windows
-→ PRODUCTION_GATE_RITUAL_PASS
-```
+---
 
-This repo ships the **CLI gate**. The screenshots below are the companion Dual desk (Hardware Atom Start here) — visual of the same Safe/Hostile idea, **not** launched by this clone.
+## The problem (plain)
 
-<p align="center">
-  <img src="docs/assets/hero-world.png" alt="Companion desk — Dual Hostile sinkage">
-</p>
+Most stacks can print **green** in one world and never prove the same claim **fails** when the world gets worse.
+
+This gate runs the **same** body/stack twice:
+
+| World | Expected result |
+|-------|-----------------|
+| **Safe** | physics gate **ALLOW** |
+| **Hostile** | physics gate **REFUSE** |
+
+If Hostile still allows, the ritual **fails**. That refuse bit is the point.
+
+Physics decision is computed by **Rust** (`ha-physics-gate`). Python only orchestrates.
 
 ---
 
-## What you get
+## What a person gets
 
-| Output | Meaning |
-|--------|---------|
-| Safe ALLOW | teaching Dual: claim may proceed in Safe |
-| Hostile REFUSE | same stack denies in Hostile |
-| Named `epsilon` | honesty labels cannot be soft-upgraded |
-| Kit outside repo tree | Dual JSON + board staged under TEMP on this machine |
-| Rust `ha-physics-gate` | Bekker / gate boolean oracle — no pure-Python fallback |
+After a successful run (`PRODUCTION_GATE_RITUAL_PASS`) you walk away with:
 
-Not included yet: field MEASURED, silicon OTP, ROS/Gazebo bridge, HIL lab, external engineer sign-off.
+| You hold | In practice |
+|----------|-------------|
+| A terminal board | Eight checks PASS/FAIL — Dual burn, seal flag, ε, Hostile refuse, kit re-read, … |
+| JSON receipt | `results/runtime/platform_loop/PRODUCTION_GATE_RITUAL_LATEST_v1.md` + `.json` |
+| Dual kit | TEMP folder outside the git tree: `dual_safe.json`, `dual_hostile.json`, board |
+| A habit | “Before I talk about shipping this claim — did Safe allow and Hostile refuse?” |
+
+**Value for a human:** a stranger-reproducible *teaching* proof that your stack can say **no** under Hostile conditions — with a receipt, not a slide.
+
+Sample board: [`docs/examples/PRODUCTION_GATE_BOARD_SAMPLE.md`](docs/examples/PRODUCTION_GATE_BOARD_SAMPLE.md)
+
+```text
+./scripts/bootstrap.sh     # Windows: .\scripts\bootstrap.ps1
+→ PRODUCTION_GATE_RITUAL_PASS
+```
+
+---
+
+## What this is not
+
+| Not this | Why we say it |
+|----------|----------------|
+| Not a full robot OS / twin you install and click | CLI ritual only |
+| Not ROS / Gazebo / Nav2 | No bridge in this repo yet |
+| Not lab MEASURED / HIL / silicon OTP | Soft teaching Dual |
+| Not “NASA/SPX certified” anything | Independent open soft release |
+| Not proof soft-mint is impossible forever | Detector check + honesty labels — see falsifier names |
+
+Status in one line: **soft · teaching Dual · not product_ready**.
+
+---
+
+## Companion desk (visual only)
+
+Same Dual idea humans see in the workshop desk — Hostile sinkage, RUN TICK, etc.  
+Shipped here as screenshots so you know what the ritual is *about*.
+
+<p align="center">
+  <img src="docs/assets/hero-world.png" alt="Companion desk — Dual Hostile sinkage (not launched by this clone)">
+</p>
 
 ---
 
 ## Quick start
 
-**Needs:** Rust toolchain · Python ≥ 3.11 · C compiler (`ha_silicon_fuse`; Windows: MSVC Build Tools).  
-**First cold build** can take several minutes (five release bins). CI proves the Unix path.
+**Needs:** Rust · Python ≥ 3.11 · C compiler for `ha_silicon_fuse` (Windows: MSVC Build Tools).  
+Cold build of five release bins can take several minutes. CI proves the Unix path.
 
 ```bash
 git clone https://github.com/StanByriukov02/ha-production-gate.git
@@ -56,7 +100,7 @@ cd ha-production-gate
 ./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
 ```
 
-Manual path (same steps the bootstrap runs):
+Manual equivalent:
 
 ```bash
 cargo build -p ha_physics_gate --release
@@ -69,16 +113,13 @@ pip install -e .
 ha-production-gate
 ```
 
-Expect: `PRODUCTION_GATE_RITUAL_PASS` · board under `results/runtime/platform_loop/`.  
-Sample: [`docs/examples/PRODUCTION_GATE_BOARD_SAMPLE.md`](docs/examples/PRODUCTION_GATE_BOARD_SAMPLE.md)
-
 ---
 
-## Example board (abridged)
+## Example board
 
 ```text
 ════════════════════════════════════════════════════════════
-  HA PRODUCTION GATE — Dual teaching ritual
+  HA PRODUCTION GATE — soft Dual teaching ritual
   verdict: PRODUCTION_GATE_RITUAL_PASS
 
   [PASS] F_dual_safe_allow_hostile_refuse
@@ -94,13 +135,23 @@ Sample: [`docs/examples/PRODUCTION_GATE_BOARD_SAMPLE.md`](docs/examples/PRODUCTI
 
 ---
 
+## Who this is for
+
+- You build robots / autonomy / mission physics and want a **refuse habit** with a receipt  
+- You want Rust to own the gate boolean, not a Python script that can soft-mint PASS  
+- You’re fine with a **soft teaching** demo before MEASURED / HIL
+
+Skip if you need a drop-in ROS node, a GUI from `git clone`, or a lab certificate today.
+
+---
+
 ## Honesty
 
-- Soft teaching Dual · **not** field MEASURED · soft ≠ OTP · **not** product_ready
-- Python orchestrates (~dogfood); **Rust** owns Bekker / physics-gate emit
-- Seal flag `sealed_in_ha_runtime` is a **receipt field**, not TPM / remote attestation
-- Kit reverify is **same-machine TEMP outside the git tree** — not a second engineer on a second OS
-- Language bar: GitHub counts bytes. This tree is Python-heavy glue + Rust cores — see [`.gitattributes`](.gitattributes)
+- Soft teaching Dual · **not** field MEASURED · soft ≠ OTP · **not** product_ready  
+- Python orchestrates; **Rust** owns Bekker / physics-gate emit  
+- Seal flag on the receipt ≠ TPM / remote attestation  
+- Kit reverify = TEMP **on your machine** outside the git tree — not a second engineer on a second OS yet  
+- Tree is Python-heavy glue + Rust cores (GitHub language bar counts bytes)
 
 ---
 
@@ -108,33 +159,19 @@ Sample: [`docs/examples/PRODUCTION_GATE_BOARD_SAMPLE.md`](docs/examples/PRODUCTI
 
 | Doc | Role |
 |-----|------|
-| [`START_HERE_PRODUCTION_GATE_V1.md`](START_HERE_PRODUCTION_GATE_V1.md) | Engineer entry |
+| [`START_HERE_PRODUCTION_GATE_V1.md`](START_HERE_PRODUCTION_GATE_V1.md) | Short engineer entry |
 | [`docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md`](docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md) | Ritual canon |
-| [`docs/agent_workflow/PHYSICS_OS_KERNEL_V0.md`](docs/agent_workflow/PHYSICS_OS_KERNEL_V0.md) | Kernel honesty ladder |
-
----
+| [`docs/agent_workflow/PHYSICS_OS_KERNEL_V0.md`](docs/agent_workflow/PHYSICS_OS_KERNEL_V0.md) | Honesty ladder |
 
 ## Soft release pack
 
 ```bash
 ha-release-engineer
-# stages results/runtime/release_engineer/LATEST/
+# → results/runtime/release_engineer/LATEST/
 ```
 
----
+## Contributing / Security / License
 
-## Contributing
+[`CONTRIBUTING.md`](CONTRIBUTING.md) · [`SECURITY.md`](SECURITY.md) · Apache-2.0 [`LICENSE`](LICENSE)
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md).
-
-## Security
-
-See [`SECURITY.md`](SECURITY.md).
-
-## License
-
-Apache License 2.0 — see [`LICENSE`](LICENSE).
-
-## Maintainers
-
-Stanislav Byriukov — Hardware Atom / Production Gate
+**Maintainer:** Stanislav Byriukov — Hardware Atom / Production Gate

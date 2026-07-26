@@ -1,48 +1,53 @@
-# Start here — Production Gate (engineer)
+# Start here — Production Gate
 
-**Status:** OPEN · soft teaching Dual · physics gate first  
-**Canon:** `docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md`
+## What this is
+
+One CLI ritual. Not an app. Not ROS.
+
+You run it → you get a **board + JSON** that says:
+
+- **Safe** world: physics gate ALLOW  
+- **Hostile** world: physics gate REFUSE  
+
+If Hostile still allows → **FAIL**. That is the product.
+
+Rust decides the gate. Python wires the run. Soft · not MEASURED · not HIL.
+
+README screenshots = companion desk (workshop). **This clone does not open that UI.**
 
 ---
 
-## 30 seconds
+## What you get after PASS
 
-**Problem:** autonomy / robot claims often go green without a Dual Safe/Hostile refuse and without named honesty on the physics label.
+1. Terminal board with eight PASS/FAIL lines  
+2. `results/runtime/platform_loop/PRODUCTION_GATE_BOARD_LATEST.md`  
+3. Kit under TEMP (outside the repo): Dual JSON + board  
 
-**This repo:** soft Dual ritual — **Safe ALLOW · Hostile REFUSE · seal flag · named ε**.  
-**Oracle:** Rust `ha-physics-gate`. Python is glue. Soft · not MEASURED · not HIL.
-
-Screenshots on the README are the companion desk UI — this clone runs the **CLI**.
+**Human meaning:** a receipt that your stack can refuse under Hostile conditions — teaching Dual, not a lab certificate.
 
 ---
 
-## Cold path
+## Run
 
 ```text
 ./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
 ```
 
-Or manually: build five Rust release bins → `pip install -e .` → `ha-production-gate`.
-
-Expect: `PRODUCTION_GATE_RITUAL_PASS`  
-Board: `results/runtime/platform_loop/PRODUCTION_GATE_BOARD_LATEST.md`
+Expect: `PRODUCTION_GATE_RITUAL_PASS`
 
 | Must see | Meaning |
 |----------|---------|
-| Safe `physics_pass=true` | teaching Safe world allows |
-| Hostile `physics_pass=false` | same stack refuses in Hostile |
-| Seal flag on kernel receipt | receipt field — not TPM |
-| named `epsilon` | no soft label upgrade |
-| kit outside repo tree | TEMP re-read on this machine |
+| Safe `physics_pass=true` | teaching Safe allows |
+| Hostile `physics_pass=false` | same stack refuses |
+| named `epsilon` | honesty labels stay honest |
+| kit outside repo | TEMP re-read on this machine |
 
 ---
 
 ## Honesty
 
-| We show | We do not soft-mint |
-|---------|---------------------|
-| Dual + Rust physics gate + named ε | field MEASURED · OTP · product_ready · HIL |
+| We show | We do not claim |
+|---------|-----------------|
+| Dual + Rust gate + receipt | MEASURED · OTP · product_ready · HIL · “certified” |
 
-## One ask
-
-Run the bootstrap (or `ha-production-gate`). Send the receipt or the first FAIL line.
+Send the board or the first FAIL line.
