@@ -1,9 +1,4 @@
-# Language bar = physics substance (Rust/C). Glue still ships and runs.
-dogfood_platform/** linguist-vendored
-scripts/** linguist-vendored
-fixtures/** linguist-vendored
-results/** linguist-vendored
+# Docs stay documentation. Do NOT mask Python glue as vendored —
+# language bar should match the tree (Python-heavy glue + Rust cores).
 docs/** linguist-documentation
 *.md linguist-documentation
-*.json linguist-vendored
-*.urdf linguist-vendored

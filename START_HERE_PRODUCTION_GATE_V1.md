@@ -1,53 +1,39 @@
 # Start here — Production Gate (engineer)
 
-**Status:** OPEN · soft release · physics gate first  
+**Status:** OPEN · soft teaching Dual · physics gate first  
 **Canon:** `docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md`
 
 ---
 
 ## 30 seconds
 
-**Problem:** teams ship autonomy / robot / mission claims that go green without a Dual world, a sealed refuse bit, or named honesty on the physics.
+**Problem:** autonomy / robot claims often go green without a Dual Safe/Hostile refuse and without named honesty on the physics label.
 
-**HA ritual:** before production — **Dual · sealed receipt · named ε · refuse**.  
-**Oracle:** Rust `ha-physics-gate` (and sibling bins). Python is glue.
+**This repo:** soft Dual ritual — **Safe ALLOW · Hostile REFUSE · seal flag · named ε**.  
+**Oracle:** Rust `ha-physics-gate`. Python is glue. Soft · not MEASURED · not HIL.
+
+Screenshots on the README are the companion desk UI — this clone runs the **CLI**.
 
 ---
 
-## One command
+## Cold path
 
 ```text
-# once — five Rust physics bins:
-cargo build -p ha_physics_gate --release
-cargo build -p ha_silicon_fuse --release
-cargo build -p ha_energy_ledger --release
-cargo build -p ha_body_identity --release
-cargo build -p universe_kinematic --release --bin manipulator_kinematics_step
-
-pip install -e ".[smoke]"
-ha-production-gate
+./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
 ```
 
+Or manually: build five Rust release bins → `pip install -e .` → `ha-production-gate`.
+
 Expect: `PRODUCTION_GATE_RITUAL_PASS`  
-Board: `results/runtime/platform_loop/PRODUCTION_GATE_BOARD_LATEST.md`  
-Kit mirror: `results/runtime/production_gate_kits/LATEST/`
+Board: `results/runtime/platform_loop/PRODUCTION_GATE_BOARD_LATEST.md`
 
 | Must see | Meaning |
 |----------|---------|
-| Safe `physics_pass=true` | claim may proceed in Safe world |
+| Safe `physics_pass=true` | teaching Safe world allows |
 | Hostile `physics_pass=false` | same stack refuses in Hostile |
-| `sealed_in_ha_runtime=true` | OS lives in HA Dual |
-| named `epsilon` on honesty | no soft-mint label upgrade |
-| stranger kit reverify | receipts readable outside desk |
-
----
-
-## Why you care (any level)
-
-Without this hour you still build.  
-With it you get a **stranger-reproducible physics refuse** — the cheap answer to “may this claim ship?”
-
-If HA disappeared tomorrow, you would spend that week guessing. That gap is the product.
+| Seal flag on kernel receipt | receipt field — not TPM |
+| named `epsilon` | no soft label upgrade |
+| kit outside repo tree | TEMP re-read on this machine |
 
 ---
 
@@ -55,8 +41,8 @@ If HA disappeared tomorrow, you would spend that week guessing. That gap is the 
 
 | We show | We do not soft-mint |
 |---------|---------------------|
-| Dual + Rust physics gate + kernel seal + named ε | field MEASURED · OTP · product_ready |
+| Dual + Rust physics gate + named ε | field MEASURED · OTP · product_ready · HIL |
 
 ## One ask
 
-Run `ha-production-gate`. Send the receipt or the first FAIL line.
+Run the bootstrap (or `ha-production-gate`). Send the receipt or the first FAIL line.

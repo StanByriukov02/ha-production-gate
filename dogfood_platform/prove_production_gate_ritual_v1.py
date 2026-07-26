@@ -1,9 +1,8 @@
-"""Production Gate Ritual — one engineer command before production.
+"""Production Gate Ritual — soft Dual teaching seal (CLI).
 
 Canon: docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md
-Properties: simple · unrepeatable truth OS · cheaper than doubt.
 
-Stages a stranger kit under TEMP (outside repo) with Dual receipts + seal board.
+Stages a kit under TEMP (outside repo tree, same machine) with Dual receipts + board.
 Not MEASURED · soft≠OTP · Rust physics oracle · Python glue.
 """
 from __future__ import annotations
@@ -35,9 +34,9 @@ _KIT_LATEST = _REPO / "results" / "runtime" / "production_gate_kits" / "LATEST"
 SCHEMA = "ha_production_gate_ritual_v1"
 PROOF_TIER = "PRODUCTION_GATE_RITUAL"
 CONTRACT = (
-    "PRODUCTION_GATE_RITUAL: one Dual seal before production — Safe ALLOW · "
-    "Hostile refuse · physics_os_kernel sealed_in_ha_runtime · named epsilon · "
-    "soft-mint refused · stranger kit outside desk. Simple · not priesthood · not MEASURED."
+    "PRODUCTION_GATE_RITUAL: soft Dual teaching seal — Safe ALLOW · "
+    "Hostile refuse · seal flag on kernel receipt · named epsilon · "
+    "soft-mint detector alive · kit outside repo tree (same machine). Not MEASURED."
 )
 
 
@@ -53,13 +52,12 @@ def _print_board(doc: dict[str, Any]) -> None:
     lines = [
         "",
         "════════════════════════════════════════════════════════════",
-        "  HA PRODUCTION GATE — before you ship",
+        "  HA PRODUCTION GATE — soft Dual teaching ritual",
         "════════════════════════════════════════════════════════════",
         f"  verdict: {doc.get('verdict')}",
         "",
-        "  Ritual:  Dual · sealed receipt · named ε · refuse",
-        "  Without HA you lose: stranger-checkable refuse before production",
-        "                       (a week of knowing whether the claim may ship)",
+        "  Ritual:  Safe ALLOW · Hostile REFUSE · seal flag · named ε",
+        "  Scope:   soft teaching Dual — not MEASURED / not HIL",
         "",
     ]
     for c in doc.get("cases") or []:
@@ -68,7 +66,7 @@ def _print_board(doc: dict[str, Any]) -> None:
     kit = (doc.get("kit") or {}).get("path")
     if kit:
         lines.append("")
-        lines.append(f"  stranger kit: {kit}")
+        lines.append(f"  kit (TEMP outside repo): {kit}")
     lines.append(f"  receipt:     {_OUT}")
     lines.append(f"  board:       {_BOARD}")
     lines.append("════════════════════════════════════════════════════════════")
@@ -89,10 +87,10 @@ def _write_board_md(doc: dict[str, Any]) -> None:
 ## Ritual
 
 ```text
-Dual · sealed receipt · named ε · refuse
+Soft Dual teaching seal · Safe ALLOW · Hostile REFUSE · named ε
 ```
 
-## Without HA you lose
+## Without this ritual
 
 {doc.get('lose_without_ha')}
 
@@ -102,7 +100,7 @@ Dual · sealed receipt · named ε · refuse
 |----|--------|
 {rows}
 
-## Stranger kit
+## Kit (same-machine TEMP outside git tree)
 
 - path: `{kit.get('path')}`
 - outside_repo: `{kit.get('outside_repo')}`
@@ -110,7 +108,7 @@ Dual · sealed receipt · named ε · refuse
 
 ## Honesty
 
-not MEASURED · soft≠OTP · Rust physics oracle · Python glue only
+soft teaching Dual · not MEASURED · soft≠OTP · Rust physics oracle · Python glue · seal flag ≠ TPM
 
 ## Canon
 
@@ -222,13 +220,14 @@ def run_production_gate_ritual(*, write_receipt: bool = True) -> dict[str, Any]:
         )
         cases.append(
             _case(
-                "F_kernel_sealed_in_ha_runtime",
+                "F_kernel_seal_flag_present",
                 ok=seal_ok,
                 detail={
                     "safe_sealed": seal_s.get("sealed_in_ha_runtime"),
                     "hostile_sealed": seal_h.get("sealed_in_ha_runtime"),
+                    "note": "receipt boolean flag — not TPM/attestation",
                 },
-                error=None if seal_ok else "kernel_not_sealed",
+                error=None if seal_ok else "kernel_seal_flag_missing",
             )
         )
 
@@ -295,23 +294,37 @@ def run_production_gate_ritual(*, write_receipt: bool = True) -> dict[str, Any]:
             {"proof_tier": "MEASURED", "honesty": {"not_measured": True}}
         )
         soft_ok = len(soft) >= 1
+        live_hon_s = (r_safe.get("honesty") or {}) if isinstance(r_safe, dict) else {}
+        live_hon_h = (r_hostile.get("honesty") or {}) if isinstance(r_hostile, dict) else {}
+        live_not_measured = bool(live_hon_s.get("not_measured")) and bool(
+            live_hon_h.get("not_measured") if "not_measured" in live_hon_h else True
+        )
+        # Prefer kernel honesty if top-level honesty missing on hostile.
+        if "not_measured" not in live_hon_h:
+            live_not_measured = bool(live_hon_s.get("not_measured")) or bool(
+                ((seal_s.get("honesty") or {}).get("not_measured"))
+            )
         cases.append(
             _case(
-                "F_soft_mint_impossible",
+                "F_soft_mint_detector_alive",
                 ok=soft_ok,
-                detail={"detector_hits": soft},
+                detail={
+                    "detector_hits": soft,
+                    "live_receipts_not_measured_hint": live_not_measured,
+                    "note": "synthetic probe of detector — not a proof soft-mint is impossible",
+                },
                 error=None if soft_ok else "soft_mint_detector_dead",
             )
         )
 
-        # Stranger: re-read kit files from outside project tree (same machine, outside desk).
+        # Kit: re-read Dual JSON from TEMP outside the git tree (same machine).
         draft = {
             "schema": SCHEMA,
             "proof_tier": PROOF_TIER,
             "cases": cases,
             "lose_without_ha": (
-                "stranger-checkable refuse bit before production — "
-                "week of knowing whether the claim may ship"
+                "Dual refuse bit + named ε on a soft teaching seal — "
+                "a week of knowing Safe vs Hostile on this stack"
             ),
         }
         kit_meta = _stage_kit(
@@ -329,25 +342,43 @@ def run_production_gate_ritual(*, write_receipt: bool = True) -> dict[str, Any]:
             and bool((safe_kit.get("physics_os_kernel") or {}).get("sealed_in_ha_runtime"))
             and bool((host_kit.get("physics_os_kernel") or {}).get("sealed_in_ha_runtime"))
         )
+        kit_detail = dict(kit_meta)
+        kit_detail["note"] = "same-machine TEMP outside git tree — not second OS / second engineer"
         cases.append(
             _case(
-                "F_stranger_kit_reverify",
+                "F_kit_outside_repo_reverify",
                 ok=stranger_ok,
-                detail=kit_meta,
-                error=None if stranger_ok else "stranger_kit_reverify_fail",
+                detail=kit_detail,
+                error=None if stranger_ok else "kit_outside_repo_reverify_fail",
             )
         )
 
+        # Entrypoint wired: console script + bootstrap scripts present (build is separate).
+        entry_ok = False
+        entry_detail: dict[str, Any] = {
+            "command": "ha-production-gate",
+            "bootstrap_sh": (_REPO / "scripts" / "bootstrap.sh").is_file(),
+            "bootstrap_ps1": (_REPO / "scripts" / "bootstrap.ps1").is_file(),
+            "start_here": (_REPO / "START_HERE_PRODUCTION_GATE_V1.md").is_file(),
+        }
+        try:
+            from importlib.metadata import entry_points
+
+            eps_all = entry_points()
+            selected = eps_all.select(group="console_scripts") if hasattr(eps_all, "select") else []
+            names = {ep.name for ep in selected}
+            entry_ok = "ha-production-gate" in names
+            entry_detail["console_scripts_has_gate"] = entry_ok
+        except Exception as exc:  # noqa: BLE001 — report, still fail closed
+            entry_detail["entry_points_error"] = str(exc)
+            entry_ok = False
+        entry_ok = bool(entry_ok and entry_detail["bootstrap_sh"] and entry_detail["start_here"])
         cases.append(
             _case(
-                "F_ritual_is_one_command",
-                ok=True,
-                detail={
-                    "command": "ha-production-gate",
-                    "also": "ha-guide production-gate",
-                    "start_here": "START_HERE_PRODUCTION_GATE_V1.md",
-                },
-                error=None,
+                "F_ritual_entrypoint_wired",
+                ok=entry_ok,
+                detail=entry_detail,
+                error=None if entry_ok else "ritual_entrypoint_not_wired",
             )
         )
 
@@ -361,8 +392,8 @@ def run_production_gate_ritual(*, write_receipt: bool = True) -> dict[str, Any]:
         "timestamp_utc": _now(),
         "properties": {
             "simple": True,
-            "unrepeatable_truth_os": True,
-            "cheaper_than_doubt": "intent",
+            "soft_teaching_dual": True,
+            "cold_path": "scripts/bootstrap.sh | scripts/bootstrap.ps1",
         },
         "kit": kit_meta,
         "cases": cases,
@@ -379,8 +410,8 @@ def run_production_gate_ritual(*, write_receipt: bool = True) -> dict[str, Any]:
         },
         "tabu": ["MEASURED", "OTP", "product_ready", "soft_mint"],
         "lose_without_ha": (
-            "stranger-checkable refuse bit before production — "
-            "week of knowing whether the claim may ship"
+            "Dual refuse bit + named ε on a soft teaching seal — "
+            "a week of knowing Safe vs Hostile on this stack"
         ),
     }
     if write_receipt:

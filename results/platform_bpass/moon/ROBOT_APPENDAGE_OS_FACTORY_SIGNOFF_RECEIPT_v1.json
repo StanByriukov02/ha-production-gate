@@ -1436,7 +1436,7 @@
         "manifest": {
           "robot_id": "lunar_scout_lc2_bench_v1",
           "total_dof": 4,
-          "written_to": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\robot\\APPENDAGE_ROBOT_STACK_MANIFEST_v1.json"
+          "written_to": ".\\results\\platform_bpass\\robot\\APPENDAGE_ROBOT_STACK_MANIFEST_v1.json"
         }
       },
       "verdict": "ROBOT_APPENDAGE_CREATE_CLI_SLICE_PASS",
@@ -1463,7 +1463,7 @@
         "manifest": {
           "robot_id": "hexapod_single_leg_bench_v1",
           "chain_id": "hexapod_leg_from_urdf_v1",
-          "written_to": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\robot\\APPENDAGE_URDF_ROBOT_STACK_MANIFEST_v1.json"
+          "written_to": ".\\results\\platform_bpass\\robot\\APPENDAGE_URDF_ROBOT_STACK_MANIFEST_v1.json"
         }
       },
       "verdict": "ROBOT_APPENDAGE_URDF_CREATE_SLICE_PASS",
@@ -1754,7 +1754,7 @@
         },
         "fail": [],
         "chain_id": "hexapod_leg_from_urdf_v1",
-        "patch_path": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\robot\\kinematic_chain_ir_patch_v1.json"
+        "patch_path": ".\\results\\platform_bpass\\robot\\kinematic_chain_ir_patch_v1.json"
       },
       "verdict": "ROBOT_APPENDAGE_REGISTRY_PERSIST_SLICE_PASS",
       "fail": []
@@ -1779,13 +1779,13 @@
         "canon": [
           "docs/agent_workflow/APPENDAGE_DUAL_REVIEW_MODES_V1.md"
         ],
-        "scope_fixture": "C:\\Users\\dammi\\hardware_atom\\fixtures\\robot\\appendage_dual_review_scope_v1.json",
+        "scope_fixture": ".\\fixtures\\robot\\appendage_dual_review_scope_v1.json",
         "deterministic_spikes": [
           {
             "id": "scope_fixture",
             "severity": "CRITICAL",
             "pass": true,
-            "detail": "C:\\Users\\dammi\\hardware_atom\\fixtures\\robot\\appendage_dual_review_scope_v1.json"
+            "detail": ".\\fixtures\\robot\\appendage_dual_review_scope_v1.json"
           },
           {
             "id": "plan_deferred_ladder",
@@ -1945,8 +1945,8 @@
           "replaces": "human canon merge review"
         },
         "sub_slots": {
-          "kinematics": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\moon\\APPENDAGE_SUB_KINEMATICS_AUDITOR_v1.json",
-          "iron_servo": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\moon\\APPENDAGE_SUB_IRON_SERVO_AUDITOR_v1.json"
+          "kinematics": ".\\results\\platform_bpass\\moon\\APPENDAGE_SUB_KINEMATICS_AUDITOR_v1.json",
+          "iron_servo": ".\\results\\platform_bpass\\moon\\APPENDAGE_SUB_IRON_SERVO_AUDITOR_v1.json"
         }
       },
       "verdict": "ROBOT_APPENDAGE_DUAL_REVIEW_SLICE_PASS"
@@ -2599,13 +2599,13 @@
         "canon": [
           "docs/agent_workflow/APPENDAGE_DUAL_REVIEW_MODES_V1.md"
         ],
-        "scope_fixture": "C:\\Users\\dammi\\hardware_atom\\fixtures\\robot\\appendage_dual_review_scope_v1.json",
+        "scope_fixture": ".\\fixtures\\robot\\appendage_dual_review_scope_v1.json",
         "deterministic_spikes": [
           {
             "id": "scope_fixture",
             "severity": "CRITICAL",
             "pass": true,
-            "detail": "C:\\Users\\dammi\\hardware_atom\\fixtures\\robot\\appendage_dual_review_scope_v1.json"
+            "detail": ".\\fixtures\\robot\\appendage_dual_review_scope_v1.json"
           },
           {
             "id": "plan_deferred_ladder",
@@ -2783,8 +2783,8 @@
           "replaces": "human canon merge review"
         },
         "sub_slots": {
-          "kinematics": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\moon\\APPENDAGE_SUB_KINEMATICS_AUDITOR_v1.json",
-          "iron_servo": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\moon\\APPENDAGE_SUB_IRON_SERVO_AUDITOR_v1.json"
+          "kinematics": ".\\results\\platform_bpass\\moon\\APPENDAGE_SUB_KINEMATICS_AUDITOR_v1.json",
+          "iron_servo": ".\\results\\platform_bpass\\moon\\APPENDAGE_SUB_IRON_SERVO_AUDITOR_v1.json"
         }
       },
       "verdict": "ROBOT_APPENDAGE_DUAL_REVIEW_POST_AK_AQ_SLICE_PASS"
@@ -3052,13 +3052,13 @@
         "canon": [
           "docs/agent_workflow/APPENDAGE_DUAL_REVIEW_MODES_V1.md"
         ],
-        "scope_fixture": "C:\\Users\\dammi\\hardware_atom\\fixtures\\robot\\appendage_dual_review_scope_v1.json",
+        "scope_fixture": ".\\fixtures\\robot\\appendage_dual_review_scope_v1.json",
         "deterministic_spikes": [
           {
             "id": "scope_fixture",
             "severity": "CRITICAL",
             "pass": true,
-            "detail": "C:\\Users\\dammi\\hardware_atom\\fixtures\\robot\\appendage_dual_review_scope_v1.json"
+            "detail": ".\\fixtures\\robot\\appendage_dual_review_scope_v1.json"
           },
           {
             "id": "plan_deferred_ladder",
@@ -3236,8 +3236,8 @@
           "replaces": "human canon merge review"
         },
         "sub_slots": {
-          "kinematics": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\moon\\APPENDAGE_SUB_KINEMATICS_AUDITOR_v1.json",
-          "iron_servo": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\moon\\APPENDAGE_SUB_IRON_SERVO_AUDITOR_v1.json"
+          "kinematics": ".\\results\\platform_bpass\\moon\\APPENDAGE_SUB_KINEMATICS_AUDITOR_v1.json",
+          "iron_servo": ".\\results\\platform_bpass\\moon\\APPENDAGE_SUB_IRON_SERVO_AUDITOR_v1.json"
         }
       },
       "verdict": "ROBOT_APPENDAGE_DUAL_REVIEW_POST_BA_SLICE_PASS"
@@ -4712,7 +4712,7 @@
               },
               "fail": [],
               "create": "APPENDAGE_ROBOT_CREATE_CLI_SLICE_PASS",
-              "manifest_path": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\robot\\APPENDAGE_ROBOT_STACK_MANIFEST_v1.json",
+              "manifest_path": ".\\results\\platform_bpass\\robot\\APPENDAGE_ROBOT_STACK_MANIFEST_v1.json",
               "fixture_id": "earth_lab_mini_test_fixture_v1",
               "bench_ingress": {
                 "t4_slots": [
@@ -4864,7 +4864,7 @@
             },
             "fail": [],
             "create": "APPENDAGE_ROBOT_CREATE_CLI_SLICE_PASS",
-            "manifest_path": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\robot\\APPENDAGE_ROBOT_STACK_MANIFEST_v1.json",
+            "manifest_path": ".\\results\\platform_bpass\\robot\\APPENDAGE_ROBOT_STACK_MANIFEST_v1.json",
             "fixture_id": "earth_lab_mini_test_fixture_v1",
             "bench_ingress": {
               "t4_slots": [

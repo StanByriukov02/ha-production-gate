@@ -1,79 +1,57 @@
-# PRODUCTION GATE RITUAL v1 — HA as production benchmark
+# PRODUCTION GATE RITUAL v1 — soft Dual teaching seal
 
-**Status:** ACTIVE · **NORTH STAR SURFACE** · 2026-07-26  
-**Who:** ты + я · for engineers (robotics · SPX-class · NASA-class · new robot cos)  
-**Parents:** `PHYSICS_OS_KERNEL_V0` · `PROOF_TIER_LADDER_V1` · `LIE_MUST_COST_PHYSICALLY`  
-**TABU:** deepen physics packs as primary · priesthood of 40 START_HERE docs · soft-mint MEASURED
+**Status:** ACTIVE · public soft surface · 2026-07-26  
+**Who:** engineers who want a Dual Safe/Hostile refuse habit  
+**Parents:** `PHYSICS_OS_KERNEL_V0` · `PROOF_TIER_LADDER_V1`  
+**TABU:** soft-mint MEASURED · claim HIL/OTP · sell desk UI as this clone’s install
 
 ---
 
-## Monument (LOCKED)
-
-HA is not “another twin.”  
-HA is the **ritual before production**:
+## What this is
 
 ```text
-Dual · sealed receipt · named ε · refuse
+Safe ALLOW · Hostile REFUSE · seal flag · named ε
 ```
 
-If you turn it off tomorrow, an SPX/robotics engineer should **lose a week of knowing** whether the claim is allowed to ship.
+Soft teaching Dual with a Rust physics-gate oracle.  
+**Not** field MEASURED · **not** silicon OTP · **not** ROS/HIL bridge.
 
 ---
 
-## Three properties (must hold together)
-
-| # | Property | Meaning |
-|---|----------|---------|
-| 1 | **Simple** | One ritual. No priesthood. Engineer of any level can run it. |
-| 2 | **Unrepeatable by copycats** | Truth OS: soft-mint impossible · stranger verifies · ε cannot be re-labeled away |
-| 3 | **Cheaper than doubt** | One hour with HA < one week without it |
-
-Fail any one → not the monument yet.
-
----
-
-## The ritual (one command)
+## Cold path
 
 ```text
-ha-production-gate
-# same: python -m dogfood_platform.prove_production_gate_ritual_v1
+./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
+# same core: ha-production-gate
 ```
 
 | Step | What you see | Why it matters |
 |------|----------------|----------------|
-| Dual | Safe ALLOW · Hostile DENY | same body, different world → consequence |
-| Seal | `physics_os_kernel.sealed_in_ha_runtime=true` | OS inside HA, not IDE |
-| ε | named on receipt | cannot upgrade label without removing ε |
-| Refuse | Hostile `current_allowed=false` | lie costs current |
+| Dual | Safe ALLOW · Hostile DENY | same stack, condition change burns |
+| Seal flag | `sealed_in_ha_runtime=true` on receipt | receipt field — not TPM |
+| ε | named on honesty | cannot upgrade label without removing ε |
+| Refuse | Hostile `current_allowed=false` | Hostile stops the claim bit |
+| Kit | TEMP outside git tree | same-machine re-read — not second engineer yet |
 
 Receipt: `results/runtime/platform_loop/PRODUCTION_GATE_RITUAL_LATEST_v1.json`
 
 ---
 
-## What you lose without HA
+## Falsifiers (honest names)
 
-Without this ritual you still can simulate.  
-What you lose: **a shared, stranger-checkable refuse bit** — the right to say “this claim does not ship” with a receipt another engineer can re-run outside your desk.
-
-That week of doubt is the product.
-
----
-
-## Hierarchy (what we do / don’t)
-
-```text
-NOW     Production Gate Ritual  ← primary motion
-HOLD    Physics depth / new Dual packs (unless ritual needs them)
-AFTER   External engineer #1 who is devastated if gate disappears
-PARK    MEASURED / OTP / CREME claim without removing ε
-```
+| id | Real meaning |
+|----|----------------|
+| `F_dual_safe_allow_hostile_refuse` | Dual burn on teaching soils |
+| `F_kernel_seal_flag_present` | Seal boolean on kernel receipt |
+| `F_named_epsilon_on_seal` | ε list non-empty |
+| `F_hostile_current_refuse` | Hostile `current_allowed=false` |
+| `F_physics_world_stack_complete` | Hostile physics blocks + foundation flags |
+| `F_soft_mint_detector_alive` | Detector responds to synthetic probe |
+| `F_kit_outside_repo_reverify` | TEMP kit outside repo re-reads Dual |
+| `F_ritual_entrypoint_wired` | console script + bootstrap + START_HERE present |
 
 ---
 
-## Engineer entry
+## Honesty
 
-[`START_HERE_PRODUCTION_GATE_V1.md`](../../START_HERE_PRODUCTION_GATE_V1.md) (repo root)
-
-## Marker
-
-`PRODUCTION_GATE_RITUAL_V1` · `MONUMENT_STANDARD` · `NO_PRIESTHOOD` · `CHEAPER_THAN_DOUBT`
+Python glue · Rust oracle · soft ≠ MEASURED · seal ≠ attestation · kit ≠ cold stranger on second OS.

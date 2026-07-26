@@ -79,14 +79,13 @@ def build_release_engineer_pack(*, write: bool = True) -> dict[str, Any]:
 
         how = (
             "# How to run (engineer soft release)\n\n"
-            "1. From a hardware_atom clone with bins built:\n"
-            "   `pip install -e \".[smoke]\"`\n"
-            "   `cargo build -p ha_physics_gate --release`\n"
-            "   `cargo build -p ha_silicon_fuse --release`\n"
-            "2. `ha-production-gate`\n"
-            "3. Expect `PRODUCTION_GATE_RITUAL_PASS` and read PRODUCTION_GATE_BOARD.md\n"
-            "4. Ask: if this gate disappeared tomorrow, would you lose a week of knowing?\n\n"
-            "Honesty: not MEASURED · soft≠OTP · Rust physics oracle · Python glue only.\n"
+            "1. From this `ha-production-gate` clone:\n"
+            "   Unix: `./scripts/bootstrap.sh`\n"
+            "   Windows: `.\\scripts\\bootstrap.ps1`\n"
+            "2. Or: build the five Rust bins (see README), `pip install -e .`, then `ha-production-gate`\n"
+            "3. Expect `PRODUCTION_GATE_RITUAL_PASS` and read PRODUCTION_GATE_BOARD.md\n\n"
+            "Honesty: soft teaching Dual · not MEASURED · soft≠OTP · "
+            "Rust physics oracle · Python glue only.\n"
         )
         (pack_dir / "HOW_TO_RUN.md").write_text(how, encoding="utf-8")
         shutil.copy2(pack_dir / "HOW_TO_RUN.md", _LATEST / "HOW_TO_RUN.md")

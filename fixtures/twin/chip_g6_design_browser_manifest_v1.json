@@ -19,7 +19,7 @@
       "step": "fixtures/cad/g6/chip_g6_transistor_device_v1.step",
       "stl": "fixtures/cad/g6/chip_g6_transistor_device_v1.stl",
       "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_transistor_device_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_transistor_device_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cg6&file=chip_g6_transistor_device_v1.step",
       "tags": [
         "g6"
       ]
@@ -36,7 +36,7 @@
       "step": "fixtures/cad/g6/chip_g6_cell_sram_mac_v1.step",
       "stl": "fixtures/cad/g6/chip_g6_cell_sram_mac_v1.stl",
       "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_cell_sram_mac_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_cell_sram_mac_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cg6&file=chip_g6_cell_sram_mac_v1.step",
       "tags": [
         "g6"
       ]
@@ -53,7 +53,7 @@
       "step": "fixtures/cad/g6/chip_g6_lc2_tile_v1.step",
       "stl": "fixtures/cad/g6/chip_g6_lc2_tile_v1.stl",
       "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_lc2_tile_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_lc2_tile_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cg6&file=chip_g6_lc2_tile_v1.step",
       "tags": [
         "g6"
       ]
@@ -70,7 +70,7 @@
       "step": "fixtures/cad/g6/chip_g6_compute_carrier_v1.step",
       "stl": "fixtures/cad/g6/chip_g6_compute_carrier_v1.stl",
       "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_compute_carrier_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_compute_carrier_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cg6&file=chip_g6_compute_carrier_v1.step",
       "tags": [
         "compute",
         "HBM",
@@ -90,7 +90,7 @@
       "step": "fixtures/cad/g6/chip_g6_package_substrate_v1.step",
       "stl": "fixtures/cad/g6/chip_g6_package_substrate_v1.stl",
       "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_package_substrate_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_package_substrate_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cg6&file=chip_g6_package_substrate_v1.step",
       "tags": [
         "package",
         "thermal",
@@ -106,7 +106,7 @@
       "step": "fixtures/cad/g6/chip_g6_crown_clifford_v1.step",
       "stl": "fixtures/cad/g6/chip_g6_crown_clifford_v1.stl",
       "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_crown_clifford_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_crown_clifford_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cg6&file=chip_g6_crown_clifford_v1.step",
       "tags": [
         "g6"
       ]
@@ -119,7 +119,7 @@
       "step": "fixtures/cad/g6/chip_g6_dram_offchip_v1.step",
       "stl": "fixtures/cad/g6/chip_g6_dram_offchip_v1.stl",
       "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_dram_offchip_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_dram_offchip_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cg6&file=chip_g6_dram_offchip_v1.step",
       "tags": [
         "g6"
       ]
@@ -132,7 +132,7 @@
       "step": "fixtures/cad/g6/chip_g6_cryo_power_v1.step",
       "stl": "fixtures/cad/g6/chip_g6_cryo_power_v1.stl",
       "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_cryo_power_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_cryo_power_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cg6&file=chip_g6_cryo_power_v1.step",
       "tags": [
         "g6"
       ]
@@ -145,7 +145,7 @@
       "step": "fixtures/cad/g6/chip_g6_tier_j_joint_mount_v1.step",
       "stl": "fixtures/cad/g6/chip_g6_tier_j_joint_mount_v1.stl",
       "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_tier_j_joint_mount_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_tier_j_joint_mount_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cg6&file=chip_g6_tier_j_joint_mount_v1.step",
       "tags": [
         "robot",
         "tier-J",
@@ -161,7 +161,7 @@
       "step": "fixtures/cad/g6/chip_g6_robot_chassis_interface_v1.step",
       "stl": "fixtures/cad/g6/chip_g6_robot_chassis_interface_v1.stl",
       "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_robot_chassis_interface_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_robot_chassis_interface_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cg6&file=chip_g6_robot_chassis_interface_v1.step",
       "tags": [
         "g6"
       ]

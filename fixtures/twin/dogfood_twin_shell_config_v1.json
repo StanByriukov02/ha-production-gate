@@ -12,22 +12,22 @@
   "views": {
     "housing": {
       "label": "LC-2 joint housing",
-      "url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad&file=lc2_joint_housing_v1.step&dogfoodCompositor=%2Fdogfood%2Fdogfood_scene_compositor_v1.json",
+      "url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad&file=lc2_joint_housing_v1.step&dogfoodCompositor=%2Fdogfood%2Fdogfood_scene_compositor_v1.json",
       "oracle": "MODEL"
     },
     "urdf": {
       "label": "1-DOF bench (hip qual)",
-      "url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad&file=lc2_bench_1dof_v1.urdf&dogfoodCompositor=%2Fdogfood%2Fdogfood_scene_compositor_v1.json",
+      "url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad&file=lc2_bench_1dof_v1.urdf&dogfoodCompositor=%2Fdogfood%2Fdogfood_scene_compositor_v1.json",
       "oracle": "WORLD_PHYSICS_SIM"
     },
     "cave": {
       "label": "Cave corridor (teaching shell)",
-      "url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cworld&file=cave_corridor_mesh_v1.step&dogfoodCompositor=%2Fdogfood%2Fdogfood_scene_compositor_v1.json",
+      "url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cworld&file=cave_corridor_mesh_v1.step&dogfoodCompositor=%2Fdogfood%2Fdogfood_scene_compositor_v1.json",
       "oracle": "DATASET_ENGINE_SIM"
     },
     "chassis": {
       "label": "IFT-2 R1 chassis (6061)",
-      "url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad&file=robot_ift2_r1_chassis_v1.step&dogfoodCompositor=%2Fdogfood%2Fdogfood_scene_compositor_v1.json",
+      "url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad&file=robot_ift2_r1_chassis_v1.step&dogfoodCompositor=%2Fdogfood%2Fdogfood_scene_compositor_v1.json",
       "oracle": "MODEL"
     }
   },

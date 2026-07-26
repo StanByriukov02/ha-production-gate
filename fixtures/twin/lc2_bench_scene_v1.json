@@ -58,7 +58,7 @@
       "meta": "fixtures/cad/world/cave_corridor_mesh_meta_v1.json",
       "verdict": "PASS",
       "phase": "B",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cworld&file=cave_corridor_mesh_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cworld&file=cave_corridor_mesh_v1.step",
       "oracle": "DATASET_ENGINE_SIM"
     },
     "compositor_d1d2": {
@@ -508,7 +508,7 @@
     "primary_step": "lc2_joint_housing_v1.step",
     "demo_scene": "fixtures/cad/demo/lc2_demo_cube_ferry_v1.step",
     "primary_urdf": "lc2_bench_1dof_v1.urdf",
-    "urdf_url": "http://127.0.0.1:4178/?dir=C:\\Users\\dammi\\hardware_atom\\fixtures\\cad&file=lc2_bench_1dof_v1.urdf",
+    "urdf_url": "http://127.0.0.1:4178/?dir=.\\fixtures\\cad&file=lc2_bench_1dof_v1.urdf",
     "shell_url": "http://127.0.0.1:4178/dogfood/dogfood_twin_shell_v1.html",
     "handoff_loop": "L8",
     "compositor_url": "/dogfood/dogfood_scene_compositor_v1.json",

@@ -13,7 +13,7 @@
       "honesty": "Vella-class deck top shell \u2014 ribs + flange + chip island \u00b7 6061 plate class \u00b7 not weldment drawing",
       "step": "fixtures/cad/r7/robot_r7_deck_shell_top_v1.step",
       "preview_png": "visual_r7/robot_r7_deck_shell_top_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cr7&file=robot_r7_deck_shell_top_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cr7&file=robot_r7_deck_shell_top_v1.step",
       "tags": [
         "chassis",
         "R1"
@@ -25,7 +25,7 @@
       "honesty": "Deck bottom shell \u2014 power bay cutout + harness glands \u00b7 mates top flange",
       "step": "fixtures/cad/r7/robot_r7_deck_shell_bottom_v1.step",
       "preview_png": "visual_r7/robot_r7_deck_shell_bottom_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cr7&file=robot_r7_deck_shell_bottom_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cr7&file=robot_r7_deck_shell_bottom_v1.step",
       "tags": [
         "chassis",
         "R1"
@@ -37,7 +37,7 @@
       "honesty": "6061-T6 hollow rail \u2014 span from materials registry \u00b7 not weldment drawing",
       "step": "fixtures/cad/r7/robot_r7_frame_rail_long_v1.step",
       "preview_png": "visual_r7/robot_r7_frame_rail_long_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cr7&file=robot_r7_frame_rail_long_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cr7&file=robot_r7_frame_rail_long_v1.step",
       "tags": [
         "chassis",
         "R1"
@@ -49,7 +49,7 @@
       "honesty": "Vella-class wheel module \u2014 PU tread + hub + bearing \u00b7 cites materials registry \u00b7 not terramech proof",
       "step": "fixtures/cad/r7/robot_r7_wheel_assembly_v1.step",
       "preview_png": "visual_r7/robot_r7_wheel_assembly_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cr7&file=robot_r7_wheel_assembly_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cr7&file=robot_r7_wheel_assembly_v1.step",
       "tags": [
         "wheel",
         "R2",
@@ -62,7 +62,7 @@
       "honesty": "Full-scale LC-2 drive pod \u2014 tier-J MCU + motor + gearbox teaching \u00b7 cites ISR budget \u00b7 not torque iron",
       "step": "fixtures/cad/r7/robot_r7_lc2_drive_pod_v1.step",
       "preview_png": "visual_r7/robot_r7_lc2_drive_pod_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cr7&file=robot_r7_lc2_drive_pod_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cr7&file=robot_r7_lc2_drive_pod_v1.step",
       "tags": [
         "LC-2",
         "tier-J",
@@ -75,7 +75,7 @@
       "honesty": "12V power bay teaching \u2014 cites ROBOT_POWER_I_PEAK \u00b7 not flight BMS layout",
       "step": "fixtures/cad/r7/robot_r7_power_bay_v1.step",
       "preview_png": "visual_r7/robot_r7_power_bay_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cr7&file=robot_r7_power_bay_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cr7&file=robot_r7_power_bay_v1.step",
       "tags": [
         "power",
         "R4"
@@ -87,7 +87,7 @@
       "honesty": "Cave SLAM mast \u2014 percept envelope cite \u00b7 not qualified sensor CAD",
       "step": "fixtures/cad/r7/robot_r7_sensor_mast_v1.step",
       "preview_png": "visual_r7/robot_r7_sensor_mast_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cr7&file=robot_r7_sensor_mast_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cr7&file=robot_r7_sensor_mast_v1.step",
       "tags": [
         "SLAM",
         "cave",
@@ -100,7 +100,7 @@
       "honesty": "Chip chest mount \u2014 VI-2 interface \u00b7 cites chip package footprint class",
       "step": "fixtures/cad/r7/robot_r7_chip_mount_island_v1.step",
       "preview_png": "visual_r7/robot_r7_chip_mount_island_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cr7&file=robot_r7_chip_mount_island_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cr7&file=robot_r7_chip_mount_island_v1.step",
       "tags": [
         "chip",
         "VI-2",
@@ -113,7 +113,7 @@
       "honesty": "Harness routing tray \u2014 closes R4 gap register item \u00b7 not EMI-qualified layout",
       "step": "fixtures/cad/r7/robot_r7_harness_route_tray_v1.step",
       "preview_png": "visual_r7/robot_r7_harness_route_tray_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cr7&file=robot_r7_harness_route_tray_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cr7&file=robot_r7_harness_route_tray_v1.step",
       "tags": [
         "r7"
       ]
@@ -124,7 +124,7 @@
       "honesty": "Dust ingress skirt \u2014 B3 seal class cite \u00b7 teaching arc not CFD validated",
       "step": "fixtures/cad/r7/robot_r7_dust_seal_skirt_v1.step",
       "preview_png": "visual_r7/robot_r7_dust_seal_skirt_v1_views_v1.png",
-      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cr7&file=robot_r7_dust_seal_skirt_v1.step",
+      "viewer_url": "http://127.0.0.1:4178/?dir=fixtures%5Ccad%5Cr7&file=robot_r7_dust_seal_skirt_v1.step",
       "tags": [
         "r7"
       ]

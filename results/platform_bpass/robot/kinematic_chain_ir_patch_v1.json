@@ -95,7 +95,7 @@
   },
   "honesty": {
     "not_canon_mutation": true,
-    "staging_path": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\robot\\kinematic_chain_ir_patch_v1.json",
+    "staging_path": ".\\results\\platform_bpass\\robot\\kinematic_chain_ir_patch_v1.json",
     "canon_path": "fixtures/robot/kinematic_chain_ir_v0.json",
     "ae_plus_gate": "appendage_dual_review_v1 \u00b7 subs not human"
   },
