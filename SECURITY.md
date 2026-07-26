@@ -18,4 +18,4 @@ Do **not** open a public issue for an active honesty bypass until we confirm a f
 ## Scope
 
 In scope: Dual refuse integrity · seal · named ε · stranger kit reverify.  
-Out of scope: “please certify this for NASA” · private workshop leaks · social-engineering for visa materials.
+Out of scope: soft-mint MEASURED claims · private workshop leaks · social-engineering for immigration materials.

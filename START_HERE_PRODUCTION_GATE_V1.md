@@ -1,24 +1,23 @@
 # Start here — Production Gate (engineer)
 
-**Status:** OPEN · not product_ready · not MEASURED  
+**Status:** OPEN · soft release · physics gate first  
 **Canon:** `docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md`
 
 ---
 
 ## 30 seconds
 
-**Problem:** teams ship autonomy / robot / mission claims that go green without a Dual world, a sealed refuse bit, or named honesty.
+**Problem:** teams ship autonomy / robot / mission claims that go green without a Dual world, a sealed refuse bit, or named honesty on the physics.
 
-**HA ritual:** before production — **Dual · sealed receipt · named ε · refuse**.
-
-**Not this:** field MEASURED · OTP ASIC · “NASA certified” sticker.
+**HA ritual:** before production — **Dual · sealed receipt · named ε · refuse**.  
+**Oracle:** Rust `ha-physics-gate` (and sibling bins). Python is glue.
 
 ---
 
 ## One command
 
 ```text
-# once — five bins (not two):
+# once — five Rust physics bins:
 cargo build -p ha_physics_gate --release
 cargo build -p ha_silicon_fuse --release
 cargo build -p ha_energy_ledger --release
@@ -37,7 +36,7 @@ Kit mirror: `results/runtime/production_gate_kits/LATEST/`
 |----------|---------|
 | Safe `physics_pass=true` | claim may proceed in Safe world |
 | Hostile `physics_pass=false` | same stack refuses in Hostile |
-| `sealed_in_ha_runtime=true` | OS lives in HA Dual, not Cursor |
+| `sealed_in_ha_runtime=true` | OS lives in HA Dual |
 | named `epsilon` on honesty | no soft-mint label upgrade |
 | stranger kit reverify | receipts readable outside desk |
 
@@ -46,7 +45,7 @@ Kit mirror: `results/runtime/production_gate_kits/LATEST/`
 ## Why you care (any level)
 
 Without this hour you still build.  
-With it you get a **stranger-reproducible refuse** — the cheap answer to “will this pass before we spend the week?”
+With it you get a **stranger-reproducible physics refuse** — the cheap answer to “may this claim ship?”
 
 If HA disappeared tomorrow, you would spend that week guessing. That gap is the product.
 
@@ -54,10 +53,9 @@ If HA disappeared tomorrow, you would spend that week guessing. That gap is the 
 
 ## Honesty
 
-| We show | We do not claim |
-|---------|-----------------|
-| Dual + Rust gate + kernel seal + named ε | SPX/NASA adoption |
-| Soft≠OTP · desk≠field | product_ready |
+| We show | We do not soft-mint |
+|---------|---------------------|
+| Dual + Rust physics gate + kernel seal + named ε | field MEASURED · OTP · product_ready |
 
 ## One ask
 

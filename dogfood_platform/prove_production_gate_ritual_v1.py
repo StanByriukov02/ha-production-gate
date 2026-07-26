@@ -4,7 +4,7 @@ Canon: docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md
 Properties: simple · unrepeatable truth OS · cheaper than doubt.
 
 Stages a stranger kit under TEMP (outside repo) with Dual receipts + seal board.
-Not MEASURED · not product_ready · not SPX adoption claim.
+Not MEASURED · soft≠OTP · Rust physics oracle · Python glue.
 """
 from __future__ import annotations
 
@@ -110,7 +110,7 @@ Dual · sealed receipt · named ε · refuse
 
 ## Honesty
 
-not MEASURED · not product_ready · soft≠OTP · not SPX/NASA adoption claim
+not MEASURED · soft≠OTP · Rust physics oracle · Python glue only
 
 ## Canon
 
@@ -377,7 +377,7 @@ def run_production_gate_ritual(*, write_receipt: bool = True) -> dict[str, Any]:
                 "ε_no_external_engineer_yet",
             ],
         },
-        "tabu": ["MEASURED", "OTP", "product_ready", "NASA certified"],
+        "tabu": ["MEASURED", "OTP", "product_ready", "soft_mint"],
         "lose_without_ha": (
             "stranger-checkable refuse bit before production — "
             "week of knowing whether the claim may ship"

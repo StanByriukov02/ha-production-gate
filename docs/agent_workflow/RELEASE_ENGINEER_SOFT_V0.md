@@ -1,7 +1,7 @@
 # Soft release — engineer Production Gate v0
 
 **Status:** SOFT RELEASE PREP · 2026-07-26  
-**Not:** product_ready · MEASURED · NASA/SPX certified · public launch  
+**Not:** product_ready · MEASURED · soft-mint OTP · public launch as finished product  
 
 ---
 

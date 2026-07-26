@@ -1,16 +1,16 @@
 # Show HN — draft (operator paste when ready)
 
 **Title options:**
-1. `Show HN: Production Gate – Dual/seal/ε refuse before you ship robot physics claims`
-2. `Show HN: A stranger-checkable refuse bit for robot sim claims`
-3. `Show HN: ha-production-gate – one command before production`
+1. `Show HN: Production Gate – Dual/seal/ε physics refuse before you ship robot claims`
+2. `Show HN: Rust physics gate + Dual refuse bit for robot sim claims`
+3. `Show HN: ha-production-gate – stranger-checkable physics before production`
 
 **Link:** https://github.com/StanByriukov02/ha-production-gate
 
 **First comment (author note, ~120 words):**
 
-Built this because green sim/autonomy boards still ship without a Dual world, a sealed refuse, or named honesty. HA Production Gate is one CLI ritual: Safe ALLOW · Hostile REFUSE · sealed runtime · named ε · stranger kit. Not MEASURED, not OTP, not NASA-certified — soft release on purpose.
+Green sim/autonomy boards still ship without a Dual world or a sealed physics refuse. HA Production Gate is one ritual: Safe ALLOW · Hostile REFUSE · Rust physics oracle · sealed runtime · named ε · stranger kit. Python only glues the run — the gate decision is not a soft-mintable script.
 
-Clone, build five small Rust bins, run `ha-production-gate`, read the board. If you’d lose a week of knowing when this disappeared, say so. What friction did you hit on a cold machine?
+Clone, build the Rust bins, run `ha-production-gate`, read the board. World/Mission desk shots are on the README. If you’d lose a week of knowing when this disappeared, say so. What friction did you hit on a cold machine?
 
-**TABU in post:** product_ready · MEASURED · hire-claim · visa ask · vault paths.
+**TABU in post:** product_ready · MEASURED soft-mint · hire-claim · visa ask · vault paths.

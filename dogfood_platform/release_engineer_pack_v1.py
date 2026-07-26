@@ -1,6 +1,6 @@
 """Soft-release engineer pack — stage what a stranger runs for Production Gate.
 
-Not product_ready · not MEASURED · not SPX/NASA adoption.
+Not product_ready · not MEASURED · Rust physics oracle · Python glue.
 TABU: vault paths · draft tone · agent notes in the pack.
 """
 from __future__ import annotations
@@ -86,7 +86,7 @@ def build_release_engineer_pack(*, write: bool = True) -> dict[str, Any]:
             "2. `ha-production-gate`\n"
             "3. Expect `PRODUCTION_GATE_RITUAL_PASS` and read PRODUCTION_GATE_BOARD.md\n"
             "4. Ask: if this gate disappeared tomorrow, would you lose a week of knowing?\n\n"
-            "Honesty: not MEASURED · soft≠OTP · not product_ready · not NASA/SPX certified.\n"
+            "Honesty: not MEASURED · soft≠OTP · Rust physics oracle · Python glue only.\n"
         )
         (pack_dir / "HOW_TO_RUN.md").write_text(how, encoding="utf-8")
         shutil.copy2(pack_dir / "HOW_TO_RUN.md", _LATEST / "HOW_TO_RUN.md")
@@ -108,7 +108,7 @@ def build_release_engineer_pack(*, write: bool = True) -> dict[str, Any]:
                 "not_spx_nasa_adoption": True,
                 "epsilon": ["ε_desk_not_world", "ε_no_external_engineer_yet"],
             },
-            "tabu": ["MEASURED", "OTP", "product_ready", "NASA certified", "vault paths"],
+            "tabu": ["MEASURED", "OTP", "product_ready", "soft_mint", "vault paths"],
         }
         (pack_dir / "MANIFEST.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
         shutil.copy2(pack_dir / "MANIFEST.json", _LATEST / "MANIFEST.json")

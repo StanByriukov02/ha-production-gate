@@ -34,7 +34,7 @@ stranger-checkable refuse bit before production — week of knowing whether the 
 
 ## Honesty
 
-not MEASURED · not product_ready · soft≠OTP · not SPX/NASA adoption claim
+not MEASURED · soft≠OTP · Rust physics oracle · Python glue only
 
 ## Canon
 

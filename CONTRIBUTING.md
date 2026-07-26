@@ -6,7 +6,7 @@ Thanks for caring about Production Gate.
 
 1. Run `ha-production-gate` on a clean machine and open an issue with your board (PASS or FAIL).
 2. Fix cold-path friction (docs, missing crate in Quick Start, Windows encoding).
-3. Keep honesty locks: no soft-mint MEASURED / OTP / “NASA certified”.
+3. Keep honesty locks: no soft-mint MEASURED / OTP; physics oracle stays Rust.
 
 ## Dev loop
 
