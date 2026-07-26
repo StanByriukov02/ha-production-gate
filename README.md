@@ -379,6 +379,7 @@ No. Clone this repository, bootstrap, and run `ha-production-gate`.
 |-----|------|
 | [`START_HERE_PRODUCTION_GATE_V1.md`](START_HERE_PRODUCTION_GATE_V1.md) | 30-second entry |
 | [`docs/examples/`](docs/examples/) | Detailed examples index |
+| [`docs/strike/`](docs/strike/) | Channels 1+3 paste pack (ROS/sim · Show HN · tech note) |
 | [`docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md`](docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md) | Ritual canon |
 | [`docs/agent_workflow/PHYSICS_OS_KERNEL_V0.md`](docs/agent_workflow/PHYSICS_OS_KERNEL_V0.md) | Honesty ladder |
 
