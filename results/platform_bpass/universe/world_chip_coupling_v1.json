@@ -1,0 +1,63 @@
+{
+  "coupling_id": "chip_mechanical_to_fab_v1",
+  "version": 1,
+  "vault_canon": "06_2BRAIN/DOGFOOD/chain/UNIVERSE_CHIP_WORLD_V1.md",
+  "source_hop": "u-hop-mechanical",
+  "source_law": "L_HAMILTON",
+  "slice_id": "CouplingSlice_v1",
+  "on_sources": [
+    {
+      "id": "shackleton_path_gap_mr07",
+      "cite": "GAP-MR-07 / SK-02 path · teaching jerk bridge to chip wear",
+      "used": ["normalize_ref teaching unit bridge"]
+    }
+  ],
+  "honesty": {
+    "teaching_unit_bridge": true,
+    "not_measured_jerk_sensor": true,
+    "not_creme_fem": true,
+    "python_must_load_contract": true
+  },
+  "fields": {
+    "duty_cycle_proxy": {
+      "from": "mlcc_jerk_peak",
+      "normalize_ref": 8000.0,
+      "clamp": [0.0, 1.0],
+      "unit": "dimensionless",
+      "note": "teaching normalize — not MEASURED chassis jerk meter"
+    },
+    "delta_t_c_proxy_k": {
+      "from": "energy_drift_rms_rel",
+      "scale": 0.05,
+      "unit": "K_proxy"
+    },
+    "stress_index_multiplier": {
+      "formula": "1.0 + 0.15 * duty_cycle_proxy",
+      "coeff": 0.15,
+      "unit": "dimensionless"
+    }
+  },
+  "targets": [
+    {
+      "hop_id": "u-hop-wear",
+      "law_id": "L_GENERIC",
+      "map": {
+        "stress_index_multiplier": "epsilon_budget_scale"
+      },
+      "falsifier": "wear epsilon unchanged when shock_impulse changes"
+    },
+    {
+      "hop_id": "u-hop-negf-tile",
+      "law_id": "L_POISSON",
+      "map": {
+        "delta_t_c_proxy_k": "thermal_profile_shift_mv"
+      },
+      "status": "DOCUMENT_ONLY_v1"
+    }
+  ],
+  "budgets": {
+    "energy_drift_rms_rel_max": 2.0,
+    "duty_cycle_proxy_max": 1.0
+  },
+  "falsifier": "coupling slice constant across mechanical shock sweep"
+}

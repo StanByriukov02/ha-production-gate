@@ -1,0 +1,43 @@
+{
+  "bind_id": "chamber_envelope_bind_v1",
+  "oracle": "CITED_BIND",
+  "gate": "G2_env",
+  "world_id": "W_chamber_v0",
+  "vault_canon": "06_2BRAIN/DOGFOOD/domains/physics/ORACLE_SEC_D2_ARENA_ENV.md",
+  "evidence_stack": [
+    {"id": "E1", "source": "ORACLE_SEC_D2", "role": "h_c=0 when P < 1e-5 Torr", "cite": "ORACLE_SEC_D2"},
+    {"id": "E2", "source": "JSC Chamber A class", "role": "35 K BB cold shroud sink", "cite": "ORACLE_SEC_D2"},
+    {"id": "E3", "source": "VACUUM_RADIATIVE_BC_BIND", "role": "lunar sunlit radiative balance", "cite": "SK-12"}
+  ],
+  "vacuum": {
+    "p_atm_torr": 760.0,
+    "p_base_torr": 1e-6,
+    "p_cut_hc_zero_torr": 1e-5,
+    "tau_pump_s": 400.0,
+    "h_c_w_m2_k_below_cut": 0.0
+  },
+  "modes": {
+    "chamber_a_cold": {
+      "t_wall_k": 35.0,
+      "solar_frac": 0.0,
+      "description": "JSC Chamber-A-class deep space thermal vacuum"
+    },
+    "lunar_sunlit": {
+      "t_wall_k": 77.0,
+      "solar_frac": 0.96,
+      "t_target_dut_k": 220.0,
+      "description": "Sunlit rim coupon — solar + cold shroud"
+    }
+  },
+  "default_mode": "lunar_sunlit",
+  "soak": {
+    "default_duration_h": 8.0,
+    "sample_points": 12,
+    "dut_emissivity": 0.9,
+    "dut_thickness_m": 0.0016,
+    "dut_cp_j_kg_k": 900.0,
+    "dut_rho_kg_m3": 2700.0
+  },
+  "harness_module": "dogfood_platform.chamber.chamber_envelope_v1",
+  "falsifier": "T_DUT soak must approach mode target within 10%; P must reach base; h_c=0 in vacuum"
+}

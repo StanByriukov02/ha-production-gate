@@ -1,0 +1,23 @@
+{
+  "chain_id": "hexapod_leg_3dof_v1",
+  "dof": 3,
+  "geometry_class": "planar_serial_revolute",
+  "reach_m": 0.27,
+  "link_lengths_m": [0.055, 0.12, 0.095],
+  "link_masses_kg": [0.08, 0.15, 0.06],
+  "joint_limits_rad": {
+    "min": [-0.9, -1.4, -1.6],
+    "max": [0.9, 1.4, 1.6]
+  },
+  "gravity": {
+    "lunar_m_s2": 1.62,
+    "earth_bench_m_s2": 9.81
+  },
+  "ee_frame": "foot_link",
+  "appendage_role": "locomotion_leg",
+  "honesty": {
+    "planar_teaching_proxy": true,
+    "not_field_locomotion": true,
+    "product_ready": false
+  }
+}

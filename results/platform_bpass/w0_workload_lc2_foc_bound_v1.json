@@ -1,0 +1,77 @@
+{
+  "workload_id": "lc2_foc_hot_block_qual_episode",
+  "oracle": "CITED_BIND",
+  "calibration_id": "hci_d4_power_scale_v1",
+  "trace_slice": "LC-2 joint FOC ISR hot RISC-V block @ 48 MHz · 5000 s qual episode (HCI ref duration)",
+  "trace_bind": {
+    "fixture": "study-lc2-joint-controller-fixture",
+    "role": "FOC + encoder + dual CAN-FD — one axis joint MCU",
+    "block": "PWM-period FOC vector update (hot path per mod04 Q1)",
+    "qual_episode_s": 5000,
+    "qual_episode_cite": {
+      "source_slug": "radiation-effects-advanced-devices-mdpi",
+      "formula_id": "HCI_DVTH_COND1_5000S",
+      "claim": "HCI stress test duration 5000 s — anchor time for ΔVth ref"
+    }
+  },
+  "cite": [
+    {
+      "source_slug": "study-lc2-joint-controller-fixture",
+      "formula_id": "EMBEDDED_MCU_CLOCK_CLASS",
+      "claim": "SAMD21RT class 48 MHz embedded MCU (LC-2 qual passport)"
+    },
+    {
+      "source_slug": "study-md2-math-kernel-mod04-wear",
+      "formula_id": "E1_SP",
+      "claim": "SP_i from duty_on when V_gs > V_th"
+    },
+    {
+      "source_slug": "study-md2-math-kernel-mod04-wear",
+      "formula_id": "E2_AF",
+      "claim": "AF_i from transitions / (2·f·τ)"
+    },
+    {
+      "source_slug": "radiation-effects-advanced-devices-mdpi",
+      "formula_id": "HCI_VTH0_NMOS",
+      "claim": "Measured NMOS Vth before HCI ≈ 0.4771 V"
+    },
+    {
+      "source_slug": "rabaey-digital-integrated-circuits--ch01-A_Historical_Perspectiv",
+      "formula_id": "VDD_STABLE_MV",
+      "claim": "Core Vdd operating class 1.2 V (modern digital floor)"
+    }
+  ],
+  "duty_on": 0.5,
+  "duty_on_note": "SP E1: balanced toggle on stressed node — Θ(Vgs>Vth) half duty illustrative hot path",
+  "n_cycles": 240000000000,
+  "f_clock_hz": 48000000,
+  "transitions_per_cycle": 2,
+  "v_gs_on_v": 1.2,
+  "v_th_v": 0.4771,
+  "temperature_k": 298.15,
+  "temperature_cite": "DOGFOOD_WORLD_CONTRACT_W0_V1 — die T nominal",
+  "guardband_regime": "G_W0_op",
+  "guardband_delta_vth_mv": 48.06,
+  "guardband_cite": {
+    "source_slug": "goes-2011-hole-trapping-nbti-thesis",
+    "formula_id": "GOES_EQ_1_4",
+    "claim": "G_W0_op operating line — 1.25× Goes bridge; G_HCI 50 mV retained as ref_class only",
+    "oracle": "USE"
+  },
+  "guardband_lines": "results/platform_bpass/w0_guardband_lines_v1.json",
+  "guardband_ref_hci_mv": 50.0,
+  "guardband_ref_hci_cite": {
+    "source_slug": "radiation-effects-advanced-devices-mdpi",
+    "formula_id": "IEC_62416_DVTH_50MV",
+    "claim": "IEC 62416-2010: ΔVth=50 mV — G_HCI qual ref, not operating PASS line",
+    "oracle": "USE"
+  },
+  "stress_ref_falsifier": {
+    "source_slug": "radiation-effects-advanced-devices-mdpi",
+    "formula_id": "HCI_DVTH_COND1_5000S",
+    "anchor_mv": 173.0,
+    "at_v_gs_v": 1.8,
+    "at_t_s": 5000,
+    "check": "scaled model must reproduce anchor when Vgs=1.8, t=5000s, SP=1"
+  }
+}

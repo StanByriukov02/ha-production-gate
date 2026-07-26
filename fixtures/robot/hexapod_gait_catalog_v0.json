@@ -1,0 +1,20 @@
+{
+  "gait_catalog_id": "hexapod_gait_catalog_v0",
+  "version": 0,
+  "proof_tier": "HEXAPOD_GAIT_BUS_SLICE",
+  "gaits": {
+    "tripod": {
+      "stance_groups": [[0, 2, 4], [1, 3, 5]],
+      "swing_amp_rad": 0.08,
+      "phase_ticks_per_cycle": 24,
+      "base_q": [0.15, 0.25, -0.12]
+    },
+    "wave": {
+      "phase_offset_per_leg": 1.0,
+      "swing_amp_rad": 0.06,
+      "phase_ticks_per_cycle": 36,
+      "base_q": [0.12, 0.22, -0.1]
+    }
+  },
+  "tabu": "claim MEASURED locomotion gait"
+}

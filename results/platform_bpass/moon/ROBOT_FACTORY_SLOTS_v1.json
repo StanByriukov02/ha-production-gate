@@ -1,0 +1,1491 @@
+{
+  "registry_id": "ROBOT_FACTORY_SLOTS_v1",
+  "track": "LUNAR_ROBOT_IFT2",
+  "slots": {
+    "ROBOT_CHASSIS_MASS_KG": {
+      "slot_id": "ROBOT_CHASSIS_MASS_KG",
+      "rung": "R1",
+      "value": 50.0,
+      "unit": "kg",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/chip/CHIP_IFT3_M_COMBAT_EARTH_RECEIPT_v1.json",
+      "formula": "M-combat-earth mech ledger m\u00b7g\u00b7v\u00b7C_rr anchor"
+    },
+    "ROBOT_CHASSIS_FRAME_CLASS": {
+      "slot_id": "ROBOT_CHASSIS_FRAME_CLASS",
+      "rung": "R1",
+      "value": "al_6061_t6_extrusion",
+      "unit": "frame_class",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json",
+      "formula": "W1 materials registry frame.material_id"
+    },
+    "ROBOT_CHASSIS_STIFFNESS_MM": {
+      "slot_id": "ROBOT_CHASSIS_STIFFNESS_MM",
+      "rung": "R1",
+      "value": 1.2,
+      "unit": "mm_deflection_at_rated_load",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json",
+      "formula": "simply_supported_center_load_50.0kg"
+    },
+    "ROBOT_CHASSIS_FOOTPRINT_MM": {
+      "slot_id": "ROBOT_CHASSIS_FOOTPRINT_MM",
+      "rung": "R1",
+      "value": {
+        "length": 620,
+        "width": 420,
+        "height": 280
+      },
+      "unit": "mm",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json",
+      "formula": "geometry_assumptions.footprint_mm"
+    },
+    "ROBOT_POWER_P_AVG_W": {
+      "slot_id": "ROBOT_POWER_P_AVG_W",
+      "rung": "R4",
+      "value": 24.63,
+      "unit": "W",
+      "tier": "DERIVED",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/chip/CHIP_IFT3_ENERGY_BENCH_RECEIPT_v1.json",
+      "formula": "CHIP_IFT3 energy bench A_traverse_live_slam_pc P_total"
+    },
+    "ROBOT_POWER_WH_MISSION": {
+      "slot_id": "ROBOT_POWER_WH_MISSION",
+      "rung": "R4",
+      "value": 51.3,
+      "unit": "Wh",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": null,
+      "formula": "wh_per_km(13.68) \u00d7 mission_km(3.0) \u00d7 margin(1.25)"
+    },
+    "ROBOT_POWER_V_BUS": {
+      "slot_id": "ROBOT_POWER_V_BUS",
+      "rung": "R4",
+      "value": 12.0,
+      "unit": "V",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/chip/CHIP_IFT3_COUPLING_CONTRACT_v1.json",
+      "formula": null
+    },
+    "ROBOT_POWER_I_PEAK": {
+      "slot_id": "ROBOT_POWER_I_PEAK",
+      "rung": "R4",
+      "value": 8.0,
+      "unit": "A",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-rec-ms-encoder/ocr-batches/full.md",
+      "formula": "motor phase peak until harness DERIVED; BMS shunt \u00b1500 A scale bounds pack"
+    },
+    "ROBOT_POWER_MISSION_MINUTES": {
+      "slot_id": "ROBOT_POWER_MISSION_MINUTES",
+      "rung": "R4",
+      "value": 90.0,
+      "unit": "min",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bms-thesis/ocr-batches/full.md",
+      "formula": "mission duty teaching \u2014 SOC/OCV thesis bounds Wh closure"
+    },
+    "ROBOT_ACTUATOR_JOINT_TIER": {
+      "slot_id": "ROBOT_ACTUATOR_JOINT_TIER",
+      "rung": "R3",
+      "value": "hip_actuator",
+      "unit": "joint_tier",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_ARTICULATION_BIND_v1.json",
+      "formula": null
+    },
+    "ROBOT_ACTUATOR_MOTOR_CLASS": {
+      "slot_id": "ROBOT_ACTUATOR_MOTOR_CLASS",
+      "rung": "R3",
+      "value": "bldc_dc_motor_mujoco_class",
+      "unit": "motor_class",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-dcmotor-mujoco/ocr-batches/full.md",
+      "formula": "\u03c4=Kt\u00b7i; V=R\u00b7i+Ke\u00b7\u03c9"
+    },
+    "ROBOT_ACTUATOR_TORQUE_NM": {
+      "slot_id": "ROBOT_ACTUATOR_TORQUE_NM",
+      "rung": "R3",
+      "value": 3.923,
+      "unit": "N\u00b7m",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": null,
+      "formula": "m\u00b7g\u00b7C_rr\u00b7r_wheel = 50.0\u00b79.80665\u00b70.08\u00b70.1"
+    },
+    "ROBOT_ACTUATOR_FOC_PATH": {
+      "slot_id": "ROBOT_ACTUATOR_FOC_PATH",
+      "rung": "R3",
+      "value": "lc2_foc_isr_hot_block_qual_episode",
+      "unit": "firmware_path",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "docs/HwatomOrgOS/06_2BRAIN/DOGFOOD/domains/engineering/LC2_JOINT_CONTROLLER_FIXTURE_V1.md",
+      "formula": null
+    },
+    "ROBOT_ACTUATOR_J_PER_FOC_STEP_UJ": {
+      "slot_id": "ROBOT_ACTUATOR_J_PER_FOC_STEP_UJ",
+      "rung": "R3",
+      "value": 0.4201,
+      "unit": "uJ",
+      "tier": "DERIVED",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/chip/CHIP_IFT3_ENERGY_BENCH_RECEIPT_v1.json",
+      "formula": null
+    },
+    "ROBOT_ACTUATOR_PWM_HZ": {
+      "slot_id": "ROBOT_ACTUATOR_PWM_HZ",
+      "rung": "R3",
+      "value": 20000.0,
+      "unit": "Hz",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "fixtures/mod04/w0_foc_isr_hot_block.c",
+      "formula": null
+    },
+    "ROBOT_SENSE_ENCODER_IN_LOOP": {
+      "slot_id": "ROBOT_SENSE_ENCODER_IN_LOOP",
+      "rung": "R5",
+      "value": true,
+      "unit": "bool",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_R4_SENSE_FW_RECEIPT_v1.json",
+      "formula": null
+    },
+    "ROBOT_SENSE_ENCODER_CPR": {
+      "slot_id": "ROBOT_SENSE_ENCODER_CPR",
+      "rung": "R5",
+      "value": 4096,
+      "unit": "counts_per_rev",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-e2-encoder/ocr-batches/full.md",
+      "formula": "AMT E2 configurable CPR table \u2014 4096 lab default"
+    },
+    "ROBOT_SENSE_IMU_CLASS": {
+      "slot_id": "ROBOT_SENSE_IMU_CLASS",
+      "rung": "R5",
+      "value": "icm_42688_p_6dof",
+      "unit": "imu_class",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-icm-42688-imu/ocr-batches/full.md",
+      "formula": null
+    },
+    "ROBOT_SENSE_EXTERO_CLASS": {
+      "slot_id": "ROBOT_SENSE_EXTERO_CLASS",
+      "rung": "R5",
+      "value": "waived_joint_bench_scope",
+      "unit": "extero_class",
+      "tier": "HONEST_DEFER",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_R5_EXTERO_DECISION_RECEIPT_v1.json",
+      "formula": "LC-2 qual does not require extero \u2014 lunar/traverse needs later choice"
+    },
+    "ROBOT_SENSE_CLOSED_LOOP_SPEC": {
+      "slot_id": "ROBOT_SENSE_CLOSED_LOOP_SPEC",
+      "rung": "R5",
+      "value": {
+        "workload_id": "lc2_joint_platform_episode",
+        "verbs_closed_loop": [
+          "FOC_vector_update",
+          "encoder_sample",
+          "power_mode_transition"
+        ],
+        "encoder_in_loop": true,
+        "open_loop_falsifier": "traverse without encoder_sample \u2192 MISSION_FAIL"
+      },
+      "unit": "spec",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": null,
+      "formula": null
+    },
+    "ROBOT_COMPUTE_MCU_CLASS": {
+      "slot_id": "ROBOT_COMPUTE_MCU_CLASS",
+      "rung": "R6",
+      "value": "lc2_joint_mcu_48mhz",
+      "unit": "mcu_class",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/chip/CHIP_IFT3_COUPLING_CONTRACT_v1.json",
+      "formula": null
+    },
+    "ROBOT_COMPUTE_ISR_BUDGET_US": {
+      "slot_id": "ROBOT_COMPUTE_ISR_BUDGET_US",
+      "rung": "R6",
+      "value": 20.0,
+      "unit": "us",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/chip/CHIP_IFT3_COUPLING_CONTRACT_v1.json",
+      "formula": null
+    },
+    "ROBOT_COMPUTE_F_CLOCK_HZ": {
+      "slot_id": "ROBOT_COMPUTE_F_CLOCK_HZ",
+      "rung": "R6",
+      "value": 48000000.0,
+      "unit": "Hz",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/chip/CHIP_IFT3_COUPLING_CONTRACT_v1.json",
+      "formula": null
+    },
+    "ROBOT_COMPUTE_RTOS_CLASS": {
+      "slot_id": "ROBOT_COMPUTE_RTOS_CLASS",
+      "rung": "R6",
+      "value": "baremetal_lc2_isr",
+      "unit": "fw_class",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "docs/HwatomOrgOS/06_2BRAIN/DOGFOOD/domains/engineering/LC2_JOINT_CONTROLLER_FIXTURE_V1.md",
+      "formula": "FOC ISR hot block \u2014 no RTOS preemption"
+    },
+    "ROBOT_MINI_TEST_FIXTURE_SPEC": {
+      "slot_id": "ROBOT_MINI_TEST_FIXTURE_SPEC",
+      "rung": "R8",
+      "value": "earth_lab_mini_test_fixture_v1",
+      "unit": "fixture_ref",
+      "tier": "FIXTURE_SPEC",
+      "environment_id": "earth_lab_298k",
+      "bind": "fixtures/robot/earth_lab_mini_test_fixture_v1.json",
+      "formula": null
+    },
+    "ROBOT_MINI_TEST_TELEMETRY_HOPS": {
+      "slot_id": "ROBOT_MINI_TEST_TELEMETRY_HOPS",
+      "rung": "R8",
+      "value": 5,
+      "unit": "hop_count",
+      "tier": "FIXTURE_SPEC",
+      "environment_id": "earth_lab_298k",
+      "bind": null,
+      "formula": null
+    },
+    "ROBOT_LOCO_TOPOLOGY": {
+      "slot_id": "ROBOT_LOCO_TOPOLOGY",
+      "rung": "R2",
+      "value": "static_single_axis_qual",
+      "unit": "topology",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/LC2_OPTIMAL_BENCH_CHARTER_v1.json",
+      "formula": "supersedes teaching 4WD as primary \u2014 see ROBOT_LOCO_TOPOLOGY_TEACHING_CARRY"
+    },
+    "ROBOT_LOCO_WHEEL_D_M": {
+      "slot_id": "ROBOT_LOCO_WHEEL_D_M",
+      "rung": "R2",
+      "value": 0.2,
+      "unit": "m",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "dogfood_platform/lunar_wheel_locomotion_v1.py",
+      "formula": "lunar_wheel carry default 20 cm \u2014 earth bench reuse"
+    },
+    "ROBOT_LOCO_WHEEL_W_M": {
+      "slot_id": "ROBOT_LOCO_WHEEL_W_M",
+      "rung": "R2",
+      "value": 0.08,
+      "unit": "m",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "dogfood_platform/lunar_wheel_locomotion_v1.py",
+      "formula": null
+    },
+    "ROBOT_LOCO_REDUCTION_RATIO": {
+      "slot_id": "ROBOT_LOCO_REDUCTION_RATIO",
+      "rung": "R2",
+      "value": 12.0,
+      "unit": "ratio",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-dcmotor-mujoco/ocr-batches/full.md",
+      "formula": "hub motor + gearbox teaching ratio \u2014 torque law bind"
+    },
+    "ROBOT_LOCO_BEARING_CLASS": {
+      "slot_id": "ROBOT_LOCO_BEARING_CLASS",
+      "rung": "R2",
+      "value": "ss_440c_sealed_deep_groove",
+      "unit": "bearing_class",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json",
+      "formula": "materials.wheel_bearing"
+    },
+    "ROBOT_LOCO_C_RR": {
+      "slot_id": "ROBOT_LOCO_C_RR",
+      "rung": "R2",
+      "value": 0.08,
+      "unit": "coefficient",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-wong-theory-ground-vehicles-2001/ocr-batches/full.md",
+      "formula": "lab PU tread teaching 0.08; Wong smooth-truck oracle band 0.010\u20130.012"
+    },
+    "ROBOT_LOCO_ROLL_FORCE_N": {
+      "slot_id": "ROBOT_LOCO_ROLL_FORCE_N",
+      "rung": "R2",
+      "value": 39.23,
+      "unit": "N",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": null,
+      "formula": "m\u00b7g\u00b7C_rr = 50.0\u00b79.80665\u00b70.08"
+    },
+    "ROBOT_LOCO_TORQUE_REQ_NM": {
+      "slot_id": "ROBOT_LOCO_TORQUE_REQ_NM",
+      "rung": "R2",
+      "value": 0.6129,
+      "unit": "N\u00b7m",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_R2_TERRAMECH_RECEIPT_v1.json",
+      "formula": "roll_force\u00b7r_wheel/4"
+    },
+    "ROBOT_LOCO_MOON_PROXY_REF": {
+      "slot_id": "ROBOT_LOCO_MOON_PROXY_REF",
+      "rung": "R2",
+      "value": "intake-op-bekker-surrogate-gatech-2019",
+      "unit": "corpus_slug",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bekker-surrogate-gatech-2019/ocr-batches/full.md",
+      "formula": "RFT vs Bekker/Wong-Reece \u2014 lunar proxy defer honest"
+    },
+    "ROBOT_MISSION_ID": {
+      "slot_id": "ROBOT_MISSION_ID",
+      "rung": "R9",
+      "value": "M-integrated-earth-bench",
+      "unit": "mission_id",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_R5_MOUNT_VI2_RECEIPT_v1.json",
+      "formula": null
+    },
+    "ROBOT_MISSION_ENVIRONMENT": {
+      "slot_id": "ROBOT_MISSION_ENVIRONMENT",
+      "rung": "R0",
+      "value": "earth_lab_298k",
+      "unit": "environment_id",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": null,
+      "formula": null
+    },
+    "ROBOT_MISSION_GRAVITY_MS2": {
+      "slot_id": "ROBOT_MISSION_GRAVITY_MS2",
+      "rung": "R0",
+      "value": 9.80665,
+      "unit": "m/s2",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": null,
+      "formula": null
+    },
+    "ROBOT_MISSION_OPS_DUTY": {
+      "slot_id": "ROBOT_MISSION_OPS_DUTY",
+      "rung": "R0",
+      "value": {
+        "stand_calibration": 0.25,
+        "traverse_active": 0.5,
+        "idle_hold": 0.25
+      },
+      "unit": "duty_fraction",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/M_INTEGRATED_EARTH_BENCH_CHARTER_v1.json",
+      "formula": "M-integrated-earth-bench duty envelope"
+    },
+    "ROBOT_MISSION_LUNAR_CORNER_DEFERRED": {
+      "slot_id": "ROBOT_MISSION_LUNAR_CORNER_DEFERRED",
+      "rung": "R0",
+      "value": "M-lunar-corner",
+      "unit": "mission_id",
+      "tier": "HONEST_DEFER",
+      "environment_id": "earth_lab_298k",
+      "bind": null,
+      "formula": null
+    },
+    "ROBOT_ENV_ZONE_DEFAULT": {
+      "slot_id": "ROBOT_ENV_ZONE_DEFAULT",
+      "rung": "R7",
+      "value": "massif_traverse",
+      "unit": "site_zone",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "dogfood_platform/lunar_zone_table_v1.py",
+      "formula": null
+    },
+    "ROBOT_ENV_DUST_SEAL_CLASS": {
+      "slot_id": "ROBOT_ENV_DUST_SEAL_CLASS",
+      "rung": "R7",
+      "value": "B2",
+      "unit": "seal_class",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_LSIC_R7_BIND_v1.json",
+      "formula": "labyrinth_wiper + LSIC category 6 seals"
+    },
+    "ROBOT_ENV_THERMAL_BIND": {
+      "slot_id": "ROBOT_ENV_THERMAL_BIND",
+      "rung": "R7",
+      "value": "lumped_package_proxy",
+      "unit": "thermal_class",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "results/platform_bpass/moon/THERMAL_TRANSIENT_BIND_v1.json",
+      "formula": null
+    },
+    "ROBOT_ENV_CORNER_MISSION": {
+      "slot_id": "ROBOT_ENV_CORNER_MISSION",
+      "rung": "R7",
+      "value": "M-lunar-corner",
+      "unit": "mission_id",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT1_R7_LUNAR_CORNER_ENVELOPE_v1.json",
+      "formula": null
+    },
+    "ROBOT_ENV_WORLD_VERDICT": {
+      "slot_id": "ROBOT_ENV_WORLD_VERDICT",
+      "rung": "R7",
+      "value": "PASS",
+      "unit": "receipt_verdict",
+      "tier": "DERIVED",
+      "environment_id": "lunar_surface_proxy",
+      "bind": null,
+      "formula": null
+    },
+    "ROBOT_MOUNT_JOINT_TIER": {
+      "slot_id": "ROBOT_MOUNT_JOINT_TIER",
+      "rung": "R9",
+      "value": "hip_actuator",
+      "unit": "joint_tier",
+      "tier": "CITED_BIND",
+      "environment_id": "dual",
+      "bind": "results/platform_bpass/moon/ROBOT_ARTICULATION_BIND_v1.json",
+      "formula": null
+    },
+    "ROBOT_MOUNT_CHIP_FOOTPRINT_UM": {
+      "slot_id": "ROBOT_MOUNT_CHIP_FOOTPRINT_UM",
+      "rung": "R9",
+      "value": {
+        "width": 420.0,
+        "height": 380.0
+      },
+      "unit": "um",
+      "tier": "CITED_BIND",
+      "environment_id": "dual",
+      "bind": "results/platform_bpass/chip/CHIP_L3_LC2_GEOMETRY_BIND_v1.json",
+      "formula": null
+    },
+    "ROBOT_MOUNT_ARTICULATION_BIND": {
+      "slot_id": "ROBOT_MOUNT_ARTICULATION_BIND",
+      "rung": "R9",
+      "value": "robot_articulation_bind_v1",
+      "unit": "bind_id",
+      "tier": "CITED_BIND",
+      "environment_id": "dual",
+      "bind": "results/platform_bpass/moon/ROBOT_ARTICULATION_BIND_v1.json",
+      "formula": null
+    },
+    "ROBOT_MOUNT_HARNESS_CLASS": {
+      "slot_id": "ROBOT_MOUNT_HARNESS_CLASS",
+      "rung": "R9",
+      "value": "lab_service_loop_dual_canfd",
+      "unit": "harness_class",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_R4_HARNESS_CAD_RECEIPT_v1.json",
+      "formula": "R4 harness CAD supersedes ADAPT stub"
+    },
+    "ROBOT_MOUNT_VI1_STATUS": {
+      "slot_id": "ROBOT_MOUNT_VI1_STATUS",
+      "rung": "R9",
+      "value": "VI-1_PASS_STEP15",
+      "unit": "interface_gate",
+      "tier": "CITED_BIND",
+      "environment_id": "dual",
+      "bind": "results/platform_bpass/chip/CHIP_IFT3_VI_GATE_STEP15_RECEIPT_v1.json",
+      "formula": null
+    },
+    "ROBOT_FRAME_MATERIAL_ID": {
+      "slot_id": "ROBOT_FRAME_MATERIAL_ID",
+      "rung": "R1",
+      "value": "al_6061_t6_extrusion",
+      "unit": "material_id",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json",
+      "formula": null
+    },
+    "ROBOT_WHEEL_TREAD_MATERIAL": {
+      "slot_id": "ROBOT_WHEEL_TREAD_MATERIAL",
+      "rung": "R1",
+      "value": "pu_ester_shore_90a",
+      "unit": "material_id",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json",
+      "formula": null
+    },
+    "ROBOT_WHEEL_BEARING_CLASS": {
+      "slot_id": "ROBOT_WHEEL_BEARING_CLASS",
+      "rung": "R2",
+      "value": "ss_440c_sealed_deep_groove",
+      "unit": "bearing_class",
+      "tier": "CITED_BIND",
+      "environment_id": "dual",
+      "bind": "results/platform_bpass/moon/ROBOT_ARTICULATION_BIND_v1.json",
+      "formula": null
+    },
+    "ROBOT_JOINT_SEAL_CLASS": {
+      "slot_id": "ROBOT_JOINT_SEAL_CLASS",
+      "rung": "R7",
+      "value": "B3",
+      "unit": "seal_class",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "results/platform_bpass/moon/DUST_INGRESS_BIND_v1.json",
+      "formula": null
+    },
+    "ROBOT_LOCO_SINKAGE_MM_LUNAR": {
+      "slot_id": "ROBOT_LOCO_SINKAGE_MM_LUNAR",
+      "rung": "R2",
+      "value": 4.216,
+      "unit": "mm",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_R2_TERRAMECH_RECEIPT_v1.json",
+      "formula": null
+    },
+    "ROBOT_LOCO_WH_PER_KM_CROSSCHECK": {
+      "slot_id": "ROBOT_LOCO_WH_PER_KM_CROSSCHECK",
+      "rung": "R2",
+      "value": 10.92,
+      "unit": "Wh_per_km",
+      "tier": "COMPUTED",
+      "environment_id": "dual",
+      "bind": "results/platform_bpass/chip/CHIP_IFT3_M_COMBAT_EARTH_RECEIPT_v1.json",
+      "formula": "VI-1 traverse ledger crosscheck"
+    },
+    "ROBOT_ACTUATOR_T_JUNCTION_K": {
+      "slot_id": "ROBOT_ACTUATOR_T_JUNCTION_K",
+      "rung": "R3",
+      "value": 336.65,
+      "unit": "K",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_R3_ACTUATION_THERMAL_RECEIPT_v1.json",
+      "formula": "P_cu\u00b7R_th + T_amb"
+    },
+    "ROBOT_ACTUATOR_THERMAL_DERATE_FRAC": {
+      "slot_id": "ROBOT_ACTUATOR_THERMAL_DERATE_FRAC",
+      "rung": "R3",
+      "value": 1.0,
+      "unit": "fraction",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_R3_ACTUATION_THERMAL_RECEIPT_v1.json",
+      "formula": null
+    },
+    "ROBOT_FW_HOP_CHAIN_REF": {
+      "slot_id": "ROBOT_FW_HOP_CHAIN_REF",
+      "rung": "R6",
+      "value": "ROBOT_FW_HOP_CHAIN_v1",
+      "unit": "chain_ref",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_R4_SENSE_FW_RECEIPT_v1.json",
+      "formula": null
+    },
+    "ROBOT_VI2_CHARTER_REF": {
+      "slot_id": "ROBOT_VI2_CHARTER_REF",
+      "rung": "R9",
+      "value": "M_INTEGRATED_EARTH_BENCH_CHARTER_v1",
+      "unit": "charter_ref",
+      "tier": "COMPUTED",
+      "environment_id": "dual",
+      "bind": "results/platform_bpass/moon/M_INTEGRATED_EARTH_BENCH_CHARTER_v1.json",
+      "formula": null
+    },
+    "ROBOT_W3_ENCODER_CPR_MIN": {
+      "slot_id": "ROBOT_W3_ENCODER_CPR_MIN",
+      "rung": "R5",
+      "value": 32,
+      "unit": "cpr",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-e2-encoder/ocr-batches/full.md",
+      "formula": "AMT E2 resolution range lower"
+    },
+    "ROBOT_W3_ENCODER_CPR_MAX": {
+      "slot_id": "ROBOT_W3_ENCODER_CPR_MAX",
+      "rung": "R5",
+      "value": 5000,
+      "unit": "cpr",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-e2-encoder/ocr-batches/full.md",
+      "formula": "AMT E2 resolution range upper"
+    },
+    "ROBOT_W3_ENCODER_PPR_MAX": {
+      "slot_id": "ROBOT_W3_ENCODER_PPR_MAX",
+      "rung": "R5",
+      "value": 20000,
+      "unit": "ppr",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-e2-encoder/ocr-batches/full.md",
+      "formula": "quadrature \u00d74"
+    },
+    "ROBOT_W3_ENCODER_VENDOR_FAMILY": {
+      "slot_id": "ROBOT_W3_ENCODER_VENDOR_FAMILY",
+      "rung": "R5",
+      "value": "CUI_AMT_E2",
+      "unit": "vendor_family",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-e2-encoder/ocr-batches/full.md",
+      "formula": null
+    },
+    "ROBOT_W3_MOTOR_TORQUE_LAW": {
+      "slot_id": "ROBOT_W3_MOTOR_TORQUE_LAW",
+      "rung": "R3",
+      "value": "tau_equals_Kt_times_i",
+      "unit": "law_id",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-dcmotor-mujoco/ocr-batches/full.md",
+      "formula": "\u03c4 = Kt\u00b7i"
+    },
+    "ROBOT_W3_MOTOR_VOLTAGE_LAW": {
+      "slot_id": "ROBOT_W3_MOTOR_VOLTAGE_LAW",
+      "rung": "R3",
+      "value": "V_equals_Ri_plus_Ke_omega",
+      "unit": "law_id",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-dcmotor-mujoco/ocr-batches/full.md",
+      "formula": "V = R\u00b7i + Ke\u00b7\u03c9"
+    },
+    "ROBOT_W3_MOTOR_KE_KT_SI_EQUIV": {
+      "slot_id": "ROBOT_W3_MOTOR_KE_KT_SI_EQUIV",
+      "rung": "R3",
+      "value": true,
+      "unit": "bool",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-dcmotor-mujoco/ocr-batches/full.md",
+      "formula": "Ke = Kt in SI (Nm/A vs V\u00b7s/rad)"
+    },
+    "ROBOT_W3_MOTOR_MODEL_REF": {
+      "slot_id": "ROBOT_W3_MOTOR_MODEL_REF",
+      "rung": "R3",
+      "value": "mujoco_dc_motor_actuator",
+      "unit": "model_ref",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-dcmotor-mujoco/ocr-batches/full.md",
+      "formula": null
+    },
+    "ROBOT_W3_DRIVER_SLUA105_REF": {
+      "slot_id": "ROBOT_W3_DRIVER_SLUA105_REF",
+      "rung": "R3",
+      "value": "SLUA105",
+      "unit": "app_note",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-ti-slua105-mosfet/ocr-batches/full.md",
+      "formula": "MOSFET gate drive fundamentals"
+    },
+    "ROBOT_W3_DRIVER_GATE_CHARGE_METRIC": {
+      "slot_id": "ROBOT_W3_DRIVER_GATE_CHARGE_METRIC",
+      "rung": "R3",
+      "value": "Qg_nC",
+      "unit": "datasheet_field",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-ti-slua105-mosfet/ocr-batches/full.md",
+      "formula": "gate charge vs Vgs curves"
+    },
+    "ROBOT_W3_DRIVER_SWITCHING_LOSS_ORACLE": {
+      "slot_id": "ROBOT_W3_DRIVER_SWITCHING_LOSS_ORACLE",
+      "rung": "R3",
+      "value": "Qg_times_Vgs_times_fsw",
+      "unit": "loss_model",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-ti-slua105-mosfet/ocr-batches/full.md",
+      "formula": "P_g = Qg\u00b7Vgs\u00b7fsw teaching"
+    },
+    "ROBOT_W3_DRIVER_PWM_BIND_HZ": {
+      "slot_id": "ROBOT_W3_DRIVER_PWM_BIND_HZ",
+      "rung": "R3",
+      "value": 20000.0,
+      "unit": "Hz",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-ti-slua105-mosfet/ocr-batches/full.md",
+      "formula": "cross-bind ROBOT_ACTUATOR_PWM_HZ"
+    },
+    "ROBOT_W3_DRIVER_BALOUGH_REF": {
+      "slot_id": "ROBOT_W3_DRIVER_BALOUGH_REF",
+      "rung": "R3",
+      "value": "balogh_sync_rect_gate",
+      "unit": "app_note",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-ti-balough-mosfet-gate/ocr-batches/full.md",
+      "formula": "sync rectifier gate charge"
+    },
+    "ROBOT_W3_DRIVER_DEAD_TIME_DEFER": {
+      "slot_id": "ROBOT_W3_DRIVER_DEAD_TIME_DEFER",
+      "rung": "R3",
+      "value": "bench_measure_required",
+      "unit": "honest_gap",
+      "tier": "HONEST_DEFER",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-ti-balough-mosfet-gate/ocr-batches/full.md",
+      "formula": "dead time not closed without iron"
+    },
+    "ROBOT_W3_DRIVER_RDS_THERMAL_DEFER": {
+      "slot_id": "ROBOT_W3_DRIVER_RDS_THERMAL_DEFER",
+      "rung": "R3",
+      "value": "bench_measure_required",
+      "unit": "honest_gap",
+      "tier": "HONEST_DEFER",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-ti-balough-mosfet-gate/ocr-batches/full.md",
+      "formula": "Rds_on thermal map \u2014 iron DMM \u03b8_ja"
+    },
+    "ROBOT_W3_DRIVER_GATE_DRIVER_CLASS": {
+      "slot_id": "ROBOT_W3_DRIVER_GATE_DRIVER_CLASS",
+      "rung": "R3",
+      "value": "half_bridge_n_channel",
+      "unit": "topology",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-ti-balough-mosfet-gate/ocr-batches/full.md",
+      "formula": null
+    },
+    "ROBOT_W3_BMS_REC_CLASS": {
+      "slot_id": "ROBOT_W3_BMS_REC_CLASS",
+      "rung": "R4",
+      "value": "rec_master_slave_240cell",
+      "unit": "bms_class",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-rec-ms-encoder/ocr-batches/full.md",
+      "formula": "Master + max 15 Slave"
+    },
+    "ROBOT_W3_BMS_CELL_V_MAX": {
+      "slot_id": "ROBOT_W3_BMS_CELL_V_MAX",
+      "rung": "R4",
+      "value": 4.2,
+      "unit": "V",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-rec-ms-encoder/ocr-batches/full.md",
+      "formula": "Li-ion polymer 4.16\u20134.20 V full charge"
+    },
+    "ROBOT_W3_BMS_SHUNT_I_MAX_A": {
+      "slot_id": "ROBOT_W3_BMS_SHUNT_I_MAX_A",
+      "rung": "R4",
+      "value": 500.0,
+      "unit": "A",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-rec-ms-encoder/ocr-batches/full.md",
+      "formula": "\u00b1500 A shunt, 19.5 mA resolution"
+    },
+    "ROBOT_W3_BMS_CAN_ISOLATED": {
+      "slot_id": "ROBOT_W3_BMS_CAN_ISOLATED",
+      "rung": "R4",
+      "value": true,
+      "unit": "bool",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-rec-ms-encoder/ocr-batches/full.md",
+      "formula": "galvanically isolated CAN"
+    },
+    "ROBOT_W3_BMS_CHEM_CLASS": {
+      "slot_id": "ROBOT_W3_BMS_CHEM_CLASS",
+      "rung": "R4",
+      "value": "LiFePO4_lab_reference",
+      "unit": "chemistry",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bms-thesis/ocr-batches/full.md",
+      "formula": "thesis LiFePO4 + OCV/SOC"
+    },
+    "ROBOT_W3_BMS_CELL_REF_AH": {
+      "slot_id": "ROBOT_W3_BMS_CELL_REF_AH",
+      "rung": "R4",
+      "value": 1.1,
+      "unit": "Ah",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bms-thesis/ocr-batches/full.md",
+      "formula": "A123 HTPFR18650-1100mAh appendix"
+    },
+    "ROBOT_W3_BMS_CELL_REF_V": {
+      "slot_id": "ROBOT_W3_BMS_CELL_REF_V",
+      "rung": "R4",
+      "value": 3.2,
+      "unit": "V",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bms-thesis/ocr-batches/full.md",
+      "formula": "nominal LiFePO4 cell"
+    },
+    "ROBOT_W3_BMS_SOC_METHOD": {
+      "slot_id": "ROBOT_W3_BMS_SOC_METHOD",
+      "rung": "R4",
+      "value": "coulomb_count_plus_OCV",
+      "unit": "method",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bms-thesis/ocr-batches/full.md",
+      "formula": "OCV hysteresis caveat"
+    },
+    "ROBOT_W3_IMU_PART_ID": {
+      "slot_id": "ROBOT_W3_IMU_PART_ID",
+      "rung": "R5",
+      "value": "ICM-42688-P",
+      "unit": "part_id",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-icm-42688-imu/ocr-batches/full.md",
+      "formula": null
+    },
+    "ROBOT_W3_IMU_GYRO_NOISE_MDPS": {
+      "slot_id": "ROBOT_W3_IMU_GYRO_NOISE_MDPS",
+      "rung": "R5",
+      "value": 2.8,
+      "unit": "mdps_per_sqrt_Hz",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-icm-42688-imu/ocr-batches/full.md",
+      "formula": "datasheet gyro noise density"
+    },
+    "ROBOT_W3_IMU_ACCEL_NOISE_UG": {
+      "slot_id": "ROBOT_W3_IMU_ACCEL_NOISE_UG",
+      "rung": "R5",
+      "value": 70.0,
+      "unit": "ug_per_sqrt_Hz",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-icm-42688-imu/ocr-batches/full.md",
+      "formula": "AZ axis; AXY 65"
+    },
+    "ROBOT_W3_IMU_INTERFACE": {
+      "slot_id": "ROBOT_W3_IMU_INTERFACE",
+      "rung": "R5",
+      "value": "spi_i2c",
+      "unit": "bus",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-icm-42688-imu/ocr-batches/full.md",
+      "formula": null
+    },
+    "ROBOT_W3_TERRA_BEKKER_ORACLE": {
+      "slot_id": "ROBOT_W3_TERRA_BEKKER_ORACLE",
+      "rung": "R2",
+      "value": "pressure_sinkage_bekker",
+      "unit": "model_id",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bekker-tardec-model/ocr-batches/full.md",
+      "formula": "kc, k\u03c6 modulus \u2014 TARDEC model paper"
+    },
+    "ROBOT_W3_TERRA_SHEAR_JANOSI": {
+      "slot_id": "ROBOT_W3_TERRA_SHEAR_JANOSI",
+      "rung": "R2",
+      "value": "janosi_hanamoto_shear",
+      "unit": "model_id",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bekker-tardec-model/ocr-batches/full.md",
+      "formula": "shear-displacement"
+    },
+    "ROBOT_W3_TERRA_DRAWBAR_PROXY": {
+      "slot_id": "ROBOT_W3_TERRA_DRAWBAR_PROXY",
+      "rung": "R2",
+      "value": "drawbar_pull_traction_coef",
+      "unit": "metric_family",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bekker-tardec-model/ocr-batches/full.md",
+      "formula": "sinkage/traction teaching"
+    },
+    "ROBOT_W3_BEKKER_1969_BOOK": {
+      "slot_id": "ROBOT_W3_BEKKER_1969_BOOK",
+      "rung": "R2",
+      "value": "NOT_INGESTED",
+      "unit": "corpus_status",
+      "tier": "HONEST_DEFER",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bekker-tardec-model/ocr-batches/full.md",
+      "formula": "surrogates: TARDEC + Gatech + Wong"
+    },
+    "ROBOT_W3_TERRA_RFT_ORACLE": {
+      "slot_id": "ROBOT_W3_TERRA_RFT_ORACLE",
+      "rung": "R2",
+      "value": "granular_RFT",
+      "unit": "model_id",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bekker-surrogate-gatech-2019/ocr-batches/full.md",
+      "formula": "RFT vs semi-empirical terramechanics"
+    },
+    "ROBOT_W3_TERRA_WONG_REECE_CHAIN": {
+      "slot_id": "ROBOT_W3_TERRA_WONG_REECE_CHAIN",
+      "rung": "R2",
+      "value": "wong_reece_1967",
+      "unit": "model_id",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bekker-surrogate-gatech-2019/ocr-batches/full.md",
+      "formula": "de facto rigid wheel soft soil"
+    },
+    "ROBOT_W3_TERRA_MPM_PLASTICITY": {
+      "slot_id": "ROBOT_W3_TERRA_MPM_PLASTICITY",
+      "rung": "R2",
+      "value": "MPM_continuum_plasticity",
+      "unit": "model_id",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bekker-surrogate-gatech-2019/ocr-batches/full.md",
+      "formula": "full granular flow stress fields"
+    },
+    "ROBOT_W3_TERRA_LIGHTWEIGHT_SKEPTIC": {
+      "slot_id": "ROBOT_W3_TERRA_LIGHTWEIGHT_SKEPTIC",
+      "rung": "R2",
+      "value": true,
+      "unit": "bool",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-bekker-surrogate-gatech-2019/ocr-batches/full.md",
+      "formula": "classical terramechanics skepticism for small robots"
+    },
+    "ROBOT_W3_TERRA_SINKAGE_N_SAND": {
+      "slot_id": "ROBOT_W3_TERRA_SINKAGE_N_SAND",
+      "rung": "R2",
+      "value": 1.1,
+      "unit": "exponent",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-wong-terramechanics-2ed/ocr-batches/full.md",
+      "formula": "typical sand n\u22481.1 (Wong 2ed tables)"
+    },
+    "ROBOT_W3_TERRA_SINKAGE_N_CLAY": {
+      "slot_id": "ROBOT_W3_TERRA_SINKAGE_N_CLAY",
+      "rung": "R2",
+      "value": 0.5,
+      "unit": "exponent",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-wong-terramechanics-2ed/ocr-batches/full.md",
+      "formula": "typical clay n\u22480.5"
+    },
+    "ROBOT_W3_TERRA_CONE_INDEX_REF": {
+      "slot_id": "ROBOT_W3_TERRA_CONE_INDEX_REF",
+      "rung": "R2",
+      "value": "bevameter_cone_index",
+      "unit": "metric_family",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-wong-terramechanics-2ed/ocr-batches/full.md",
+      "formula": "terrain characterization"
+    },
+    "ROBOT_W3_TERRA_TRACKED_VS_WHEELED": {
+      "slot_id": "ROBOT_W3_TERRA_TRACKED_VS_WHEELED",
+      "rung": "R2",
+      "value": "wheeled_lab_rover",
+      "unit": "mobility_class",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-wong-terramechanics-2ed/ocr-batches/full.md",
+      "formula": "earth bench wheeled focus"
+    },
+    "ROBOT_W3_CRR_TRUCK_SMOOTH_LOW": {
+      "slot_id": "ROBOT_W3_CRR_TRUCK_SMOOTH_LOW",
+      "rung": "R2",
+      "value": 0.01,
+      "unit": "coefficient",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-wong-theory-ground-vehicles-2001/ocr-batches/full.md",
+      "formula": "Fig 1.4 truck tires rated smooth road"
+    },
+    "ROBOT_W3_CRR_TRUCK_SMOOTH_HIGH": {
+      "slot_id": "ROBOT_W3_CRR_TRUCK_SMOOTH_HIGH",
+      "rung": "R2",
+      "value": 0.012,
+      "unit": "coefficient",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-wong-theory-ground-vehicles-2001/ocr-batches/full.md",
+      "formula": "Fig 1.4 truck tires rated smooth road"
+    },
+    "ROBOT_W3_CRR_DEFINITION": {
+      "slot_id": "ROBOT_W3_CRR_DEFINITION",
+      "rung": "R2",
+      "value": "F_roll_over_Fz",
+      "unit": "definition",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-wong-theory-ground-vehicles-2001/ocr-batches/full.md",
+      "formula": "rolling resistance / normal load"
+    },
+    "ROBOT_W3_VEHICLE_DYNAMICS_REF": {
+      "slot_id": "ROBOT_W3_VEHICLE_DYNAMICS_REF",
+      "rung": "R2",
+      "value": "wong_2001_theory",
+      "unit": "text_ref",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/intake-op-wong-theory-ground-vehicles-2001/ocr-batches/full.md",
+      "formula": null
+    },
+    "ROBOT_VI2_SIM_STATUS": {
+      "slot_id": "ROBOT_VI2_SIM_STATUS",
+      "rung": "R9",
+      "value": "VI-2_PASS_SIM",
+      "unit": "interface_gate",
+      "tier": "COMPUTED",
+      "environment_id": "dual",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_VI2_SIM_RECEIPT_v1.json",
+      "formula": "ROBOT_IFT2_VI2_SIM_RUN_v1"
+    },
+    "ROBOT_ACTUATOR_DRIVER_P_LOSS_W": {
+      "slot_id": "ROBOT_ACTUATOR_DRIVER_P_LOSS_W",
+      "rung": "R3",
+      "value": 0.9834,
+      "unit": "W",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_R3_DRIVER_THERMAL_SIM_RECEIPT_v1.json",
+      "formula": "P_cond + P_gate teaching"
+    },
+    "ROBOT_LSIC_DUST_CLASS_ID": {
+      "slot_id": "ROBOT_LSIC_DUST_CLASS_ID",
+      "rung": "R7",
+      "value": "PE-L:1-500-12-2,5,6",
+      "unit": "dust_class_id",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "results/platform_bpass/moon/LSIC_DUST_STANDARD_1008_CAPTURE_v1.json",
+      "formula": "PE-L teaching from DUST ingress massif_traverse \u2014 NOT compliance"
+    },
+    "ROBOT_LSIC_NASA_1008_REF": {
+      "slot_id": "ROBOT_LSIC_NASA_1008_REF",
+      "rung": "R7",
+      "value": "NASA-STD-1008",
+      "unit": "standard_id",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "results/platform_bpass/moon/LSIC_DUST_STANDARD_1008_CAPTURE_v1.json",
+      "formula": "intake-a5-nasa-std-1008 ON PASS"
+    },
+    "ROBOT_LSIC_TEST_CATEGORIES": {
+      "slot_id": "ROBOT_LSIC_TEST_CATEGORIES",
+      "rung": "R8",
+      "value": [
+        2,
+        5,
+        6
+      ],
+      "unit": "nasa_test_category_ids",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/LSIC_DUST_STANDARD_1008_CAPTURE_v1.json",
+      "formula": "Abrasion \u00b7 Mechanisms \u00b7 Seals \u2014 mini-test fixture map"
+    },
+    "ROBOT_LSIC_CAPTURE_REF": {
+      "slot_id": "ROBOT_LSIC_CAPTURE_REF",
+      "rung": "R7",
+      "value": "LSIC_DUST_STANDARD_1008_CAPTURE_v1",
+      "unit": "capture_id",
+      "tier": "CITED_BIND",
+      "environment_id": "dual",
+      "bind": "results/platform_bpass/moon/LSIC_DUST_STANDARD_1008_CAPTURE_v1.json",
+      "formula": "Litofsky 2026-06-23 operator session"
+    },
+    "ROBOT_LSIC_ART_STRATEGY": {
+      "slot_id": "ROBOT_LSIC_ART_STRATEGY",
+      "rung": "R7",
+      "value": {
+        "avoid": [
+          "B1/B2 seal classes on critical joints"
+        ],
+        "remove": [
+          "wiper_magnet per DUST_INGRESS mitigation"
+        ],
+        "tolerate": [
+          "B3 lip seal on hip_actuator with ingress_scale 0.55"
+        ],
+        "cite": "results/platform_bpass/moon/DUST_INGRESS_BIND_v1.json"
+      },
+      "unit": "mitigation_spec",
+      "tier": "CITED_BIND",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "results/platform_bpass/moon/DUST_INGRESS_BIND_v1.json",
+      "formula": "ART \u00d7 DUST_INGRESS_BIND seal tiers"
+    },
+    "ROBOT_PLATFORM_PRIMARY_CLASS": {
+      "slot_id": "ROBOT_PLATFORM_PRIMARY_CLASS",
+      "rung": "R9",
+      "value": "lc2_joint_bench_carrier",
+      "unit": "platform_class",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_LC2_OPTIMAL_BENCH_RECEIPT_v1.json",
+      "formula": "LC-2 joint bench carrier \u2014 not rover primary"
+    },
+    "ROBOT_PLATFORM_LOCO_PRIMARY": {
+      "slot_id": "ROBOT_PLATFORM_LOCO_PRIMARY",
+      "rung": "R2",
+      "value": "static_single_axis_qual",
+      "unit": "locomotion_class",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/LC2_OPTIMAL_BENCH_CHARTER_v1.json",
+      "formula": "static qual \u2014 optimal for TIER-J"
+    },
+    "ROBOT_LOCO_TOPOLOGY_TEACHING_CARRY": {
+      "slot_id": "ROBOT_LOCO_TOPOLOGY_TEACHING_CARRY",
+      "rung": "R2",
+      "value": "differential_drive_4wd",
+      "unit": "topology",
+      "tier": "HONEST_DEFER",
+      "environment_id": "earth_lab_298k",
+      "bind": "docs/agent_workflow/ROBOT_PLATFORM_EARTH_LC2_POSITION_V1.md",
+      "formula": "wheeled mech ledger \u00b7 not lunar mobility decision"
+    },
+    "ROBOT_COMPUTE_TIER_C_HOST": {
+      "slot_id": "ROBOT_COMPUTE_TIER_C_HOST",
+      "rung": "R6",
+      "value": "separate_host_envelope_only",
+      "unit": "compute_role",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/chip/CHIP_IFT3_COUPLING_CONTRACT_v1.json",
+      "formula": "TIER-C not on LC-2"
+    },
+    "ROBOT_LC2_OPTIMAL_BENCH_REF": {
+      "slot_id": "ROBOT_LC2_OPTIMAL_BENCH_REF",
+      "rung": "R8",
+      "value": "LC2_OPTIMAL_BENCH_v1",
+      "unit": "bench_profile_ref",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_LC2_OPTIMAL_BENCH_RECEIPT_v1.json",
+      "formula": null
+    },
+    "ROBOT_FACTORY_PASS_STATUS": {
+      "slot_id": "ROBOT_FACTORY_PASS_STATUS",
+      "rung": "R9",
+      "value": "ROBOT_IFT2_PASS_FACTORY_SIM",
+      "unit": "factory_verdict",
+      "tier": "COMPUTED",
+      "environment_id": "dual",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_PASS_FACTORY_RECEIPT_v1.json",
+      "formula": "SYSTEM_COHERENT_SIM"
+    },
+    "ROBOT_SENSE_EXTERO_SCOPE": {
+      "slot_id": "ROBOT_SENSE_EXTERO_SCOPE",
+      "rung": "R5",
+      "value": "joint_bench_lc2",
+      "unit": "scope_id",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_R5_EXTERO_DECISION_RECEIPT_v1.json",
+      "formula": null
+    },
+    "ROBOT_VI2_R6_HASH_BIND": {
+      "slot_id": "ROBOT_VI2_R6_HASH_BIND",
+      "rung": "R6",
+      "value": "ad11ffe9de34bbd4",
+      "unit": "replay_hash",
+      "tier": "COMPUTED",
+      "environment_id": "dual",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_VI2_INTEGRATED_ENGINE_BIND_RECEIPT_v1.json",
+      "formula": "VI-2 integrated engine bind \u2014 R6 fw hop"
+    },
+    "ROBOT_VI2_INTEGRATED_ENGINE_BIND": {
+      "slot_id": "ROBOT_VI2_INTEGRATED_ENGINE_BIND",
+      "rung": "R9",
+      "value": "ad11ffe9de34bbd4:b3cdf13fcef044df:e36c1e1052623c91",
+      "unit": "engine_hash_triple",
+      "tier": "COMPUTED",
+      "environment_id": "dual",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_VI2_INTEGRATED_ENGINE_BIND_RECEIPT_v1.json",
+      "formula": "R6 fw + R2 terramech + R3 driver + SLAM stack under VI-2"
+    },
+    "ROBOT_VI2_R2_TERRAMECH_HASH_BIND": {
+      "slot_id": "ROBOT_VI2_R2_TERRAMECH_HASH_BIND",
+      "rung": "R2",
+      "value": "b3cdf13fcef044df",
+      "unit": "replay_hash",
+      "tier": "COMPUTED",
+      "environment_id": "lunar_surface_proxy",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_VI2_INTEGRATED_ENGINE_BIND_RECEIPT_v1.json",
+      "formula": "VI-2 integrated engine bind \u2014 R2 terramech"
+    },
+    "ROBOT_VI2_R3_DRIVER_THERMAL_HASH_BIND": {
+      "slot_id": "ROBOT_VI2_R3_DRIVER_THERMAL_HASH_BIND",
+      "rung": "R3",
+      "value": "e36c1e1052623c91",
+      "unit": "replay_hash",
+      "tier": "COMPUTED",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_VI2_INTEGRATED_ENGINE_BIND_RECEIPT_v1.json",
+      "formula": "VI-2 integrated engine bind \u2014 R3 driver thermal"
+    },
+    "ROBOT_HARNESS_ROUTING_CAD_REF": {
+      "slot_id": "ROBOT_HARNESS_ROUTING_CAD_REF",
+      "rung": "R4",
+      "value": "robot_ift2_r4_harness_routing_v1",
+      "unit": "cad_ref",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "fixtures/cad/robot_ift2_r4_harness_routing_v1.step",
+      "formula": "4 routes \u00b7 173.2 mm est"
+    },
+    "ROBOT_M_COMBAT_MISSION_STATUS": {
+      "slot_id": "ROBOT_M_COMBAT_MISSION_STATUS",
+      "rung": "R2",
+      "value": "MISSION_ENGINE_WIRED_PASS",
+      "unit": "mission_verdict",
+      "tier": "COMPUTED",
+      "environment_id": "earth_subterranean_gps_denied",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_M_COMBAT_EARTH_TRAVERSE_RECEIPT_v1.json",
+      "formula": "M-combat-earth 500 m traverse envelope"
+    },
+    "ROBOT_M_COMBAT_WH_MISSION_500M": {
+      "slot_id": "ROBOT_M_COMBAT_WH_MISSION_500M",
+      "rung": "R4",
+      "value": 5.46,
+      "unit": "Wh",
+      "tier": "COMPUTED",
+      "environment_id": "earth_subterranean_gps_denied",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_M_COMBAT_EARTH_TRAVERSE_RECEIPT_v1.json",
+      "formula": "system wh_per_km \u00d7 0.5 km"
+    },
+    "ROBOT_M_COMBAT_MECH_WH_PER_KM": {
+      "slot_id": "ROBOT_M_COMBAT_MECH_WH_PER_KM",
+      "rung": "R2",
+      "value": 6.8102,
+      "unit": "Wh/km",
+      "tier": "PHYSICS_DERIVED",
+      "environment_id": "earth_subterranean_gps_denied",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_M_COMBAT_EARTH_TRAVERSE_RECEIPT_v1.json",
+      "formula": "m\u00b7g\u00b7v\u00b7C_rr earth cave firm floor"
+    },
+    "ROBOT_MISSION_COMBAT_PROFILE": {
+      "slot_id": "ROBOT_MISSION_COMBAT_PROFILE",
+      "rung": "R9",
+      "value": "M-combat-earth",
+      "unit": "mission_id",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_subterranean_gps_denied",
+      "bind": "results/platform_bpass/moon/ROBOT_IFT2_M_COMBAT_EARTH_TRAVERSE_RECEIPT_v1.json",
+      "formula": "combat_earth_cave_carrier traverse ledger"
+    },
+    "ROBOT_WHEEL_TREAD_VARIANT": {
+      "slot_id": "ROBOT_WHEEL_TREAD_VARIANT",
+      "rung": "R1",
+      "value": "pu_ester_shore_90a",
+      "unit": "material_id",
+      "tier": "CITED_BIND",
+      "environment_id": "earth_lab_298k",
+      "bind": "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json",
+      "formula": "promoted tread variant \u00b7 bind maps to scout_default_medium"
+    }
+  },
+  "rung_status": {
+    "R1": {
+      "status": "ACTIVE",
+      "filled_slots": [
+        "ROBOT_CHASSIS_FOOTPRINT_MM",
+        "ROBOT_CHASSIS_FRAME_CLASS",
+        "ROBOT_CHASSIS_MASS_KG",
+        "ROBOT_CHASSIS_STIFFNESS_MM",
+        "ROBOT_FRAME_MATERIAL_ID",
+        "ROBOT_WHEEL_TREAD_MATERIAL"
+      ],
+      "environment": "earth_lab_298k"
+    },
+    "R4": {
+      "status": "ACTIVE",
+      "filled_slots": [
+        "ROBOT_POWER_I_PEAK",
+        "ROBOT_POWER_MISSION_MINUTES",
+        "ROBOT_POWER_P_AVG_W",
+        "ROBOT_POWER_V_BUS",
+        "ROBOT_POWER_WH_MISSION",
+        "ROBOT_W3_BMS_CAN_ISOLATED",
+        "ROBOT_W3_BMS_CELL_REF_AH",
+        "ROBOT_W3_BMS_CELL_REF_V",
+        "ROBOT_W3_BMS_CELL_V_MAX",
+        "ROBOT_W3_BMS_CHEM_CLASS",
+        "ROBOT_W3_BMS_REC_CLASS",
+        "ROBOT_W3_BMS_SHUNT_I_MAX_A",
+        "ROBOT_W3_BMS_SOC_METHOD"
+      ],
+      "environment": "earth_lab_298k"
+    },
+    "R3": {
+      "status": "ACTIVE",
+      "filled_slots": [
+        "ROBOT_ACTUATOR_DRIVER_P_LOSS_W",
+        "ROBOT_ACTUATOR_FOC_PATH",
+        "ROBOT_ACTUATOR_JOINT_TIER",
+        "ROBOT_ACTUATOR_J_PER_FOC_STEP_UJ",
+        "ROBOT_ACTUATOR_MOTOR_CLASS",
+        "ROBOT_ACTUATOR_PWM_HZ",
+        "ROBOT_ACTUATOR_THERMAL_DERATE_FRAC",
+        "ROBOT_ACTUATOR_TORQUE_NM",
+        "ROBOT_ACTUATOR_T_JUNCTION_K",
+        "ROBOT_VI2_R3_DRIVER_THERMAL_HASH_BIND",
+        "ROBOT_W3_DRIVER_BALOUGH_REF",
+        "ROBOT_W3_DRIVER_DEAD_TIME_DEFER",
+        "ROBOT_W3_DRIVER_GATE_CHARGE_METRIC",
+        "ROBOT_W3_DRIVER_GATE_DRIVER_CLASS",
+        "ROBOT_W3_DRIVER_PWM_BIND_HZ",
+        "ROBOT_W3_DRIVER_RDS_THERMAL_DEFER",
+        "ROBOT_W3_DRIVER_SLUA105_REF",
+        "ROBOT_W3_DRIVER_SWITCHING_LOSS_ORACLE",
+        "ROBOT_W3_MOTOR_KE_KT_SI_EQUIV",
+        "ROBOT_W3_MOTOR_MODEL_REF",
+        "ROBOT_W3_MOTOR_TORQUE_LAW",
+        "ROBOT_W3_MOTOR_VOLTAGE_LAW"
+      ],
+      "environment": "earth_lab_298k"
+    },
+    "R5": {
+      "status": "ACTIVE",
+      "filled_slots": [
+        "ROBOT_SENSE_ENCODER_IN_LOOP"
+      ],
+      "environment": "earth_lab_298k"
+    },
+    "R6": {
+      "status": "ACTIVE",
+      "filled_slots": [
+        "ROBOT_COMPUTE_F_CLOCK_HZ",
+        "ROBOT_COMPUTE_ISR_BUDGET_US",
+        "ROBOT_FW_HOP_CHAIN_REF"
+      ],
+      "environment": "earth_lab_298k"
+    },
+    "R8": {
+      "status": "ACTIVE",
+      "filled_slots": [
+        "ROBOT_LC2_OPTIMAL_BENCH_REF",
+        "ROBOT_LSIC_TEST_CATEGORIES",
+        "ROBOT_MINI_TEST_FIXTURE_SPEC",
+        "ROBOT_MINI_TEST_TELEMETRY_HOPS"
+      ],
+      "environment": "earth_lab_298k"
+    },
+    "R2": {
+      "status": "ACTIVE",
+      "filled_slots": [
+        "ROBOT_LOCO_BEARING_CLASS",
+        "ROBOT_LOCO_C_RR",
+        "ROBOT_LOCO_MOON_PROXY_REF",
+        "ROBOT_LOCO_REDUCTION_RATIO",
+        "ROBOT_LOCO_ROLL_FORCE_N",
+        "ROBOT_LOCO_SINKAGE_MM_LUNAR",
+        "ROBOT_LOCO_TOPOLOGY",
+        "ROBOT_LOCO_TOPOLOGY_TEACHING_CARRY",
+        "ROBOT_LOCO_TORQUE_REQ_NM",
+        "ROBOT_LOCO_WHEEL_D_M",
+        "ROBOT_LOCO_WHEEL_W_M",
+        "ROBOT_LOCO_WH_PER_KM_CROSSCHECK",
+        "ROBOT_PLATFORM_LOCO_PRIMARY",
+        "ROBOT_VI2_R2_TERRAMECH_HASH_BIND",
+        "ROBOT_W3_BEKKER_1969_BOOK",
+        "ROBOT_W3_CRR_DEFINITION",
+        "ROBOT_W3_CRR_TRUCK_SMOOTH_HIGH",
+        "ROBOT_W3_CRR_TRUCK_SMOOTH_LOW",
+        "ROBOT_W3_TERRA_BEKKER_ORACLE",
+        "ROBOT_W3_TERRA_CONE_INDEX_REF",
+        "ROBOT_W3_TERRA_DRAWBAR_PROXY",
+        "ROBOT_W3_TERRA_LIGHTWEIGHT_SKEPTIC",
+        "ROBOT_W3_TERRA_MPM_PLASTICITY",
+        "ROBOT_W3_TERRA_RFT_ORACLE",
+        "ROBOT_W3_TERRA_SHEAR_JANOSI",
+        "ROBOT_W3_TERRA_SINKAGE_N_CLAY",
+        "ROBOT_W3_TERRA_SINKAGE_N_SAND",
+        "ROBOT_W3_TERRA_TRACKED_VS_WHEELED",
+        "ROBOT_W3_TERRA_WONG_REECE_CHAIN",
+        "ROBOT_W3_VEHICLE_DYNAMICS_REF",
+        "ROBOT_WHEEL_BEARING_CLASS"
+      ],
+      "environment": "earth_lab_298k"
+    },
+    "R0": {
+      "status": "ACTIVE",
+      "filled_slots": [
+        "ROBOT_MISSION_ENVIRONMENT",
+        "ROBOT_MISSION_GRAVITY_MS2",
+        "ROBOT_MISSION_LUNAR_CORNER_DEFERRED",
+        "ROBOT_MISSION_OPS_DUTY"
+      ],
+      "environment": "earth_lab_298k"
+    },
+    "R7": {
+      "status": "ACTIVE",
+      "filled_slots": [
+        "ROBOT_ENV_CORNER_MISSION",
+        "ROBOT_ENV_DUST_SEAL_CLASS",
+        "ROBOT_ENV_THERMAL_BIND",
+        "ROBOT_ENV_WORLD_VERDICT",
+        "ROBOT_ENV_ZONE_DEFAULT",
+        "ROBOT_JOINT_SEAL_CLASS",
+        "ROBOT_LSIC_ART_STRATEGY",
+        "ROBOT_LSIC_CAPTURE_REF",
+        "ROBOT_LSIC_DUST_CLASS_ID",
+        "ROBOT_LSIC_NASA_1008_REF"
+      ],
+      "environment": "dual"
+    },
+    "R9": {
+      "status": "ACTIVE",
+      "filled_slots": [
+        "ROBOT_FACTORY_PASS_STATUS",
+        "ROBOT_MISSION_ID",
+        "ROBOT_MOUNT_ARTICULATION_BIND",
+        "ROBOT_MOUNT_CHIP_FOOTPRINT_UM",
+        "ROBOT_MOUNT_HARNESS_CLASS",
+        "ROBOT_MOUNT_JOINT_TIER",
+        "ROBOT_MOUNT_VI1_STATUS",
+        "ROBOT_PLATFORM_PRIMARY_CLASS",
+        "ROBOT_VI2_CHARTER_REF",
+        "ROBOT_VI2_INTEGRATED_ENGINE_BIND",
+        "ROBOT_VI2_SIM_STATUS"
+      ],
+      "environment": "dual"
+    }
+  },
+  "phase": "P5",
+  "timestamp_utc": "2026-07-24T10:12:33.254266+00:00",
+  "canon": "docs/HwatomOrgOS/05_OPERATOR_PLAST/_REGISTERS/ROBOT_FACTORY_IFT1_VISION_V1.md"
+}

@@ -1,0 +1,14 @@
+{
+  "envelope_id": "construct_arm_coord_envelope_v1",
+  "profile_id": "lunar_base_construct_alpha",
+  "arm_commands": ["move", "grasp", "hold"],
+  "traverse_hold_when_arm_active": true,
+  "exclusive_arm_zones": ["Z_prep", "Z_excavate", "Z_berm", "Z_haul_buffer"],
+  "world_pose_compose": "lie_pose_motor_compose_ee_pose_motor",
+  "honesty": {
+    "not_measured": true,
+    "sim_coord_only": true,
+    "teaching_mutex": true
+  },
+  "tabu": "claim field base+arm sync MEASURED"
+}

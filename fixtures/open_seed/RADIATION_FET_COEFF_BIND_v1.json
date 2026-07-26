@@ -1,0 +1,65 @@
+{
+  "bind_id": "radiation_fet_coeff_bind_v1",
+  "oracle": "CITED_BIND",
+  "calibration_id": "RADIATION_FET_CALIBRATION_20260618",
+  "vault_canon": "06_2BRAIN/DOGFOOD/domains/moon/engine/W_MOON_SHACKLETON_V0_SPEC_DRAFT.md",
+  "workload_class": "W0_nominal_nMOS_same_as_EXP-M4-01",
+  "coeffs": {
+    "dose_mv_per_gy": {
+      "value": 0.52,
+      "derivation": "MDPI NMOS ΔVth +2.6 mV @ 500 krad(Si) ≈ 5 Gy → 0.52 mV/Gy",
+      "cite": {
+        "source_slug": "radiation-effects-advanced-devices-mdpi",
+        "formula_id": "MDPI_NMOS_DVTH_500KRAD",
+        "loc": "ch00-full:L2664",
+        "claim": "500 krad TID threshold drift +2.6 mV on NMOS class"
+      }
+    },
+    "see_mv_per_event": {
+      "value": 2.0,
+      "derivation": "SEE wear class PROXY — incident heavy-ion / proton latch-up threshold increment",
+      "cite": {
+        "source_slug": "radiation-effects-advanced-devices-mdpi",
+        "formula_id": "SEE_WEAR_CLASS_PROXY",
+        "claim": "separate SEE thermometer from TID — Likar L1-SEE-01 incident path"
+      },
+      "oracle": "PROXY",
+      "iron_retire": "BASE-200MEV-PROTON-BOARD"
+    },
+    "see_albedo_mv_per_gy": {
+      "value": 0.42,
+      "derivation": "Albedo neutron TID+SEE hybrid proxy: FaNS 0.1–20 MeV regolith secondaries × NMOS damage class; 0.175 Gy albedo @ nominal → ~0.07 mV slot",
+      "cite": {
+        "source_slug": "intake-b0-seline-lsic-2026",
+        "formula_id": "SELINE_FANS_ALBEDO_NEUTRON_WEAR_PROXY",
+        "l0_rows": ["L0-SEL-04", "L0-SEL-01", "L0-LIK-08"],
+        "claim": "albedo dose Gy → ΔVth via neutron secondaries — separate from incident SEE event rate"
+      },
+      "oracle": "PROXY_CITED",
+      "iron_retire": "BASE-NEUTRON-ALBEDO-SURROGATE",
+      "albedo_bind": "fixtures/open_seed/ALBEDO_DOSE_FRACTION_BIND_v1.json"
+    },
+    "see_albedo_mv_per_event": {
+      "value": 3.2,
+      "derivation": "Incremental albedo-neutron event rate above base_see — S2 dominance when shield paradox raises f_albedo",
+      "cite": {
+        "formula_id": "ALBEDO_SEE_EVENT_INCREMENT_PROXY",
+        "scenario": "LSIC_RADIATION_SCENARIO_MATRIX S2"
+      },
+      "oracle": "PROXY_CITED"
+    }
+  },
+  "radiation_wear_budget_mv": 1.5,
+  "budget_derivation": "W0 G_W0_op headroom slice: (48.06 − 38.44) mV × 15% ≈ 1.5 mV radiation-only slot on polar 1yr",
+  "budget_cite": {
+    "source_slug": "goes-2011-hole-trapping-nbti-thesis",
+    "formula_id": "GOES_EQ_1_4",
+    "guardband_ref": "results/platform_bpass/w0_guardband_lines_v1.json",
+    "guardband_mv": 48.06,
+    "predicted_thermal_wear_mv": 38.4444
+  },
+  "falsifier": "nominal polar 1yr PASS; mission_dose ≥3 Gy or see_rate ≥0.8/yr FAIL; albedo SEE row must contribute before shield-paradox TID flip (S2)",
+  "calibration_receipt": "fixtures/open_seed/RADIATION_FET_CALIBRATION_RECEIPT_v1.json",
+  "albedo_row_receipt": "fixtures/open_seed/RADIATION_FET_ALBEDO_ROW_RECEIPT_v1.json",
+  "iron_assurance_bind": "fixtures/open_seed/CLASS_D_PROTON_ASSURANCE_BIND_v1.json"
+}

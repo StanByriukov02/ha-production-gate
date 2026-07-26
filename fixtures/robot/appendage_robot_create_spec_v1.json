@@ -1,0 +1,23 @@
+{
+  "create_spec_id": "appendage_robot_create_spec_v1",
+  "robot_id": "lunar_scout_lc2_bench_v1",
+  "description": "3-DOF lunar scout arm + LC-2 hip bench on shared robot base",
+  "appendages": [
+    {
+      "appendage_id": "scout_arm",
+      "chain_id": "lunar_manipulator_chain_scout_3dof_v1",
+      "role": "manipulator_arm",
+      "mount_xyz": [0.12, 0.0, 0.45]
+    },
+    {
+      "appendage_id": "lc2_hip_bench",
+      "chain_id": "lc2_bench_hip_1dof_v1",
+      "role": "bench_joint",
+      "mount_xyz": [0.0, 0.0, 0.18]
+    }
+  ],
+  "emit": {
+    "compose_fixture": "fixtures/robot/appendage_robot_compose_v1.json",
+    "factory_gate": "dogfood_platform.robot_appendage_os_factory_signoff_v1"
+  }
+}

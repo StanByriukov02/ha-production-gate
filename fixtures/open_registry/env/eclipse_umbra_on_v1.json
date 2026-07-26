@@ -1,0 +1,34 @@
+{
+  "schema": "ha_eclipse_umbra_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "f_e=(1/pi)*acos(sqrt(r^2-R^2)/r) at beta=0; GEO=>f~0 teaching",
+  "units": { "r": "km", "R": "km", "f_e": "0..1", "T": "s" },
+  "on_sources": [
+    {
+      "id": "circular_umbra_fraction",
+      "cite": "circular orbit beta=0 umbra fraction teaching f_e=(1/π)acos(√(r²−R²)/r) (not full β-geometry ephemeris)",
+      "used": ["f_eclipse"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate eclipse-umbra --catalog <path> --orbit <id>"
+  },
+  "honesty": ["teaching beta=0 eclipse fraction — not SPICE/MEASURED", "python_not_oracle"],
+  "orbits": {
+    "leo": {
+      "label": "LEO Dual Hostile (long eclipse share)",
+      "r_km": 6778.0,
+      "R_earth_km": 6371.0,
+      "period_s": 5400.0
+    },
+    "geo": {
+      "label": "GEO Dual Safe (f≈0 at beta=0 teaching floor)",
+      "r_km": 42164.0,
+      "R_earth_km": 6371.0,
+      "period_s": 86164.0
+    }
+  },
+  "defaults": { "orbit": "leo" },
+  "dual_anchors": { "safe_orbit": "geo", "hostile_orbit": "leo" }
+}

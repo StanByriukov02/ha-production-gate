@@ -1,0 +1,10 @@
+{
+  "servo_bind_id": "appendage_multi_field_servo_v1",
+  "robot_compose": "fixtures/robot/appendage_robot_compose_v1.json",
+  "servo_clock_hz": 200.0,
+  "iron_dt_hz": 20000.0,
+  "field_calibration_samples": "fixtures/robot/appendage_field_calibration_samples_v0.json",
+  "proof_tier": "MULTI_APPENDAGE_FIELD_SERVO_SLICE",
+  "tabu": "claim field-verified multi-appendage RT servo",
+  "deferred": ["AD_IRON_HIL_PHASE_LOCK"]
+}

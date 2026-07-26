@@ -1,0 +1,15 @@
+{
+  "catalog_id": "torso_spine_material_catalog_v1",
+  "status": "ADAPT",
+  "product_ready": false,
+  "baseline_torso_mass_kg": 1.85,
+  "baseline_alloy_id": "al_6061_t6_extrusion",
+  "alloy_catalog": "fixtures/robot/lunar_lightweight_frame_alloys_v1.json",
+  "mass_band_kg": {"min": 1.2, "max": 3.2},
+  "honesty": {
+    "adapt_not_measured": true,
+    "volume_from_urdf_visual_bbox": true,
+    "not_per_link_step": true
+  },
+  "tabu": ["claim MEASURED mass ledger", "claim flight cert torso"]
+}

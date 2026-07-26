@@ -1,0 +1,63 @@
+{
+  "bind_id": "site_geometry_bind_v1",
+  "oracle": "CITED_BIND",
+  "closed_at": "2026-06-16",
+  "closes_gaps": ["GAP-MR-07", "A1-1", "D1"],
+  "evidence_stack": [
+    {"id": "E1", "source": "Zuber 2012 Nature LOLA", "role": "21 km rim · 4.1 km depth", "cite": "SK-01", "confidence": "HIGH"},
+    {"id": "E2", "source": "Spudis 2008 GRL", "role": "massif slope ≤15° · asymmetric wall illumination", "cite": "SK-13", "confidence": "HIGH"},
+    {"id": "E3", "source": "Fincannon 2007 NASA TM", "role": "rim site A1 illumination >95%", "cite": "SK-15", "confidence": "HIGH"}
+  ],
+  "crater": {
+    "rim_diameter_km": 21.0,
+    "depth_rim_to_floor_km": 4.1,
+    "depth_uncertainty_km": 0.05,
+    "depth_diameter_ratio": 0.195,
+    "center_lat_deg": -89.655,
+    "center_lon_deg": 129.174,
+    "cite": ["SK-01", "SK-02", "SK-03", "SK-04"]
+  },
+  "massif": {
+    "footprint_km_north_south": 120.0,
+    "footprint_km_east_west": 50.0,
+    "slope_max_deg": 15.0,
+    "cite": ["SK-13", "SK-14"]
+  },
+  "illumination": {
+    "rim_annual_frac": 0.96,
+    "rim_worst_lunar_day_shadow_h_min": 50.0,
+    "rim_worst_lunar_day_shadow_h_max": 60.0,
+    "cite": ["SK-15", "SK-16"]
+  },
+  "path_segments": [
+    {
+      "segment_id": "rim_sun_leg",
+      "zone_id": "rim_sun",
+      "path_fraction": 0.15,
+      "slope_deg": 8.0,
+      "illumination_frac": 0.96,
+      "asymmetric_wall": "west_brighter",
+      "cite": ["SK-15", "SPUDIS-L0-08"]
+    },
+    {
+      "segment_id": "massif_descent",
+      "zone_id": "massif_traverse",
+      "path_fraction": 0.55,
+      "slope_deg": 12.0,
+      "illumination_frac": 0.72,
+      "asymmetric_wall": "west_brighter",
+      "cite": ["SK-13", "SPUDIS-L0-08"]
+    },
+    {
+      "segment_id": "psr_approach",
+      "zone_id": "psr_floor",
+      "path_fraction": 0.30,
+      "slope_deg": 10.0,
+      "illumination_frac": 0.04,
+      "asymmetric_wall": "floor_psr",
+      "cite": ["SK-07", "SK-10"]
+    }
+  ],
+  "harness_module": "dogfood_platform.lunar_site_geometry_v1",
+  "falsifier": "weighted path_km > depth/sin(15°) at massif segment; rim_duty > 0.5 for LC-2 default embed"
+}

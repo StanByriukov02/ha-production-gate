@@ -1,0 +1,8 @@
+{
+  "bind_id": "torso_head_mechanical_compose_v1",
+  "torso_proof_tier": "TORSO_SPINE_MECHANICAL_SLICE",
+  "head_proof_tier": "HEAD_NECK_MECHANICAL_SLICE",
+  "depends": ["BG_torso_mechanical", "BH_head_mechanical", "AQ_full_body", "BC_dual_region"],
+  "deferred_ids": ["TORSO_IRON_HIL", "PERCEPTION_MOUNT_BIND", "TORSO_PER_LINK_STEP"],
+  "tabu": ["claim full body mechanical MEASURED", "skip BG/BH receipts"]
+}

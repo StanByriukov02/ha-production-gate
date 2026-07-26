@@ -1,0 +1,292 @@
+{
+  "manifest_id": "chip_g6_design_browser_manifest_v1",
+  "timestamp_utc": "2026-07-04T10:32:58.676565+00:00",
+  "canon": "docs/HwatomOrgOS/06_2BRAIN/DOGFOOD/chain/CHIP_ASSEMBLY_VISUAL_PROGRAM_V1.md",
+  "browser_url": "http://127.0.0.1:4178/dogfood/chip_g6_design_browser_v1.html",
+  "reference": "https://boardrepo.com/browse",
+  "gate": "G6.4",
+  "module_count": 10,
+  "modules": [
+    {
+      "module_id": "chip_g6_transistor_device_v1",
+      "family": "L1_transistor_device",
+      "honesty": "Teaching fin array \u2014 cites LC2 device widths \u00b7 not GDS",
+      "transistor_cite": {
+        "slot": "STD_CELL_NAND2_N_TR",
+        "value": 4,
+        "visual": "10x10 fin teaching grid"
+      },
+      "step": "fixtures/cad/g6/chip_g6_transistor_device_v1.step",
+      "stl": "fixtures/cad/g6/chip_g6_transistor_device_v1.stl",
+      "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_transistor_device_v1_views_v1.png",
+      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_transistor_device_v1.step",
+      "tags": [
+        "g6"
+      ]
+    },
+    {
+      "module_id": "chip_g6_cell_sram_mac_v1",
+      "family": "L2_cell_sram_mac",
+      "honesty": "Macro teaching blocks \u2014 cites MAC_ARRAY \u00b7 not placed netlist",
+      "transistor_cite": {
+        "slot": "SRAM_6T_N_TR",
+        "value": 6,
+        "visual": "6T bitcell row"
+      },
+      "step": "fixtures/cad/g6/chip_g6_cell_sram_mac_v1.step",
+      "stl": "fixtures/cad/g6/chip_g6_cell_sram_mac_v1.stl",
+      "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_cell_sram_mac_v1_views_v1.png",
+      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_cell_sram_mac_v1.step",
+      "tags": [
+        "g6"
+      ]
+    },
+    {
+      "module_id": "chip_g6_lc2_tile_v1",
+      "family": "L3_lc2_tile",
+      "honesty": "LC2 tile stack teaching \u2014 cites tile footprint \u00b7 not routed tile GDS",
+      "transistor_cite": {
+        "slot": "TOTAL_TRANSISTOR_COUNT_TILE",
+        "value": 1064,
+        "visual": "12x12 fin grid on tile top"
+      },
+      "step": "fixtures/cad/g6/chip_g6_lc2_tile_v1.step",
+      "stl": "fixtures/cad/g6/chip_g6_lc2_tile_v1.stl",
+      "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_lc2_tile_v1_views_v1.png",
+      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_lc2_tile_v1.step",
+      "tags": [
+        "g6"
+      ]
+    },
+    {
+      "module_id": "chip_g6_compute_carrier_v1",
+      "family": "L_carrier_compute_die",
+      "honesty": "INVENT_SPECULATIVE carrier geometry \u2014 HBM class cite \u00b7 not measured silicon",
+      "transistor_cite": {
+        "slot": "TOTAL_TRANSISTOR_COUNT_DIE",
+        "value": 256000,
+        "visual": "12x12 fin grid on carrier silicon"
+      },
+      "step": "fixtures/cad/g6/chip_g6_compute_carrier_v1.step",
+      "stl": "fixtures/cad/g6/chip_g6_compute_carrier_v1.stl",
+      "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_compute_carrier_v1_views_v1.png",
+      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_compute_carrier_v1.step",
+      "tags": [
+        "compute",
+        "HBM",
+        "MMIO",
+        "die"
+      ]
+    },
+    {
+      "module_id": "chip_g6_package_substrate_v1",
+      "family": "L4_package_substrate",
+      "honesty": "Parametric teaching package \u2014 cites LC2 tile footprint \u00b7 not foundry GDS",
+      "transistor_cite": {
+        "slot": "TOTAL_TRANSISTOR_COUNT_TILE",
+        "value": 1064,
+        "visual": "9x9 fin teaching grid on die"
+      },
+      "step": "fixtures/cad/g6/chip_g6_package_substrate_v1.step",
+      "stl": "fixtures/cad/g6/chip_g6_package_substrate_v1.stl",
+      "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_package_substrate_v1_views_v1.png",
+      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_package_substrate_v1.step",
+      "tags": [
+        "package",
+        "thermal",
+        "radiation",
+        "BGA"
+      ]
+    },
+    {
+      "module_id": "chip_g6_crown_clifford_v1",
+      "family": "L_crown_clifford",
+      "honesty": "Crown cutaway teaching \u2014 cites MMIO pose chain \u00b7 not geo_prod RTL floorplan",
+      "transistor_cite": null,
+      "step": "fixtures/cad/g6/chip_g6_crown_clifford_v1.step",
+      "stl": "fixtures/cad/g6/chip_g6_crown_clifford_v1.stl",
+      "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_crown_clifford_v1_views_v1.png",
+      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_crown_clifford_v1.step",
+      "tags": [
+        "g6"
+      ]
+    },
+    {
+      "module_id": "chip_g6_dram_offchip_v1",
+      "family": "L_dram_offchip",
+      "honesty": "Host DRAM teaching \u2014 derived_min cited \u00b7 BOM GB pending operator",
+      "transistor_cite": null,
+      "step": "fixtures/cad/g6/chip_g6_dram_offchip_v1.step",
+      "stl": "fixtures/cad/g6/chip_g6_dram_offchip_v1.stl",
+      "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_dram_offchip_v1_views_v1.png",
+      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_dram_offchip_v1.step",
+      "tags": [
+        "g6"
+      ]
+    },
+    {
+      "module_id": "chip_g6_cryo_power_v1",
+      "family": "L_cryo_power",
+      "honesty": "Cryo island teaching \u2014 GAP_NAMED \u00b7 LSIC screen @ 50K \u00b7 not flight PMIC",
+      "transistor_cite": null,
+      "step": "fixtures/cad/g6/chip_g6_cryo_power_v1.step",
+      "stl": "fixtures/cad/g6/chip_g6_cryo_power_v1.stl",
+      "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_cryo_power_v1_views_v1.png",
+      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_cryo_power_v1.step",
+      "tags": [
+        "g6"
+      ]
+    },
+    {
+      "module_id": "chip_g6_tier_j_joint_mount_v1",
+      "family": "robot_tier_j_joint_mount",
+      "honesty": "Tier-J per-joint mount \u2014 ring drain + MCU + motor \u00b7 cites robot factory slots",
+      "transistor_cite": null,
+      "step": "fixtures/cad/g6/chip_g6_tier_j_joint_mount_v1.step",
+      "stl": "fixtures/cad/g6/chip_g6_tier_j_joint_mount_v1.stl",
+      "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_tier_j_joint_mount_v1_views_v1.png",
+      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_tier_j_joint_mount_v1.step",
+      "tags": [
+        "robot",
+        "tier-J",
+        "MCU",
+        "mount"
+      ]
+    },
+    {
+      "module_id": "chip_g6_robot_chassis_interface_v1",
+      "family": "robot_chassis_interface",
+      "honesty": "Package\u2194chassis interface teaching \u2014 cites IFT-2 R1 \u00b7 not full chassis CAD",
+      "transistor_cite": null,
+      "step": "fixtures/cad/g6/chip_g6_robot_chassis_interface_v1.step",
+      "stl": "fixtures/cad/g6/chip_g6_robot_chassis_interface_v1.stl",
+      "preview_png": "results/platform_bpass/chip/visual_g6/chip_g6_robot_chassis_interface_v1_views_v1.png",
+      "viewer_url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cg6&file=chip_g6_robot_chassis_interface_v1.step",
+      "tags": [
+        "g6"
+      ]
+    }
+  ],
+  "physics_overlay": {
+    "mode": "lunar_package_physics",
+    "slots": {
+      "PKG_THETA_JA_C_W": {
+        "value": 46082.5026,
+        "unit": "C/W",
+        "cite": "MOON_PACKAGE_THERMAL_PATH R_series / LC2 footprint \u2014 junction\u2192lunar ambient through burial stack",
+        "bind": "results/platform_bpass/chip/CHIP_L4_PACKAGE_CLOSURE_BIND_v1.json"
+      },
+      "SHIELD_AREAL_G_CM2": {
+        "value": 4.0,
+        "unit": "g/cm2",
+        "cite": "RADIATION_SHIELD_BIND spe_regolith below_30day",
+        "bind": "results/platform_bpass/moon/RADIATION_SHIELD_BIND_v1.json"
+      },
+      "TIM_K_W_MK": {
+        "value": 5.0,
+        "unit": "W/mK",
+        "cite": "LC2_PACKAGE_HARNESS tim_silicone_class k=5.0 W/mK \u00b7 die attach PACKAGE_PROXY"
+      }
+    },
+    "legend": [
+      {
+        "id": "radiation_in",
+        "label": "Lunar SPE / albedo flux (incoming)",
+        "color": "#ff6b4a"
+      },
+      {
+        "id": "shield_atten",
+        "label": "Regolith shield attenuation",
+        "color": "#c4a574"
+      },
+      {
+        "id": "die_heat",
+        "label": "Die dissipation \u2192 junction",
+        "color": "#ff3b30"
+      },
+      {
+        "id": "thermal_path",
+        "label": "\u03b8_ja burial stack \u2192 ambient",
+        "color": "#4a9eff"
+      }
+    ],
+    "honesty": "Teaching cross-section \u2014 cites slot binds \u00b7 not TCAD mesh"
+  },
+  "radiation_scene": {
+    "path": "fixtures/twin/chip_g6_radiation_scene_v1.json",
+    "scene_id": "chip_g6_radiation_scene_v1",
+    "gate": "G6.6"
+  },
+  "assembly": {
+    "insertion_order": [
+      "chip_g6_robot_chassis_interface_v1",
+      "chip_g6_tier_j_joint_mount_v1",
+      "chip_g6_package_substrate_v1",
+      "chip_g6_compute_carrier_v1",
+      "chip_g6_crown_clifford_v1",
+      "chip_g6_dram_offchip_v1",
+      "chip_g6_cryo_power_v1"
+    ],
+    "cutaway_png": "results/platform_bpass/chip/visual_g6/chip_g6_assembly_cutaway_v1.png",
+    "exploded_png": "results/platform_bpass/chip/visual_g6/chip_g6_assembly_exploded_v1.png",
+    "clearance_verdict": "G6_CLEARANCE_PASS"
+  },
+  "gate_board": {
+    "json": "results/platform_bpass/chip/CHIP_G6_VISUAL_GATE_BOARD_v1.json",
+    "markdown": "results/platform_bpass/chip/CHIP_G6_VISUAL_GATE_BOARD_v1.md",
+    "verdict": "CHIP_ASSEMBLY_VISUAL_G6_4_PASS"
+  },
+  "sidecars": [
+    {
+      "status": "present",
+      "step": "fixtures/cad/g6/chip_g6_cell_sram_mac_v1.step",
+      "glb": "fixtures/cad/g6/.chip_g6_cell_sram_mac_v1.step.glb"
+    },
+    {
+      "status": "present",
+      "step": "fixtures/cad/g6/chip_g6_compute_carrier_v1.step",
+      "glb": "fixtures/cad/g6/.chip_g6_compute_carrier_v1.step.glb"
+    },
+    {
+      "status": "present",
+      "step": "fixtures/cad/g6/chip_g6_crown_clifford_v1.step",
+      "glb": "fixtures/cad/g6/.chip_g6_crown_clifford_v1.step.glb"
+    },
+    {
+      "status": "present",
+      "step": "fixtures/cad/g6/chip_g6_cryo_power_v1.step",
+      "glb": "fixtures/cad/g6/.chip_g6_cryo_power_v1.step.glb"
+    },
+    {
+      "status": "present",
+      "step": "fixtures/cad/g6/chip_g6_dram_offchip_v1.step",
+      "glb": "fixtures/cad/g6/.chip_g6_dram_offchip_v1.step.glb"
+    },
+    {
+      "status": "present",
+      "step": "fixtures/cad/g6/chip_g6_lc2_tile_v1.step",
+      "glb": "fixtures/cad/g6/.chip_g6_lc2_tile_v1.step.glb"
+    },
+    {
+      "status": "present",
+      "step": "fixtures/cad/g6/chip_g6_package_substrate_v1.step",
+      "glb": "fixtures/cad/g6/.chip_g6_package_substrate_v1.step.glb"
+    },
+    {
+      "status": "present",
+      "step": "fixtures/cad/g6/chip_g6_robot_chassis_interface_v1.step",
+      "glb": "fixtures/cad/g6/.chip_g6_robot_chassis_interface_v1.step.glb"
+    },
+    {
+      "status": "present",
+      "step": "fixtures/cad/g6/chip_g6_tier_j_joint_mount_v1.step",
+      "glb": "fixtures/cad/g6/.chip_g6_tier_j_joint_mount_v1.step.glb"
+    },
+    {
+      "status": "present",
+      "step": "fixtures/cad/g6/chip_g6_transistor_device_v1.step",
+      "glb": "fixtures/cad/g6/.chip_g6_transistor_device_v1.step.glb"
+    }
+  ],
+  "verdict": "G6_DESIGN_BROWSER_READY"
+}

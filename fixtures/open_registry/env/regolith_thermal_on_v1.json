@@ -1,0 +1,90 @@
+{
+  "schema": "ha_regolith_thermal_k_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "k = k_solid + b_rad * T^3; if T < t_cryo: k *= cryo_scale",
+  "units": {
+    "k": "W/(m·K)",
+    "t": "K",
+    "b_rad": "W/(m·K^4)"
+  },
+  "on_sources": [
+    {
+      "id": "sakatani_vacuum_k_t",
+      "cite": "Sakatani LPSC 2017 #1552 · Heiken Lunar Sourcebook k band",
+      "used": ["highland_regolith_loose", "highland_regolith_compact"]
+    },
+    {
+      "id": "woods_cryo_leg",
+      "cite": "Woods-Robinson 2019 · k order lower below ~150 K",
+      "used": ["cryo_leg"]
+    },
+    {
+      "id": "apollo_heatflow_langseth",
+      "cite": "Langseth Apollo 15/17 heat-flow · Lunar Sourcebook §9 (published k depth class)",
+      "used": ["apollo_heatflow_cited_band"],
+      "refused": ["Apollo site MEASURED claim for our Dual teaching materials"]
+    }
+  ],
+  "apollo_heatflow_cited_band": {
+    "role": "on_sourced",
+    "t_k": 252.0,
+    "k_band_w_mk": [0.009, 0.017],
+    "depth_class_m": [1.0, 2.5],
+    "on_cite": {
+      "source": "Langseth Apollo 15/17 heat-flow (via Heiken Lunar Sourcebook §9 class)",
+      "note": "published deep-regolith k class — not our desk MEASURED"
+    },
+    "honesty": [
+      "ε_cited_not_our_field",
+      "surface teaching materials ≠ Apollo probe depth"
+    ]
+  },
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate thermal-k --catalog <path> --material-id <id> --t-k <T> [--cryo]"
+  },
+  "honesty": [
+    "teaching ADAPT k(T) — not Apollo heat-flow MEASURED at site",
+    "cryo_leg is order-of-magnitude Woods ADAPT until full k(T,rho)",
+    "python_not_oracle"
+  ],
+  "materials": {
+    "highland_regolith_loose": {
+      "label": "Highland loose surface (Sakatani FGB analogue)",
+      "k_solid_w_mk": 0.0154,
+      "b_rad": 2.45e-10,
+      "heiken_band_w_mk": [0.0172, 0.0295],
+      "cite": ["HEIKEN-L0-05", "SAKATANI-LPSC-1552"]
+    },
+    "highland_regolith_compact": {
+      "label": "Highland compact (~60 cm)",
+      "k_solid_w_mk": 0.0175,
+      "b_rad": 2.78e-10,
+      "heiken_band_w_mk": [0.0172, 0.0295],
+      "cite": ["HEIKEN-L0-02", "SAKATANI-LPSC-1552"]
+    }
+  },
+  "cryo_leg": {
+    "t_cryo_k": 150.0,
+    "k_scale_below_t_cryo": 0.1,
+    "cite": ["WOODS-ROBINSON-2019-L0-02", "WOODS-ROBINSON-2019-L0-06"],
+    "note": "order-of-magnitude ADAPT until full Woods k(T,rho)"
+  },
+  "gates": {
+    "t_min_k": 20.0,
+    "t_max_k": 400.0
+  },
+  "defaults": {
+    "t_k": 250.0,
+    "cryo": false
+  },
+  "dual_anchors": {
+    "safe_material": "highland_regolith_compact",
+    "hostile_material": "highland_regolith_loose",
+    "safe_t_k": 250.0,
+    "hostile_t_k": 100.0,
+    "safe_cryo": false,
+    "hostile_cryo": true,
+    "cite": "Dual: compact daytime vs loose+cryo cold-trap k collapse (Sakatani/Woods teaching)"
+  }
+}

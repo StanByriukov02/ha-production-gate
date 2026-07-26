@@ -1,0 +1,46 @@
+{
+  "receipt_id": "CHIP_CLIFFORD_PRODUCTION_CROWN_GATE_RECEIPT_v1",
+  "timestamp_utc": "2026-06-30T10:06:40.224998+00:00",
+  "verdict": "PRODUCTION_CROWN_GATE_PASS",
+  "checks": [
+    {
+      "id": "h3_rust_verilator",
+      "pass": true
+    },
+    {
+      "id": "reverse_mmio_parity",
+      "pass": true
+    },
+    {
+      "id": "crown_motor_bind",
+      "pass": true
+    },
+    {
+      "id": "crown_moon_bind",
+      "pass": true
+    },
+    {
+      "id": "verilator_mmio_built",
+      "pass": true
+    },
+    {
+      "id": "live_rigid_pose_iron",
+      "pass": true,
+      "detail": "rigid_pose_verilator_iron"
+    },
+    {
+      "id": "crown_stack_full_signoff",
+      "pass": true
+    }
+  ],
+  "law": {
+    "clifford_alu_is_crown": true,
+    "chip_is_carrier": true,
+    "clifford_does_not_require_chip_for_poses": true,
+    "production_backend": "CLIFFORD_BACKEND=verilator"
+  },
+  "honesty": {
+    "waiting_m3_for_full_pass": false,
+    "cxx_role": "parity_oracle_only"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "scope_id": "appendage_dual_review_scope_v1",
+  "phase": "AE_PLUS",
+  "pair_id": "pair_composer25_composer25",
+  "sub_a": {
+    "mode": "APPENDAGE_KINEMATICS_AUDITOR",
+    "agent_path": "agents/appendage-kinematics-auditor/instructions.md",
+    "model": "composer-2.5"
+  },
+  "sub_b": {
+    "mode": "APPENDAGE_IRON_SERVO_AUDITOR",
+    "agent_path": "agents/appendage-iron-servo-auditor/instructions.md",
+    "model": "composer-2.5"
+  },
+  "must_read": [
+    "docs/agent_workflow/APPENDAGE_KINEMATICS_OS_PLAN_20260712_V1.md",
+    "docs/agent_workflow/APPENDAGE_DUAL_REVIEW_MODES_V1.md",
+    "fixtures/robot/kinematic_chain_ir_v0.json",
+    "results/platform_bpass/robot/kinematic_chain_ir_patch_v1.json",
+    "dogfood_platform/kinematic_chain_ir_v1.py",
+    "dogfood_platform/urdf_to_chain_ir_v1.py",
+    "crates/universe_kinematic/src/serial_chain_se3.rs",
+    "dogfood_platform/se3_planar_parity_v1.py",
+    "dogfood_platform/hexapod_gait_bus_v1.py",
+    "dogfood_platform/hexapod_foot_contact_v1.py",
+    "dogfood_platform/appendage_registry_persist_v1.py"
+  ],
+  "pytest_glob": "tests/test_appendage_os_*.py",
+  "factory_gate": "dogfood_platform/robot_appendage_os_factory_signoff_v1.py",
+  "tabu": [
+    "product_ready without receipt",
+    "silent canon edit of kinematic_chain_ir_v0.json",
+    "universal robot OS claims",
+    "MEASURED tier without measurement"
+  ]
+}

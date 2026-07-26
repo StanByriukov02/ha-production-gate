@@ -1,0 +1,20 @@
+{
+  "schema": "ha_public_gate_surface_v1",
+  "timestamp_utc": "2026-07-26T13:48:14.608685+00:00",
+  "source_repo": "C:\\Users\\dammi\\hardware_atom",
+  "out": "C:\\Users\\dammi\\ha-production-gate",
+  "copied_py_modules": 192,
+  "crates": [
+    "ha_physics_gate",
+    "ha_silicon_fuse",
+    "ha_energy_ledger",
+    "ha_body_identity",
+    "universe_kinematic"
+  ],
+  "missing_py": [
+    "dogfood_platform/py.typed"
+  ],
+  "missing_fixture_or_bpass": [],
+  "missing_py_count": 1,
+  "missing_fixture_count": 0
+}

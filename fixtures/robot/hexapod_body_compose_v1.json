@@ -1,0 +1,13 @@
+{
+  "compose_id": "hexapod_body_compose_v1",
+  "robot_id": "hexapod_teaching_body_v1",
+  "proof_tier": "HEXAPOD_BODY_COMPOSE_SLICE",
+  "oracle": "HEXAPOD_SIX_LEG_BUS",
+  "tabu": "claim field locomotion · claim gait MEASURED",
+  "base_frame": "body_link",
+  "body_radius_m": 0.15,
+  "leg_chain_id": "hexapod_leg_3dof_v1",
+  "leg_count": 6,
+  "mount_z_m": 0.05,
+  "deferred": ["AH_HEXAPOD_GAIT_BUS", "AI_HEXAPOD_CONTACT"]
+}

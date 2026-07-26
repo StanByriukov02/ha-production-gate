@@ -1,0 +1,47 @@
+{
+  "bind_id": "kls1_bevameter_bind_v1",
+  "oracle": "CITED_BIND",
+  "closed_at": "2026-06-16",
+  "closes_registry": ["C2-3"],
+  "augments_gap": "GAP-MR-11",
+  "status": "GOLD_ADJUNCT",
+  "evidence_stack": [
+    {
+      "id": "E6",
+      "source": "Kim et al. JASS 38:4 237-250 (2021)",
+      "role": "KLS-1 bevameter Bekker kc kφ n — Table 3",
+      "cite": "KIM-JASS-2021-TABLE3",
+      "doi": "10.5140/JASS.2021.38.4.237",
+      "confidence": "HIGH"
+    }
+  ],
+  "simulant": "KLS-1",
+  "test_setup": {
+    "plate_diameters_mm": [60, 70, 75],
+    "plate_radii_m": [0.03, 0.035, 0.0375],
+    "sinkage_rate_mm_s": 13.7,
+    "tests_count": 15,
+    "container_diameter_cm": 24,
+    "cite": ["KIM-JASS-L0-PLATES", "KIM-JASS-L0-RATE"]
+  },
+  "bekker_model": {
+    "formula": "p_kpa = (kc_kn_m / b_m + k_phi_kn_m) * z_m^n",
+    "n": 1.2594,
+    "kc_kn_per_m_n_plus_1": -44.0554,
+    "k_phi_kn_per_m_n_plus_2": 3581.8106,
+    "goodness_of_fit": 0.9,
+    "cite": "KIM-JASS-2021-TABLE3"
+  },
+  "reference_pressures_kpa_at_30mm": {
+    "plate_60mm": 26.8,
+    "plate_70mm": 28.5,
+    "plate_75mm": 29.2,
+    "note": "harness-computed from Table 3 coeffs — independent of Li JSC-1A ADAPT curve"
+  },
+  "cross_check": {
+    "adapt_closure": "GAP_MR_11_ADAPT_CLOSURE_v1.json",
+    "falsifier": "KLS-1 @30mm must fall inside LOOSE or MEDIUM q_c_30mm_kPa_band; must diverge from Li-only row at same depth"
+  },
+  "harness_module": "dogfood_platform.lunar_regolith_bearing_v1",
+  "source_slug": "intake-c2-kim-jass-kls"
+}

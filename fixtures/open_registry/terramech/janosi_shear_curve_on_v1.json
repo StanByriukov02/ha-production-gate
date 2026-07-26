@@ -1,0 +1,58 @@
+{
+  "schema": "ha_janosi_shear_curve_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "τ(j)=(c+p tanφ)(1-e^{-j/K}); H(j)=τ(j)·A; curve over j∈[0,j_max]",
+  "units": {
+    "tau": "kPa",
+    "j": "m",
+    "K": "m",
+    "p": "kPa",
+    "H": "N"
+  },
+  "on_sources": [
+    {
+      "id": "wong_janosi_hanamoto",
+      "cite": "Wong §2.4 Janosi–Hanamoto shear τ=(c+p tanφ)(1-e^{-j/K})",
+      "used": ["τ(j) curve", "τ_max", "K"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate janosi-curve --catalog <path> --soil-id <id> [--p-kpa <p>] [--j-max <m>]"
+  },
+  "honesty": [
+    "full τ(j) curve teaching — single-point shear already in bekker-eval",
+    "not MEASURED bevameter slip curve",
+    "python_not_oracle"
+  ],
+  "defaults": {
+    "p_kpa": 35.0,
+    "contact_area_m2": 0.05,
+    "j_max_m": 0.20,
+    "n_points": 11
+  },
+  "soils": {
+    "firm_lab": {
+      "c_kpa": 3.0,
+      "phi_deg": 30.0,
+      "K_m": 0.02
+    },
+    "soft_hostile": {
+      "c_kpa": 0.5,
+      "phi_deg": 15.0,
+      "K_m": 0.04
+    }
+  },
+  "dual_anchors": {
+    "safe_soil_id": "firm_lab",
+    "hostile_soil_id": "soft_hostile",
+    "j_probe_m": 0.05,
+    "p_kpa": 35.0
+  },
+  "gates": {
+    "j_max_m_min": 0.01,
+    "j_max_m_max": 2.0,
+    "n_points_min": 3,
+    "n_points_max": 101
+  }
+}

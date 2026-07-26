@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<robot name="lc2_bench_1dof_v1">
+  <!-- hip_actuator bench · lc2_joint_housing_v1 · no demo props -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.004000" rpy="0 0 0"/>
+      <geometry><box size="0.120000 0.080000 0.008000"/></geometry>
+      <material name="plate_gray"><color rgba="0.54 0.55 0.57 1"/></material>
+    </visual>
+  </link>
+
+  <link name="pcb_link">
+    <visual>
+      <origin xyz="0 0 0.000800" rpy="0 0 0"/>
+      <geometry><box size="0.030000 0.030000 0.001600"/></geometry>
+      <material name="pcb_green"><color rgba="0.12 0.35 0.18 1"/></material>
+    </visual>
+  </link>
+  <joint name="pcb_fixed" type="fixed">
+    <parent link="base_link"/><child link="pcb_link"/>
+    <origin xyz="0 0 0.008000" rpy="0 0 0"/>
+  </joint>
+
+  <link name="chip_link">
+    <visual>
+      <origin xyz="0 0 0.001400" rpy="0 0 0"/>
+      <geometry><box size="0.024000 0.024000 0.002800"/></geometry>
+      <material name="chip_dark"><color rgba="0.17 0.23 0.29 1"/></material>
+    </visual>
+  </link>
+  <joint name="chip_fixed" type="fixed">
+    <parent link="pcb_link"/><child link="chip_link"/>
+    <origin xyz="0 0 0.000800" rpy="0 0 0"/>
+  </joint>
+
+  <link name="motor_body_link">
+    <visual>
+      <origin xyz="0 0 0.017500" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.021000" length="0.035000"/></geometry>
+      <material name="motor"><color rgba="0.35 0.38 0.42 1"/></material>
+    </visual>
+  </link>
+  <joint name="motor_fixed" type="fixed">
+    <parent link="base_link"/><child link="motor_body_link"/>
+    <origin xyz="0 -0.026000 0.008000" rpy="0 0 0"/>
+  </joint>
+
+  <link name="hip_output_link">
+    <visual>
+      <origin xyz="0.015 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.03 0.01 0.01"/></geometry>
+      <material name="shaft_arm"><color rgba="0.25 0.45 0.75 1"/></material>
+    </visual>
+  </link>
+  <joint name="hip_joint" type="revolute">
+    <parent link="motor_body_link"/><child link="hip_output_link"/>
+    <origin xyz="0 0 0.035000" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="0.785398" effort="5" velocity="2"/>
+  </joint>
+</robot>

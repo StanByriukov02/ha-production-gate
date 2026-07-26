@@ -1,0 +1,57 @@
+{
+  "schema": "ha_albedo_dose_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "f_alb=f0*site*(1+(m_f-1)*exp(-0.5*((g-g_peak)/sigma)^2)); total=anchor*(1+(m_t-1)*gauss); albedo=total*f_alb; incident=total-albedo",
+  "units": {
+    "dose": "Gy",
+    "shield": "g/cm^2",
+    "fraction": "dimensionless"
+  },
+  "on_sources": [
+    {
+      "id": "l0_sel_01_larc",
+      "cite": "SELINE LaRC Q&A albedo fraction 25–35%",
+      "used": ["f0=0.30", "ceiling=0.65"]
+    },
+    {
+      "id": "matthia_2024",
+      "cite": "Matthia & Berger 2024 Space Weather — neutron buildup peak ~90 g/cm2",
+      "used": ["peak_areal", "fraction_multiplier", "total_dose_multiplier", "sigma"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate albedo-dose --catalog <path> --site-class <id> --shield-g-cm2 <g> --anchor-gy <D> [--see-base <s>]"
+  },
+  "honesty": [
+    "SELINE-surrogate PROXY — not CREME FEM",
+    "not field MEASURED",
+    "python_not_oracle"
+  ],
+  "f0": 0.3,
+  "fraction_ceiling": 0.65,
+  "l0_band": [0.25, 0.35],
+  "shield_paradox": {
+    "peak_areal_g_cm2": 90.0,
+    "fraction_multiplier_at_peak": 1.67,
+    "total_dose_multiplier_at_peak": 1.12,
+    "sigma_g_cm2": 40.0
+  },
+  "site_class_modifiers": {
+    "highland_regolith": { "f_albedo_scale": 1.0 },
+    "mare_regolith": { "f_albedo_scale": 0.92 },
+    "magnetic_anomaly": { "f_albedo_scale": 1.08 }
+  },
+  "see_albedo_coupling": {
+    "base_see_per_yr": 0.12,
+    "albedo_neutron_gain": 0.85
+  },
+  "dual_anchors": {
+    "safe_site": "highland_regolith",
+    "hostile_site": "magnetic_anomaly",
+    "safe_shield_g_cm2": 10.0,
+    "hostile_shield_g_cm2": 90.0,
+    "anchor_gy": 1.0,
+    "cite": "Dual: away from Matthia peak vs peak~90 g/cm2 + magnetic anomaly site"
+  }
+}

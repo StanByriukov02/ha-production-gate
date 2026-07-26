@@ -1,0 +1,127 @@
+{
+  "registry_id": "ROBOT_MATERIALS_REGISTRY_v1",
+  "track": "OPEN_SEED_EARTH_LAB",
+  "environment_primary": "earth_lab_298k",
+  "honesty": [
+    "CITED_BIND / ADAPT teaching rows",
+    "not MEASURED field",
+    "not product_ready",
+    "open_seed — not lunar platform_bpass dump"
+  ],
+  "materials": {
+    "frame": {
+      "material_id": "al_6061_t6_extrusion",
+      "alloy": "6061-T6",
+      "density_kg_m3": 2700.0,
+      "youngs_gpa": 69.0,
+      "yield_mpa": 240.0,
+      "tier": "CITED_BIND",
+      "cite": "ASM Handbook Vol 2 — 6061-T6 typical properties",
+      "extrusion_profile": "30x30x2_mm_hollow"
+    },
+    "wheel_tread": {
+      "material_id": "pu_ester_shore_90a",
+      "shore_a": 90,
+      "density_kg_m3": 1200.0,
+      "tier": "CITED_BIND",
+      "cite": "ISTVS wheel-terrain class — lab rover PU tread (teaching)"
+    },
+    "wheel_bearing": {
+      "material_id": "ss_440c_sealed_deep_groove",
+      "tier": "CITED_BIND",
+      "cite": "teaching sealed deep-groove proxy — not flight L10",
+      "friction_coeff_proxy": 0.012,
+      "l10_hours_proxy": 20000.0
+    },
+    "joint_seal": {
+      "material_id": "nbr_lip_seal_b3",
+      "seal_class": "B3",
+      "ingress_scale": 0.55,
+      "label": "lip_seal_standard",
+      "tier": "CITED_BIND",
+      "cite": "teaching seal class B3 — earth lab default"
+    }
+  },
+  "material_variants": {
+    "wheel_tread": {
+      "pu_ester_shore_70a": {
+        "material_id": "pu_ester_shore_70a",
+        "shore_a": 70,
+        "density_kg_m3": 1180.0,
+        "wheel_width_cm": 8.6,
+        "wheel_diameter_cm": 20.0,
+        "ingress_mult_factor": 1.04,
+        "tier": "ADAPT",
+        "cite": "soft PU spreads contact patch (ADAPT)",
+        "parent_key": "wheel_tread"
+      },
+      "pu_ester_shore_95a": {
+        "material_id": "pu_ester_shore_95a",
+        "shore_a": 95,
+        "density_kg_m3": 1220.0,
+        "wheel_width_cm": 7.6,
+        "wheel_diameter_cm": 20.0,
+        "ingress_mult_factor": 0.98,
+        "tier": "ADAPT",
+        "cite": "hard PU narrows patch (ADAPT)",
+        "parent_key": "wheel_tread"
+      }
+    }
+  },
+  "seal_catalog": {
+    "B1": {
+      "material_id": "nbr_fully_sealed_oem_b1",
+      "seal_class": "B1",
+      "ingress_scale": 0.15,
+      "label": "fully_sealed_oem",
+      "tier": "ADAPT"
+    },
+    "B2": {
+      "material_id": "labyrinth_wiper_b2",
+      "seal_class": "B2",
+      "ingress_scale": 0.35,
+      "label": "labyrinth_wiper",
+      "tier": "ADAPT"
+    },
+    "B3": {
+      "material_id": "nbr_lip_seal_b3",
+      "seal_class": "B3",
+      "ingress_scale": 0.55,
+      "label": "lip_seal_standard",
+      "tier": "CITED_BIND"
+    },
+    "B4": {
+      "material_id": "minimal_cover_b4",
+      "seal_class": "B4",
+      "ingress_scale": 0.8,
+      "label": "minimal_cover",
+      "tier": "ADAPT"
+    },
+    "B5": {
+      "material_id": "open_joint_b5",
+      "seal_class": "B5",
+      "ingress_scale": 1.0,
+      "label": "open_joint",
+      "tier": "ADAPT"
+    }
+  },
+  "active_selection": {
+    "wheel_tread": "pu_ester_shore_90a",
+    "joint_seal_physics": "B3",
+    "env_dust_seal": "B2"
+  },
+  "geometry_assumptions": {
+    "footprint_mm": { "length": 620, "width": 420, "height": 280 },
+    "frame_beam_span_m": 0.62,
+    "extrusion_outer_m": 0.03,
+    "extrusion_wall_m": 0.002,
+    "wheel_diameter_cm": 20.0,
+    "wheel_width_cm": 8.0,
+    "hub_fraction_of_wheel_mass": 0.35,
+    "note": "30x30x2 lab cart rail — teaching geometry"
+  },
+  "mass_ledger_anchor": {
+    "total_kg": 50.0,
+    "note": "teaching mass anchor — not MEASURED ledger"
+  }
+}

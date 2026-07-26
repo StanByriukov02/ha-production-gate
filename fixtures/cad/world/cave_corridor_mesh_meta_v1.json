@@ -1,0 +1,13 @@
+{
+  "artifact_id": "cave_corridor_mesh_v1",
+  "generator": "cad/envelope/cave_corridor_mesh_v1.py",
+  "dataset_bind": "fixtures/slam/cave_corridor_dataset_v1.json",
+  "planes_cite": "slam_pga_primitives_v1.synthetic_cave_corridor",
+  "dims_m": {
+    "width": 4.0,
+    "length": 10.0,
+    "wall_height": 2.5
+  },
+  "oracle": "DATASET_ENGINE_SIM",
+  "honesty": "Teaching corridor shell \u2014 not photogrammetry \u00b7 separate from LC-2 bench scale"
+}

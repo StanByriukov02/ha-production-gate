@@ -1,0 +1,20 @@
+{
+  "artifact_id": "robot_r7_power_bay_v1",
+  "module_family": "R4_power_bay",
+  "features": {
+    "cell_slots": 3,
+    "bms_shroud": true,
+    "fuse_block": true,
+    "bus_bar": true
+  },
+  "bbox_mm": {
+    "x": 212.0,
+    "y": 140.0,
+    "z": 73.5
+  },
+  "cites": [
+    "ROBOT_W3_BMS_REC_CLASS",
+    "ROBOT_POWER_I_PEAK"
+  ],
+  "honesty": "12V power bay teaching \u2014 cites ROBOT_POWER_I_PEAK \u00b7 not flight BMS layout"
+}

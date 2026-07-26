@@ -1,0 +1,19 @@
+{
+  "artifact_id": "robot_r7_chip_mount_island_v1",
+  "module_family": "R9_chip_mount_island",
+  "features": {
+    "package_pocket": true,
+    "thermal_posts": 2,
+    "vi2_connector": true
+  },
+  "bbox_mm": {
+    "x": 150.0,
+    "y": 110.0,
+    "z": 22.0
+  },
+  "cites": [
+    "CHIP_ROBOT_VI2_INTEGRITY_BRIDGE_RECEIPT_v1.json",
+    "ROBOT_THETA_JA_MOUNT"
+  ],
+  "honesty": "Chip chest mount \u2014 VI-2 interface \u00b7 cites chip package footprint class"
+}

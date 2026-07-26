@@ -1,0 +1,69 @@
+{
+  "schema": "ha_orbital_visviva_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "v=√(μ(2/r−1/a)); T=2π√(a³/μ); circular: a=r, v=√(μ/r)",
+  "units": {
+    "mu": "m^3/s^2",
+    "r": "m",
+    "a": "m",
+    "v": "m/s",
+    "T": "s"
+  },
+  "on_sources": [
+    {
+      "id": "vis_viva",
+      "cite": "vis-viva equation v² = μ(2/r − 1/a)",
+      "used": ["v"]
+    },
+    {
+      "id": "kepler_period",
+      "cite": "Kepler T = 2π √(a³/μ)",
+      "used": ["period_s"]
+    },
+    {
+      "id": "earth_mu",
+      "cite": "μ_earth ≈ 3.986004418e14 m³/s² (WGS teaching)",
+      "used": ["mu_earth"]
+    },
+    {
+      "id": "moon_mu",
+      "cite": "μ_moon ≈ 4.9048695e12 m³/s² teaching",
+      "used": ["mu_moon"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate orbital-visviva --catalog <path> --body <earth|moon> --r-km <r> [--a-km <a>]"
+  },
+  "honesty": [
+    "two-body Kepler teaching — not n-body / perturbation",
+    "not MEASURED ephemeris",
+    "python_not_oracle"
+  ],
+  "bodies": {
+    "earth": {
+      "mu_m3_s2": 3.986004418e14,
+      "label": "Earth"
+    },
+    "moon": {
+      "mu_m3_s2": 4.9048695e12,
+      "label": "Moon"
+    }
+  },
+  "defaults": {
+    "body": "earth",
+    "r_km": 6778.0,
+    "a_km": 6778.0
+  },
+  "dual_anchors": {
+    "leo_r_km": 6778.0,
+    "geo_r_km": 42164.0,
+    "body": "earth"
+  },
+  "gates": {
+    "r_km_min": 100.0,
+    "r_km_max": 1.0e6,
+    "a_km_min": 100.0,
+    "a_km_max": 1.0e6
+  }
+}

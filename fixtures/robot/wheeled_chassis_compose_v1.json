@@ -1,0 +1,16 @@
+{
+  "compose_id": "wheeled_chassis_compose_v1",
+  "robot_id": "lc2_combat_carrier_4wd_v1",
+  "proof_tier": "WHEELED_CHASSIS_COMPOSE_SLICE",
+  "oracle": "FOUR_WD_TREE_TERRAMECH_BIND",
+  "status": "DOGFOOD_ACTIVE",
+  "tabu": "claim lunar rover on wheels",
+  "urdf": "fixtures/cad/lc2_combat_carrier_4wd_v1.urdf",
+  "tree_id": "lc2_combat_carrier_4wd_v1",
+  "wheel_links": ["wheel_fl_link", "wheel_fr_link", "wheel_rl_link", "wheel_rr_link"],
+  "terramech": {
+    "meters": 10.0,
+    "rover_mass_kg": 120.0,
+    "wheel_diameter_cm": 20.0
+  }
+}

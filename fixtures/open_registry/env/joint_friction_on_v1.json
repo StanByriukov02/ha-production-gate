@@ -1,0 +1,36 @@
+{
+  "schema": "ha_joint_friction_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "F_f=mu*N; tau_f=F_f*r_eff",
+  "units": { "mu": "1", "N": "N", "F": "N", "tau": "N·m" },
+  "on_sources": [
+    {
+      "id": "coulomb_joint",
+      "cite": "Coulomb dry friction teaching F=μN on joint preload (not Stribeck/MEASURED tribometer)",
+      "used": ["F_f", "tau_f"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate joint-friction --catalog <path> --pack <id> --n-n <N>"
+  },
+  "honesty": ["teaching Coulomb joint — not elastohydrodynamic MEASURED", "python_not_oracle"],
+  "packs": {
+    "greased_safe": {
+      "label": "greased Dual Safe",
+      "mu": 0.08,
+      "r_eff_m": 0.025
+    },
+    "dry_hostile": {
+      "label": "dry/dust Dual Hostile",
+      "mu": 0.45,
+      "r_eff_m": 0.025
+    }
+  },
+  "defaults": { "pack": "greased_safe", "n_n": 400.0 },
+  "dual_anchors": {
+    "safe_pack": "greased_safe",
+    "hostile_pack": "dry_hostile",
+    "n_n": 500.0
+  }
+}

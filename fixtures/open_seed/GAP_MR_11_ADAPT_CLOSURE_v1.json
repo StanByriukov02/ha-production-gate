@@ -1,0 +1,59 @@
+{
+  "gap_id": "GAP-MR-11",
+  "title": "Regolith bearing / sinkage class (open seed)",
+  "verdict": "ADAPT_OPEN_SEED",
+  "honesty": [
+    "teaching LOOSE/MEDIUM/DENSE bands",
+    "not field MEASURED",
+    "open_seed — not full moon corpus dump"
+  ],
+  "W_moon_harness": {
+    "param_root": "regolith_bearing",
+    "classes": [
+      {
+        "id": "LOOSE",
+        "Dr_pct_max": 20,
+        "G_lunar_g_kPa_per_mm": 0.5,
+        "q_c_30mm_kPa_band": [40, 90]
+      },
+      {
+        "id": "MEDIUM",
+        "Dr_pct": [20, 65],
+        "G_lunar_g_kPa_per_mm": [1.0, 1.8],
+        "q_c_30mm_kPa_band": [90, 250]
+      },
+      {
+        "id": "DENSE",
+        "Dr_pct_min": 65,
+        "G_lunar_g_kPa_per_mm": 2.0,
+        "q_c_30mm_kPa_band": [200, 450]
+      }
+    ]
+  },
+  "dual_law_anchors": {
+    "note": "teaching Dual pressure/slope — derived from MEDIUM q_c band + SK-13 slope_limit; not MEASURED rover foot meter",
+    "safe": {
+      "contact_pressure_kpa": 80.0,
+      "slope_deg": 8.0,
+      "slope_limit_deg": 15.0,
+      "band_rule": "contact < MEDIUM.q_c_30mm_kPa_band[0]",
+      "slope_rule": "slope < massif_traverse.slope_limit_deg"
+    },
+    "hostile": {
+      "contact_pressure_kpa": 280.0,
+      "slope_deg": 18.0,
+      "slope_limit_deg": 15.0,
+      "band_rule": "contact > MEDIUM.q_c_30mm_kPa_band[1]",
+      "slope_rule": "slope > massif_traverse.slope_limit_deg"
+    }
+  },
+  "L0_measured": [
+    {
+      "id": "L0-MR11-02",
+      "claim": "Li lunar-g penetration fit (teaching)",
+      "value": "q = -1137.5*exp(-h/0.16) + 1110.9",
+      "unit": "kPa; h in m",
+      "source": "Li2025 Eq19"
+    }
+  ]
+}

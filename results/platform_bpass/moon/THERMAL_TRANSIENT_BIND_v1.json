@@ -1,0 +1,28 @@
+{
+  "bind_id": "thermal_transient_bind_v1",
+  "oracle": "CITED_BIND",
+  "closed_at": "2026-06-16",
+  "closes_gaps": ["GAP-MR-09", "GAP-MR-13"],
+  "gate": "L5",
+  "evidence_stack": [
+    {"id": "E1", "source": "SK-12 / SK-10", "role": "polar thermal swing 70-220 K envelope", "cite": "SK-09"},
+    {"id": "E2", "source": "Fincannon SK-16", "role": "worst rim shadow 50-60 h", "cite": "SK-16"},
+    {"id": "E3", "source": "Heiken regolith cp band", "role": "lumped thermal mass proxy", "cite": "HEIKEN-L0-05"}
+  ],
+  "lunar_half_period_h": 354.0,
+  "worst_shadow_h": 55.0,
+  "regolith_thermal_mass": {
+    "rho_kg_m3": 1600.0,
+    "cp_j_kg_k": 800.0,
+    "cite": "HEIKEN-L0-03-class"
+  },
+  "stack_thickness_classes_m": {
+    "lc2_micro": 0.052,
+    "traverse_berm": 0.27,
+    "habitat_shield": 2.55
+  },
+  "lumped_model": "A_transient = A_steady / sqrt(1 + (omega*tau)^2); phi = atan(omega*tau); tau = rho*cp*L/k_eff",
+  "l1_baseline": "dogfood_platform.lunar_package_thermal_path_v1",
+  "harness_module": "dogfood_platform.lunar_thermal_l5_v1",
+  "falsifier": "thin LC-2 stack: L1 and L5 agree within 10%; thick habitat: L5 swing < L1 by >=15%"
+}

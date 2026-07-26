@@ -1,0 +1,23 @@
+{
+  "bind_id": "arena_moon_coupling_bind_v1",
+  "oracle": "CITED_BIND",
+  "couples": [
+    "MOON_SHACKLETON_ANCHOR_v1.json",
+    "DUST_INGRESS_BIND_v1.json",
+    "VACUUM_RADIATIVE_BC_BIND_v1.json",
+    "LUNAR_SPACE_WEATHER_BIND_v1.json",
+    "ALBEDO_DOSE_FRACTION_BIND_v1.json",
+    "world_regolith_robot_v0 accumulation class"
+  ],
+  "default_zone": "rim_sun",
+  "soiling": {
+    "saturation_g_m2": 2.0,
+    "maps_to": "d2_soiling_frac"
+  },
+  "transport": {
+    "electrostatic_gain": 0.15,
+    "maps_to": "q_particle_proxy_mult"
+  },
+  "vault_parent": "06_2BRAIN/DOGFOOD/domains/physics/ORACLE_SEC_D2_ARENA_ENV.md",
+  "falsifier": "moon-coupled transport and D2 must exceed vacuum baseline at rim_sun; nowcast must attach charging_proxy when use_nowcast"
+}

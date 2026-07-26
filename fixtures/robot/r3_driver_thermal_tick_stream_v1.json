@@ -1,0 +1,245 @@
+{
+  "ticks": [
+    {
+      "tick": 0,
+      "i_rms_a": 7.3675,
+      "duty": 0.35,
+      "motor_t_junction_k": 309.01,
+      "driver_fet_t_junction_k": 306.61,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.2116,
+      "within_max": true
+    },
+    {
+      "tick": 1,
+      "i_rms_a": 7.4806,
+      "duty": 0.3652,
+      "motor_t_junction_k": 309.34,
+      "driver_fet_t_junction_k": 307.19,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.226,
+      "within_max": true
+    },
+    {
+      "tick": 2,
+      "i_rms_a": 7.5937,
+      "duty": 0.3804,
+      "motor_t_junction_k": 309.68,
+      "driver_fet_t_junction_k": 307.79,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.241,
+      "within_max": true
+    },
+    {
+      "tick": 3,
+      "i_rms_a": 7.7067,
+      "duty": 0.3957,
+      "motor_t_junction_k": 310.03,
+      "driver_fet_t_junction_k": 308.41,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.2566,
+      "within_max": true
+    },
+    {
+      "tick": 4,
+      "i_rms_a": 7.8198,
+      "duty": 0.4109,
+      "motor_t_junction_k": 310.38,
+      "driver_fet_t_junction_k": 309.06,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.2728,
+      "within_max": true
+    },
+    {
+      "tick": 5,
+      "i_rms_a": 7.9328,
+      "duty": 0.4261,
+      "motor_t_junction_k": 310.74,
+      "driver_fet_t_junction_k": 309.74,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.2897,
+      "within_max": true
+    },
+    {
+      "tick": 6,
+      "i_rms_a": 8.0459,
+      "duty": 0.4413,
+      "motor_t_junction_k": 311.1,
+      "driver_fet_t_junction_k": 310.44,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.3073,
+      "within_max": true
+    },
+    {
+      "tick": 7,
+      "i_rms_a": 8.1589,
+      "duty": 0.4565,
+      "motor_t_junction_k": 311.46,
+      "driver_fet_t_junction_k": 311.17,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.3255,
+      "within_max": true
+    },
+    {
+      "tick": 8,
+      "i_rms_a": 8.272,
+      "duty": 0.4717,
+      "motor_t_junction_k": 311.84,
+      "driver_fet_t_junction_k": 311.93,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.3444,
+      "within_max": true
+    },
+    {
+      "tick": 9,
+      "i_rms_a": 8.3851,
+      "duty": 0.487,
+      "motor_t_junction_k": 312.21,
+      "driver_fet_t_junction_k": 312.71,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.364,
+      "within_max": true
+    },
+    {
+      "tick": 10,
+      "i_rms_a": 8.4981,
+      "duty": 0.5022,
+      "motor_t_junction_k": 312.59,
+      "driver_fet_t_junction_k": 313.52,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.3843,
+      "within_max": true
+    },
+    {
+      "tick": 11,
+      "i_rms_a": 8.6112,
+      "duty": 0.5174,
+      "motor_t_junction_k": 312.98,
+      "driver_fet_t_junction_k": 314.36,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.4053,
+      "within_max": true
+    },
+    {
+      "tick": 12,
+      "i_rms_a": 8.7242,
+      "duty": 0.5326,
+      "motor_t_junction_k": 313.37,
+      "driver_fet_t_junction_k": 315.23,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.427,
+      "within_max": true
+    },
+    {
+      "tick": 13,
+      "i_rms_a": 8.8373,
+      "duty": 0.5478,
+      "motor_t_junction_k": 313.77,
+      "driver_fet_t_junction_k": 316.13,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.4494,
+      "within_max": true
+    },
+    {
+      "tick": 14,
+      "i_rms_a": 8.9503,
+      "duty": 0.563,
+      "motor_t_junction_k": 314.17,
+      "driver_fet_t_junction_k": 317.06,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.4726,
+      "within_max": true
+    },
+    {
+      "tick": 15,
+      "i_rms_a": 9.0634,
+      "duty": 0.5783,
+      "motor_t_junction_k": 314.58,
+      "driver_fet_t_junction_k": 318.01,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.4966,
+      "within_max": true
+    },
+    {
+      "tick": 16,
+      "i_rms_a": 9.1765,
+      "duty": 0.5935,
+      "motor_t_junction_k": 314.99,
+      "driver_fet_t_junction_k": 319.0,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.5214,
+      "within_max": true
+    },
+    {
+      "tick": 17,
+      "i_rms_a": 9.2895,
+      "duty": 0.6087,
+      "motor_t_junction_k": 315.41,
+      "driver_fet_t_junction_k": 320.02,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.5469,
+      "within_max": true
+    },
+    {
+      "tick": 18,
+      "i_rms_a": 9.4026,
+      "duty": 0.6239,
+      "motor_t_junction_k": 315.83,
+      "driver_fet_t_junction_k": 321.08,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.5732,
+      "within_max": true
+    },
+    {
+      "tick": 19,
+      "i_rms_a": 9.5156,
+      "duty": 0.6391,
+      "motor_t_junction_k": 316.26,
+      "driver_fet_t_junction_k": 322.16,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.6003,
+      "within_max": true
+    },
+    {
+      "tick": 20,
+      "i_rms_a": 9.6287,
+      "duty": 0.6543,
+      "motor_t_junction_k": 316.69,
+      "driver_fet_t_junction_k": 323.28,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.6283,
+      "within_max": true
+    },
+    {
+      "tick": 21,
+      "i_rms_a": 9.7417,
+      "duty": 0.6696,
+      "motor_t_junction_k": 317.13,
+      "driver_fet_t_junction_k": 324.43,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.657,
+      "within_max": true
+    },
+    {
+      "tick": 22,
+      "i_rms_a": 9.8548,
+      "duty": 0.6848,
+      "motor_t_junction_k": 317.57,
+      "driver_fet_t_junction_k": 325.62,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.6866,
+      "within_max": true
+    },
+    {
+      "tick": 23,
+      "i_rms_a": 9.9679,
+      "duty": 0.7,
+      "motor_t_junction_k": 318.02,
+      "driver_fet_t_junction_k": 326.83,
+      "derate_frac": 1.0,
+      "p_driver_total_w": 0.7171,
+      "within_max": true
+    }
+  ],
+  "replay_hash": "e36c1e1052623c91"
+}

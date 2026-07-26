@@ -1,0 +1,62 @@
+{
+  "schema": "ha_atm_drag_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "F_d = 0.5 · ρ · v² · Cd · A; a_d = F_d/m",
+  "units": {
+    "rho": "kg/m^3",
+    "v": "m/s",
+    "Cd": "1",
+    "A": "m^2",
+    "F": "N",
+    "a": "m/s^2"
+  },
+  "on_sources": [
+    {
+      "id": "newton_quadratic_drag",
+      "cite": "classical quadratic drag F=½ρv²CdA (teaching continuum)",
+      "used": ["F_d", "a_d"]
+    },
+    {
+      "id": "mars_co2_atm_class",
+      "cite": "Mars mean surface ρ~0.020 kg/m³ class (CO2 thin atm teaching)",
+      "used": ["rho_mars"]
+    },
+    {
+      "id": "earth_sea_level_class",
+      "cite": "Earth sea-level ρ~1.225 kg/m³ Dual anchor",
+      "used": ["rho_earth"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate atm-drag --catalog <path> --body <mars|earth|vacuum> --v <m/s>"
+  },
+  "honesty": [
+    "teaching quadratic drag — not CFD / rarefied DSMC",
+    "Mars ρ catalog class — not time-varying GCM",
+    "vacuum body => ρ=0 exact",
+    "python_not_oracle"
+  ],
+  "bodies": {
+    "mars": { "rho_kg_m3": 0.020, "label": "Mars mean surface class" },
+    "earth": { "rho_kg_m3": 1.225, "label": "Earth sea-level Dual" },
+    "vacuum": { "rho_kg_m3": 0.0, "label": "Lunar/space vacuum — zero drag" }
+  },
+  "defaults": {
+    "body": "mars",
+    "v_m_s": 20.0,
+    "cd": 1.0,
+    "area_m2": 0.5,
+    "mass_kg": 50.0
+  },
+  "dual_anchors": {
+    "safe_body": "vacuum",
+    "hostile_body": "mars",
+    "earth_body": "earth",
+    "v_m_s": 20.0
+  },
+  "gates": {
+    "v_m_s_min": 0.0,
+    "v_m_s_max": 1000.0
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "ha_optics_dust_tau_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "τ = κ · m; T = exp(-τ); A_opt = 1 - T (no specular split)",
+  "units": {
+    "m": "g/m^2",
+    "kappa": "m^2/g",
+    "tau": "1",
+    "T": "1"
+  },
+  "on_sources": [
+    {
+      "id": "beer_lambert",
+      "cite": "Beer–Lambert optical depth τ; transmittance e^{-τ}",
+      "used": ["T=exp(-τ)"]
+    },
+    {
+      "id": "stubbs_dust_loading",
+      "cite": "Stubbs/Colwell dust mass-loading class → optical depth teaching",
+      "used": ["κ mass extinction teaching"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate optics-tau --catalog <path> --mass-g-m2 <m>"
+  },
+  "honesty": [
+    "teaching Beer–Lambert — not Mie scattering / measured BRDF",
+    "κ catalog teaching extinction — not flight optics τ meter",
+    "python_not_oracle"
+  ],
+  "coeffs": {
+    "kappa_m2_per_g": 0.35
+  },
+  "dual_anchors": {
+    "clean_g_m2": 0.0,
+    "hostile_g_m2": 2.0
+  },
+  "gates": {
+    "mass_g_m2_min": 0.0,
+    "mass_g_m2_max": 50.0
+  }
+}

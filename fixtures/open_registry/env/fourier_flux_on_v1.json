@@ -1,0 +1,21 @@
+{
+  "schema": "ha_fourier_flux_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "q=k*dT/dx (1D Fourier teaching)",
+  "units": { "k": "W/m·K", "dT": "K", "dx": "m", "q": "W/m^2" },
+  "on_sources": [
+    {
+      "id": "fourier_conduction",
+      "cite": "Fourier law teaching q=k ΔT/Δx (not 3D FEM MEASURED)",
+      "used": ["q_flux"]
+    }
+  ],
+  "rust_oracle": { "crate": "ha_physics_gate", "cmd": "ha-physics-gate fourier-flux --catalog <path> --pack <id> --dt-k <dT> --dx-m <dx>" },
+  "honesty": ["teaching 1D Fourier — not FEM MEASURED", "python_not_oracle"],
+  "packs": {
+    "metal_safe": { "label": "Al conduction Dual (high flux class)", "k_w_mk": 160.0 },
+    "insul_hostile": { "label": "MLI/foam Dual (low flux / starve heat path)", "k_w_mk": 0.05 }
+  },
+  "defaults": { "pack": "metal_safe", "dt_k": 40.0, "dx_m": 0.005 },
+  "dual_anchors": { "safe_pack": "metal_safe", "hostile_pack": "insul_hostile", "dt_k": 40.0, "dx_m": 0.005 }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "ha_mohr_coulomb_slope_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "FS = c/(γ z sinθ cosθ) + tan(φ)/tan(θ); stable iff FS>=1",
+  "units": {
+    "c": "kPa",
+    "gamma": "kN/m^3",
+    "z": "m",
+    "theta": "deg",
+    "phi": "deg",
+    "FS": "1"
+  },
+  "on_sources": [
+    {
+      "id": "mohr_coulomb_infinite_slope",
+      "cite": "classic infinite-slope Mohr–Coulomb FS (geotech teaching)",
+      "used": ["FS formula"]
+    },
+    {
+      "id": "heiken_regolith_strength",
+      "cite": "Heiken Lunar Sourcebook · φ~30–50° · low cohesion class",
+      "used": ["phi_deg", "c_kpa teaching"]
+    },
+    {
+      "id": "sk13_slope_ops",
+      "cite": "Spudis/SK-13 massif slope ops ≤15° — Dual anchors only",
+      "used": ["safe/hostile theta Dual"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate mohr-slope --catalog <path> --theta-deg <t> [--z-m <z>]"
+  },
+  "honesty": [
+    "teaching infinite-slope FS — not 3D slope FEM",
+    "not MEASURED in-situ shear vane",
+    "python_not_oracle"
+  ],
+  "soil": {
+    "c_kpa": 0.1,
+    "phi_deg": 35.0,
+    "gamma_kn_m3": 2.43
+  },
+  "defaults": {
+    "z_m": 0.50
+  },
+  "dual_anchors": {
+    "safe_theta_deg": 15.0,
+    "hostile_theta_deg": 45.0
+  },
+  "gates": {
+    "theta_deg_min": 0.1,
+    "theta_deg_max": 80.0,
+    "z_m_min": 0.01,
+    "z_m_max": 5.0
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "compose_id": "biped_leg_compose_v1",
+  "robot_id": "biped_teaching_v1",
+  "proof_tier": "BIPED_LEG_COMPOSE_SLICE",
+  "oracle": "BIPED_COM_TEACHING_CYCLE",
+  "tabu": "claim biped walks · claim ZMP MEASURED",
+  "base_frame": "pelvis_link",
+  "leg_chain_id": "hexapod_leg_3dof_v1",
+  "gait_name": "alternating_stance",
+  "legs": [
+    {"appendage_id": "leg_0", "mount_xyz": [0.08, 0.0, 0.0], "mount_rpy": [0.0, 0.0, 0.0]},
+    {"appendage_id": "leg_1", "mount_xyz": [-0.08, 0.0, 0.0], "mount_rpy": [0.0, 0.0, 3.14159]}
+  ],
+  "deferred": ["AN_DYNAMIC_BALANCE", "AI_MEASURED_FOOT_CONTACT"]
+}

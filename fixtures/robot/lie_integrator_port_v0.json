@@ -1,0 +1,37 @@
+{
+  "contract_id": "LieIntegratorPort_v0",
+  "status": "DRAFT",
+  "product_ready": false,
+  "purpose": "Plug-in Lie group integrator for SE(3) pose steps — exp map on manifold, not R^n Euler",
+  "parent_spec": "docs/agent_workflow/NEWTON_X_LIE_INTEGRATOR_SPEC_v0.md",
+  "group": "SE(3)",
+  "algebra": "se(3)",
+  "inputs": {
+    "pose_motor": {
+      "qw": "float",
+      "qx": "float",
+      "qy": "float",
+      "qz": "float",
+      "tx": "float",
+      "ty": "float",
+      "tz": "float"
+    },
+    "twist": {
+      "omega_rad": "[ox, oy, oz] rad/s body",
+      "linear_m": "[vx, vy, vz] m/s body"
+    },
+    "dt": "float seconds"
+  },
+  "outputs": {
+    "pose_motor": "SE(3) motor after one Lie step",
+    "quat_norm": "float — must stay ~1.0 for good backend",
+    "rotation_frobenius_err": "float — ||R^T R - I||_F",
+    "on_manifold": "boolean"
+  },
+  "engine_truth": {
+    "reference_impl": "dogfood_platform/lie_integrator_port_v1.py",
+    "rust_spike": "crates/universe_kinematic/src/cga_rotor3.rs",
+    "motor_compose": "dogfood_platform/slam_se3_motor_v1.py"
+  },
+  "tabu": "claim Newton-X symplectic platform shipped · claim MEASURED robot · forced normalize as production path"
+}

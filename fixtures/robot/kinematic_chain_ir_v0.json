@@ -1,0 +1,117 @@
+{
+  "ir_id": "kinematic_chain_ir_v0",
+  "version": 0,
+  "proof_tier": "APPENDAGE_KINEMATICS_OS_SLICE",
+  "oracle": "CHAIN_IR_REGISTRY",
+  "geometry_classes": {
+    "planar_serial_revolute": {
+      "engine": "universe_kinematic::serial_arm_planar",
+      "native_op": "manipulator_kinematics_step",
+      "note": "N revolute joints in plane · FK/IK/J/symplectic"
+    },
+    "serial_revolute_se3": {
+      "engine": "universe_kinematic::serial_chain_se3",
+      "native_op": "fk_se3",
+      "note": "N revolute joints SE(3) · arbitrary axis · FK crown"
+    }
+  },
+  "actuator_backends": {
+    "sim_symplectic": "manipulator_kinematics_port_v1.RustSerialArmBackend",
+    "lc2_iron_teaching": "manipulator_lc2_iron_hal_v1.ManipulatorLc2IronHal"
+  },
+  "chains": {
+    "lunar_manipulator_chain_scout_3dof_v1": {
+      "geometry_class": "planar_serial_revolute",
+      "dof": 3,
+      "source_fixture": "fixtures/robot/lunar_manipulator_chain_v1.json",
+      "ee_frame": "tool_mount_flange",
+      "actuator_backend_default": "sim_symplectic",
+      "appendage_role": "manipulator_arm"
+    },
+    "lc2_bench_hip_1dof_v1": {
+      "geometry_class": "serial_revolute_se3",
+      "dof": 1,
+      "source_urdf": "fixtures/cad/lc2_bench_1dof_v1.urdf",
+      "active_joint": "hip_joint",
+      "ee_frame": "hip_output_link",
+      "actuator_backend_default": "lc2_iron_teaching",
+      "appendage_role": "bench_joint",
+      "derived": {
+        "se3_joints": [
+          {
+            "name": "hip_joint",
+            "origin_xyz": [0.0, 0.0, 0.035],
+            "origin_rpy": [0.0, 0.0, 0.0],
+            "axis_xyz": [0.0, 1.0, 0.0]
+          }
+        ],
+        "joint_limits_rad": { "min": [0.0], "max": [0.785398] },
+        "joint_torque_max_nm": [5.0],
+        "gravity_m_s2": 9.81,
+        "ee_offset_m": [0.03, 0.0, 0.0]
+      }
+    },
+    "hexapod_leg_3dof_v1": {
+      "geometry_class": "planar_serial_revolute",
+      "dof": 3,
+      "source_fixture": "fixtures/robot/hexapod_leg_chain_v1.json",
+      "ee_frame": "foot_link",
+      "actuator_backend_default": "sim_symplectic",
+      "appendage_role": "locomotion_leg"
+    },
+    "torso_spine_2dof_v1": {
+      "geometry_class": "serial_revolute_se3",
+      "dof": 2,
+      "source_urdf": "fixtures/cad/torso_spine_2dof_v1.urdf",
+      "root_link": "pelvis_link",
+      "ee_frame": "chest_mount_link",
+      "actuator_backend_default": "sim_symplectic",
+      "appendage_role": "torso_spine",
+      "derived": {
+        "se3_joints": [
+          {"name": "spine_yaw_joint", "origin_xyz": [0.0, 0.0, 0.03], "origin_rpy": [0.0, 0.0, 0.0], "axis_xyz": [0.0, 0.0, 1.0]},
+          {"name": "spine_pitch_joint", "origin_xyz": [0.0, 0.0, 0.08], "origin_rpy": [0.0, 0.0, 0.0], "axis_xyz": [0.0, 1.0, 0.0]}
+        ],
+        "joint_limits_rad": {"min": [-0.6, -0.4], "max": [0.6, 0.5]},
+        "joint_torque_max_nm": [8.0, 8.0],
+        "gravity_m_s2": 1.62
+      }
+    },
+    "head_neck_pan_tilt_v1": {
+      "geometry_class": "serial_revolute_se3",
+      "dof": 2,
+      "source_urdf": "fixtures/cad/head_neck_pan_tilt_v1.urdf",
+      "root_link": "neck_base_link",
+      "ee_frame": "sensor_mount_link",
+      "actuator_backend_default": "sim_symplectic",
+      "appendage_role": "head_neck",
+      "derived": {
+        "se3_joints": [
+          {"name": "neck_pan_joint", "origin_xyz": [0.0, 0.0, 0.02], "origin_rpy": [0.0, 0.0, 0.0], "axis_xyz": [0.0, 0.0, 1.0]},
+          {"name": "neck_tilt_joint", "origin_xyz": [0.0, 0.0, 0.03], "origin_rpy": [0.0, 0.0, 0.0], "axis_xyz": [0.0, 1.0, 0.0]}
+        ],
+        "joint_limits_rad": {"min": [-1.2, -0.5], "max": [1.2, 0.8]},
+        "joint_torque_max_nm": [2.0, 2.0],
+        "gravity_m_s2": 1.62
+      }
+    },
+    "gripper_parallel_1dof_v1": {
+      "geometry_class": "serial_revolute_se3",
+      "dof": 1,
+      "source_urdf": "fixtures/cad/gripper_parallel_1dof_v1.urdf",
+      "root_link": "gripper_base_link",
+      "ee_frame": "finger_link",
+      "actuator_backend_default": "sim_symplectic",
+      "appendage_role": "gripper_tool",
+      "derived": {
+        "se3_joints": [
+          {"name": "gripper_joint", "origin_xyz": [0.02, 0.0, 0.0], "origin_rpy": [0.0, 0.0, 0.0], "axis_xyz": [0.0, 0.0, 1.0]}
+        ],
+        "joint_limits_rad": {"min": [0.0], "max": [0.6]},
+        "joint_torque_max_nm": [1.5],
+        "gravity_m_s2": 1.62
+      }
+    }
+  },
+  "tabu": "claim one chain IR equals universal robot OS"
+}

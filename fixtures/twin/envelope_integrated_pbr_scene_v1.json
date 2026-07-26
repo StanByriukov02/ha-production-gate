@@ -1,0 +1,716 @@
+{
+  "scene_id": "envelope_integrated_pbr_scene_v1",
+  "timestamp_utc": "2026-07-04T11:48:36.030093+00:00",
+  "canon": "docs/HwatomOrgOS/06_2BRAIN/DOGFOOD/chain/ENVELOPE_ASSEMBLY_VISUAL_PROGRAM_V1.md",
+  "gate": "E8.3",
+  "title": "LC-2 carrier \u2014 chip\u2194robot\u2194package integrated PBR",
+  "units": "mm",
+  "glb_note": "GLB from cadpy already metres \u2014 no extra scale in viewer",
+  "camera": {
+    "fov": 40,
+    "iso_azimuth_deg": -54,
+    "iso_elevation_deg": 20,
+    "distance_m": 3.2
+  },
+  "environment": {
+    "preset": "cave_bench_studio",
+    "background": "#080a0e",
+    "ambient": 0.38,
+    "key_light": {
+      "intensity": 1.15,
+      "color": "#e8ecf4"
+    }
+  },
+  "parts": [
+    {
+      "module_id": "robot_r7_deck_shell_bottom_v1",
+      "source": "robot",
+      "role": "deck_stack",
+      "glb": "r7_glb/robot_r7_deck_shell_bottom_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 224.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#3a424f",
+        "metalness": 0.88,
+        "roughness": 0.38,
+        "why": "Matte dark anodize \u2014 low cave glare for SLAM; 6061-T6 corrosion class",
+        "label": "Chassis frame & deck shells"
+      }
+    },
+    {
+      "module_id": "robot_r7_chip_mount_island_v1",
+      "source": "robot",
+      "role": "deck_stack",
+      "glb": "r7_glb/robot_r7_chip_mount_island_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 242.2
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#b8c0c8",
+        "metalness": 0.92,
+        "roughness": 0.28,
+        "why": "Light aluminium island \u2014 \u03b8_ja mount path; chip package thermal strap visible in cutaway",
+        "label": "Chip mount island \u00b7 VI-2"
+      }
+    },
+    {
+      "module_id": "robot_r7_deck_shell_top_v1",
+      "source": "robot",
+      "role": "deck_stack",
+      "glb": "r7_glb/robot_r7_deck_shell_top_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 268.4
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#3a424f",
+        "metalness": 0.88,
+        "roughness": 0.38,
+        "why": "Matte dark anodize \u2014 low cave glare for SLAM; 6061-T6 corrosion class",
+        "label": "Chassis frame & deck shells"
+      }
+    },
+    {
+      "module_id": "robot_r7_frame_rail_long_v1",
+      "source": "robot",
+      "role": "frame_rail_port",
+      "glb": "r7_glb/robot_r7_frame_rail_long_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 155.0,
+        "z": 26.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#3a424f",
+        "metalness": 0.88,
+        "roughness": 0.38,
+        "why": "Matte dark anodize \u2014 low cave glare for SLAM; 6061-T6 corrosion class",
+        "label": "Chassis frame & deck shells"
+      }
+    },
+    {
+      "module_id": "robot_r7_frame_rail_long_v1",
+      "source": "robot",
+      "role": "frame_rail_starboard",
+      "glb": "r7_glb/robot_r7_frame_rail_long_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": -155.0,
+        "z": 26.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#3a424f",
+        "metalness": 0.88,
+        "roughness": 0.38,
+        "why": "Matte dark anodize \u2014 low cave glare for SLAM; 6061-T6 corrosion class",
+        "label": "Chassis frame & deck shells"
+      }
+    },
+    {
+      "module_id": "robot_r7_wheel_assembly_v1",
+      "source": "robot",
+      "role": "wheel_1_1",
+      "glb": "r7_glb/robot_r7_wheel_assembly_v1.glb",
+      "offset_mm": {
+        "x": 190.0,
+        "y": 90.0,
+        "z": 100.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#14161a",
+        "metalness": 0.05,
+        "roughness": 0.82,
+        "why": "Matte black tread \u2014 regolith/dust teaching; no SLAM bloom on tread",
+        "label": "Wheel PU tread + hub"
+      }
+    },
+    {
+      "module_id": "robot_r7_lc2_drive_pod_v1",
+      "source": "robot",
+      "role": "drive_pod_1_1",
+      "glb": "r7_glb/robot_r7_lc2_drive_pod_v1.glb",
+      "offset_mm": {
+        "x": 155.0,
+        "y": 65.0,
+        "z": 155.32
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#2e3540",
+        "metalness": 0.75,
+        "roughness": 0.45,
+        "why": "Dark housing + aluminium fin contrast \u2014 tier-J thermal path @ 20 kHz FOC",
+        "label": "LC-2 drive pod \u00b7 motor + MCU"
+      }
+    },
+    {
+      "module_id": "robot_r7_dust_seal_skirt_v1",
+      "source": "robot",
+      "role": "skirt_1_1",
+      "glb": "r7_glb/robot_r7_dust_seal_skirt_v1.glb",
+      "offset_mm": {
+        "x": 190.0,
+        "y": 90.0,
+        "z": 45.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#232628",
+        "metalness": 0.02,
+        "roughness": 0.9,
+        "why": "Charcoal elastomer \u2014 DUST_INGRESS_BIND B3 class; wheel well proxy",
+        "label": "Dust seal skirt \u00b7 B3"
+      }
+    },
+    {
+      "module_id": "robot_r7_wheel_assembly_v1",
+      "source": "robot",
+      "role": "wheel_1_-1",
+      "glb": "r7_glb/robot_r7_wheel_assembly_v1.glb",
+      "offset_mm": {
+        "x": 190.0,
+        "y": -90.0,
+        "z": 100.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#14161a",
+        "metalness": 0.05,
+        "roughness": 0.82,
+        "why": "Matte black tread \u2014 regolith/dust teaching; no SLAM bloom on tread",
+        "label": "Wheel PU tread + hub"
+      }
+    },
+    {
+      "module_id": "robot_r7_lc2_drive_pod_v1",
+      "source": "robot",
+      "role": "drive_pod_1_-1",
+      "glb": "r7_glb/robot_r7_lc2_drive_pod_v1.glb",
+      "offset_mm": {
+        "x": 155.0,
+        "y": -65.0,
+        "z": 155.32
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#2e3540",
+        "metalness": 0.75,
+        "roughness": 0.45,
+        "why": "Dark housing + aluminium fin contrast \u2014 tier-J thermal path @ 20 kHz FOC",
+        "label": "LC-2 drive pod \u00b7 motor + MCU"
+      }
+    },
+    {
+      "module_id": "robot_r7_dust_seal_skirt_v1",
+      "source": "robot",
+      "role": "skirt_1_-1",
+      "glb": "r7_glb/robot_r7_dust_seal_skirt_v1.glb",
+      "offset_mm": {
+        "x": 190.0,
+        "y": -90.0,
+        "z": 45.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#232628",
+        "metalness": 0.02,
+        "roughness": 0.9,
+        "why": "Charcoal elastomer \u2014 DUST_INGRESS_BIND B3 class; wheel well proxy",
+        "label": "Dust seal skirt \u00b7 B3"
+      }
+    },
+    {
+      "module_id": "robot_r7_wheel_assembly_v1",
+      "source": "robot",
+      "role": "wheel_-1_1",
+      "glb": "r7_glb/robot_r7_wheel_assembly_v1.glb",
+      "offset_mm": {
+        "x": -190.0,
+        "y": 90.0,
+        "z": 100.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#14161a",
+        "metalness": 0.05,
+        "roughness": 0.82,
+        "why": "Matte black tread \u2014 regolith/dust teaching; no SLAM bloom on tread",
+        "label": "Wheel PU tread + hub"
+      }
+    },
+    {
+      "module_id": "robot_r7_lc2_drive_pod_v1",
+      "source": "robot",
+      "role": "drive_pod_-1_1",
+      "glb": "r7_glb/robot_r7_lc2_drive_pod_v1.glb",
+      "offset_mm": {
+        "x": -155.0,
+        "y": 65.0,
+        "z": 155.32
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#2e3540",
+        "metalness": 0.75,
+        "roughness": 0.45,
+        "why": "Dark housing + aluminium fin contrast \u2014 tier-J thermal path @ 20 kHz FOC",
+        "label": "LC-2 drive pod \u00b7 motor + MCU"
+      }
+    },
+    {
+      "module_id": "robot_r7_dust_seal_skirt_v1",
+      "source": "robot",
+      "role": "skirt_-1_1",
+      "glb": "r7_glb/robot_r7_dust_seal_skirt_v1.glb",
+      "offset_mm": {
+        "x": -190.0,
+        "y": 90.0,
+        "z": 45.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#232628",
+        "metalness": 0.02,
+        "roughness": 0.9,
+        "why": "Charcoal elastomer \u2014 DUST_INGRESS_BIND B3 class; wheel well proxy",
+        "label": "Dust seal skirt \u00b7 B3"
+      }
+    },
+    {
+      "module_id": "robot_r7_wheel_assembly_v1",
+      "source": "robot",
+      "role": "wheel_-1_-1",
+      "glb": "r7_glb/robot_r7_wheel_assembly_v1.glb",
+      "offset_mm": {
+        "x": -190.0,
+        "y": -90.0,
+        "z": 100.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#14161a",
+        "metalness": 0.05,
+        "roughness": 0.82,
+        "why": "Matte black tread \u2014 regolith/dust teaching; no SLAM bloom on tread",
+        "label": "Wheel PU tread + hub"
+      }
+    },
+    {
+      "module_id": "robot_r7_lc2_drive_pod_v1",
+      "source": "robot",
+      "role": "drive_pod_-1_-1",
+      "glb": "r7_glb/robot_r7_lc2_drive_pod_v1.glb",
+      "offset_mm": {
+        "x": -155.0,
+        "y": -65.0,
+        "z": 155.32
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#2e3540",
+        "metalness": 0.75,
+        "roughness": 0.45,
+        "why": "Dark housing + aluminium fin contrast \u2014 tier-J thermal path @ 20 kHz FOC",
+        "label": "LC-2 drive pod \u00b7 motor + MCU"
+      }
+    },
+    {
+      "module_id": "robot_r7_dust_seal_skirt_v1",
+      "source": "robot",
+      "role": "skirt_-1_-1",
+      "glb": "r7_glb/robot_r7_dust_seal_skirt_v1.glb",
+      "offset_mm": {
+        "x": -190.0,
+        "y": -90.0,
+        "z": 45.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#232628",
+        "metalness": 0.02,
+        "roughness": 0.9,
+        "why": "Charcoal elastomer \u2014 DUST_INGRESS_BIND B3 class; wheel well proxy",
+        "label": "Dust seal skirt \u00b7 B3"
+      }
+    },
+    {
+      "module_id": "robot_r7_power_bay_v1",
+      "source": "robot",
+      "role": "power_bay_aft",
+      "glb": "r7_glb/robot_r7_power_bay_v1.glb",
+      "offset_mm": {
+        "x": -95.0,
+        "y": -75.0,
+        "z": 175.088
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#c9a227",
+        "metalness": 0.35,
+        "roughness": 0.55,
+        "why": "Service yellow lid teaching \u2014 maintainability; not flight BMS paint spec",
+        "label": "Power bay \u00b7 cells + BMS"
+      }
+    },
+    {
+      "module_id": "robot_r7_harness_route_tray_v1",
+      "source": "robot",
+      "role": "harness_starboard",
+      "glb": "r7_glb/robot_r7_harness_route_tray_v1.glb",
+      "offset_mm": {
+        "x": 155.0,
+        "y": 85.0,
+        "z": 163.792
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#1a1c20",
+        "metalness": 0.08,
+        "roughness": 0.78,
+        "why": "Black PA12 tray \u2014 abrasion teaching; closes R4 harness routing CAD gap",
+        "label": "Harness tray \u00b7 CAN spine"
+      }
+    },
+    {
+      "module_id": "robot_r7_sensor_mast_v1",
+      "source": "robot",
+      "role": "sensor_mast_bow",
+      "glb": "r7_glb/robot_r7_sensor_mast_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 155.0,
+        "z": 337.9
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#6b7585",
+        "metalness": 0.25,
+        "roughness": 0.62,
+        "why": "Cave matte grey mast \u2014 no sun albedo; lidar ring darker for bloom control",
+        "label": "Sensor mast \u00b7 cave SLAM"
+      }
+    },
+    {
+      "module_id": "chip_g6_transistor_device_v1",
+      "source": "chip",
+      "role": "chip_stack_0",
+      "glb": "g6_glb/chip_g6_transistor_device_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 250.205
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#9aa8b8",
+        "metalness": 0.72,
+        "roughness": 0.35,
+        "why": "L1 fin teaching grid \u00b7 NMOS/PMOS cite",
+        "label": "transistor_device"
+      }
+    },
+    {
+      "module_id": "chip_g6_cell_sram_mac_v1",
+      "source": "chip",
+      "role": "chip_stack_1",
+      "glb": "g6_glb/chip_g6_cell_sram_mac_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 251.235
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#7eb8da",
+        "metalness": 0.55,
+        "roughness": 0.42,
+        "why": "L2 SRAM/MAC macro footprint",
+        "label": "cell_sram_mac"
+      }
+    },
+    {
+      "module_id": "chip_g6_lc2_tile_v1",
+      "source": "chip",
+      "role": "chip_stack_2",
+      "glb": "g6_glb/chip_g6_lc2_tile_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 252.65
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#b57bff",
+        "metalness": 0.48,
+        "roughness": 0.48,
+        "why": "L3 LC2 tile \u00b7 TOTAL_TRANSISTOR_COUNT_TILE",
+        "label": "lc2_tile"
+      }
+    },
+    {
+      "module_id": "chip_g6_robot_chassis_interface_v1",
+      "source": "chip",
+      "role": "chip_stack_3",
+      "glb": "g6_glb/chip_g6_robot_chassis_interface_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 257.69
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#6a8f5c",
+        "metalness": 0.65,
+        "roughness": 0.45,
+        "why": "VI-2 package\u2194chassis mechanical",
+        "label": "robot_chassis_interface"
+      }
+    },
+    {
+      "module_id": "chip_g6_tier_j_joint_mount_v1",
+      "source": "chip",
+      "role": "chip_stack_4",
+      "glb": "g6_glb/chip_g6_tier_j_joint_mount_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 265.482
+      },
+      "scale": 0.11666666666666667,
+      "finish": {
+        "baseColor": "#8b95a8",
+        "metalness": 0.7,
+        "roughness": 0.4,
+        "why": "tier-J mount teaching scale",
+        "label": "tier_j_joint_mount"
+      }
+    },
+    {
+      "module_id": "chip_g6_package_substrate_v1",
+      "source": "chip",
+      "role": "chip_stack_5",
+      "glb": "g6_glb/chip_g6_package_substrate_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 271.113
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#c5a572",
+        "metalness": 0.82,
+        "roughness": 0.32,
+        "why": "L4 package \u00b7 \u03b8_ja thermal path",
+        "label": "package_substrate"
+      }
+    },
+    {
+      "module_id": "chip_g6_compute_carrier_v1",
+      "source": "chip",
+      "role": "chip_stack_6",
+      "glb": "g6_glb/chip_g6_compute_carrier_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 275.948
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#b8c0c8",
+        "metalness": 0.9,
+        "roughness": 0.28,
+        "why": "Compute carrier \u00b7 HBM/MMIO crown path",
+        "label": "compute_carrier"
+      }
+    },
+    {
+      "module_id": "chip_g6_crown_clifford_v1",
+      "source": "chip",
+      "role": "chip_stack_7",
+      "glb": "g6_glb/chip_g6_crown_clifford_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 280.318
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#d4a8ff",
+        "metalness": 0.35,
+        "roughness": 0.55,
+        "why": "Crown Clifford cutaway ALU",
+        "label": "crown_clifford"
+      }
+    },
+    {
+      "module_id": "chip_g6_dram_offchip_v1",
+      "source": "chip",
+      "role": "dram_ingress",
+      "glb": "g6_glb/chip_g6_dram_offchip_v1.glb",
+      "offset_mm": {
+        "x": 23.1,
+        "y": 0.0,
+        "z": 113.477
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#4a9eff",
+        "metalness": 0.4,
+        "roughness": 0.5,
+        "why": "DRAM off-chip ingress",
+        "label": "dram_offchip"
+      }
+    },
+    {
+      "module_id": "chip_g6_cryo_power_v1",
+      "source": "chip",
+      "role": "cryo_island",
+      "glb": "g6_glb/chip_g6_cryo_power_v1.glb",
+      "offset_mm": {
+        "x": -23.1,
+        "y": 0.0,
+        "z": 113.74
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#9ad4ff",
+        "metalness": 0.3,
+        "roughness": 0.6,
+        "why": "Cryo/power island",
+        "label": "cryo_power"
+      }
+    }
+  ],
+  "legend": [
+    {
+      "zone_id": "chip_g6_transistor_device_v1",
+      "label": "transistor_device",
+      "baseColor": "#9aa8b8",
+      "why": "L1 fin teaching grid \u00b7 NMOS/PMOS cite"
+    },
+    {
+      "zone_id": "chip_g6_cell_sram_mac_v1",
+      "label": "cell_sram_mac",
+      "baseColor": "#7eb8da",
+      "why": "L2 SRAM/MAC macro footprint"
+    },
+    {
+      "zone_id": "chip_g6_lc2_tile_v1",
+      "label": "lc2_tile",
+      "baseColor": "#b57bff",
+      "why": "L3 LC2 tile \u00b7 TOTAL_TRANSISTOR_COUNT_TILE"
+    },
+    {
+      "zone_id": "chip_g6_robot_chassis_interface_v1",
+      "label": "robot_chassis_interface",
+      "baseColor": "#6a8f5c",
+      "why": "VI-2 package\u2194chassis mechanical"
+    },
+    {
+      "zone_id": "chip_g6_tier_j_joint_mount_v1",
+      "label": "tier_j_joint_mount",
+      "baseColor": "#8b95a8",
+      "why": "tier-J mount teaching scale"
+    },
+    {
+      "zone_id": "chip_g6_package_substrate_v1",
+      "label": "package_substrate",
+      "baseColor": "#c5a572",
+      "why": "L4 package \u00b7 \u03b8_ja thermal path"
+    },
+    {
+      "zone_id": "chip_g6_compute_carrier_v1",
+      "label": "compute_carrier",
+      "baseColor": "#b8c0c8",
+      "why": "Compute carrier \u00b7 HBM/MMIO crown path"
+    },
+    {
+      "zone_id": "chip_g6_crown_clifford_v1",
+      "label": "crown_clifford",
+      "baseColor": "#d4a8ff",
+      "why": "Crown Clifford cutaway ALU"
+    },
+    {
+      "zone_id": "chip_g6_dram_offchip_v1",
+      "label": "dram_offchip",
+      "baseColor": "#4a9eff",
+      "why": "DRAM off-chip ingress"
+    },
+    {
+      "zone_id": "chip_g6_cryo_power_v1",
+      "label": "cryo_power",
+      "baseColor": "#9ad4ff",
+      "why": "Cryo/power island"
+    },
+    {
+      "zone_id": "chassis_frame",
+      "label": "Chassis frame & deck shells",
+      "baseColor": "#3a424f",
+      "why": "Matte dark anodize \u2014 low cave glare for SLAM; 6061-T6 corrosion class"
+    },
+    {
+      "zone_id": "locomotion_tread",
+      "label": "Wheel PU tread + hub",
+      "baseColor": "#14161a",
+      "why": "Matte black tread \u2014 regolith/dust teaching; no SLAM bloom on tread"
+    },
+    {
+      "zone_id": "drive_thermal",
+      "label": "LC-2 drive pod \u00b7 motor + MCU",
+      "baseColor": "#2e3540",
+      "why": "Dark housing + aluminium fin contrast \u2014 tier-J thermal path @ 20 kHz FOC"
+    },
+    {
+      "zone_id": "compute_chest",
+      "label": "Chip mount island \u00b7 VI-2",
+      "baseColor": "#b8c0c8",
+      "why": "Light aluminium island \u2014 \u03b8_ja mount path; chip package thermal strap visible in cutaway"
+    },
+    {
+      "zone_id": "power_service",
+      "label": "Power bay \u00b7 cells + BMS",
+      "baseColor": "#c9a227",
+      "why": "Service yellow lid teaching \u2014 maintainability; not flight BMS paint spec"
+    },
+    {
+      "zone_id": "perception_cave",
+      "label": "Sensor mast \u00b7 cave SLAM",
+      "baseColor": "#6b7585",
+      "why": "Cave matte grey mast \u2014 no sun albedo; lidar ring darker for bloom control"
+    },
+    {
+      "zone_id": "ingress_seal",
+      "label": "Dust seal skirt \u00b7 B3",
+      "baseColor": "#232628",
+      "why": "Charcoal elastomer \u2014 DUST_INGRESS_BIND B3 class; wheel well proxy"
+    },
+    {
+      "zone_id": "harness_route",
+      "label": "Harness tray \u00b7 CAN spine",
+      "baseColor": "#1a1c20",
+      "why": "Black PA12 tray \u2014 abrasion teaching; closes R4 harness routing CAD gap"
+    }
+  ],
+  "honesty": {
+    "integrated_chip_robot_package": true,
+    "l1_l3_in_chest": true,
+    "teaching_scale": true,
+    "not_flight_QA": true,
+    "parents": {
+      "chip_g6": "G6.4",
+      "robot_r7": "R7.4"
+    }
+  }
+}

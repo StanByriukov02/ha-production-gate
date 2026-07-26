@@ -1,0 +1,56 @@
+{
+  "schema_id": "env_state_physics_schema_v1",
+  "version": 2,
+  "gate": "U4",
+  "vault_spec": "06_2BRAIN/DOGFOOD/chain/UNIVERSE_ENV_STATE_PHYSICS_AXES_BUILD_V1.md",
+  "method_bind": "ENV_STATE_PHYSICS_METHOD_BIND_v1.json",
+  "required_top_level": [
+    "regime_id",
+    "bc_solar",
+    "bc_vacuum",
+    "thermal_column",
+    "dust",
+    "radiation",
+    "mechanical",
+    "active_windows",
+    "t_h",
+    "law_io"
+  ],
+  "regime_id_enum": ["rim_sunlit", "psr_floor", "chamber_sunlit"],
+  "thermal_column_required": ["z_m", "t_k", "k_w_mk", "n_nodes"],
+  "law_io_required_per_axis": ["reads", "writes", "law_id"],
+  "axes": {
+    "bc_solar": { "law_id": "L_MAXWELL", "reads": ["regime_id", "illum_frac"], "writes": ["q_solar_w_m2", "flare_multiplier", "illum_frac"] },
+    "bc_vacuum": { "law_id": "L_MAXWELL", "reads": ["regime_id"], "writes": ["p_torr", "t_sky_k", "h_c_w_m2k"] },
+    "thermal_column": { "law_id": "L_POISSON", "reads": ["bc_solar", "bc_vacuum", "regime_id"], "writes": ["z_m", "t_k", "k_w_mk"] },
+    "dust": { "law_id": "L_STOCHASTIC", "reads": ["regime_id", "ingress_rate_g_m2_sol"], "writes": ["loading_g_m2", "e_index", "ingress_rate_g_m2_sol"] },
+    "radiation": {
+      "law_id": "L_MAXWELL",
+      "reads": ["shield_areal_g_cm2", "regime_id", "site_class"],
+      "writes": [
+        "dose_gy",
+        "incident_dose_gy",
+        "albedo_dose_gy",
+        "albedo_fraction",
+        "see_rate_1_per_yr",
+        "shield_areal_g_cm2",
+        "see_albedo_mv"
+      ]
+    },
+    "mechanical": { "law_id": "L_HAMILTON", "reads": ["impulse_scale"], "writes": ["impulse_scale", "jerk_peak"] }
+  },
+  "extensions": {
+    "rocket_engine": {
+      "law_id": "L_GENERIC",
+      "reads": ["primary_phase", "subsystem_status", "cryo_service_temp_k"],
+      "writes": ["permeation_phi", "permeation_m_dot_kg_s", "thermal_stress_mv"],
+      "bind": "results/platform_bpass/universe/ROCKET_ENGINE_ENV_SEED_v1.json",
+      "runner": "dogfood_platform.world_rocket_v0",
+      "gate": "P4"
+    }
+  },
+  "active_window_item": {
+    "required": ["event_id", "law_id", "start_h", "end_h"]
+  },
+  "falsifier": "schema without thermal_column or law_io on any axis = invalid for U4 proof; radiation must expose incident+albedo split (v2)"
+}

@@ -1,0 +1,29 @@
+{
+  "grid_id": "robot_material_sweep_grid_v1",
+  "use_on": false,
+  "on_grounding_binds": [
+    "results/platform_bpass/moon/DUST_INGRESS_BIND_v1.json",
+    "results/platform_bpass/moon/ROBOT_TERRAMECH_CORPUS_BIND_v1.json",
+    "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/GAP_MR_11_ADAPT_CLOSURE_v1.json",
+    "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json"
+  ],
+  "on_retrieve_queries": [
+    "lunar rover wheel terramechanics sinkage Bekker",
+    "dust seal joint ingress Benaroya lip seal",
+    "regolith bearing loose dense penetration resistance"
+  ],
+  "on_notebook": "dogfood-moon-world",
+  "axes": {
+    "zone": ["rim_sun", "massif_traverse", "psr_floor"],
+    "bearing_class": ["LOOSE", "MEDIUM", "DENSE"],
+    "seal_class": ["B1", "B2", "B3", "B5"],
+    "rover_mass_kg": [50.0, 100.0],
+    "step_m": [416.67]
+  },
+  "falsifiers": {
+    "F_seal_b5_gt_b1_stress_massif": "B5 open joint stress > B1 sealed at massif MEDIUM 50kg",
+    "F_zone_massif_gt_psr_ingress": "massif ingress >= psr at same seal/bearing",
+    "F_heavy_mass_raises_stress": "100kg stress >= 50kg at massif B3 MEDIUM"
+  },
+  "tabu": "claim ADAPT sweep = measured field · claim ON synth = design law"
+}

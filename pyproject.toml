@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ha-production-gate"
+version = "0.1.0"
+description = "Production Gate for robot physics claims — Dual · sealed receipt · named ε · refuse"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Stanislav Byriukov" }]
+keywords = ["robotics", "physics", "simulation", "verification", "dual", "production-gate"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = []
+
+[project.optional-dependencies]
+smoke = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/StanByriukov02/ha-production-gate"
+Issues = "https://github.com/StanByriukov02/ha-production-gate/issues"
+
+[project.scripts]
+ha-production-gate = "dogfood_platform.prove_production_gate_ritual_v1:main"
+ha-release-engineer = "dogfood_platform.release_engineer_pack_v1:main"
+
+[tool.setuptools.packages.find]
+include = ["dogfood_platform*"]
+exclude = ["tests*", "results*", "scratch*"]
+
+[tool.setuptools.package-data]
+dogfood_platform = ["py.typed", "robot_models/*.json", "robot_models/urdf/*.urdf"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"

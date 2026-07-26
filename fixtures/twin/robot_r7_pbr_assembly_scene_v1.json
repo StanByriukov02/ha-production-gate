@@ -1,0 +1,483 @@
+{
+  "scene_id": "robot_r7_pbr_assembly_scene_v1",
+  "timestamp_utc": "2026-07-04T11:29:05.273745+00:00",
+  "canon": "docs/HwatomOrgOS/06_2BRAIN/DOGFOOD/chain/ROBOT_ASSEMBLY_VISUAL_PROGRAM_V1.md",
+  "gate": "R7.4",
+  "title": "LC-2 cave carrier \u2014 whole robot PBR",
+  "units": "mm",
+  "glb_scale_to_m": 0.001,
+  "camera": {
+    "fov": 42,
+    "iso_azimuth_deg": -52,
+    "iso_elevation_deg": 22,
+    "distance_m": 2.8
+  },
+  "environment": {
+    "preset": "cave_bench_studio",
+    "background": "#0a0c10",
+    "ambient": 0.35,
+    "key_light": {
+      "intensity": 1.2,
+      "color": "#e8ecf4"
+    }
+  },
+  "parts": [
+    {
+      "module_id": "robot_r7_deck_shell_bottom_v1",
+      "role": "deck_stack",
+      "glb": "r7_glb/robot_r7_deck_shell_bottom_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 224.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "chassis_frame",
+        "zone_label": "Chassis frame & deck shells",
+        "material_id": "al_6061_t6_anodize_dark",
+        "baseColor": "#3a424f",
+        "metalness": 0.88,
+        "roughness": 0.38,
+        "why": "Matte dark anodize \u2014 low cave glare for SLAM; 6061-T6 corrosion class"
+      }
+    },
+    {
+      "module_id": "robot_r7_chip_mount_island_v1",
+      "role": "deck_stack",
+      "glb": "r7_glb/robot_r7_chip_mount_island_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 242.2
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "compute_chest",
+        "zone_label": "Chip mount island \u00b7 VI-2",
+        "material_id": "al_bare_thermal_island",
+        "baseColor": "#b8c0c8",
+        "metalness": 0.92,
+        "roughness": 0.28,
+        "why": "Light aluminium island \u2014 \u03b8_ja mount path; chip package thermal strap visible in cutaway"
+      }
+    },
+    {
+      "module_id": "robot_r7_deck_shell_top_v1",
+      "role": "deck_stack",
+      "glb": "r7_glb/robot_r7_deck_shell_top_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 268.4
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "chassis_frame",
+        "zone_label": "Chassis frame & deck shells",
+        "material_id": "al_6061_t6_anodize_dark",
+        "baseColor": "#3a424f",
+        "metalness": 0.88,
+        "roughness": 0.38,
+        "why": "Matte dark anodize \u2014 low cave glare for SLAM; 6061-T6 corrosion class"
+      }
+    },
+    {
+      "module_id": "robot_r7_frame_rail_long_v1",
+      "role": "frame_rail_port",
+      "glb": "r7_glb/robot_r7_frame_rail_long_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 155.0,
+        "z": 26.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "chassis_frame",
+        "zone_label": "Chassis frame & deck shells",
+        "material_id": "al_6061_t6_anodize_dark",
+        "baseColor": "#3a424f",
+        "metalness": 0.88,
+        "roughness": 0.38,
+        "why": "Matte dark anodize \u2014 low cave glare for SLAM; 6061-T6 corrosion class"
+      }
+    },
+    {
+      "module_id": "robot_r7_frame_rail_long_v1",
+      "role": "frame_rail_starboard",
+      "glb": "r7_glb/robot_r7_frame_rail_long_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": -155.0,
+        "z": 26.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "chassis_frame",
+        "zone_label": "Chassis frame & deck shells",
+        "material_id": "al_6061_t6_anodize_dark",
+        "baseColor": "#3a424f",
+        "metalness": 0.88,
+        "roughness": 0.38,
+        "why": "Matte dark anodize \u2014 low cave glare for SLAM; 6061-T6 corrosion class"
+      }
+    },
+    {
+      "module_id": "robot_r7_wheel_assembly_v1",
+      "role": "wheel_1_1",
+      "glb": "r7_glb/robot_r7_wheel_assembly_v1.glb",
+      "offset_mm": {
+        "x": 190.0,
+        "y": 90.0,
+        "z": 100.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "locomotion_tread",
+        "zone_label": "Wheel PU tread + hub",
+        "material_id": "pu_ester_shore_90a_matte_black",
+        "baseColor": "#14161a",
+        "metalness": 0.05,
+        "roughness": 0.82,
+        "why": "Matte black tread \u2014 regolith/dust teaching; no SLAM bloom on tread"
+      }
+    },
+    {
+      "module_id": "robot_r7_lc2_drive_pod_v1",
+      "role": "drive_pod_1_1",
+      "glb": "r7_glb/robot_r7_lc2_drive_pod_v1.glb",
+      "offset_mm": {
+        "x": 155.0,
+        "y": 65.0,
+        "z": 155.32
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "drive_thermal",
+        "zone_label": "LC-2 drive pod \u00b7 motor + MCU",
+        "material_id": "al_7075_dark_housing_fins",
+        "baseColor": "#2e3540",
+        "metalness": 0.75,
+        "roughness": 0.45,
+        "why": "Dark housing + aluminium fin contrast \u2014 tier-J thermal path @ 20 kHz FOC"
+      }
+    },
+    {
+      "module_id": "robot_r7_dust_seal_skirt_v1",
+      "role": "skirt_1_1",
+      "glb": "r7_glb/robot_r7_dust_seal_skirt_v1.glb",
+      "offset_mm": {
+        "x": 190.0,
+        "y": 90.0,
+        "z": 45.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "ingress_seal",
+        "zone_label": "Dust seal skirt \u00b7 B3",
+        "material_id": "nbr_lip_seal_b3_charcoal",
+        "baseColor": "#232628",
+        "metalness": 0.02,
+        "roughness": 0.9,
+        "why": "Charcoal elastomer \u2014 DUST_INGRESS_BIND B3 class; wheel well proxy"
+      }
+    },
+    {
+      "module_id": "robot_r7_wheel_assembly_v1",
+      "role": "wheel_1_-1",
+      "glb": "r7_glb/robot_r7_wheel_assembly_v1.glb",
+      "offset_mm": {
+        "x": 190.0,
+        "y": -90.0,
+        "z": 100.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "locomotion_tread",
+        "zone_label": "Wheel PU tread + hub",
+        "material_id": "pu_ester_shore_90a_matte_black",
+        "baseColor": "#14161a",
+        "metalness": 0.05,
+        "roughness": 0.82,
+        "why": "Matte black tread \u2014 regolith/dust teaching; no SLAM bloom on tread"
+      }
+    },
+    {
+      "module_id": "robot_r7_lc2_drive_pod_v1",
+      "role": "drive_pod_1_-1",
+      "glb": "r7_glb/robot_r7_lc2_drive_pod_v1.glb",
+      "offset_mm": {
+        "x": 155.0,
+        "y": -65.0,
+        "z": 155.32
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "drive_thermal",
+        "zone_label": "LC-2 drive pod \u00b7 motor + MCU",
+        "material_id": "al_7075_dark_housing_fins",
+        "baseColor": "#2e3540",
+        "metalness": 0.75,
+        "roughness": 0.45,
+        "why": "Dark housing + aluminium fin contrast \u2014 tier-J thermal path @ 20 kHz FOC"
+      }
+    },
+    {
+      "module_id": "robot_r7_dust_seal_skirt_v1",
+      "role": "skirt_1_-1",
+      "glb": "r7_glb/robot_r7_dust_seal_skirt_v1.glb",
+      "offset_mm": {
+        "x": 190.0,
+        "y": -90.0,
+        "z": 45.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "ingress_seal",
+        "zone_label": "Dust seal skirt \u00b7 B3",
+        "material_id": "nbr_lip_seal_b3_charcoal",
+        "baseColor": "#232628",
+        "metalness": 0.02,
+        "roughness": 0.9,
+        "why": "Charcoal elastomer \u2014 DUST_INGRESS_BIND B3 class; wheel well proxy"
+      }
+    },
+    {
+      "module_id": "robot_r7_wheel_assembly_v1",
+      "role": "wheel_-1_1",
+      "glb": "r7_glb/robot_r7_wheel_assembly_v1.glb",
+      "offset_mm": {
+        "x": -190.0,
+        "y": 90.0,
+        "z": 100.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "locomotion_tread",
+        "zone_label": "Wheel PU tread + hub",
+        "material_id": "pu_ester_shore_90a_matte_black",
+        "baseColor": "#14161a",
+        "metalness": 0.05,
+        "roughness": 0.82,
+        "why": "Matte black tread \u2014 regolith/dust teaching; no SLAM bloom on tread"
+      }
+    },
+    {
+      "module_id": "robot_r7_lc2_drive_pod_v1",
+      "role": "drive_pod_-1_1",
+      "glb": "r7_glb/robot_r7_lc2_drive_pod_v1.glb",
+      "offset_mm": {
+        "x": -155.0,
+        "y": 65.0,
+        "z": 155.32
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "drive_thermal",
+        "zone_label": "LC-2 drive pod \u00b7 motor + MCU",
+        "material_id": "al_7075_dark_housing_fins",
+        "baseColor": "#2e3540",
+        "metalness": 0.75,
+        "roughness": 0.45,
+        "why": "Dark housing + aluminium fin contrast \u2014 tier-J thermal path @ 20 kHz FOC"
+      }
+    },
+    {
+      "module_id": "robot_r7_dust_seal_skirt_v1",
+      "role": "skirt_-1_1",
+      "glb": "r7_glb/robot_r7_dust_seal_skirt_v1.glb",
+      "offset_mm": {
+        "x": -190.0,
+        "y": 90.0,
+        "z": 45.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "ingress_seal",
+        "zone_label": "Dust seal skirt \u00b7 B3",
+        "material_id": "nbr_lip_seal_b3_charcoal",
+        "baseColor": "#232628",
+        "metalness": 0.02,
+        "roughness": 0.9,
+        "why": "Charcoal elastomer \u2014 DUST_INGRESS_BIND B3 class; wheel well proxy"
+      }
+    },
+    {
+      "module_id": "robot_r7_wheel_assembly_v1",
+      "role": "wheel_-1_-1",
+      "glb": "r7_glb/robot_r7_wheel_assembly_v1.glb",
+      "offset_mm": {
+        "x": -190.0,
+        "y": -90.0,
+        "z": 100.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "locomotion_tread",
+        "zone_label": "Wheel PU tread + hub",
+        "material_id": "pu_ester_shore_90a_matte_black",
+        "baseColor": "#14161a",
+        "metalness": 0.05,
+        "roughness": 0.82,
+        "why": "Matte black tread \u2014 regolith/dust teaching; no SLAM bloom on tread"
+      }
+    },
+    {
+      "module_id": "robot_r7_lc2_drive_pod_v1",
+      "role": "drive_pod_-1_-1",
+      "glb": "r7_glb/robot_r7_lc2_drive_pod_v1.glb",
+      "offset_mm": {
+        "x": -155.0,
+        "y": -65.0,
+        "z": 155.32
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "drive_thermal",
+        "zone_label": "LC-2 drive pod \u00b7 motor + MCU",
+        "material_id": "al_7075_dark_housing_fins",
+        "baseColor": "#2e3540",
+        "metalness": 0.75,
+        "roughness": 0.45,
+        "why": "Dark housing + aluminium fin contrast \u2014 tier-J thermal path @ 20 kHz FOC"
+      }
+    },
+    {
+      "module_id": "robot_r7_dust_seal_skirt_v1",
+      "role": "skirt_-1_-1",
+      "glb": "r7_glb/robot_r7_dust_seal_skirt_v1.glb",
+      "offset_mm": {
+        "x": -190.0,
+        "y": -90.0,
+        "z": 45.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "ingress_seal",
+        "zone_label": "Dust seal skirt \u00b7 B3",
+        "material_id": "nbr_lip_seal_b3_charcoal",
+        "baseColor": "#232628",
+        "metalness": 0.02,
+        "roughness": 0.9,
+        "why": "Charcoal elastomer \u2014 DUST_INGRESS_BIND B3 class; wheel well proxy"
+      }
+    },
+    {
+      "module_id": "robot_r7_power_bay_v1",
+      "role": "power_bay_aft",
+      "glb": "r7_glb/robot_r7_power_bay_v1.glb",
+      "offset_mm": {
+        "x": -95.0,
+        "y": -75.0,
+        "z": 175.088
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "power_service",
+        "zone_label": "Power bay \u00b7 cells + BMS",
+        "material_id": "service_yellow_lid_class",
+        "baseColor": "#c9a227",
+        "metalness": 0.35,
+        "roughness": 0.55,
+        "why": "Service yellow lid teaching \u2014 maintainability; not flight BMS paint spec"
+      }
+    },
+    {
+      "module_id": "robot_r7_harness_route_tray_v1",
+      "role": "harness_starboard",
+      "glb": "r7_glb/robot_r7_harness_route_tray_v1.glb",
+      "offset_mm": {
+        "x": 155.0,
+        "y": 85.0,
+        "z": 163.792
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "harness_route",
+        "zone_label": "Harness tray \u00b7 CAN spine",
+        "material_id": "pa12_black_cable_tray",
+        "baseColor": "#1a1c20",
+        "metalness": 0.08,
+        "roughness": 0.78,
+        "why": "Black PA12 tray \u2014 abrasion teaching; closes R4 harness routing CAD gap"
+      }
+    },
+    {
+      "module_id": "robot_r7_sensor_mast_v1",
+      "role": "sensor_mast_bow",
+      "glb": "r7_glb/robot_r7_sensor_mast_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 155.0,
+        "z": 337.9
+      },
+      "scale": 1.0,
+      "finish": {
+        "zone_id": "perception_cave",
+        "zone_label": "Sensor mast \u00b7 cave SLAM",
+        "material_id": "grey_ceramic_mast_cave",
+        "baseColor": "#6b7585",
+        "metalness": 0.25,
+        "roughness": 0.62,
+        "why": "Cave matte grey mast \u2014 no sun albedo; lidar ring darker for bloom control"
+      }
+    }
+  ],
+  "legend": [
+    {
+      "zone_id": "chassis_frame",
+      "label": "Chassis frame & deck shells",
+      "baseColor": "#3a424f",
+      "why": "Matte dark anodize \u2014 low cave glare for SLAM; 6061-T6 corrosion class"
+    },
+    {
+      "zone_id": "locomotion_tread",
+      "label": "Wheel PU tread + hub",
+      "baseColor": "#14161a",
+      "why": "Matte black tread \u2014 regolith/dust teaching; no SLAM bloom on tread"
+    },
+    {
+      "zone_id": "drive_thermal",
+      "label": "LC-2 drive pod \u00b7 motor + MCU",
+      "baseColor": "#2e3540",
+      "why": "Dark housing + aluminium fin contrast \u2014 tier-J thermal path @ 20 kHz FOC"
+    },
+    {
+      "zone_id": "compute_chest",
+      "label": "Chip mount island \u00b7 VI-2",
+      "baseColor": "#b8c0c8",
+      "why": "Light aluminium island \u2014 \u03b8_ja mount path; chip package thermal strap visible in cutaway"
+    },
+    {
+      "zone_id": "power_service",
+      "label": "Power bay \u00b7 cells + BMS",
+      "baseColor": "#c9a227",
+      "why": "Service yellow lid teaching \u2014 maintainability; not flight BMS paint spec"
+    },
+    {
+      "zone_id": "perception_cave",
+      "label": "Sensor mast \u00b7 cave SLAM",
+      "baseColor": "#6b7585",
+      "why": "Cave matte grey mast \u2014 no sun albedo; lidar ring darker for bloom control"
+    },
+    {
+      "zone_id": "ingress_seal",
+      "label": "Dust seal skirt \u00b7 B3",
+      "baseColor": "#232628",
+      "why": "Charcoal elastomer \u2014 DUST_INGRESS_BIND B3 class; wheel well proxy"
+    },
+    {
+      "zone_id": "harness_route",
+      "label": "Harness tray \u00b7 CAN spine",
+      "baseColor": "#1a1c20",
+      "why": "Black PA12 tray \u2014 abrasion teaching; closes R4 harness routing CAD gap"
+    }
+  ],
+  "honesty": {
+    "paint_spec_class": "teaching_PBR_from_materials_registry",
+    "not_flight_QA": true,
+    "lunar_high_albedo_fork": "HONEST_DEFER",
+    "radiation_bind": "results/platform_bpass/moon/RADIATION_SHIELD_BIND_v1.json",
+    "chip_radiation_scene": "fixtures/twin/chip_g6_radiation_scene_v1.json"
+  }
+}

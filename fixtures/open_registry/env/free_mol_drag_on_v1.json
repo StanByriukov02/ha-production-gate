@@ -1,0 +1,21 @@
+{
+  "schema": "ha_free_mol_drag_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "F=rho*v^2*Cd*A (free-molecular teaching; no continuum 1/2)",
+  "units": { "rho": "kg/m^3", "v": "m/s", "F": "N" },
+  "on_sources": [
+    {
+      "id": "free_molecular_drag",
+      "cite": "free-molecular drag teaching F=ρv²CdA (Cd~2 class); not continuum ½ρv²; not DSMC MEASURED",
+      "used": ["F_fmd"]
+    }
+  ],
+  "rust_oracle": { "crate": "ha_physics_gate", "cmd": "ha-physics-gate free-mol-drag --catalog <path> --pack <id>" },
+  "honesty": ["teaching free-mol drag — not NRLMSISE / MEASURED", "python_not_oracle"],
+  "packs": {
+    "geo_safe": { "label": "GEO sparse Dual Safe", "rho_kg_m3": 1e-15, "v_m_s": 3070.0, "cd": 2.2, "area_m2": 4.0 },
+    "leo_hostile": { "label": "LEO denser Dual Hostile", "rho_kg_m3": 5e-12, "v_m_s": 7800.0, "cd": 2.2, "area_m2": 4.0 }
+  },
+  "defaults": { "pack": "geo_safe" },
+  "dual_anchors": { "safe_pack": "geo_safe", "hostile_pack": "leo_hostile" }
+}

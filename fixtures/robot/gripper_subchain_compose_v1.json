@@ -1,0 +1,19 @@
+{
+  "compose_id": "gripper_subchain_compose_v1",
+  "robot_id": "scout_arm_gripper_v1",
+  "proof_tier": "GRIPPER_SUBCHAIN_SLICE",
+  "oracle": "GRIPPER_EE_COMPOSE_GRASP",
+  "tabu": "claim flight grasp qual",
+  "arm_chain_id": "lunar_manipulator_chain_scout_3dof_v1",
+  "gripper_chain_id": "gripper_parallel_1dof_v1",
+  "gripper_urdf": "fixtures/cad/gripper_parallel_1dof_v1.urdf",
+  "arm_mount_xyz": [0.0, 0.0, 0.0],
+  "gripper_mount_on_arm_ee": [0.0, 0.0, 0.0],
+  "grasp": {
+    "pad_material_id": "nbr_70a",
+    "surface_id": "lunar_regolith_compact",
+    "normal_force_n": 5.0,
+    "tangential_safe_n": 0.8,
+    "tangential_slip_n": 4.0
+  }
+}

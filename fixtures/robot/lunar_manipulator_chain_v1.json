@@ -1,0 +1,30 @@
+{
+  "chain_id": "lunar_manipulator_chain_scout_3dof_v1",
+  "dof": 3,
+  "geometry_class": "planar_serial_revolute",
+  "reach_m": 0.75,
+  "link_lengths_m": [0.25, 0.28, 0.22],
+  "link_masses_kg": [0.45, 0.38, 0.22],
+  "joint_limits_rad": {
+    "min": [-2.8, -2.2, -2.5],
+    "max": [2.8, 2.2, 2.5]
+  },
+  "gravity": {
+    "lunar_m_s2": 1.62,
+    "earth_bench_m_s2": 9.81
+  },
+  "tick_contract": {
+    "nominal_hz": 200,
+    "note": "teaching — not iron FOC 20 kHz; arm planner vs servo split"
+  },
+  "ee_frame": "tool_mount_flange",
+  "binds": {
+    "material_catalog": "fixtures/robot/lunar_manipulator_material_catalog_v1.json",
+    "manipulator_bind": "results/platform_bpass/moon/ROBOT_MANIPULATOR_BIND_v1.json"
+  },
+  "honesty": {
+    "planar_teaching_proxy": true,
+    "not_6dof_flight_arm": true,
+    "product_ready": false
+  }
+}

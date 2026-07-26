@@ -1,0 +1,328 @@
+{
+  "scenarios_id": "dogfood_lunar_robot_material_scenarios_v1",
+  "description": "Curated subsystem stacks mapped from material_physics_bind + registry teaching corners",
+  "scenarios": [
+    {
+      "scenario_id": "bind_scout_default_massif",
+      "label": "Registry default · B3 lip · massif",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B3",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "traverse_nominal"
+    },
+    {
+      "scenario_id": "bind_scout_loose_b3",
+      "label": "LOOSE regolith · B3",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B3",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "LOOSE",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "traverse_nominal"
+    },
+    {
+      "scenario_id": "bind_scout_dense_wheel",
+      "label": "DENSE bearing · tread only",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B5",
+        "joint_tier": "wheel_bearing",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "DENSE",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "traverse_nominal"
+    },
+    {
+      "scenario_id": "bind_seal_b1_fully_sealed",
+      "label": "Traverse B1 OEM sealed",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B1",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": "B1",
+        "env_seal_class": "B1",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "traverse_nominal"
+    },
+    {
+      "scenario_id": "bind_seal_b5_open_joint",
+      "label": "Traverse B5 open · chip loud corner class",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B5",
+        "joint_tier": "reducer_slot",
+        "joint_seal_override": "B5",
+        "env_seal_class": "B4",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "excavator_disturb"
+    },
+    {
+      "scenario_id": "bind_tread_70a_soft_patch",
+      "label": "PU 70A soft tread · wide patch",
+      "stack": {
+        "tread_profile": "pu_shore_70a",
+        "traverse_seal_class": "B3",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "traverse_nominal"
+    },
+    {
+      "scenario_id": "bind_tread_95a_hard_patch",
+      "label": "PU 95A hard tread · narrow patch",
+      "stack": {
+        "tread_profile": "pu_shore_95a",
+        "traverse_seal_class": "B3",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "traverse_nominal"
+    },
+    {
+      "scenario_id": "bind_psr_b1_soft_tread",
+      "label": "PSR floor · B1 + 70A soft",
+      "stack": {
+        "tread_profile": "pu_shore_70a",
+        "traverse_seal_class": "B1",
+        "joint_tier": "wrist_joint",
+        "joint_seal_override": null,
+        "env_seal_class": "B1",
+        "bearing_class": "MEDIUM",
+        "zone": "psr_floor",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "psr_patrol"
+    },
+    {
+      "scenario_id": "bind_rim_labyrinth_b2",
+      "label": "Rim sun · labyrinth B2",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B2",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "rim_sun",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "rim_climb"
+    },
+    {
+      "scenario_id": "bind_excavator_loose_b5",
+      "label": "ISRU excavator · LOOSE · B5",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B5",
+        "joint_tier": "reducer_slot",
+        "joint_seal_override": null,
+        "env_seal_class": "B3",
+        "bearing_class": "LOOSE",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "excavator_disturb"
+    },
+    {
+      "scenario_id": "bind_wide_soft_b2_massif",
+      "label": "Wide soft B2 · LOOSE massif",
+      "stack": {
+        "tread_profile": "pu_shore_70a",
+        "traverse_seal_class": "B2",
+        "joint_tier": "wheel_bearing",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "LOOSE",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "traverse_nominal"
+    },
+    {
+      "scenario_id": "bind_hard_dense_95a",
+      "label": "Hard 95A · DENSE bearing",
+      "stack": {
+        "tread_profile": "pu_shore_95a",
+        "traverse_seal_class": "B3",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "DENSE",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "traverse_nominal"
+    },
+    {
+      "scenario_id": "bind_minimal_cover_b4_rim",
+      "label": "Minimal cover B4 · rim",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B4",
+        "joint_tier": "reducer_slot",
+        "joint_seal_override": null,
+        "env_seal_class": "B3",
+        "bearing_class": "MEDIUM",
+        "zone": "rim_sun",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "rim_climb"
+    },
+    {
+      "scenario_id": "bind_hauler_100kg",
+      "label": "M-combat 100 kg mass branch",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B3",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 100.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "traverse_nominal"
+    },
+    {
+      "scenario_id": "bind_light_shield_5g",
+      "label": "Light radiation shield 5 g/cm²",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B3",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 5.0
+      },
+      "load_id": "traverse_nominal"
+    },
+    {
+      "scenario_id": "bind_heavy_shield_20g",
+      "label": "Heavy shield 20 g/cm² · compute chest class",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B3",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 20.0
+      },
+      "load_id": "traverse_nominal"
+    },
+    {
+      "scenario_id": "bind_wrist_secondary_b3",
+      "label": "Wrist joint tier · default B3",
+      "stack": {
+        "tread_profile": "pu_shore_70a",
+        "traverse_seal_class": "B3",
+        "joint_tier": "wrist_joint",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "construct_sustained"
+    },
+    {
+      "scenario_id": "bind_wheel_hub_b2",
+      "label": "Wheel bearing hub seal tier",
+      "stack": {
+        "tread_profile": "pu_shore_95a",
+        "traverse_seal_class": "B2",
+        "joint_tier": "wheel_bearing",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "traverse_nominal"
+    },
+    {
+      "scenario_id": "bind_construct_high_duty",
+      "label": "Sustained construct · N=8 class duty",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B3",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "construct_sustained"
+    },
+    {
+      "scenario_id": "bind_chip_corner_b5_72mhz_class",
+      "label": "Chip material B5 corner class · high duty",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B5",
+        "joint_tier": "reducer_slot",
+        "joint_seal_override": "B5",
+        "env_seal_class": "B4",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "rover_mass_kg": 50.0,
+        "shield_g_cm2": 10.0
+      },
+      "load_id": "construct_sustained",
+      "chip_material_ref": "scout_seal_b5",
+      "clock_case": "stress_72mhz"
+    }
+  ]
+}

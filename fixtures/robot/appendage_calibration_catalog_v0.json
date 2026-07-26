@@ -1,0 +1,10 @@
+{
+  "catalog_id": "appendage_calibration_catalog_v0",
+  "version": 0,
+  "proof_tier": "APPENDAGE_CALIBRATION_SLICE",
+  "oracle": "CALIBRATION_TEACHING_PIPELINE",
+  "teaching_backlash_rad": 0.002,
+  "fk_rmse_max_m": 0.05,
+  "encoder_counts_per_rev_default": 4096,
+  "tabu": "claim field-verified calibration cert"
+}

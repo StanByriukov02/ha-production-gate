@@ -1,0 +1,128 @@
+{
+  "catalog_id": "lunar_lightweight_frame_alloys_v1",
+  "status": "ADAPT_CLOSED",
+  "product_ready": false,
+  "baseline_alloy_id": "al_6061_t6_extrusion",
+  "baseline_frame_mass_kg": 1.76,
+  "baseline_wheels_mass_kg": 18.56,
+  "baseline_payload_mass_kg": 29.68,
+  "baseline_total_kg": 50.0,
+  "thin_wall_exponent": 0.45,
+  "honesty": {
+    "adapt_not_flight_cert": true,
+    "bcc_labels_are_crystal_class_teaching": true,
+    "not_measured_lunar": true
+  },
+  "scout_mass_presets": {
+    "earth_lab_50": {
+      "label": "Earth cave carrier anchor",
+      "target_mass_kg": 50.0,
+      "wheel_diameter_cm": 20.0,
+      "wheel_width_cm": 8.0,
+      "payload_mass_kg": 29.68
+    },
+    "lunar_scout_35": {
+      "label": "Lunar scout class",
+      "target_mass_kg": 35.0,
+      "wheel_diameter_cm": 18.0,
+      "wheel_width_cm": 7.0,
+      "payload_mass_kg": 17.5
+    },
+    "lunar_micro_28": {
+      "label": "Micro lunar rover",
+      "target_mass_kg": 28.0,
+      "wheel_diameter_cm": 16.0,
+      "wheel_width_cm": 6.5,
+      "payload_mass_kg": 11.0
+    },
+    "lunar_ultra_22": {
+      "label": "Ultra-light hopper-scout",
+      "target_mass_kg": 22.0,
+      "wheel_diameter_cm": 15.0,
+      "wheel_width_cm": 6.0,
+      "payload_mass_kg": 7.5
+    }
+  },
+  "frame_alloys": {
+    "al_6061_t6_extrusion": {
+      "label": "6061-T6 extrusion (baseline)",
+      "crystal_class": "FCC",
+      "density_kg_m3": 2700.0,
+      "yield_mpa": 240.0,
+      "youngs_gpa": 69.0,
+      "tier": "CITED_BIND",
+      "cite": "ASM Handbook Vol 2 — 6061-T6",
+      "lunar_note": "baseline earth lab rail"
+    },
+    "al_li_2195_t81": {
+      "label": "Al-Li 2195-T81 lightweight",
+      "crystal_class": "FCC",
+      "density_kg_m3": 2570.0,
+      "yield_mpa": 510.0,
+      "youngs_gpa": 77.0,
+      "tier": "ADAPT",
+      "cite": "NASA MSFC Al-Li alloy family — density reduction vs 6061 (ADAPT until lot cite)",
+      "lunar_note": "lower density + higher yield → thinner rail possible"
+    },
+    "al_sc_zr_microalloy": {
+      "label": "Al-Sc-Zr fine-grain rail",
+      "crystal_class": "FCC",
+      "density_kg_m3": 2680.0,
+      "yield_mpa": 380.0,
+      "youngs_gpa": 71.0,
+      "tier": "ADAPT",
+      "cite": "Scalmalloy-class teaching — high yield at near-Al density",
+      "lunar_note": "strength without Ti mass penalty"
+    },
+    "mg_we43_thixomold": {
+      "label": "Mg-RE WE43 thixomold",
+      "crystal_class": "HCP",
+      "density_kg_m3": 1850.0,
+      "yield_mpa": 250.0,
+      "youngs_gpa": 45.0,
+      "tier": "ADAPT",
+      "cite": "Magnesium WE43 typical — lightest structural metal class (ADAPT)",
+      "lunar_note": "mass win · watch creep/cold and corrosion class"
+    },
+    "ti_beta_21s_bcc": {
+      "label": "Ti Beta-21S BCC-beta phase",
+      "crystal_class": "BCC_BETA",
+      "density_kg_m3": 4800.0,
+      "yield_mpa": 900.0,
+      "youngs_gpa": 80.0,
+      "tier": "ADAPT",
+      "cite": "Beta titanium alloy class — BCC stabilizers Mo/Nb (ADAPT)",
+      "lunar_note": "dense but ultra-thin wall · hot/cold cycle teaching"
+    },
+    "ti_6al_4v_thinwall": {
+      "label": "Ti-6Al-4V thin-wall anodized",
+      "crystal_class": "HCP_ALPHA_BETA",
+      "density_kg_m3": 4430.0,
+      "yield_mpa": 880.0,
+      "youngs_gpa": 114.0,
+      "tier": "ADAPT",
+      "cite": "Ti-6Al-4V aerospace — strength enables section reduction (ADAPT)",
+      "lunar_note": "only wins if section scales down enough"
+    },
+    "bcc_nb_mo_hf_hea_adapt": {
+      "label": "BCC Nb-Mo-Hf HEA teaching",
+      "crystal_class": "BCC_HEA",
+      "density_kg_m3": 7800.0,
+      "yield_mpa": 1200.0,
+      "youngs_gpa": 150.0,
+      "tier": "ADAPT",
+      "cite": "BCC high-entropy alloy literature — teaching corner not mass winner",
+      "lunar_note": "falsifier: BCC HEA heavier than Al — only for hot joint nodes"
+    },
+    "cfrp_m55j_tube": {
+      "label": "CFRP M55J tube effective",
+      "crystal_class": "COMPOSITE",
+      "density_kg_m3": 1580.0,
+      "yield_mpa": 600.0,
+      "youngs_gpa": 120.0,
+      "tier": "ADAPT",
+      "cite": "CFRP tube axial strength/density — robot rail surrogate (ADAPT)",
+      "lunar_note": "best mass/stiffness if UV/cold handled"
+    }
+  }
+}

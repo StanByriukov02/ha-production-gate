@@ -1,0 +1,169 @@
+{
+  "catalog_id": "lunar_manipulator_material_catalog_v1",
+  "status": "ADAPT_CLOSED",
+  "product_ready": false,
+  "baseline_arm_mass_kg": 2.4,
+  "baseline_alloy_id": "al_6061_t6_extrusion",
+  "alloy_catalog": "fixtures/robot/lunar_lightweight_frame_alloys_v1.json",
+  "articulation_bind": "results/platform_bpass/moon/ROBOT_ARTICULATION_BIND_v1.json",
+  "manipulator_bind": "results/platform_bpass/moon/ROBOT_MANIPULATOR_BIND_v1.json",
+  "honesty": {
+    "adapt_not_flight_cert": true,
+    "grasp_contact_teaching_proxy": true,
+    "not_measured_lunar": true
+  },
+  "arm_dof_presets": {
+    "stub_2dof": {
+      "label": "2-DOF sample arm stub",
+      "links": 2,
+      "reach_m": 0.45,
+      "mass_scale": 0.65,
+      "actuator_slots": 2
+    },
+    "scout_3dof": {
+      "label": "3-DOF scout manipulator",
+      "links": 3,
+      "reach_m": 0.75,
+      "mass_scale": 1.0,
+      "actuator_slots": 3
+    },
+    "isru_4dof": {
+      "label": "4-DOF ISRU scoop arm",
+      "links": 4,
+      "reach_m": 1.1,
+      "mass_scale": 1.45,
+      "actuator_slots": 4
+    }
+  },
+  "gripper_pads": {
+    "pu_shore_70a_soft": {
+      "label": "PU 70A soft finger pad",
+      "material_id": "pu_ester_shore_70a",
+      "shore": 70,
+      "contact_area_cm2": 18.0,
+      "ingress_disturb_base": 1.35,
+      "shore_ingress_factor": 1.12,
+      "abrasion_factor": 0.92,
+      "finger_seal_class": "B4",
+      "tier": "ADAPT",
+      "cite": "soft regolith sample grip — higher disturb lower abrasion"
+    },
+    "pu_shore_90a_firm": {
+      "label": "PU 90A firm finger pad",
+      "material_id": "pu_ester_shore_90a",
+      "shore": 90,
+      "contact_area_cm2": 14.0,
+      "ingress_disturb_base": 1.18,
+      "shore_ingress_factor": 1.0,
+      "abrasion_factor": 1.0,
+      "finger_seal_class": "B3",
+      "tier": "CITED_BIND",
+      "cite": "registry wheel tread class extended to finger"
+    },
+    "nbr_sealed_finger_b2": {
+      "label": "NBR lip finger · B2 sealed",
+      "material_id": "nbr_lip_seal_b2",
+      "shore": 85,
+      "contact_area_cm2": 12.0,
+      "ingress_disturb_base": 0.95,
+      "shore_ingress_factor": 0.88,
+      "abrasion_factor": 0.85,
+      "finger_seal_class": "B2",
+      "tier": "CITED_BIND",
+      "cite": "DUST_INGRESS_BIND B2 finger path"
+    },
+    "h13_tool_steel_jaw": {
+      "label": "H13 tool steel rigid jaw",
+      "material_id": "h13_tool_steel_block",
+      "shore": null,
+      "contact_area_cm2": 8.0,
+      "ingress_disturb_base": 1.55,
+      "shore_ingress_factor": 1.08,
+      "abrasion_factor": 1.22,
+      "finger_seal_class": "B5",
+      "tier": "ADAPT",
+      "cite": "excavator jaw teaching — high disturb + abrasion"
+    },
+    "ceramic_scoop_edge": {
+      "label": "Al2O3 ceramic scoop edge",
+      "material_id": "al2o3_ceramic_scoop",
+      "shore": null,
+      "contact_area_cm2": 22.0,
+      "ingress_disturb_base": 1.72,
+      "shore_ingress_factor": 1.05,
+      "abrasion_factor": 0.78,
+      "finger_seal_class": "B4",
+      "tier": "ADAPT",
+      "cite": "ISRU scoop edge — high loft disturb, lower elastomer wear"
+    }
+  },
+  "coupling_profiles": {
+    "sample_vial_b1": {
+      "label": "Sample vial labyrinth · B1",
+      "seal_class": "B1",
+      "joint_gap_mm": 0.22,
+      "exposure_area_cm2": 4.5,
+      "ingress_scale": 0.18,
+      "integrity_class": "hermetic_sample"
+    },
+    "hitch_latch_b3": {
+      "label": "Payload hitch latch · B3",
+      "seal_class": "B3",
+      "joint_gap_mm": 0.40,
+      "exposure_area_cm2": 7.0,
+      "ingress_scale": 0.55,
+      "integrity_class": "mechanical_latch"
+    },
+    "isru_bucket_b2": {
+      "label": "ISRU bucket rim seal · B2",
+      "seal_class": "B2",
+      "joint_gap_mm": 0.35,
+      "exposure_area_cm2": 16.0,
+      "ingress_scale": 0.42,
+      "integrity_class": "bulk_regolith"
+    },
+    "open_tool_mount_b5": {
+      "label": "Open tool mount · B5",
+      "seal_class": "B5",
+      "joint_gap_mm": 0.90,
+      "exposure_area_cm2": 12.0,
+      "ingress_scale": 1.0,
+      "integrity_class": "exposed_mount"
+    }
+  },
+  "grasp_duties": {
+    "sample_pick": {
+      "label": "Sample pick · low cycles",
+      "grasp_force_n": 25.0,
+      "cycles_per_sol": 12.0,
+      "mission_sols": 25.0,
+      "cleaning_duty": 0.22,
+      "duty_on": 0.35,
+      "nand2_n_tr": 3.5
+    },
+    "tool_repeat": {
+      "label": "Tool repeat grasp · medium duty",
+      "grasp_force_n": 40.0,
+      "cycles_per_sol": 28.0,
+      "mission_sols": 30.0,
+      "cleaning_duty": 0.18,
+      "duty_on": 0.48,
+      "nand2_n_tr": 4.5
+    },
+    "isru_scoop_disturb": {
+      "label": "ISRU scoop disturb · high ingress",
+      "grasp_force_n": 85.0,
+      "cycles_per_sol": 45.0,
+      "mission_sols": 20.0,
+      "cleaning_duty": 0.08,
+      "duty_on": 0.72,
+      "nand2_n_tr": 7.0
+    }
+  },
+  "joint_tier_defaults": {
+    "wrist_joint": "secondary_articulation",
+    "elbow_joint": "elbow_pitch_gap",
+    "gripper_actuator": "finger_actuator_ingress",
+    "coupling_clamp": "sample_coupling_face"
+  }
+}

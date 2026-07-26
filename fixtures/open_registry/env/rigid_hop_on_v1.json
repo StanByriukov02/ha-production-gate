@@ -1,0 +1,62 @@
+{
+  "schema": "ha_rigid_hop_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "apex=v_up^2/(2g); tof=2 v_up/g; range=v_h*tof; Euler: v+=a dt, x+=v dt (a=F/m+g)",
+  "units": {
+    "v": "m/s",
+    "g": "m/s^2",
+    "apex": "m",
+    "tof": "s",
+    "range": "m"
+  },
+  "on_sources": [
+    {
+      "id": "newton_ballistic",
+      "cite": "Newtonian ballistic hop under constant g (teaching)",
+      "used": [
+        "apex",
+        "tof",
+        "range"
+      ]
+    },
+    {
+      "id": "lunar_g",
+      "cite": "g_moon≈1.62 m/s^2 · Dual vs Earth 9.81",
+      "used": [
+        "g_moon",
+        "g_earth"
+      ]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate rigid-hop --catalog <path> --v-up <u> --v-h <h> [--body moon|earth]"
+  },
+  "honesty": [
+    "teaching ballistic / Euler free-body — not full constrained 6DOF multibody",
+    "no aero drag (vacuum)",
+    "not MEASURED hopper flight",
+    "python_not_oracle"
+  ],
+  "g_m_s2": {
+    "moon": 1.62,
+    "earth": 9.81
+  },
+  "defaults": {
+    "body": "moon",
+    "v_up_m_s": 2.0,
+    "v_h_m_s": 1.0
+  },
+  "gates": {
+    "v_up_min": 0.0,
+    "v_up_max": 100.0,
+    "v_h_min": 0.0,
+    "v_h_max": 100.0
+  },
+  "dual_anchors": {
+    "safe_v_mult": 1.0,
+    "hostile_v_mult": 2.0,
+    "body": "moon",
+    "cite": "Dual: catalog defaults vs 2x Hostile recover hop (ballistics G4)"
+  }
+}

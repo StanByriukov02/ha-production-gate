@@ -1,0 +1,15 @@
+{
+  "envelope_id": "manipulator_grasp_force_envelope_v1",
+  "gripper_lever_arm_m": 0.04,
+  "ramp_rate_n_per_s": 200.0,
+  "ingress_feedback_threshold": 2.5,
+  "ingress_feedback_min_scale": 0.35,
+  "gripper_joint_index": 2,
+  "arm_hold_kp": 12.0,
+  "arm_hold_kd": 1.5,
+  "honesty": {
+    "adapt_teaching_proxy": true,
+    "not_measured_friction": true
+  },
+  "tabu": "claim measured grasp force on regolith"
+}

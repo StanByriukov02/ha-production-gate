@@ -1,0 +1,24 @@
+{
+  "contract_id": "manipulator_kinematics_port_v0",
+  "version": 1,
+  "proof_tier": "MANIPULATOR_KINEMATICS_SLICE",
+  "oracle": "RUST_SERIAL_ARM_PLANAR",
+  "chain_fixture": "fixtures/robot/lunar_manipulator_chain_v1.json",
+  "native_bin": "manipulator_kinematics_step",
+  "operations": ["fk", "ik", "jacobian", "symplectic_step", "fk_ik_roundtrip", "grasp_force_step"],
+  "falsifiers": {
+    "fk_ik_roundtrip_max_m": 0.005,
+    "jacobian_fd_rel_max": 0.01,
+    "symplectic_energy_drift_max": 0.45,
+    "bad_inject_min_pos_err_m": 0.02
+  },
+  "tabu": [
+    "claim RT control on hardware",
+    "claim 6-DOF flight arm",
+    "Python-only FK truth"
+  ],
+  "honesty": {
+    "tier": "T0",
+    "product_ready": false
+  }
+}

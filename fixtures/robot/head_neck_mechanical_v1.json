@@ -1,0 +1,14 @@
+{
+  "mechanical_id": "head_neck_mechanical_v1",
+  "chain_id": "head_neck_pan_tilt_v1",
+  "sensor_facts": "fixtures/cad/scout/robot_scout_sensor_mount_v1_facts_v1.json",
+  "max_camera_mass_kg": 0.15,
+  "mount_parent": "chest_mount_link",
+  "torso_chain_id": "torso_spine_2dof_v1",
+  "honesty": {
+    "perception_bind_teaching": true,
+    "not_slam_measured": true
+  },
+  "deferred": ["PERCEPTION_MOUNT_BIND", "SLAM_HEAD_SYNC", "MEASURED_GIMBAL_STIFFNESS"],
+  "tabu": ["claim SLAM head tracking MEASURED", "claim autonomous gaze"]
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "ha_fatigue_sn_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "sigma_a = sigma_f_prime * (2*N_f)^b  =>  N_f = 0.5 * (sigma_a/sigma_f_prime)^(1/b)",
+  "units": { "sigma": "MPa", "N_f": "cycles", "b": "1" },
+  "on_sources": [
+    {
+      "id": "basquin_sn",
+      "cite": "Basquin high-cycle teaching: σ_a = σ_f'(2N_f)^b (not crack-growth FEM / MEASURED coupon)",
+      "used": ["N_f"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate fatigue-sn --catalog <path> --mat <id> --sigma-a-mpa <s>"
+  },
+  "honesty": ["teaching Basquin S-N — not Paris law / MEASURED", "python_not_oracle"],
+  "mats": {
+    "al6061_safe": {
+      "label": "Al6061-class Dual Safe",
+      "sigma_f_prime_mpa": 600.0,
+      "b": -0.085
+    },
+    "brittle_hostile": {
+      "label": "low endurance Dual Hostile",
+      "sigma_f_prime_mpa": 320.0,
+      "b": -0.12
+    }
+  },
+  "defaults": { "mat": "al6061_safe", "sigma_a_mpa": 120.0 },
+  "dual_anchors": {
+    "safe_mat": "al6061_safe",
+    "hostile_mat": "brittle_hostile",
+    "sigma_a_mpa": 150.0
+  }
+}

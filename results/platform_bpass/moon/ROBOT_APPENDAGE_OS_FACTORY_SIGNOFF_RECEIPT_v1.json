@@ -1,0 +1,4976 @@
+{
+  "receipt_id": "ROBOT_APPENDAGE_OS_FACTORY_SIGNOFF_RECEIPT_v1",
+  "timestamp_utc": "2026-07-17T16:01:27.661285+00:00",
+  "canon": "docs/agent_workflow/APPENDAGE_KINEMATICS_OS_PLAN_20260712_V1.md",
+  "proof_tier": "APPENDAGE_OS_FACTORY_SIGNOFF",
+  "gate": "APPENDAGE_OS_FACTORY_H_AI_BM",
+  "checks": {
+    "G_H_chain_ir": true,
+    "G_J_urdf": true,
+    "G_K_actuator": true,
+    "G_L_hil": true,
+    "G_M_friction": true,
+    "G_N_tree": true,
+    "G_O_foc_rt": true,
+    "G_P_calibration": true,
+    "G_Q_tree_ik": true,
+    "G_R_foc_fw_hil": true,
+    "G_S_field_cal": true,
+    "G_T_stack": true,
+    "G_U_parity": true,
+    "G_V_registry": true,
+    "G_W_fk_ik_rt": true,
+    "G_X_closed_loop": true,
+    "G_Y_multi_compose": true,
+    "G_Z_create_cli": true,
+    "G_AA_urdf_create": true,
+    "G_AB_hexapod": true,
+    "G_AC_mount_se3": true,
+    "G_AG_hexapod_body": true,
+    "G_AH_gait": true,
+    "G_AD_field_servo": true,
+    "G_AI_foot_contact": true,
+    "G_AE_registry_persist": true,
+    "G_AF_dual_sub_review": true,
+    "G_AJ_role_taxonomy": true,
+    "G_AK_wheeled": true,
+    "G_AL_torso": true,
+    "G_AM_head": true,
+    "G_AN_biped": true,
+    "G_AO_gripper": true,
+    "G_AP_motion_bus": true,
+    "G_AQ_full_body": true,
+    "G_AR_registry_canon": true,
+    "G_AS_hexapod_parity": true,
+    "G_AT_iron_honesty": true,
+    "G_AU_base_arm": true,
+    "G_AV_biped_zmp": true,
+    "G_AW_dual_post_ak_aq": true,
+    "G_AX_rolling_crown": true,
+    "G_AY_phase_lock": true,
+    "G_AZ_measured_foot": true,
+    "G_BA_wheeled_unpark": true,
+    "G_BB_morphology_patch": true,
+    "G_BC_dual_region": true,
+    "G_BD_dynamic_balance": true,
+    "G_BE_earth_lunar_motion": true,
+    "G_BF_dual_post_ba": true,
+    "G_BG_torso_mechanical": true,
+    "G_BH_head_mechanical": true,
+    "G_BI_torso_head_compose": true,
+    "G_BJ_mechanics_synthesis": true,
+    "G_BK_physics_universe_playbench": true,
+    "G_BL_physics_universe_depth": true,
+    "G_BM_assembly_lab": true,
+    "G_lc2_se3_fk": true
+  },
+  "fail": [],
+  "children": {
+    "H_kinematic_chain": {
+      "receipt_id": "ROBOT_KINEMATIC_CHAIN_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:30.112812+00:00",
+      "canon": "fixtures/robot/kinematic_chain_ir_v0.json",
+      "proof_tier": "APPENDAGE_KINEMATICS_OS_SLICE",
+      "gate": "KINEMATIC_CHAIN_IR_G1_G5",
+      "chain_ids": [
+        "gripper_parallel_1dof_v1",
+        "head_neck_pan_tilt_v1",
+        "hexapod_leg_3dof_v1",
+        "hexapod_leg_from_urdf_v1",
+        "lc2_bench_hip_1dof_v1",
+        "lunar_manipulator_chain_scout_3dof_v1",
+        "torso_spine_2dof_v1"
+      ],
+      "checks": {
+        "G1_registry_smoke": true,
+        "G2_multi_chain": true,
+        "G3_scout_fk": true,
+        "G4_lc2_1dof_fk": true,
+        "G5_oracle_honest": true
+      },
+      "fail": [],
+      "smoke": {
+        "verdict": "APPENDAGE_KINEMATICS_OS_SLICE_PASS",
+        "checks": {
+          "F_falsifiers": true,
+          "F_two_chains": true
+        },
+        "fail": [],
+        "falsifiers": {
+          "checks": {
+            "F_registry_has_multiple_chains": true,
+            "F_scout_dof3": true,
+            "F_lc2_dof1": true,
+            "F_hexapod_present": true,
+            "F_scout_fk_finite": true,
+            "F_lc2_fk_finite": true,
+            "F_oracle_honest": true,
+            "F_lc2_se3_class": true,
+            "F_hexapod_dof3": true,
+            "F_hexapod_fk_finite": true
+          },
+          "fail": [],
+          "pass": true,
+          "chain_ids": [
+            "gripper_parallel_1dof_v1",
+            "head_neck_pan_tilt_v1",
+            "hexapod_leg_3dof_v1",
+            "hexapod_leg_from_urdf_v1",
+            "lc2_bench_hip_1dof_v1",
+            "lunar_manipulator_chain_scout_3dof_v1",
+            "torso_spine_2dof_v1"
+          ],
+          "scout_fk": {
+            "ee_x": 0.6933731804702495,
+            "ee_y": 0.26957851881584527
+          },
+          "lc2_fk": {
+            "ee_x": 0.028181181385421365,
+            "ee_y": 0.0
+          }
+        }
+      },
+      "honesty": {
+        "tier": "T0",
+        "rust_crown_not_python": true,
+        "planar_serial_only": true,
+        "not_se3_tree": true,
+        "not_rt_servo": true
+      },
+      "verdict": "ROBOT_KINEMATIC_CHAIN_SLICE_PASS"
+    },
+    "J_urdf_compiler": {
+      "verdict": "URDF_CHAIN_IR_SLICE_PASS",
+      "falsifiers": {
+        "checks": {
+          "F_urdf_revolute_count": true,
+          "F_flat_dof1": true,
+          "F_hip_joint_named": true,
+          "F_axis_y": true,
+          "F_compile_chain_id": true
+        },
+        "fail": [],
+        "pass": true,
+        "compiled": {
+          "chain_id": "lc2_bench_hip_1dof_v1",
+          "geometry_class": "serial_revolute_se3",
+          "dof": 1,
+          "ee_frame": "hip_output_link",
+          "appendage_role": "bench_joint",
+          "actuator_backend_default": "lc2_iron_teaching",
+          "source": "fixtures/cad/lc2_bench_1dof_v1.urdf",
+          "se3_joints": [
+            {
+              "name": "hip_joint",
+              "origin_xyz": [
+                0.0,
+                0.0,
+                0.035
+              ],
+              "origin_rpy": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "axis_xyz": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "joint_limits_rad": {
+            "min": [
+              0.0
+            ],
+            "max": [
+              0.785398
+            ]
+          },
+          "joint_torque_max_nm": [
+            5.0
+          ],
+          "proof_tier": "URDF_CHAIN_IR_SLICE",
+          "oracle": "URDF_COMPILER_V1"
+        }
+      }
+    },
+    "K_actuator_bus": {
+      "verdict": "ACTUATOR_PLUGIN_BUS_SLICE_PASS",
+      "checks": {
+        "F_sim_dispatch": true,
+        "F_iron_dispatch": true,
+        "F_sim_tick_finite": true,
+        "F_iron_tick_finite": true,
+        "F_backlash_diverge": true
+      },
+      "fail": [],
+      "sim_sample": {
+        "backend": "sim_symplectic",
+        "q": [
+          0.19984122921438974,
+          0.3000318347364797,
+          -0.1000426229065836
+        ],
+        "q_dot": [
+          -0.03175415712205623,
+          0.006366947295941882,
+          -0.008524581316719154
+        ],
+        "symplectic_drift": 0.00020019217185551956
+      },
+      "iron_sample": {
+        "backend": "lc2_iron_teaching",
+        "q": [
+          0.200002
+        ],
+        "mmio": {
+          "FOC_PWM_HZ": 20000,
+          "FOC_STATUS": 1,
+          "encoder_counts": [
+            130
+          ],
+          "joint_positions_rad": [
+            0.200002
+          ],
+          "isr_ticks": 1,
+          "clamp_events": 0,
+          "backend": "manipulator_lc2_iron_teaching_v1",
+          "proof_tier": "MANIPULATOR_IRON_HAL_TEACHING_SLICE",
+          "oracle": "LC2_TEACHING_FIXTURE",
+          "JOINT0_ENC": 130,
+          "JOINT0_TORQUE_CMD": 1092,
+          "JOINT0_TORQUE_NM": 0.1
+        },
+        "isr_ticks": 1
+      }
+    },
+    "L_iron_hil": {
+      "receipt_id": "ROBOT_LC2_APPENDAGE_HIL_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:30.437351+00:00",
+      "proof_tier": "APPENDAGE_IRON_HIL_SLICE",
+      "gate": "LC2_APPENDAGE_HIL_G1_G4",
+      "checks": {
+        "G1_hil_falsifiers": true,
+        "G2_linker_reconcile": true,
+        "G3_qemu_structural": true,
+        "G4_hal_cross": true
+      },
+      "fail": [],
+      "falsifiers": {
+        "checks": {
+          "F_memory_map_reconcile": true,
+          "F_iron_hal_map_cite": true,
+          "F_qemu_probe_ok": true,
+          "F_register_layout": true,
+          "F_mcu_class_match": true
+        },
+        "fail": [],
+        "pass": true,
+        "spec": {
+          "iron_hal_fixture": "manipulator_lc2_iron_hal_v1",
+          "memory_map_id": "lc2_baremetal_memory_map_v0",
+          "mcu_class": "ATSAMD21RT",
+          "bench_urdf": "fixtures/cad/lc2_bench_1dof_v1.urdf",
+          "fw_feed": {
+            "map_id": "lc2_baremetal_memory_map_v0",
+            "slot_overrides": {
+              "MEMORY_MAP_ORIGIN": 536870912,
+              "SRAM_TILE_KB": 8.0
+            }
+          },
+          "reconcile": {
+            "map_id": "lc2_baremetal_memory_map_v0",
+            "linker_script": "fixtures/chip/lc2_samd21_baremetal_v0.ld",
+            "parsed_regions": [
+              {
+                "name": "FLASH",
+                "origin_hex": "0x00000000",
+                "origin": 0,
+                "length_bytes": 262144
+              },
+              {
+                "name": "SRAM_TILE",
+                "origin_hex": "0x20000000",
+                "origin": 536870912,
+                "length_bytes": 8192
+              },
+              {
+                "name": "SRAM_SYS",
+                "origin_hex": "0x20002000",
+                "origin": 536879104,
+                "length_bytes": 24576
+              }
+            ],
+            "slot_feed": {
+              "MEMORY_MAP_ORIGIN": 536870912,
+              "SRAM_TILE_KB": 8.0
+            },
+            "matches_fixture": true
+          },
+          "qemu_probe": {
+            "qemu_path": null,
+            "gcc_path": "C:\\msys64\\mingw64\\bin\\gcc.EXE",
+            "tier": "STRUCTURAL_SKIP",
+            "verdict": "SKIP",
+            "machine": "netduinoplus2",
+            "detail": "qemu-system-arm not on PATH \u2014 linker+HAL structural bind only"
+          },
+          "register_count": 8
+        }
+      },
+      "honesty": {
+        "tier": "STRUCTURAL",
+        "qemu_may_skip": true,
+        "not_rt_servo": true,
+        "not_field_verified": true
+      },
+      "verdict": "ROBOT_LC2_APPENDAGE_HIL_SLICE_PASS"
+    },
+    "M_contact_friction": {
+      "verdict": "CONTACT_FRICTION_SLICE_PASS",
+      "falsifiers": {
+        "checks": {
+          "F_slip_bound": true,
+          "F_stick_bound": true,
+          "F_envelope_diverge": true,
+          "F_catalog_pair": true
+        },
+        "fail": [],
+        "pass": true
+      }
+    },
+    "N_kinematic_tree": {
+      "receipt_id": "ROBOT_KINEMATIC_TREE_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:30.854160+00:00",
+      "proof_tier": "KINEMATIC_TREE_IR_SLICE",
+      "gate": "KINEMATIC_TREE_G1_G3",
+      "checks": {
+        "G1_tree_smoke": true,
+        "G2_branched": true,
+        "G3_wheels_separate": true
+      },
+      "fail": [],
+      "smoke": {
+        "verdict": "KINEMATIC_TREE_IR_SLICE_PASS",
+        "falsifiers": {
+          "checks": {
+            "F_four_wheel_branches": true,
+            "F_wheel_fl_x": true,
+            "F_wheel_fr_x": true,
+            "F_wheels_separate": true,
+            "F_links_solved": true,
+            "F_prismatic_fk": true,
+            "F_tree_ik_converged": true
+          },
+          "fail": [],
+          "pass": true,
+          "spec": {
+            "tree_id": "lc2_combat_carrier_4wd_v1",
+            "root_link": "base_link",
+            "source": "fixtures/cad/lc2_combat_carrier_4wd_v1.urdf",
+            "joints": [
+              {
+                "name": "compute_vault_fixed",
+                "parent_link": "base_link",
+                "child_link": "compute_vault_link",
+                "joint_type": "fixed",
+                "origin_xyz": [
+                  0.0,
+                  0.02,
+                  0.12
+                ],
+                "origin_rpy": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "axis_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "name": "chip_fixed",
+                "parent_link": "compute_vault_link",
+                "child_link": "chip_package_link",
+                "joint_type": "fixed",
+                "origin_xyz": [
+                  0.0,
+                  0.0,
+                  0.018
+                ],
+                "origin_rpy": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "axis_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "name": "wheel_fl_joint",
+                "parent_link": "base_link",
+                "child_link": "wheel_fl_link",
+                "joint_type": "continuous",
+                "origin_xyz": [
+                  -0.25,
+                  -0.165,
+                  0.1
+                ],
+                "origin_rpy": [
+                  1.5708,
+                  0.0,
+                  0.0
+                ],
+                "axis_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "name": "wheel_fr_joint",
+                "parent_link": "base_link",
+                "child_link": "wheel_fr_link",
+                "joint_type": "continuous",
+                "origin_xyz": [
+                  0.25,
+                  -0.165,
+                  0.1
+                ],
+                "origin_rpy": [
+                  1.5708,
+                  0.0,
+                  0.0
+                ],
+                "axis_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "name": "wheel_rl_joint",
+                "parent_link": "base_link",
+                "child_link": "wheel_rl_link",
+                "joint_type": "continuous",
+                "origin_xyz": [
+                  -0.25,
+                  0.165,
+                  0.1
+                ],
+                "origin_rpy": [
+                  1.5708,
+                  0.0,
+                  0.0
+                ],
+                "axis_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "name": "wheel_rr_joint",
+                "parent_link": "base_link",
+                "child_link": "wheel_rr_link",
+                "joint_type": "continuous",
+                "origin_xyz": [
+                  0.25,
+                  0.165,
+                  0.1
+                ],
+                "origin_rpy": [
+                  1.5708,
+                  0.0,
+                  0.0
+                ],
+                "axis_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "dof": 4,
+            "branch_count": 5,
+            "link_count": 7,
+            "proof_tier": "KINEMATIC_TREE_IR_SLICE",
+            "oracle": "URDF_TREE_COMPILER_V1"
+          },
+          "fl": {
+            "verdict": "MANIPULATOR_FK_TREE_SE3_PASS",
+            "link": "wheel_fl_link",
+            "links_solved": 7,
+            "backend_id": "kinematic_tree_se3_fk_v1",
+            "ee_x": -0.25,
+            "ee_y": -0.165,
+            "ee_z": 0.1,
+            "qw": 0.7071054825112364,
+            "qx": 0.7071080798594737,
+            "qy": 0.0,
+            "qz": 0.0
+          },
+          "fr": {
+            "verdict": "MANIPULATOR_FK_TREE_SE3_PASS",
+            "link": "wheel_fr_link",
+            "links_solved": 7,
+            "backend_id": "kinematic_tree_se3_fk_v1",
+            "ee_x": 0.25,
+            "ee_y": -0.165,
+            "ee_z": 0.1,
+            "qw": 0.7071054825112364,
+            "qx": 0.7071080798594737,
+            "qy": 0.0,
+            "qz": 0.0
+          }
+        }
+      },
+      "honesty": {
+        "tier": "T0",
+        "branched_not_serial_only": true,
+        "not_full_urdf_collision": true
+      },
+      "verdict": "ROBOT_KINEMATIC_TREE_SLICE_PASS"
+    },
+    "O_foc_rt": {
+      "receipt_id": "ROBOT_APPENDAGE_FOC_RT_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:30.952624+00:00",
+      "proof_tier": "APPENDAGE_FOC_RT_SLICE",
+      "gate": "APPENDAGE_FOC_RT_G1_G3",
+      "checks": {
+        "G1_foc_smoke": true,
+        "G2_pwm_20k": true,
+        "G3_isr_count": true
+      },
+      "fail": [],
+      "smoke": {
+        "verdict": "APPENDAGE_FOC_RT_SLICE_PASS",
+        "burst": {
+          "pwm_hz": 20000,
+          "dt_s": 5e-05,
+          "ticks": 200,
+          "isr_ticks": 200,
+          "encoder_delta": 1,
+          "joint_positions_rad": [
+            0.200417
+          ],
+          "mmio": {
+            "FOC_PWM_HZ": 20000,
+            "FOC_STATUS": 1,
+            "encoder_counts": [
+              131
+            ],
+            "joint_positions_rad": [
+              0.200417
+            ],
+            "isr_ticks": 200,
+            "clamp_events": 0,
+            "backend": "manipulator_lc2_iron_teaching_v1",
+            "proof_tier": "MANIPULATOR_IRON_HAL_TEACHING_SLICE",
+            "oracle": "LC2_TEACHING_FIXTURE",
+            "JOINT0_ENC": 131,
+            "JOINT0_TORQUE_CMD": 3823,
+            "JOINT0_TORQUE_NM": 0.35
+          },
+          "proof_tier": "APPENDAGE_FOC_RT_SLICE",
+          "oracle": "LC2_FOC_RT_TEACHING",
+          "foc_bind_id": "lc2_foc_symbolic_isr_v0"
+        },
+        "falsifiers": {
+          "checks": {
+            "F_pwm_20k": true,
+            "F_isr_count": true,
+            "F_dt_matches_pwm": true,
+            "F_encoder_moves": true,
+            "F_foc_bind_cited": true
+          },
+          "fail": [],
+          "pass": true
+        }
+      },
+      "honesty": {
+        "tier": "T4",
+        "teaching_proxy_not_flight_servo": true
+      },
+      "verdict": "ROBOT_APPENDAGE_FOC_RT_SLICE_PASS"
+    },
+    "P_calibration": {
+      "receipt_id": "ROBOT_APPENDAGE_CALIBRATION_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:31.068484+00:00",
+      "proof_tier": "APPENDAGE_CALIBRATION_SLICE",
+      "gate": "APPENDAGE_CALIBRATION_G1_G3",
+      "checks": {
+        "G1_calibration_smoke": true,
+        "G2_backlash": true,
+        "G3_fk_fit": true
+      },
+      "fail": [],
+      "smoke": {
+        "verdict": "APPENDAGE_CALIBRATION_SLICE_PASS",
+        "checks": {
+          "F_zero_offset_finite": true,
+          "F_backlash_estimate": true,
+          "F_fk_residual_bounded": true,
+          "F_catalog_loaded": true
+        },
+        "fail": [],
+        "encoder_zero": {
+          "zero_offset_counts": 822,
+          "zero_offset_rad": 1.260932,
+          "samples": 4,
+          "counts_per_rev": 4096
+        },
+        "backlash": {
+          "backlash_rad": 0.002,
+          "samples": 7,
+          "method": "max_cmd_meas_gap"
+        },
+        "fk_fit": {
+          "rmse_m": 0.000287,
+          "poses": 1
+        }
+      },
+      "honesty": {
+        "tier": "TEACHING",
+        "not_field_verified": true
+      },
+      "verdict": "ROBOT_APPENDAGE_CALIBRATION_SLICE_PASS"
+    },
+    "Q_tree_ik": {
+      "receipt_id": "ROBOT_TREE_IK_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:31.304837+00:00",
+      "proof_tier": "TREE_IK_SLICE",
+      "checks": {
+        "G1_tree_smoke": true,
+        "G2_ik_converged": true,
+        "G3_prismatic": true
+      },
+      "fail": [],
+      "smoke": {
+        "verdict": "KINEMATIC_TREE_IR_SLICE_PASS",
+        "falsifiers": {
+          "checks": {
+            "F_four_wheel_branches": true,
+            "F_wheel_fl_x": true,
+            "F_wheel_fr_x": true,
+            "F_wheels_separate": true,
+            "F_links_solved": true,
+            "F_prismatic_fk": true,
+            "F_tree_ik_converged": true
+          },
+          "fail": [],
+          "pass": true,
+          "spec": {
+            "tree_id": "lc2_combat_carrier_4wd_v1",
+            "root_link": "base_link",
+            "source": "fixtures/cad/lc2_combat_carrier_4wd_v1.urdf",
+            "joints": [
+              {
+                "name": "compute_vault_fixed",
+                "parent_link": "base_link",
+                "child_link": "compute_vault_link",
+                "joint_type": "fixed",
+                "origin_xyz": [
+                  0.0,
+                  0.02,
+                  0.12
+                ],
+                "origin_rpy": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "axis_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "name": "chip_fixed",
+                "parent_link": "compute_vault_link",
+                "child_link": "chip_package_link",
+                "joint_type": "fixed",
+                "origin_xyz": [
+                  0.0,
+                  0.0,
+                  0.018
+                ],
+                "origin_rpy": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "axis_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "name": "wheel_fl_joint",
+                "parent_link": "base_link",
+                "child_link": "wheel_fl_link",
+                "joint_type": "continuous",
+                "origin_xyz": [
+                  -0.25,
+                  -0.165,
+                  0.1
+                ],
+                "origin_rpy": [
+                  1.5708,
+                  0.0,
+                  0.0
+                ],
+                "axis_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "name": "wheel_fr_joint",
+                "parent_link": "base_link",
+                "child_link": "wheel_fr_link",
+                "joint_type": "continuous",
+                "origin_xyz": [
+                  0.25,
+                  -0.165,
+                  0.1
+                ],
+                "origin_rpy": [
+                  1.5708,
+                  0.0,
+                  0.0
+                ],
+                "axis_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "name": "wheel_rl_joint",
+                "parent_link": "base_link",
+                "child_link": "wheel_rl_link",
+                "joint_type": "continuous",
+                "origin_xyz": [
+                  -0.25,
+                  0.165,
+                  0.1
+                ],
+                "origin_rpy": [
+                  1.5708,
+                  0.0,
+                  0.0
+                ],
+                "axis_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "name": "wheel_rr_joint",
+                "parent_link": "base_link",
+                "child_link": "wheel_rr_link",
+                "joint_type": "continuous",
+                "origin_xyz": [
+                  0.25,
+                  0.165,
+                  0.1
+                ],
+                "origin_rpy": [
+                  1.5708,
+                  0.0,
+                  0.0
+                ],
+                "axis_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "dof": 4,
+            "branch_count": 5,
+            "link_count": 7,
+            "proof_tier": "KINEMATIC_TREE_IR_SLICE",
+            "oracle": "URDF_TREE_COMPILER_V1"
+          },
+          "fl": {
+            "verdict": "MANIPULATOR_FK_TREE_SE3_PASS",
+            "link": "wheel_fl_link",
+            "links_solved": 7,
+            "backend_id": "kinematic_tree_se3_fk_v1",
+            "ee_x": -0.25,
+            "ee_y": -0.165,
+            "ee_z": 0.1,
+            "qw": 0.7071054825112364,
+            "qx": 0.7071080798594737,
+            "qy": 0.0,
+            "qz": 0.0
+          },
+          "fr": {
+            "verdict": "MANIPULATOR_FK_TREE_SE3_PASS",
+            "link": "wheel_fr_link",
+            "links_solved": 7,
+            "backend_id": "kinematic_tree_se3_fk_v1",
+            "ee_x": 0.25,
+            "ee_y": -0.165,
+            "ee_z": 0.1,
+            "qw": 0.7071054825112364,
+            "qx": 0.7071080798594737,
+            "qy": 0.0,
+            "qz": 0.0
+          }
+        }
+      },
+      "verdict": "ROBOT_TREE_IK_SLICE_PASS"
+    },
+    "R_foc_firmware_hil": {
+      "receipt_id": "ROBOT_APPENDAGE_FOC_FIRMWARE_HIL_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:31.461514+00:00",
+      "proof_tier": "APPENDAGE_FOC_FIRMWARE_HIL_SLICE",
+      "checks": {
+        "G1_fw_hil_smoke": true,
+        "G2_closure": true,
+        "G3_foc_paths": true
+      },
+      "fail": [],
+      "smoke": {
+        "verdict": "APPENDAGE_FOC_FIRMWARE_HIL_SLICE_PASS",
+        "falsifiers": {
+          "checks": {
+            "F_smoke_c_on_disk": true,
+            "F_hal_header_on_disk": true,
+            "F_foc_bind_cited": true,
+            "F_memory_map_match": true,
+            "F_pwm_hz_20k": true,
+            "F_linker_reconcile": true,
+            "F_qemu_probe_ok": true,
+            "F_foc_paths_multi": true
+          },
+          "fail": [],
+          "pass": true,
+          "spec": {
+            "foc_bind_id": "lc2_foc_symbolic_isr_v0",
+            "memory_map_id": "lc2_baremetal_memory_map_v0",
+            "firmware_smoke": "fixtures/chip/lc2_baremetal_smoke_v0.c",
+            "iron_pwm_hz": 20000,
+            "foc_paths": 3,
+            "fw_feed_map": "lc2_baremetal_memory_map_v0",
+            "qemu_probe": {
+              "qemu_path": null,
+              "gcc_path": "C:\\msys64\\mingw64\\bin\\gcc.EXE",
+              "tier": "STRUCTURAL_SKIP",
+              "verdict": "SKIP",
+              "machine": "netduinoplus2",
+              "detail": "qemu-system-arm not on PATH \u2014 linker+HAL structural bind only"
+            },
+            "appendage_hil": {
+              "iron_hal_fixture": "manipulator_lc2_iron_hal_v1",
+              "memory_map_id": "lc2_baremetal_memory_map_v0",
+              "mcu_class": "ATSAMD21RT",
+              "bench_urdf": "fixtures/cad/lc2_bench_1dof_v1.urdf",
+              "fw_feed": {
+                "map_id": "lc2_baremetal_memory_map_v0",
+                "slot_overrides": {
+                  "MEMORY_MAP_ORIGIN": 536870912,
+                  "SRAM_TILE_KB": 8.0
+                }
+              },
+              "reconcile": {
+                "map_id": "lc2_baremetal_memory_map_v0",
+                "linker_script": "fixtures/chip/lc2_samd21_baremetal_v0.ld",
+                "parsed_regions": [
+                  {
+                    "name": "FLASH",
+                    "origin_hex": "0x00000000",
+                    "origin": 0,
+                    "length_bytes": 262144
+                  },
+                  {
+                    "name": "SRAM_TILE",
+                    "origin_hex": "0x20000000",
+                    "origin": 536870912,
+                    "length_bytes": 8192
+                  },
+                  {
+                    "name": "SRAM_SYS",
+                    "origin_hex": "0x20002000",
+                    "origin": 536879104,
+                    "length_bytes": 24576
+                  }
+                ],
+                "slot_feed": {
+                  "MEMORY_MAP_ORIGIN": 536870912,
+                  "SRAM_TILE_KB": 8.0
+                },
+                "matches_fixture": true
+              },
+              "qemu_probe": {
+                "qemu_path": null,
+                "gcc_path": "C:\\msys64\\mingw64\\bin\\gcc.EXE",
+                "tier": "STRUCTURAL_SKIP",
+                "verdict": "SKIP",
+                "machine": "netduinoplus2",
+                "detail": "qemu-system-arm not on PATH \u2014 linker+HAL structural bind only"
+              },
+              "register_count": 8
+            }
+          }
+        }
+      },
+      "honesty": {
+        "not_rt_servo": true,
+        "teaching_only": true,
+        "not_measured_foc_fw": true,
+        "deferred": [
+          "MEASURED_FOC_FW_HIL",
+          "IRON_MMIO_PHASE_LOCK"
+        ]
+      },
+      "verdict": "ROBOT_APPENDAGE_FOC_FIRMWARE_HIL_SLICE_PASS"
+    },
+    "S_field_calibration": {
+      "receipt_id": "ROBOT_APPENDAGE_FIELD_CALIBRATION_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:31.682696+00:00",
+      "proof_tier": "APPENDAGE_FIELD_CALIBRATION_SLICE",
+      "checks": {
+        "G1_field_smoke": true,
+        "G2_cycles": true,
+        "G3_convergence": true
+      },
+      "fail": [],
+      "smoke": {
+        "verdict": "APPENDAGE_FIELD_CALIBRATION_SLICE_PASS",
+        "result": {
+          "cycles": 5,
+          "encoder_zero": {
+            "zero_offset_counts": 920,
+            "zero_offset_rad": 1.411262,
+            "samples": 5,
+            "counts_per_rev": 4096
+          },
+          "backlash": {
+            "backlash_rad": 0.002,
+            "samples": 5,
+            "method": "max_cmd_meas_gap"
+          },
+          "fk_fit": {
+            "rmse_m": 0.006453,
+            "poses": 5
+          },
+          "chain_id": "lc2_bench_hip_1dof_v1",
+          "proof_tier": "APPENDAGE_FIELD_CALIBRATION_SLICE",
+          "oracle": "FIELD_CALIBRATION_TEACHING_CYCLE"
+        },
+        "falsifiers": {
+          "checks": {
+            "F_cycles_replayed": true,
+            "F_encoder_zero": true,
+            "F_backlash_near_teaching": true,
+            "F_fk_rmse_bounded": true
+          },
+          "fail": [],
+          "pass": true
+        }
+      },
+      "honesty": {
+        "teaching_only": true,
+        "not_field_measured": true,
+        "deferred": [
+          "MEASURED_FIELD_CALIBRATION"
+        ]
+      },
+      "verdict": "ROBOT_APPENDAGE_FIELD_CALIBRATION_SLICE_PASS"
+    },
+    "T_stack_integrator": {
+      "receipt_id": "ROBOT_APPENDAGE_STACK_INTEGRATOR_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:31.806152+00:00",
+      "proof_tier": "APPENDAGE_STACK_INTEGRATOR_SLICE",
+      "checks": {
+        "G1_stack_smoke": true
+      },
+      "smoke": {
+        "verdict": "APPENDAGE_STACK_INTEGRATOR_SLICE_PASS",
+        "checks": {
+          "F_scout_bus_ee": true,
+          "F_scout_actuator_sim": true,
+          "F_lc2_bus_ee": true,
+          "F_lc2_actuator_iron": true,
+          "F_ticks_increment": true
+        },
+        "fail": [],
+        "scout_bus": {
+          "chain_id": "lunar_manipulator_chain_scout_3dof_v1",
+          "q": [
+            -7.311111111111109e-05,
+            -2.9574173529060724e-05,
+            3.598731319013425e-05
+          ],
+          "q_cmd": [
+            0.25,
+            0.15,
+            -0.1
+          ],
+          "q_raw": [
+            -7.311111111111109e-05,
+            -2.9574173529060724e-05,
+            3.598731319013425e-05
+          ],
+          "ee": {
+            "x": 0.7499999973663001,
+            "y": -6.170321111834355e-05,
+            "z": null
+          },
+          "actuator": {
+            "backend": "sim_symplectic",
+            "q": [
+              -7.311111111111109e-05,
+              -2.9574173529060724e-05,
+              3.598731319013425e-05
+            ],
+            "q_dot": [
+              -0.014622222222222217,
+              -0.005914834705812145,
+              0.007197462638026849
+            ],
+            "symplectic_drift": 26017.042755113758
+          },
+          "calibration": {
+            "encoder_zero_rad": 0.0,
+            "backlash_rad": 0.0
+          },
+          "ticks": 1,
+          "backend": "sim_symplectic"
+        },
+        "lc2_bus": {
+          "chain_id": "lc2_bench_hip_1dof_v1",
+          "q": [
+            0.2
+          ],
+          "q_cmd": [
+            0.35
+          ],
+          "q_raw": [
+            0.2
+          ],
+          "ee": {
+            "x": 0.029401997335237247,
+            "y": 0.0,
+            "z": 0.029039920076148168
+          },
+          "actuator": {
+            "backend": "lc2_iron_teaching",
+            "q": [
+              0.2
+            ],
+            "mmio": {
+              "FOC_PWM_HZ": 20000,
+              "FOC_STATUS": 1,
+              "encoder_counts": [
+                130
+              ],
+              "joint_positions_rad": [
+                0.2
+              ],
+              "isr_ticks": 1,
+              "clamp_events": 0,
+              "backend": "manipulator_lc2_iron_teaching_v1",
+              "proof_tier": "MANIPULATOR_IRON_HAL_TEACHING_SLICE",
+              "oracle": "LC2_TEACHING_FIXTURE",
+              "JOINT0_ENC": 130,
+              "JOINT0_TORQUE_CMD": 1638,
+              "JOINT0_TORQUE_NM": 0.15
+            },
+            "isr_ticks": 1
+          },
+          "calibration": {
+            "encoder_zero_rad": 0.0,
+            "backlash_rad": 0.0
+          },
+          "ticks": 1,
+          "backend": "lc2_iron_teaching"
+        }
+      },
+      "verdict": "ROBOT_APPENDAGE_STACK_INTEGRATOR_SLICE_PASS",
+      "fail": []
+    },
+    "U_se3_planar_parity": {
+      "receipt_id": "ROBOT_SE3_PLANAR_PARITY_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:31.894043+00:00",
+      "proof_tier": "SE3_PLANAR_PARITY_SLICE",
+      "checks": {
+        "G1_parity_smoke": true
+      },
+      "smoke": {
+        "verdict": "SE3_PLANAR_PARITY_SLICE_PASS",
+        "checks": {
+          "F_pos_error_bound": true,
+          "F_planar_finite": true,
+          "F_se3_finite": true
+        },
+        "fail": [],
+        "compare": {
+          "planar": {
+            "ee_x": 0.6186651151049449,
+            "ee_y": 0.4030417437203352
+          },
+          "se3": {
+            "ee_x": 0.618665115104945,
+            "ee_y": 0.4030417437203353,
+            "ee_z": 0.0
+          },
+          "pos_error_m": 1.5700924586837752e-16,
+          "within_bound": true
+        },
+        "max_err_m": 0.002
+      },
+      "verdict": "ROBOT_SE3_PLANAR_PARITY_SLICE_PASS",
+      "fail": []
+    },
+    "V_registry_roundtrip": {
+      "receipt_id": "ROBOT_KINEMATIC_REGISTRY_ROUNDTRIP_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:31.903234+00:00",
+      "proof_tier": "KINEMATIC_REGISTRY_ROUNDTRIP_SLICE",
+      "checks": {
+        "G1_registry_roundtrip": true
+      },
+      "smoke": {
+        "verdict": "KINEMATIC_REGISTRY_ROUNDTRIP_SLICE_PASS",
+        "checks": {
+          "F_compile_dof1": true,
+          "F_resolve_dof1": true,
+          "F_compile_resolve_joints": true,
+          "F_flat_compile_axis_y": true,
+          "F_geometry_se3": true
+        },
+        "fail": [],
+        "compiled": {
+          "chain_id": "lc2_bench_hip_1dof_v1",
+          "dof": 1
+        },
+        "resolved": {
+          "chain_id": "lc2_bench_hip_1dof_v1",
+          "dof": 1
+        }
+      },
+      "verdict": "ROBOT_KINEMATIC_REGISTRY_ROUNDTRIP_SLICE_PASS",
+      "fail": []
+    },
+    "W_tree_fk_ik_roundtrip": {
+      "receipt_id": "ROBOT_TREE_FK_IK_ROUNDTRIP_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:32.038719+00:00",
+      "proof_tier": "TREE_FK_IK_ROUNDTRIP_SLICE",
+      "checks": {
+        "G1_roundtrip_smoke": true
+      },
+      "smoke": {
+        "verdict": "TREE_FK_IK_ROUNDTRIP_SLICE_PASS",
+        "checks": {
+          "F_ik_converged": true,
+          "F_roundtrip_err": true,
+          "F_q_near_seed": true
+        },
+        "fail": [],
+        "roundtrip_error_m": 0.00019950124696219151,
+        "q_sol": 0.0798004987530378
+      },
+      "verdict": "ROBOT_TREE_FK_IK_ROUNDTRIP_SLICE_PASS",
+      "fail": []
+    },
+    "X_closed_loop": {
+      "receipt_id": "ROBOT_APPENDAGE_CLOSED_LOOP_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:36.565731+00:00",
+      "proof_tier": "APPENDAGE_CLOSED_LOOP_SLICE",
+      "checks": {
+        "G1_closed_loop_smoke": true
+      },
+      "smoke": {
+        "verdict": "APPENDAGE_CLOSED_LOOP_SLICE_PASS",
+        "checks": {
+          "F_error_decreased": true,
+          "F_final_error_bounded": true,
+          "F_ee_finite": true
+        },
+        "fail": [],
+        "track": {
+          "chain_id": "lunar_manipulator_chain_scout_3dof_v1",
+          "ticks": 60,
+          "error_start": 0.421962284925393,
+          "error_end": 0.040046484738771454,
+          "error_monotone_last_third": true,
+          "final_bus": {
+            "chain_id": "lunar_manipulator_chain_scout_3dof_v1",
+            "q": [
+              0.36605490876513735,
+              0.22975416077849398,
+              -0.15644652737576076
+            ],
+            "q_cmd": [
+              0.4,
+              0.25,
+              -0.15
+            ],
+            "q_raw": [
+              0.36605490876513735,
+              0.22975416077849398,
+              -0.15644652737576076
+            ],
+            "ee": {
+              "x": 0.6642962590924237,
+              "y": 0.3401934162092534,
+              "z": null
+            },
+            "actuator": {
+              "backend": "sim_symplectic",
+              "q": [
+                0.36605490876513735,
+                0.22975416077849398,
+                -0.15644652737576076
+              ],
+              "q_dot": [
+                0.026683647106274966,
+                0.01919957240547831,
+                0.005483714196622615
+              ],
+              "symplectic_drift": 0.0017953475561636077
+            },
+            "calibration": {
+              "encoder_zero_rad": 0.0,
+              "backlash_rad": 0.0
+            },
+            "ticks": 60,
+            "backend": "sim_symplectic"
+          }
+        }
+      },
+      "verdict": "ROBOT_APPENDAGE_CLOSED_LOOP_SLICE_PASS",
+      "fail": []
+    },
+    "Y_multi_compose": {
+      "receipt_id": "ROBOT_APPENDAGE_MULTI_COMPOSE_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:36.694275+00:00",
+      "proof_tier": "APPENDAGE_MULTI_COMPOSE_SLICE",
+      "checks": {
+        "G1_multi_compose_smoke": true
+      },
+      "smoke": {
+        "verdict": "APPENDAGE_MULTI_COMPOSE_SLICE_PASS",
+        "checks": {
+          "F_two_appendages": true,
+          "F_total_dof_four": true,
+          "F_dual_backend": true,
+          "F_scout_ee_world_mount": true,
+          "F_lc2_ee_world_mount": true,
+          "F_scout_finite": true,
+          "F_ticks_one": true
+        },
+        "fail": [],
+        "robot_id": "lunar_scout_lc2_bench_v1",
+        "bus": {
+          "robot_id": "lunar_scout_lc2_bench_v1",
+          "ticks": 1,
+          "appendages": {
+            "scout_arm": {
+              "chain_id": "lunar_manipulator_chain_scout_3dof_v1",
+              "q": [
+                -7.311111111111109e-05,
+                -2.9574173529060724e-05,
+                3.598731319013425e-05
+              ],
+              "q_cmd": [
+                0.25,
+                0.15,
+                -0.1
+              ],
+              "q_raw": [
+                -7.311111111111109e-05,
+                -2.9574173529060724e-05,
+                3.598731319013425e-05
+              ],
+              "ee": {
+                "x": 0.7499999973663001,
+                "y": -6.170321111834355e-05,
+                "z": null
+              },
+              "actuator": {
+                "backend": "sim_symplectic",
+                "q": [
+                  -7.311111111111109e-05,
+                  -2.9574173529060724e-05,
+                  3.598731319013425e-05
+                ],
+                "q_dot": [
+                  -0.014622222222222217,
+                  -0.005914834705812145,
+                  0.007197462638026849
+                ],
+                "symplectic_drift": 26017.042755113758
+              },
+              "calibration": {
+                "encoder_zero_rad": 0.0,
+                "backlash_rad": 0.0
+              },
+              "ticks": 1,
+              "backend": "sim_symplectic",
+              "appendage_id": "scout_arm",
+              "role": "manipulator_arm",
+              "mount_xyz": [
+                0.12,
+                0.0,
+                0.45
+              ],
+              "mount_rpy": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "ee_world": {
+                "x": 0.8699999973663001,
+                "y": -6.170321111834355e-05,
+                "z": 0.45
+              },
+              "mount_mode": "se3_motor"
+            },
+            "lc2_hip_bench": {
+              "chain_id": "lc2_bench_hip_1dof_v1",
+              "q": [
+                0.199963
+              ],
+              "q_cmd": [
+                0.35
+              ],
+              "q_raw": [
+                0.199963
+              ],
+              "ee": {
+                "x": 0.029402217838068713,
+                "y": 0.0,
+                "z": 0.029041007954128995
+              },
+              "actuator": {
+                "backend": "lc2_iron_teaching",
+                "q": [
+                  0.199963
+                ],
+                "mmio": {
+                  "FOC_PWM_HZ": 20000,
+                  "FOC_STATUS": 1,
+                  "encoder_counts": [
+                    130
+                  ],
+                  "joint_positions_rad": [
+                    0.199963
+                  ],
+                  "isr_ticks": 1,
+                  "clamp_events": 0,
+                  "backend": "manipulator_lc2_iron_teaching_v1",
+                  "proof_tier": "MANIPULATOR_IRON_HAL_TEACHING_SLICE",
+                  "oracle": "LC2_TEACHING_FIXTURE",
+                  "JOINT0_ENC": 130,
+                  "JOINT0_TORQUE_CMD": 1638,
+                  "JOINT0_TORQUE_NM": 0.15
+                },
+                "isr_ticks": 1
+              },
+              "calibration": {
+                "encoder_zero_rad": 0.0,
+                "backlash_rad": 0.0
+              },
+              "ticks": 1,
+              "backend": "lc2_iron_teaching",
+              "appendage_id": "lc2_hip_bench",
+              "role": "bench_joint",
+              "mount_xyz": [
+                0.0,
+                0.0,
+                0.18
+              ],
+              "mount_rpy": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "ee_world": {
+                "x": 0.029402217838068713,
+                "y": 0.0,
+                "z": 0.209041007954129
+              },
+              "mount_mode": "se3_motor"
+            }
+          },
+          "total_dof": 4
+        }
+      },
+      "verdict": "ROBOT_APPENDAGE_MULTI_COMPOSE_SLICE_PASS",
+      "fail": []
+    },
+    "Z_create_cli": {
+      "receipt_id": "ROBOT_APPENDAGE_CREATE_CLI_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:36.784013+00:00",
+      "proof_tier": "APPENDAGE_ROBOT_CREATE_CLI_SLICE",
+      "checks": {
+        "G1_create_cli_smoke": true
+      },
+      "smoke": {
+        "verdict": "APPENDAGE_ROBOT_CREATE_CLI_SLICE_PASS",
+        "checks": {
+          "F_manifest_robot_id": true,
+          "F_appendages_resolved": true,
+          "F_total_dof_four": true,
+          "F_layers_present": true,
+          "F_smoke_tick": true,
+          "F_written": true,
+          "F_not_product_ready": true
+        },
+        "fail": [],
+        "manifest": {
+          "robot_id": "lunar_scout_lc2_bench_v1",
+          "total_dof": 4,
+          "written_to": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\robot\\APPENDAGE_ROBOT_STACK_MANIFEST_v1.json"
+        }
+      },
+      "verdict": "ROBOT_APPENDAGE_CREATE_CLI_SLICE_PASS",
+      "fail": []
+    },
+    "AA_urdf_create": {
+      "receipt_id": "ROBOT_APPENDAGE_URDF_CREATE_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:36.817881+00:00",
+      "proof_tier": "APPENDAGE_URDF_CREATE_SLICE",
+      "checks": {
+        "G1_urdf_create_smoke": true
+      },
+      "smoke": {
+        "verdict": "APPENDAGE_URDF_CREATE_SLICE_PASS",
+        "checks": {
+          "F_mode_urdf_first": true,
+          "F_overlay_registered": true,
+          "F_hexapod_dof3": true,
+          "F_fk_probe_finite": true,
+          "F_written": true,
+          "F_ephemeral_honest": true
+        },
+        "fail": [],
+        "manifest": {
+          "robot_id": "hexapod_single_leg_bench_v1",
+          "chain_id": "hexapod_leg_from_urdf_v1",
+          "written_to": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\robot\\APPENDAGE_URDF_ROBOT_STACK_MANIFEST_v1.json"
+        }
+      },
+      "verdict": "ROBOT_APPENDAGE_URDF_CREATE_SLICE_PASS",
+      "fail": []
+    },
+    "AB_hexapod_leg": {
+      "receipt_id": "ROBOT_HEXAPOD_LEG_CHAIN_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:36.856542+00:00",
+      "proof_tier": "HEXAPOD_LEG_CHAIN_SLICE",
+      "checks": {
+        "G1_hexapod_smoke": true
+      },
+      "smoke": {
+        "verdict": "HEXAPOD_LEG_CHAIN_SLICE_PASS",
+        "checks": {
+          "F_dof3": true,
+          "F_role_locomotion": true,
+          "F_planar_class": true,
+          "F_link_lengths3": true,
+          "F_fk_finite": true,
+          "F_backend_sim": true
+        },
+        "fail": [],
+        "chain_id": "hexapod_leg_3dof_v1",
+        "fk": {
+          "ee_x": 0.24696357089534154,
+          "ee_y": 0.10172370029823473
+        }
+      },
+      "verdict": "ROBOT_HEXAPOD_LEG_CHAIN_SLICE_PASS",
+      "fail": []
+    },
+    "AC_mount_se3": {
+      "receipt_id": "ROBOT_APPENDAGE_MOUNT_SE3_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:36.859831+00:00",
+      "proof_tier": "APPENDAGE_MOUNT_SE3_SLICE",
+      "checks": {
+        "G1_mount_se3_smoke": true
+      },
+      "smoke": {
+        "verdict": "APPENDAGE_MOUNT_SE3_SLICE_PASS",
+        "checks": {
+          "F_identity_parity": true,
+          "F_rpy_diverge": true,
+          "F_se_yaw_finite": true,
+          "F_mount_z": true
+        },
+        "fail": [],
+        "identity_err_m": 0.0,
+        "diverge_dy_m": 0.19470917115432523,
+        "se_yaw": {
+          "x": 0.5605304970014425,
+          "y": 0.19470917115432523,
+          "z": 0.2
+        }
+      },
+      "verdict": "ROBOT_APPENDAGE_MOUNT_SE3_SLICE_PASS",
+      "fail": []
+    },
+    "AG_hexapod_body": {
+      "receipt_id": "ROBOT_HEXAPOD_BODY_COMPOSE_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:57:37.201366+00:00",
+      "proof_tier": "HEXAPOD_BODY_COMPOSE_SLICE",
+      "checks": {
+        "G1_hexapod_body_smoke": true
+      },
+      "smoke": {
+        "verdict": "HEXAPOD_BODY_COMPOSE_SLICE_PASS",
+        "checks": {
+          "F_six_legs": true,
+          "F_total_dof_18": true,
+          "F_all_feet_finite": true,
+          "F_feet_spread": true,
+          "F_mount_se3_used": true,
+          "F_deferred_honest": true
+        },
+        "fail": [],
+        "robot_id": "hexapod_teaching_body_v1",
+        "feet": [
+          {
+            "leg": "leg_0",
+            "x": 0.4199991441459231,
+            "y": 0.0003170953305489379,
+            "z": 0.05
+          },
+          {
+            "leg": "leg_1",
+            "x": 0.20972495946128478,
+            "y": 0.3638884760633661,
+            "z": 0.05
+          },
+          {
+            "leg": "leg_2",
+            "x": -0.21027418468463827,
+            "y": 0.36357138073281725,
+            "z": 0.05
+          },
+          {
+            "leg": "leg_3",
+            "x": -0.4199991441459231,
+            "y": -0.0003170953305488865,
+            "z": 0.05
+          },
+          {
+            "leg": "leg_4",
+            "x": -0.20972495946128497,
+            "y": -0.36388847606336605,
+            "z": 0.05
+          },
+          {
+            "leg": "leg_5",
+            "x": 0.21027418468463838,
+            "y": -0.3635713807328172,
+            "z": 0.05
+          }
+        ]
+      },
+      "verdict": "ROBOT_HEXAPOD_BODY_COMPOSE_SLICE_PASS",
+      "fail": []
+    },
+    "AH_gait_bus": {
+      "receipt_id": "ROBOT_HEXAPOD_GAIT_BUS_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:00.256367+00:00",
+      "proof_tier": "HEXAPOD_GAIT_BUS_SLICE",
+      "checks": {
+        "G1_gait_smoke": true
+      },
+      "smoke": {
+        "verdict": "HEXAPOD_GAIT_BUS_SLICE_PASS",
+        "checks": {
+          "F_phase_advanced": true,
+          "F_feet_move": true,
+          "F_tripod_gait": true,
+          "F_tripod_stance_group_alternate": true,
+          "F_six_legs": true,
+          "F_deferred_contact": true
+        },
+        "fail": [],
+        "foot_y_span_m": 0.7356129604155754,
+        "final_phase": 0.25
+      },
+      "verdict": "ROBOT_HEXAPOD_GAIT_BUS_SLICE_PASS",
+      "fail": []
+    },
+    "AD_field_servo": {
+      "receipt_id": "ROBOT_MULTI_APPENDAGE_FIELD_SERVO_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:01.839651+00:00",
+      "proof_tier": "MULTI_APPENDAGE_FIELD_SERVO_SLICE",
+      "checks": {
+        "G1_field_servo_smoke": true
+      },
+      "smoke": {
+        "verdict": "MULTI_APPENDAGE_FIELD_SERVO_SLICE_PASS",
+        "checks": {
+          "F_shared_servo_tick": true,
+          "F_lc2_field_cal_bound": true,
+          "F_lc2_encoder_zero": true,
+          "F_dual_backend": true,
+          "F_dt_diverge": true,
+          "F_deferred_honest": true
+        },
+        "fail": [],
+        "cal_bind": {
+          "appendage_id": "lc2_hip_bench",
+          "chain_id": "lc2_bench_hip_1dof_v1"
+        },
+        "final_servo_tick": 5
+      },
+      "honesty": {
+        "not_rt_servo": true,
+        "teaching_only": true,
+        "deferred": [
+          "AD_IRON_HIL_PHASE_LOCK",
+          "MEASURED_MULTI_SERVO_SYNC"
+        ]
+      },
+      "verdict": "ROBOT_MULTI_APPENDAGE_FIELD_SERVO_SLICE_PASS",
+      "fail": []
+    },
+    "AI_foot_contact": {
+      "receipt_id": "ROBOT_HEXAPOD_FOOT_CONTACT_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:21.599047+00:00",
+      "proof_tier": "HEXAPOD_FOOT_CONTACT_SLICE",
+      "checks": {
+        "G1_foot_contact_smoke": true
+      },
+      "smoke": {
+        "verdict": "HEXAPOD_FOOT_CONTACT_SLICE_PASS",
+        "checks": {
+          "F_catalog_pair": true,
+          "F_some_contact": true,
+          "F_safe_no_slip": true,
+          "F_high_t_slip": true,
+          "F_slip_diverge": true,
+          "F_adapt_tier": true
+        },
+        "fail": [],
+        "contacts_sample": [
+          {
+            "leg_id": "leg_0",
+            "in_contact": true,
+            "stance": true,
+            "ee_z": 0.05,
+            "friction": {
+              "normal_force_n": 12.0,
+              "tangential_force_n": 1.5,
+              "mu_static": 0.62,
+              "mu_kinetic": 0.41,
+              "static_limit_n": 7.44,
+              "kinetic_limit_n": 4.92,
+              "slip_predicted": false,
+              "pair_id": "nbr_70a__lunar_regolith_compact",
+              "identification_source": "teaching_literature_proxy_v0",
+              "proof_tier": "CONTACT_FRICTION_SLICE",
+              "oracle": "FRICTION_IDENTIFICATION_CATALOG"
+            },
+            "slip_predicted": false,
+            "pair_id": "nbr_70a__lunar_regolith_compact",
+            "proof_tier": "HEXAPOD_FOOT_CONTACT_SLICE",
+            "oracle": "FOOT_CONTACT_FRICTION_BIND"
+          },
+          {
+            "leg_id": "leg_2",
+            "in_contact": true,
+            "stance": true,
+            "ee_z": 0.05,
+            "friction": {
+              "normal_force_n": 12.0,
+              "tangential_force_n": 1.5,
+              "mu_static": 0.62,
+              "mu_kinetic": 0.41,
+              "static_limit_n": 7.44,
+              "kinetic_limit_n": 4.92,
+              "slip_predicted": false,
+              "pair_id": "nbr_70a__lunar_regolith_compact",
+              "identification_source": "teaching_literature_proxy_v0",
+              "proof_tier": "CONTACT_FRICTION_SLICE",
+              "oracle": "FRICTION_IDENTIFICATION_CATALOG"
+            },
+            "slip_predicted": false,
+            "pair_id": "nbr_70a__lunar_regolith_compact",
+            "proof_tier": "HEXAPOD_FOOT_CONTACT_SLICE",
+            "oracle": "FOOT_CONTACT_FRICTION_BIND"
+          },
+          {
+            "leg_id": "leg_4",
+            "in_contact": true,
+            "stance": true,
+            "ee_z": 0.05,
+            "friction": {
+              "normal_force_n": 12.0,
+              "tangential_force_n": 1.5,
+              "mu_static": 0.62,
+              "mu_kinetic": 0.41,
+              "static_limit_n": 7.44,
+              "kinetic_limit_n": 4.92,
+              "slip_predicted": false,
+              "pair_id": "nbr_70a__lunar_regolith_compact",
+              "identification_source": "teaching_literature_proxy_v0",
+              "proof_tier": "CONTACT_FRICTION_SLICE",
+              "oracle": "FRICTION_IDENTIFICATION_CATALOG"
+            },
+            "slip_predicted": false,
+            "pair_id": "nbr_70a__lunar_regolith_compact",
+            "proof_tier": "HEXAPOD_FOOT_CONTACT_SLICE",
+            "oracle": "FOOT_CONTACT_FRICTION_BIND"
+          }
+        ]
+      },
+      "verdict": "ROBOT_HEXAPOD_FOOT_CONTACT_SLICE_PASS",
+      "fail": []
+    },
+    "AE_registry_persist": {
+      "receipt_id": "ROBOT_APPENDAGE_REGISTRY_PERSIST_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:21.759974+00:00",
+      "proof_tier": "REGISTRY_PERSIST_REVIEW_SLICE",
+      "checks": {
+        "G1_registry_persist_smoke": true
+      },
+      "smoke": {
+        "verdict": "REGISTRY_PERSIST_REVIEW_SLICE_PASS",
+        "checks": {
+          "F_review_pass": true,
+          "F_patch_written": true,
+          "F_resolve_after_persist": true,
+          "F_fk_finite": true,
+          "F_not_canon_mutation": true
+        },
+        "fail": [],
+        "chain_id": "hexapod_leg_from_urdf_v1",
+        "patch_path": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\robot\\kinematic_chain_ir_patch_v1.json"
+      },
+      "verdict": "ROBOT_APPENDAGE_REGISTRY_PERSIST_SLICE_PASS",
+      "fail": []
+    },
+    "AF_dual_sub_review": {
+      "receipt_id": "ROBOT_APPENDAGE_DUAL_REVIEW_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:21.900043+00:00",
+      "proof_tier": "APPENDAGE_DUAL_REVIEW_SLICE",
+      "checks": {
+        "G1_no_critical_spike_fail": true,
+        "G2_subs_not_fail": true,
+        "G3_subs_filed": true,
+        "G4_promote_allowed": true
+      },
+      "fail": [],
+      "merged": {
+        "receipt_id": "APPENDAGE_DUAL_REVIEW_AE_PLUS_RECEIPT_v1",
+        "bind_id": "APPENDAGE_DUAL_REVIEW_AE_PLUS_BIND_v1",
+        "verdict": "APPENDAGE_DUAL_REVIEW_WARN",
+        "phase": "AE_PLUS",
+        "timestamp_utc": "2026-07-17T15:58:21.804333+00:00",
+        "canon": [
+          "docs/agent_workflow/APPENDAGE_DUAL_REVIEW_MODES_V1.md"
+        ],
+        "scope_fixture": "C:\\Users\\dammi\\hardware_atom\\fixtures\\robot\\appendage_dual_review_scope_v1.json",
+        "deterministic_spikes": [
+          {
+            "id": "scope_fixture",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "C:\\Users\\dammi\\hardware_atom\\fixtures\\robot\\appendage_dual_review_scope_v1.json"
+          },
+          {
+            "id": "plan_deferred_ladder",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "APPENDAGE_KINEMATICS_OS_PLAN deferred ladder documented"
+          },
+          {
+            "id": "factory_signoff_receipt",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "skipped recursive factory spike (AF gate inside signoff)"
+          },
+          {
+            "id": "pytest_appendage_suite",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "test_appendage_os_*.py count >= 8"
+          },
+          {
+            "id": "registry_canon_triplet",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "kinematic_chain_ir_v0 has >= 3 canonical chains"
+          },
+          {
+            "id": "patch_no_product_ready",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "patch exists \u00b7 no product_ready flags"
+          },
+          {
+            "id": "overlay_clear_hygiene",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "clear_chain_overlay callable"
+          },
+          {
+            "id": "honesty_not_universal_os",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "plan names non-universal OS boundary"
+          },
+          {
+            "id": "dual_review_personas",
+            "severity": "LOW",
+            "pass": true,
+            "detail": "agent persona instructions present"
+          }
+        ],
+        "sub_kinematics_auditor": {
+          "mode": "APPENDAGE_KINEMATICS_AUDITOR",
+          "target": "AE_PLUS",
+          "model": "composer-2.5",
+          "verdict": "WARN",
+          "findings": [
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/hexapod_gait_bus_v1.py",
+              "line": 141,
+              "detail": "F_tripod_gait is tautological (gait_name == 'tripod'); real alternation falsifier is F_tripod_stance_group_alternate which passes after int(phase*2)%2 fix."
+            },
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/hexapod_foot_contact_v1.py",
+              "line": 30,
+              "detail": "is_stance_leg always uses tripod stance_groups default; wave gait has no stance_groups \u2014 contact stance wrong if wave+contact integrated; smoke gates tripod only."
+            },
+            {
+              "severity": "MEDIUM",
+              "file": "fixtures/robot/kinematic_chain_ir_v0.json",
+              "line": 54,
+              "detail": "Runtime hexapod compose uses planar hexapod_leg_3dof_v1; staging patch hexapod_leg_from_urdf_v1 is SE3 from body_mount \u2014 no planar\u2194URDF parity falsifier for hexapod."
+            }
+          ],
+          "falsifiers": [
+            "F_tripod_stance_group_alternate",
+            "F_feet_move_foot_y_span_full_run",
+            "F_adapt_tier",
+            "F_hexapod_planar_urdf_se3_parity",
+            "F_wave_gait_stance_contact"
+          ],
+          "deferred_ids": [
+            "AD_IRON_HIL_PHASE_LOCK",
+            "AI_MEASURED_FOOT_CONTACT",
+            "AF_WIZARD_UI"
+          ],
+          "recommendation": "PROMOTE_PATCH"
+        },
+        "sub_iron_servo_auditor": {
+          "mode": "APPENDAGE_IRON_SERVO_AUDITOR",
+          "target": "AE_PLUS",
+          "model": "composer-2.5",
+          "verdict": "WARN",
+          "findings": [
+            {
+              "severity": "MEDIUM",
+              "file": "dogfood_platform/robot_appendage_foc_firmware_hil_slice_gate_v1.py",
+              "line": 25,
+              "detail": "FOC firmware HIL gate receipt lacks honesty block (structural/teaching/not_rt_servo/not_field_verified). Verdict PASS could be misread as iron FOC closure; smoke only checks file/linker/QEMU structural presence."
+            },
+            {
+              "severity": "MEDIUM",
+              "file": "dogfood_platform/robot_appendage_field_calibration_slice_gate_v1.py",
+              "line": 25,
+              "detail": "Field calibration gate receipt has no honesty tier. Unlike phase-P calibration gate (TEACHING/not_field_verified), S-phase PASS omits teaching-vs-iron disclosure despite FIELD_CALIBRATION_TEACHING_CYCLE oracle and v0 fixture tabu."
+            },
+            {
+              "severity": "MEDIUM",
+              "file": "dogfood_platform/robot_multi_appendage_field_servo_slice_gate_v1.py",
+              "line": 16,
+              "detail": "Multi-appendage field servo gate receipt omits honesty and deferred_ids. AD_IRON_HIL_PHASE_LOCK is enforced only inside smoke checks, not propagated to moon receipt per plan rule that PASS phases carry known gaps."
+            },
+            {
+              "severity": "MEDIUM",
+              "file": "dogfood_platform/appendage_foc_firmware_hil_v1.py",
+              "line": 57,
+              "detail": "F_memory_map_match falsifier is computed then unconditionally overwritten with mmap map_id only, weakening iron-HAL cross-bind verification theater risk in structural HIL receipt."
+            },
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/appendage_field_calibration_cycle_v1.py",
+              "line": 35,
+              "detail": "q_meas is synthesized from q_cmd and teaching_backlash_rad fixture truth, not encoder/iron contact measurement. Pipeline receipt converges to teaching oracle; honest in module docstring but 'field' naming is receipt-tier theater without gate honesty."
+            },
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/multi_appendage_field_servo_v1.py",
+              "line": 91,
+              "detail": "Shared servo_tick index only; per-appendage dt diverges (dt_sim 5ms vs dt_iron 50us). F_dt_diverge check documents gap; no cross-stack MMIO phase sync \u2014 correctly deferred AD_IRON_HIL_PHASE_LOCK."
+            },
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/appendage_foc_rt_loop_v1.py",
+              "line": 47,
+              "detail": "FOC RT burst is Python for-loop over ManipulatorLc2IronHal.tick_foc_isr, not hardware kHz ISR. Module/gate label teaching_proxy_not_flight_servo; burst payload lacks explicit not_rt_servo flag."
+            }
+          ],
+          "falsifiers": [
+            "AD_IRON_HIL_PHASE_LOCK: no iron MMIO phase sync across multi-appendage stacks",
+            "field calibration bind != measured friction/contact on iron (teaching sample replay only)",
+            "FOC RT slice != flight kHz ISR (Python teaching proxy at pwm_hz contract)",
+            "FOC firmware HIL slice == structural file/linker/QEMU presence, not live FOC on iron",
+            "multi-appendage shared servo_tick != unified physical clock (per-appendage dt diverge)",
+            "LC2 iron HAL encoder motion from teaching integrator, not ATSAMD21 MMIO on bench"
+          ],
+          "deferred_ids": [
+            "AD_IRON_HIL_PHASE_LOCK"
+          ],
+          "recommendation": "STAGING_ONLY"
+        },
+        "pair_id": "pair_composer25_composer25",
+        "ae_plus_gate": {
+          "blocked": false,
+          "warn_only": true,
+          "operator_waive": "promote patch after WARN \u00b7 subs filed",
+          "replaces": "human canon merge review"
+        },
+        "sub_slots": {
+          "kinematics": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\moon\\APPENDAGE_SUB_KINEMATICS_AUDITOR_v1.json",
+          "iron_servo": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\moon\\APPENDAGE_SUB_IRON_SERVO_AUDITOR_v1.json"
+        }
+      },
+      "verdict": "ROBOT_APPENDAGE_DUAL_REVIEW_SLICE_PASS"
+    },
+    "AJ_role_taxonomy": {
+      "receipt_id": "ROBOT_APPENDAGE_ROLE_TAXONOMY_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:21.942115+00:00",
+      "proof_tier": "APPENDAGE_ROLE_TAXONOMY_SLICE",
+      "phase": "AJ",
+      "checks": {
+        "G1_role_taxonomy_smoke": true
+      },
+      "smoke": {
+        "verdict": "APPENDAGE_ROLE_TAXONOMY_SLICE_PASS",
+        "checks": {
+          "F_taxonomy_id": true,
+          "F_seven_roles": true,
+          "F_role_schema": true,
+          "F_registry_coverage": true,
+          "F_motion_bus_honesty": true,
+          "F_manipulator_arm": true,
+          "F_locomotion_leg": true,
+          "F_wheel_axle_dogfood": true,
+          "F_head_neck_bus": true,
+          "F_charter_fixture": true,
+          "F_charter_seven_phases": true,
+          "F_charter_ak_dogfood_only": true,
+          "F_charter_has_falsifiers": true
+        },
+        "fail": [],
+        "registry_coverage": {
+          "F_lunar_manipulator_chain_scout_3dof_v1_role": true,
+          "F_lunar_manipulator_chain_scout_3dof_v1_geometry": true,
+          "F_lc2_bench_hip_1dof_v1_role": true,
+          "F_lc2_bench_hip_1dof_v1_geometry": true,
+          "F_hexapod_leg_3dof_v1_role": true,
+          "F_hexapod_leg_3dof_v1_geometry": true,
+          "F_torso_spine_2dof_v1_role": true,
+          "F_torso_spine_2dof_v1_geometry": true,
+          "F_head_neck_pan_tilt_v1_role": true,
+          "F_head_neck_pan_tilt_v1_geometry": true,
+          "F_gripper_parallel_1dof_v1_role": true,
+          "F_gripper_parallel_1dof_v1_geometry": true
+        },
+        "motion_bus_checks": {
+          "F_bus_appendage_stack_integrator_module": true,
+          "F_bus_hexapod_gait_bus_module": true,
+          "F_bus_hexapod_body_compose_module": true,
+          "F_bus_wheeled_chassis_compose_module": true,
+          "F_bus_pan_tilt_bus_module": true,
+          "F_bus_biped_gait_bus_module": true,
+          "F_bus_terramech_wheel_locomotion_module": true
+        },
+        "role_count": 7
+      },
+      "honesty": {
+        "taxonomy_not_full_body_os": true,
+        "wheeled_compose_deferred": true,
+        "head_neck_deferred": true
+      },
+      "deferred_ids": [
+        "AK_WHEELED_CHASSIS_COMPOSE",
+        "AL_TORSO_SPINE_CHAIN",
+        "AM_HEAD_NECK_CHAIN",
+        "AN_BIPED_BALANCE_BUS",
+        "AO_GRIPPER_SUBCHAIN"
+      ],
+      "verdict": "ROBOT_APPENDAGE_ROLE_TAXONOMY_SLICE_PASS",
+      "fail": []
+    },
+    "AK_wheeled_chassis": {
+      "receipt_id": "ROBOT_WHEELED_CHASSIS_COMPOSE_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:22.216004+00:00",
+      "proof_tier": "WHEELED_CHASSIS_COMPOSE_SLICE",
+      "phase": "AK",
+      "status": "PARK",
+      "honesty": {
+        "dogfood_only": true,
+        "not_lunar_scout": true
+      },
+      "checks": {
+        "G1_wheeled_smoke": true
+      },
+      "smoke": {
+        "verdict": "WHEELED_CHASSIS_COMPOSE_SLICE_PASS",
+        "checks": {
+          "F_four_wheel_branches": true,
+          "F_wheel_fl_x": true,
+          "F_wheel_fr_x": true,
+          "F_wheels_separate": true,
+          "F_rolling_q_cmd_finite": true,
+          "F_terramech_sinkage_bind": true,
+          "F_dogfood_active_status": true,
+          "F_no_lunar_scout_morphology_claim": true
+        },
+        "fail": [],
+        "status": "DOGFOOD_ACTIVE",
+        "traverse": {
+          "meters": 10.0,
+          "zone": "massif_traverse",
+          "n_wheels": 4,
+          "wheel": {
+            "wheel_diameter_cm": 20.0,
+            "bekker_flat_plate_ok": false,
+            "wheel_class": "SMALL_WHEEL",
+            "model": "sigma = k_hat * z^n_hat * D^m_hat",
+            "oracle": "CITED_BIND",
+            "l0_cites": [
+              "MEIRION-GRIFFITH-ISTVS-2011-L0-01"
+            ],
+            "source_slug": "intake-c2-meirion-griffith-istvs"
+          },
+          "contact_pressure_kpa": 6.08,
+          "sinkage_mm": 8.449,
+          "kls1_p_kpa": 6.075,
+          "bearing": {
+            "bearing_class": "MEDIUM",
+            "contact_pressure_kpa": 6.08,
+            "q_c_at_depth_kpa": 31.9,
+            "tier_q_band_30mm_kpa": [
+              90.0,
+              250.0
+            ],
+            "pressure_ratio": 0.0357,
+            "sinkage_risk": false,
+            "slope_deg": 12.0,
+            "slope_limit_deg": 15.0,
+            "slope_ok": true,
+            "traverse_feasible": true,
+            "oracle": "ADAPT_GAP_MR_11",
+            "l0_cites": [
+              "GAP-MR-11",
+              "L0-MR11-02",
+              "L0-MR11-04"
+            ],
+            "closure_source": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/GAP_MR_11_ADAPT_CLOSURE_v1.json"
+          },
+          "ingress_disturbance_mult": 1.9246,
+          "traverse_feasible": true,
+          "l0_cites": [
+            "KIM-JASS-2021-TABLE3",
+            "MEIRION-GRIFFITH-ISTVS-2011-L0-01",
+            "GAP-MR-11"
+          ],
+          "oracle": "CITED_BIND"
+        },
+        "tree_id": "lc2_combat_carrier_4wd_v1"
+      },
+      "verdict": "ROBOT_WHEELED_CHASSIS_COMPOSE_SLICE_PASS",
+      "fail": []
+    },
+    "AL_torso_spine": {
+      "receipt_id": "ROBOT_TORSO_SPINE_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:22.329495+00:00",
+      "proof_tier": "TORSO_SPINE_SLICE",
+      "phase": "AL",
+      "checks": {
+        "G1_torso_spine_smoke": true
+      },
+      "smoke": {
+        "verdict": "TORSO_SPINE_SLICE_PASS",
+        "checks": {
+          "F_trunk_dof_match_urdf": true,
+          "F_pitch_yaw_fk_finite": true,
+          "F_mount_arm_on_trunk_ee": true,
+          "F_mount_legs_on_trunk_base": true,
+          "F_registry_resolve_roundtrip": true,
+          "F_mass_ledger_stub_honest": true,
+          "F_chest_elevated": true
+        },
+        "fail": [],
+        "chain_id": "torso_spine_2dof_v1",
+        "fk": {
+          "source_id": "manipulator_rust_serial_chain_se3_v1",
+          "verdict": "MANIPULATOR_FK_SE3_PASS",
+          "backend_id": "serial_chain_se3_fk_v1",
+          "ee_x": 0.0,
+          "ee_y": 0.0,
+          "ee_z": 0.11,
+          "qw": 0.9979513667143298,
+          "qx": 0.0019986337023355123,
+          "qy": -0.039939357931922194,
+          "qz": 0.04993919126608886
+        }
+      },
+      "verdict": "ROBOT_TORSO_SPINE_SLICE_PASS",
+      "fail": []
+    },
+    "AM_head_neck": {
+      "receipt_id": "ROBOT_HEAD_NECK_PAN_TILT_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:22.735019+00:00",
+      "proof_tier": "HEAD_NECK_SLICE",
+      "phase": "AM",
+      "checks": {
+        "G1_head_neck_smoke": true
+      },
+      "smoke": {
+        "verdict": "HEAD_NECK_SLICE_PASS",
+        "checks": {
+          "F_pan_tilt_dof_2": true,
+          "F_look_at_vector_converge": true,
+          "F_sensor_mount_frame_publish": true,
+          "F_mount_on_torso_or_base": true,
+          "F_no_perception_SLAM_claim": true
+        },
+        "fail": [],
+        "q_cmd": [
+          0.19739555984988078,
+          0.14603993682366945
+        ],
+        "ee": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.05
+        }
+      },
+      "verdict": "ROBOT_HEAD_NECK_PAN_TILT_SLICE_PASS",
+      "fail": []
+    },
+    "AN_biped_legs": {
+      "receipt_id": "ROBOT_BIPED_LEG_COMPOSE_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:30.808079+00:00",
+      "proof_tier": "BIPED_LEG_COMPOSE_SLICE",
+      "phase": "AN",
+      "honesty": {
+        "not_walk_claim": true,
+        "teaching_only": true
+      },
+      "deferred_ids": [
+        "AN_DYNAMIC_BALANCE",
+        "AI_MEASURED_FOOT_CONTACT"
+      ],
+      "checks": {
+        "G1_biped_smoke": true
+      },
+      "smoke": {
+        "verdict": "BIPED_LEG_COMPOSE_SLICE_PASS",
+        "checks": {
+          "F_two_legs_mirrored_mount": true,
+          "F_com_height_teaching_bounded": true,
+          "F_stance_swing_alternate": true,
+          "F_foot_contact_per_leg": true,
+          "F_no_walk_claim": true,
+          "F_shared_servo_clock": true
+        },
+        "fail": []
+      },
+      "verdict": "ROBOT_BIPED_LEG_COMPOSE_SLICE_PASS",
+      "fail": []
+    },
+    "AO_gripper": {
+      "receipt_id": "ROBOT_GRIPPER_SUBCHAIN_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:31.130813+00:00",
+      "proof_tier": "GRIPPER_SUBCHAIN_SLICE",
+      "phase": "AO",
+      "checks": {
+        "G1_gripper_smoke": true
+      },
+      "smoke": {
+        "verdict": "GRIPPER_SUBCHAIN_SLICE_PASS",
+        "checks": {
+          "F_gripper_on_scout_ee": true,
+          "F_grasp_width_vs_q": true,
+          "F_coulomb_grasp_slip_diverge": true,
+          "F_arm_plus_gripper_dof_sum": true,
+          "F_backlash_plugin_optional": true
+        },
+        "fail": [],
+        "grip_world": {
+          "x": 0.7699999900626413,
+          "y": -0.0001214999994528786,
+          "z": 0.0
+        },
+        "grasp_width_m": 0.061
+      },
+      "verdict": "ROBOT_GRIPPER_SUBCHAIN_SLICE_PASS",
+      "fail": []
+    },
+    "AP_motion_bus": {
+      "receipt_id": "ROBOT_APPENDAGE_MOTION_BUS_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:31.317486+00:00",
+      "proof_tier": "APPENDAGE_MOTION_BUS_SLICE",
+      "phase": "AP",
+      "checks": {
+        "G1_motion_bus_smoke": true
+      },
+      "smoke": {
+        "verdict": "APPENDAGE_MOTION_BUS_SLICE_PASS",
+        "checks": {
+          "F_role_resolves_correct_bus": true,
+          "F_multi_role_same_tick": true,
+          "F_unknown_role_fail_closed": true,
+          "F_deferred_bus_honest_park": true,
+          "F_pan_tilt_bus": true
+        },
+        "fail": [],
+        "outcomes": {
+          "leg_0": {
+            "bus": "biped_gait",
+            "q_cmd": [
+              0.12,
+              0.22,
+              -0.14
+            ]
+          },
+          "neck": {
+            "bus": "pan_tilt",
+            "q_cmd": [
+              0.0,
+              0.14888994760949728
+            ]
+          },
+          "scout_arm": {
+            "bus": "appendage_stack_integrator",
+            "ee": {
+              "chain_id": "lunar_manipulator_chain_scout_3dof_v1",
+              "q": [
+                -0.000162,
+                1.735714285714292e-05,
+                -3.944805194805198e-05
+              ],
+              "q_cmd": [
+                0.15,
+                0.2,
+                -0.1
+              ],
+              "q_raw": [
+                -0.000162,
+                1.735714285714292e-05,
+                -3.944805194805198e-05
+              ],
+              "ee": {
+                "x": 0.7499999900626413,
+                "y": -0.0001214999994528786,
+                "z": null
+              },
+              "actuator": {
+                "backend": "sim_symplectic",
+                "q": [
+                  -0.000162,
+                  1.735714285714292e-05,
+                  -3.944805194805198e-05
+                ],
+                "q_dot": [
+                  -0.0324,
+                  0.003471428571428584,
+                  -0.007889610389610396
+                ],
+                "symplectic_drift": 34445.249702396606
+              },
+              "calibration": {
+                "encoder_zero_rad": 0.0,
+                "backlash_rad": 0.0
+              },
+              "ticks": 1,
+              "backend": "sim_symplectic",
+              "appendage_id": "scout_arm",
+              "role": "manipulator_arm",
+              "mount_xyz": [
+                0.1,
+                0.0,
+                0.4
+              ],
+              "mount_rpy": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "ee_world": {
+                "x": 0.8499999900626413,
+                "y": -0.0001214999994528786,
+                "z": 0.4
+              },
+              "mount_mode": "se3_motor"
+            }
+          }
+        }
+      },
+      "verdict": "ROBOT_APPENDAGE_MOTION_BUS_SLICE_PASS",
+      "fail": []
+    },
+    "AQ_full_body": {
+      "receipt_id": "ROBOT_FULL_BODY_COMPOSE_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:31.661937+00:00",
+      "proof_tier": "FULL_BODY_COMPOSE_SLICE",
+      "phase": "AQ",
+      "checks": {
+        "G1_full_body_smoke": true
+      },
+      "smoke": {
+        "verdict": "FULL_BODY_COMPOSE_SLICE_PASS",
+        "checks": {
+          "F_torso_role": true,
+          "F_torso_proof_tier": true,
+          "F_head_role": true,
+          "F_head_proof_tier": true,
+          "F_arm_role": true,
+          "F_arm_proof_tier": true,
+          "F_gripper_role": true,
+          "F_gripper_proof_tier": true,
+          "F_hexapod_role": true,
+          "F_hexapod_proof_tier": true,
+          "F_deferred_listed": true,
+          "F_all_regions_role_tagged": true,
+          "F_per_region_proof_tier": true,
+          "F_per_region_deferred_listed": true,
+          "F_total_dof_sum": true,
+          "F_hexapod_six_legs": true,
+          "F_motion_bus_tick": true,
+          "F_dual_review_before_promote": true
+        },
+        "fail": [],
+        "total_dof": 26,
+        "dual_review_verdict": "APPENDAGE_DUAL_REVIEW_WARN"
+      },
+      "verdict": "ROBOT_FULL_BODY_COMPOSE_SLICE_PASS",
+      "fail": []
+    },
+    "AR_registry_canon": {
+      "receipt_id": "ROBOT_REGISTRY_CANON_PROMOTE_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:31.873125+00:00",
+      "proof_tier": "REGISTRY_CANON_PROMOTE_SLICE",
+      "phase": "AR",
+      "checks": {
+        "G1_registry_canon_promote": true
+      },
+      "smoke": {
+        "verdict": "REGISTRY_CANON_PROMOTE_SLICE_PASS",
+        "checks": {
+          "F_torso_in_canon": true,
+          "F_head_in_canon": true,
+          "F_gripper_in_canon": true,
+          "F_six_canon_chains": true,
+          "F_torso_fk_finite": true,
+          "F_head_fk_finite": true,
+          "F_gripper_fk_finite": true,
+          "F_no_overlay_required": true
+        },
+        "fail": [],
+        "chains": {
+          "torso_spine_2dof_v1": {
+            "dof": 2,
+            "role": "torso_spine",
+            "source_urdf": "fixtures/cad/torso_spine_2dof_v1.urdf",
+            "fk": {
+              "source_id": "manipulator_rust_serial_chain_se3_v1",
+              "verdict": "MANIPULATOR_FK_SE3_PASS",
+              "backend_id": "serial_chain_se3_fk_v1",
+              "ee_x": 0.0,
+              "ee_y": 0.0,
+              "ee_z": 0.11,
+              "qw": 0.997502082639013,
+              "qx": -0.002497917360987117,
+              "qy": 0.04991670832341408,
+              "qz": 0.04991670832341408
+            }
+          },
+          "head_neck_pan_tilt_v1": {
+            "dof": 2,
+            "role": "head_neck",
+            "source_urdf": "fixtures/cad/head_neck_pan_tilt_v1.urdf",
+            "fk": {
+              "source_id": "manipulator_rust_serial_chain_se3_v1",
+              "verdict": "MANIPULATOR_FK_SE3_PASS",
+              "backend_id": "serial_chain_se3_fk_v1",
+              "ee_x": 0.0,
+              "ee_y": 0.0,
+              "ee_z": 0.05,
+              "qw": 0.997502082639013,
+              "qx": -0.002497917360987117,
+              "qy": 0.04991670832341408,
+              "qz": 0.04991670832341408
+            }
+          },
+          "gripper_parallel_1dof_v1": {
+            "dof": 1,
+            "role": "gripper_tool",
+            "source_urdf": "fixtures/cad/gripper_parallel_1dof_v1.urdf",
+            "fk": {
+              "source_id": "manipulator_rust_serial_chain_se3_v1",
+              "verdict": "MANIPULATOR_FK_SE3_PASS",
+              "backend_id": "serial_chain_se3_fk_v1",
+              "ee_x": 0.02,
+              "ee_y": 0.0,
+              "ee_z": 0.0,
+              "qw": 0.9987502603949663,
+              "qx": 0.0,
+              "qy": 0.0,
+              "qz": 0.04997916927067833
+            }
+          }
+        }
+      },
+      "verdict": "ROBOT_REGISTRY_CANON_PROMOTE_SLICE_PASS",
+      "fail": []
+    },
+    "AS_hexapod_parity": {
+      "receipt_id": "ROBOT_HEXAPOD_PLANAR_URDF_SE3_PARITY_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:32.084142+00:00",
+      "proof_tier": "HEXAPOD_PLANAR_URDF_SE3_PARITY_SLICE",
+      "phase": "AS",
+      "checks": {
+        "G1_hexapod_parity": true
+      },
+      "smoke": {
+        "verdict": "HEXAPOD_PLANAR_URDF_SE3_PARITY_SLICE_PASS",
+        "checks": {
+          "F_aligned_crown_parity": true,
+          "F_urdf_morphology_gap_named": true,
+          "F_planar_finite": true,
+          "F_se3_finite": true
+        },
+        "fail": [],
+        "compare": {
+          "planar": {
+            "source_id": "manipulator_rust_serial_arm_v1",
+            "verdict": "MANIPULATOR_FK_PASS",
+            "ee_theta": 0.19999999999999996,
+            "ee_x": 0.2608413597302821,
+            "ee_y": 0.06547620888331909,
+            "joint_world_angles": [
+              0.12,
+              0.33999999999999997,
+              0.19999999999999996
+            ]
+          },
+          "aligned_se3": {
+            "ee_x": 0.26084135973028216,
+            "ee_y": 0.06547620888331909,
+            "ee_z": 0.0
+          },
+          "urdf_se3": {
+            "ee_x": 0.1677350348353642,
+            "ee_y": 0.0466026224577883,
+            "ee_z": 0.0
+          },
+          "aligned_xy_error_m": 5.551115123125783e-17,
+          "urdf_morphology_xy_gap_m": 0.09499999999999995,
+          "within_aligned_bound": true,
+          "morphology_gap_named": true
+        },
+        "max_aligned_err_m": 0.002,
+        "honesty": {
+          "planar_canon_vs_urdf_se3": "teaching bound \u00b7 URDF morphology gap explicit \u00b7 not MEASURED"
+        }
+      },
+      "verdict": "ROBOT_HEXAPOD_PLANAR_URDF_SE3_PARITY_SLICE_PASS",
+      "fail": []
+    },
+    "AT_iron_honesty": {
+      "receipt_id": "ROBOT_IRON_GATE_HONESTY_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:34.295655+00:00",
+      "proof_tier": "IRON_GATE_HONESTY_SLICE",
+      "phase": "AT",
+      "checks": {
+        "G1_iron_honesty": true
+      },
+      "smoke": {
+        "verdict": "IRON_GATE_HONESTY_SLICE_PASS",
+        "checks": {
+          "F_foc_fw_honesty": true,
+          "F_field_cal_honesty": true,
+          "F_multi_servo_honesty": true,
+          "F_all_gates_pass": true
+        },
+        "fail": [],
+        "gates": {
+          "foc_firmware_hil": {
+            "verdict": "ROBOT_APPENDAGE_FOC_FIRMWARE_HIL_SLICE_PASS",
+            "has_honesty": true
+          },
+          "field_calibration": {
+            "verdict": "ROBOT_APPENDAGE_FIELD_CALIBRATION_SLICE_PASS",
+            "has_honesty": true
+          },
+          "multi_field_servo": {
+            "verdict": "ROBOT_MULTI_APPENDAGE_FIELD_SERVO_SLICE_PASS",
+            "has_honesty": true
+          }
+        }
+      },
+      "verdict": "ROBOT_IRON_GATE_HONESTY_SLICE_PASS",
+      "fail": []
+    },
+    "AU_base_arm": {
+      "receipt_id": "ROBOT_BASE_ARM_COORDINATION_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:38.018992+00:00",
+      "proof_tier": "BASE_ARM_COORDINATION_SLICE",
+      "phase": "AU",
+      "checks": {
+        "G1_base_arm_coord": true
+      },
+      "smoke": {
+        "verdict": "BASE_ARM_COORDINATION_SLICE_PASS",
+        "checks": {
+          "F_shared_traverse_clock": true,
+          "F_arm_q_varies_with_phase": true,
+          "F_ticks": true,
+          "F_not_iron_phase_lock": true,
+          "F_deferred_named": true
+        },
+        "fail": []
+      },
+      "verdict": "ROBOT_BASE_ARM_COORDINATION_SLICE_PASS",
+      "fail": []
+    },
+    "AV_biped_zmp": {
+      "receipt_id": "ROBOT_BIPED_ZMP_TEACHING_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:45.440953+00:00",
+      "proof_tier": "BIPED_ZMP_TEACHING_SLICE",
+      "phase": "AV",
+      "checks": {
+        "G1_biped_zmp": true
+      },
+      "smoke": {
+        "verdict": "BIPED_ZMP_TEACHING_SLICE_PASS",
+        "checks": {
+          "F_zmp_proxy_runs": true,
+          "F_stance_double_support_ticks": true,
+          "F_margin_finite": true,
+          "F_no_walk_claim": true,
+          "F_not_measured_zmp": true,
+          "F_deferred_named": true
+        },
+        "fail": [],
+        "inside_support_ticks": 24
+      },
+      "verdict": "ROBOT_BIPED_ZMP_TEACHING_SLICE_PASS",
+      "fail": []
+    },
+    "AW_dual_post_ak_aq": {
+      "receipt_id": "ROBOT_APPENDAGE_DUAL_REVIEW_POST_AK_AQ_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:45.587494+00:00",
+      "proof_tier": "APPENDAGE_DUAL_REVIEW_POST_AK_AQ_SLICE",
+      "phase": "AW",
+      "checks": {
+        "G1_no_critical_spike_fail": true,
+        "G2_subs_not_fail": true,
+        "G3_subs_filed": true,
+        "G4_promote_allowed": true,
+        "G5_post_ak_aq_spikes": true
+      },
+      "fail": [],
+      "merged": {
+        "receipt_id": "APPENDAGE_DUAL_REVIEW_POST_AK_AQ_RECEIPT_v1",
+        "bind_id": "APPENDAGE_DUAL_REVIEW_POST_AK_AQ_BIND_v1",
+        "verdict": "APPENDAGE_DUAL_REVIEW_WARN",
+        "phase": "POST_AK_AQ",
+        "timestamp_utc": "2026-07-17T15:58:45.482288+00:00",
+        "canon": [
+          "docs/agent_workflow/APPENDAGE_DUAL_REVIEW_MODES_V1.md"
+        ],
+        "scope_fixture": "C:\\Users\\dammi\\hardware_atom\\fixtures\\robot\\appendage_dual_review_scope_v1.json",
+        "deterministic_spikes": [
+          {
+            "id": "scope_fixture",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "C:\\Users\\dammi\\hardware_atom\\fixtures\\robot\\appendage_dual_review_scope_v1.json"
+          },
+          {
+            "id": "plan_deferred_ladder",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "APPENDAGE_KINEMATICS_OS_PLAN deferred ladder documented"
+          },
+          {
+            "id": "factory_signoff_receipt",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "skipped recursive factory spike (AF gate inside signoff)"
+          },
+          {
+            "id": "pytest_appendage_suite",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "test_appendage_os_*.py count >= 8"
+          },
+          {
+            "id": "registry_canon_triplet",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "kinematic_chain_ir_v0 has >= 6 canonical chains"
+          },
+          {
+            "id": "patch_no_product_ready",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "patch exists \u00b7 no product_ready flags"
+          },
+          {
+            "id": "overlay_clear_hygiene",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "clear_chain_overlay callable"
+          },
+          {
+            "id": "honesty_not_universal_os",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "plan names non-universal OS boundary"
+          },
+          {
+            "id": "dual_review_personas",
+            "severity": "LOW",
+            "pass": true,
+            "detail": "agent persona instructions present"
+          },
+          {
+            "id": "post_ak_aq_charter_ar_aw",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "charter AR\u2192AW phases PASS"
+          },
+          {
+            "id": "post_ak_aq_body_modules",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "AR\u2192AW engine modules on disk"
+          },
+          {
+            "id": "post_ak_aq_hexapod_parity",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "AS hexapod planar/URDF parity module"
+          }
+        ],
+        "sub_kinematics_auditor": {
+          "mode": "APPENDAGE_KINEMATICS_AUDITOR",
+          "target": "AE_PLUS",
+          "model": "composer-2.5",
+          "verdict": "WARN",
+          "findings": [
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/hexapod_gait_bus_v1.py",
+              "line": 141,
+              "detail": "F_tripod_gait is tautological (gait_name == 'tripod'); real alternation falsifier is F_tripod_stance_group_alternate which passes after int(phase*2)%2 fix."
+            },
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/hexapod_foot_contact_v1.py",
+              "line": 30,
+              "detail": "is_stance_leg always uses tripod stance_groups default; wave gait has no stance_groups \u2014 contact stance wrong if wave+contact integrated; smoke gates tripod only."
+            },
+            {
+              "severity": "MEDIUM",
+              "file": "fixtures/robot/kinematic_chain_ir_v0.json",
+              "line": 54,
+              "detail": "Runtime hexapod compose uses planar hexapod_leg_3dof_v1; staging patch hexapod_leg_from_urdf_v1 is SE3 from body_mount \u2014 no planar\u2194URDF parity falsifier for hexapod."
+            }
+          ],
+          "falsifiers": [
+            "F_tripod_stance_group_alternate",
+            "F_feet_move_foot_y_span_full_run",
+            "F_adapt_tier",
+            "F_hexapod_planar_urdf_se3_parity",
+            "F_wave_gait_stance_contact"
+          ],
+          "deferred_ids": [
+            "AD_IRON_HIL_PHASE_LOCK",
+            "AI_MEASURED_FOOT_CONTACT",
+            "AF_WIZARD_UI"
+          ],
+          "recommendation": "PROMOTE_PATCH"
+        },
+        "sub_iron_servo_auditor": {
+          "mode": "APPENDAGE_IRON_SERVO_AUDITOR",
+          "target": "AE_PLUS",
+          "model": "composer-2.5",
+          "verdict": "WARN",
+          "findings": [
+            {
+              "severity": "MEDIUM",
+              "file": "dogfood_platform/robot_appendage_foc_firmware_hil_slice_gate_v1.py",
+              "line": 25,
+              "detail": "FOC firmware HIL gate receipt lacks honesty block (structural/teaching/not_rt_servo/not_field_verified). Verdict PASS could be misread as iron FOC closure; smoke only checks file/linker/QEMU structural presence."
+            },
+            {
+              "severity": "MEDIUM",
+              "file": "dogfood_platform/robot_appendage_field_calibration_slice_gate_v1.py",
+              "line": 25,
+              "detail": "Field calibration gate receipt has no honesty tier. Unlike phase-P calibration gate (TEACHING/not_field_verified), S-phase PASS omits teaching-vs-iron disclosure despite FIELD_CALIBRATION_TEACHING_CYCLE oracle and v0 fixture tabu."
+            },
+            {
+              "severity": "MEDIUM",
+              "file": "dogfood_platform/robot_multi_appendage_field_servo_slice_gate_v1.py",
+              "line": 16,
+              "detail": "Multi-appendage field servo gate receipt omits honesty and deferred_ids. AD_IRON_HIL_PHASE_LOCK is enforced only inside smoke checks, not propagated to moon receipt per plan rule that PASS phases carry known gaps."
+            },
+            {
+              "severity": "MEDIUM",
+              "file": "dogfood_platform/appendage_foc_firmware_hil_v1.py",
+              "line": 57,
+              "detail": "F_memory_map_match falsifier is computed then unconditionally overwritten with mmap map_id only, weakening iron-HAL cross-bind verification theater risk in structural HIL receipt."
+            },
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/appendage_field_calibration_cycle_v1.py",
+              "line": 35,
+              "detail": "q_meas is synthesized from q_cmd and teaching_backlash_rad fixture truth, not encoder/iron contact measurement. Pipeline receipt converges to teaching oracle; honest in module docstring but 'field' naming is receipt-tier theater without gate honesty."
+            },
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/multi_appendage_field_servo_v1.py",
+              "line": 91,
+              "detail": "Shared servo_tick index only; per-appendage dt diverges (dt_sim 5ms vs dt_iron 50us). F_dt_diverge check documents gap; no cross-stack MMIO phase sync \u2014 correctly deferred AD_IRON_HIL_PHASE_LOCK."
+            },
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/appendage_foc_rt_loop_v1.py",
+              "line": 47,
+              "detail": "FOC RT burst is Python for-loop over ManipulatorLc2IronHal.tick_foc_isr, not hardware kHz ISR. Module/gate label teaching_proxy_not_flight_servo; burst payload lacks explicit not_rt_servo flag."
+            }
+          ],
+          "falsifiers": [
+            "AD_IRON_HIL_PHASE_LOCK: no iron MMIO phase sync across multi-appendage stacks",
+            "field calibration bind != measured friction/contact on iron (teaching sample replay only)",
+            "FOC RT slice != flight kHz ISR (Python teaching proxy at pwm_hz contract)",
+            "FOC firmware HIL slice == structural file/linker/QEMU presence, not live FOC on iron",
+            "multi-appendage shared servo_tick != unified physical clock (per-appendage dt diverge)",
+            "LC2 iron HAL encoder motion from teaching integrator, not ATSAMD21 MMIO on bench"
+          ],
+          "deferred_ids": [
+            "AD_IRON_HIL_PHASE_LOCK"
+          ],
+          "recommendation": "STAGING_ONLY"
+        },
+        "pair_id": "pair_composer25_composer25",
+        "ae_plus_gate": {
+          "blocked": false,
+          "warn_only": true,
+          "operator_waive": "promote patch after WARN \u00b7 subs filed",
+          "replaces": "human canon merge review"
+        },
+        "sub_slots": {
+          "kinematics": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\moon\\APPENDAGE_SUB_KINEMATICS_AUDITOR_v1.json",
+          "iron_servo": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\moon\\APPENDAGE_SUB_IRON_SERVO_AUDITOR_v1.json"
+        }
+      },
+      "verdict": "ROBOT_APPENDAGE_DUAL_REVIEW_POST_AK_AQ_SLICE_PASS"
+    },
+    "AX_rolling_crown": {
+      "receipt_id": "ROBOT_ROLLING_KINEMATICS_CROWN_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:45.629154+00:00",
+      "proof_tier": "ROLLING_KINEMATICS_CROWN_SLICE",
+      "phase": "AX",
+      "checks": {
+        "G1_rolling_crown": true
+      },
+      "smoke": {
+        "verdict": "ROLLING_KINEMATICS_CROWN_SLICE_PASS",
+        "checks": {
+          "F_omega_r_finite": true,
+          "F_speed_scales_with_omega": true,
+          "F_traverse_time_finite": true,
+          "F_crown_rel_err_bound": true,
+          "F_not_measured_slip": true,
+          "F_not_lunar_scout": true
+        },
+        "fail": [],
+        "compare": {
+          "omega_rad_s": 3.0,
+          "wheel_radius_m": 0.1,
+          "ideal_speed_m_s": 0.30000000000000004,
+          "slip_ratio": 0.0,
+          "actual_speed_m_s": 0.30000000000000004
+        },
+        "implied_traverse_s": 16.666666666666664
+      },
+      "verdict": "ROBOT_ROLLING_KINEMATICS_CROWN_SLICE_PASS",
+      "fail": []
+    },
+    "AY_phase_lock": {
+      "receipt_id": "ROBOT_IRON_HIL_PHASE_LOCK_TEACHING_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:58:51.206999+00:00",
+      "proof_tier": "IRON_HIL_PHASE_LOCK_TEACHING_SLICE",
+      "phase": "AY",
+      "checks": {
+        "G1_phase_lock": true
+      },
+      "smoke": {
+        "verdict": "IRON_HIL_PHASE_LOCK_TEACHING_SLICE_PASS",
+        "checks": {
+          "F_shared_phase_all_appendages": true,
+          "F_phase_advances": true,
+          "F_tick_idx": true,
+          "F_teaching_only": true,
+          "F_not_iron_mmio": true,
+          "F_deferred_named": true
+        },
+        "fail": []
+      },
+      "verdict": "ROBOT_IRON_HIL_PHASE_LOCK_TEACHING_SLICE_PASS",
+      "fail": []
+    },
+    "AZ_measured_foot_honesty": {
+      "receipt_id": "ROBOT_MEASURED_FOOT_CONTACT_HONESTY_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:59:25.095684+00:00",
+      "proof_tier": "MEASURED_FOOT_CONTACT_HONESTY_SLICE",
+      "phase": "AZ",
+      "checks": {
+        "G1_measured_honesty": true
+      },
+      "smoke": {
+        "verdict": "MEASURED_FOOT_CONTACT_HONESTY_SLICE_PASS",
+        "checks": {
+          "F_foot_contact_adapt_tier": true,
+          "F_not_measured_tier": true,
+          "F_foot_smoke_pass": true,
+          "F_gate_pass": true,
+          "F_measuring_path_named": true,
+          "F_deferred_named": true,
+          "F_honesty_no_measured_claim": true
+        },
+        "fail": [],
+        "honesty": {
+          "not_measured": true,
+          "adapt_tier_only": true
+        }
+      },
+      "verdict": "ROBOT_MEASURED_FOOT_CONTACT_HONESTY_SLICE_PASS",
+      "fail": []
+    },
+    "BA_wheeled_unpark": {
+      "receipt_id": "ROBOT_WHEELED_CHASSIS_UNPARK_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:59:25.211734+00:00",
+      "proof_tier": "WHEELED_CHASSIS_UNPARK_SLICE",
+      "phase": "BA",
+      "checks": {
+        "G1_unpark": true
+      },
+      "smoke": {
+        "verdict": "WHEELED_CHASSIS_UNPARK_SLICE_PASS",
+        "checks": {
+          "F_ak_smoke_pass": true,
+          "F_dogfood_active": true,
+          "F_not_park": true,
+          "F_rolling_crown_bind": true,
+          "F_wheel_q_cmd_finite": true,
+          "F_terramech_still_bound": true,
+          "F_not_lunar_scout": true,
+          "F_motion_bus_target": true
+        },
+        "fail": [],
+        "rolling_speed_m_s": 0.30000000000000004
+      },
+      "verdict": "ROBOT_WHEELED_CHASSIS_UNPARK_SLICE_PASS",
+      "fail": []
+    },
+    "BB_morphology_patch": {
+      "receipt_id": "ROBOT_HEXAPOD_URDF_MORPHOLOGY_PATCH_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:59:25.348995+00:00",
+      "proof_tier": "HEXAPOD_URDF_MORPHOLOGY_PATCH_SLICE",
+      "phase": "BB",
+      "checks": {
+        "G1_morphology_patch": true
+      },
+      "smoke": {
+        "verdict": "HEXAPOD_URDF_MORPHOLOGY_PATCH_SLICE_PASS",
+        "checks": {
+          "F_patch_xy_bound": true,
+          "F_raw_morphology_gap_named": true,
+          "F_patch_not_measured": true,
+          "F_planar_finite": true
+        },
+        "fail": [],
+        "patched": {
+          "planar": {
+            "source_id": "manipulator_rust_serial_arm_v1",
+            "verdict": "MANIPULATOR_FK_PASS",
+            "ee_theta": 0.19999999999999996,
+            "ee_x": 0.2608413597302821,
+            "ee_y": 0.06547620888331909,
+            "joint_world_angles": [
+              0.12,
+              0.33999999999999997,
+              0.19999999999999996
+            ]
+          },
+          "patched_se3": {
+            "backend_id": "serial_chain_se3_fk_v1",
+            "ee_x": 0.26084135973028216,
+            "ee_y": 0.06547620888331909,
+            "ee_z": 0.0,
+            "qw": 0.9950041652780257,
+            "qx": 0.0,
+            "qy": 0.0,
+            "qz": 0.09983341664682814
+          },
+          "xy_error_m": 5.551115123125783e-17,
+          "within_bound": true
+        },
+        "raw_gap_m": 0.09499999999999995
+      },
+      "verdict": "ROBOT_HEXAPOD_URDF_MORPHOLOGY_PATCH_SLICE_PASS",
+      "fail": []
+    },
+    "BC_dual_region": {
+      "receipt_id": "ROBOT_DUAL_REGION_FULL_BODY_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:59:25.452540+00:00",
+      "proof_tier": "DUAL_REGION_FULL_BODY_SLICE",
+      "phase": "BC",
+      "checks": {
+        "G1_dual_region": true
+      },
+      "smoke": {
+        "verdict": "DUAL_REGION_FULL_BODY_SLICE_PASS",
+        "checks": {
+          "F_torso_role": true,
+          "F_torso_proof_tier": true,
+          "F_arm_role": true,
+          "F_arm_proof_tier": true,
+          "F_hexapod_role": true,
+          "F_hexapod_proof_tier": true,
+          "F_earth_carrier_role": true,
+          "F_earth_carrier_proof_tier": true,
+          "F_deferred_listed": true,
+          "F_lunar_region_present": true,
+          "F_earth_region_present": true,
+          "F_earth_not_lunar_north_star": true,
+          "F_per_region_operator_priority": true,
+          "F_unpark_bind": true
+        },
+        "fail": [],
+        "lunar_regions": 3,
+        "earth_regions": 1
+      },
+      "verdict": "ROBOT_DUAL_REGION_FULL_BODY_SLICE_PASS",
+      "fail": []
+    },
+    "BD_dynamic_balance": {
+      "receipt_id": "ROBOT_BIPED_DYNAMIC_BALANCE_TEACHING_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:59:28.949137+00:00",
+      "proof_tier": "BIPED_DYNAMIC_BALANCE_TEACHING_SLICE",
+      "phase": "BD",
+      "checks": {
+        "G1_dynamic_balance": true
+      },
+      "smoke": {
+        "verdict": "BIPED_DYNAMIC_BALANCE_TEACHING_SLICE_PASS",
+        "checks": {
+          "F_com_velocity_finite": true,
+          "F_com_velocity_bounded": true,
+          "F_zmp_margin_finite": true,
+          "F_no_walk_claim": true,
+          "F_not_measured_balance": true,
+          "F_deferred_named": true
+        },
+        "fail": [],
+        "max_com_velocity": 1.6120549339859735e-10
+      },
+      "verdict": "ROBOT_BIPED_DYNAMIC_BALANCE_TEACHING_SLICE_PASS",
+      "fail": []
+    },
+    "BE_earth_lunar_motion": {
+      "receipt_id": "ROBOT_EARTH_LUNAR_MOTION_COMPOSE_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:59:29.564807+00:00",
+      "proof_tier": "EARTH_LUNAR_MOTION_COMPOSE_SLICE",
+      "phase": "BE",
+      "checks": {
+        "G1_earth_lunar_motion": true
+      },
+      "smoke": {
+        "verdict": "EARTH_LUNAR_MOTION_COMPOSE_SLICE_PASS",
+        "checks": {
+          "F_lunar_leg_bus": true,
+          "F_earth_wheel_bus": true,
+          "F_arm_stack_bus": true,
+          "F_three_regions_tick": true,
+          "F_per_region_honesty": true,
+          "F_not_unified_loco_claim": true
+        },
+        "fail": [],
+        "buses": [
+          "appendage_stack_integrator",
+          "biped_gait",
+          "wheeled_chassis_compose"
+        ]
+      },
+      "verdict": "ROBOT_EARTH_LUNAR_MOTION_COMPOSE_SLICE_PASS",
+      "fail": []
+    },
+    "BF_dual_post_ba": {
+      "receipt_id": "ROBOT_APPENDAGE_DUAL_REVIEW_POST_BA_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:59:29.643319+00:00",
+      "proof_tier": "APPENDAGE_DUAL_REVIEW_POST_BA_SLICE",
+      "phase": "BF",
+      "checks": {
+        "G1_no_critical_spike_fail": true,
+        "G2_subs_not_fail": true,
+        "G3_subs_filed": true,
+        "G4_promote_allowed": true,
+        "G5_post_ba_spikes": true
+      },
+      "fail": [],
+      "merged": {
+        "receipt_id": "APPENDAGE_DUAL_REVIEW_POST_BA_RECEIPT_v1",
+        "bind_id": "APPENDAGE_DUAL_REVIEW_POST_BA_BIND_v1",
+        "verdict": "APPENDAGE_DUAL_REVIEW_WARN",
+        "phase": "POST_BA",
+        "timestamp_utc": "2026-07-17T15:59:29.590561+00:00",
+        "canon": [
+          "docs/agent_workflow/APPENDAGE_DUAL_REVIEW_MODES_V1.md"
+        ],
+        "scope_fixture": "C:\\Users\\dammi\\hardware_atom\\fixtures\\robot\\appendage_dual_review_scope_v1.json",
+        "deterministic_spikes": [
+          {
+            "id": "scope_fixture",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "C:\\Users\\dammi\\hardware_atom\\fixtures\\robot\\appendage_dual_review_scope_v1.json"
+          },
+          {
+            "id": "plan_deferred_ladder",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "APPENDAGE_KINEMATICS_OS_PLAN deferred ladder documented"
+          },
+          {
+            "id": "factory_signoff_receipt",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "skipped recursive factory spike (AF gate inside signoff)"
+          },
+          {
+            "id": "pytest_appendage_suite",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "test_appendage_os_*.py count >= 8"
+          },
+          {
+            "id": "registry_canon_triplet",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "kinematic_chain_ir_v0 has >= 3 canonical chains"
+          },
+          {
+            "id": "patch_no_product_ready",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "patch exists \u00b7 no product_ready flags"
+          },
+          {
+            "id": "overlay_clear_hygiene",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "clear_chain_overlay callable"
+          },
+          {
+            "id": "honesty_not_universal_os",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "plan names non-universal OS boundary"
+          },
+          {
+            "id": "dual_review_personas",
+            "severity": "LOW",
+            "pass": true,
+            "detail": "agent persona instructions present"
+          },
+          {
+            "id": "post_ba_charter_bb_bf",
+            "severity": "CRITICAL",
+            "pass": true,
+            "detail": "charter BB\u2192BF phases PASS"
+          },
+          {
+            "id": "post_ba_dual_region_fixture",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "BC dual-region full body fixture"
+          },
+          {
+            "id": "post_ba_earth_lunar_motion",
+            "severity": "MEDIUM",
+            "pass": true,
+            "detail": "BE earth-lunar motion compose module"
+          }
+        ],
+        "sub_kinematics_auditor": {
+          "mode": "APPENDAGE_KINEMATICS_AUDITOR",
+          "target": "AE_PLUS",
+          "model": "composer-2.5",
+          "verdict": "WARN",
+          "findings": [
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/hexapod_gait_bus_v1.py",
+              "line": 141,
+              "detail": "F_tripod_gait is tautological (gait_name == 'tripod'); real alternation falsifier is F_tripod_stance_group_alternate which passes after int(phase*2)%2 fix."
+            },
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/hexapod_foot_contact_v1.py",
+              "line": 30,
+              "detail": "is_stance_leg always uses tripod stance_groups default; wave gait has no stance_groups \u2014 contact stance wrong if wave+contact integrated; smoke gates tripod only."
+            },
+            {
+              "severity": "MEDIUM",
+              "file": "fixtures/robot/kinematic_chain_ir_v0.json",
+              "line": 54,
+              "detail": "Runtime hexapod compose uses planar hexapod_leg_3dof_v1; staging patch hexapod_leg_from_urdf_v1 is SE3 from body_mount \u2014 no planar\u2194URDF parity falsifier for hexapod."
+            }
+          ],
+          "falsifiers": [
+            "F_tripod_stance_group_alternate",
+            "F_feet_move_foot_y_span_full_run",
+            "F_adapt_tier",
+            "F_hexapod_planar_urdf_se3_parity",
+            "F_wave_gait_stance_contact"
+          ],
+          "deferred_ids": [
+            "AD_IRON_HIL_PHASE_LOCK",
+            "AI_MEASURED_FOOT_CONTACT",
+            "AF_WIZARD_UI"
+          ],
+          "recommendation": "PROMOTE_PATCH"
+        },
+        "sub_iron_servo_auditor": {
+          "mode": "APPENDAGE_IRON_SERVO_AUDITOR",
+          "target": "AE_PLUS",
+          "model": "composer-2.5",
+          "verdict": "WARN",
+          "findings": [
+            {
+              "severity": "MEDIUM",
+              "file": "dogfood_platform/robot_appendage_foc_firmware_hil_slice_gate_v1.py",
+              "line": 25,
+              "detail": "FOC firmware HIL gate receipt lacks honesty block (structural/teaching/not_rt_servo/not_field_verified). Verdict PASS could be misread as iron FOC closure; smoke only checks file/linker/QEMU structural presence."
+            },
+            {
+              "severity": "MEDIUM",
+              "file": "dogfood_platform/robot_appendage_field_calibration_slice_gate_v1.py",
+              "line": 25,
+              "detail": "Field calibration gate receipt has no honesty tier. Unlike phase-P calibration gate (TEACHING/not_field_verified), S-phase PASS omits teaching-vs-iron disclosure despite FIELD_CALIBRATION_TEACHING_CYCLE oracle and v0 fixture tabu."
+            },
+            {
+              "severity": "MEDIUM",
+              "file": "dogfood_platform/robot_multi_appendage_field_servo_slice_gate_v1.py",
+              "line": 16,
+              "detail": "Multi-appendage field servo gate receipt omits honesty and deferred_ids. AD_IRON_HIL_PHASE_LOCK is enforced only inside smoke checks, not propagated to moon receipt per plan rule that PASS phases carry known gaps."
+            },
+            {
+              "severity": "MEDIUM",
+              "file": "dogfood_platform/appendage_foc_firmware_hil_v1.py",
+              "line": 57,
+              "detail": "F_memory_map_match falsifier is computed then unconditionally overwritten with mmap map_id only, weakening iron-HAL cross-bind verification theater risk in structural HIL receipt."
+            },
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/appendage_field_calibration_cycle_v1.py",
+              "line": 35,
+              "detail": "q_meas is synthesized from q_cmd and teaching_backlash_rad fixture truth, not encoder/iron contact measurement. Pipeline receipt converges to teaching oracle; honest in module docstring but 'field' naming is receipt-tier theater without gate honesty."
+            },
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/multi_appendage_field_servo_v1.py",
+              "line": 91,
+              "detail": "Shared servo_tick index only; per-appendage dt diverges (dt_sim 5ms vs dt_iron 50us). F_dt_diverge check documents gap; no cross-stack MMIO phase sync \u2014 correctly deferred AD_IRON_HIL_PHASE_LOCK."
+            },
+            {
+              "severity": "LOW",
+              "file": "dogfood_platform/appendage_foc_rt_loop_v1.py",
+              "line": 47,
+              "detail": "FOC RT burst is Python for-loop over ManipulatorLc2IronHal.tick_foc_isr, not hardware kHz ISR. Module/gate label teaching_proxy_not_flight_servo; burst payload lacks explicit not_rt_servo flag."
+            }
+          ],
+          "falsifiers": [
+            "AD_IRON_HIL_PHASE_LOCK: no iron MMIO phase sync across multi-appendage stacks",
+            "field calibration bind != measured friction/contact on iron (teaching sample replay only)",
+            "FOC RT slice != flight kHz ISR (Python teaching proxy at pwm_hz contract)",
+            "FOC firmware HIL slice == structural file/linker/QEMU presence, not live FOC on iron",
+            "multi-appendage shared servo_tick != unified physical clock (per-appendage dt diverge)",
+            "LC2 iron HAL encoder motion from teaching integrator, not ATSAMD21 MMIO on bench"
+          ],
+          "deferred_ids": [
+            "AD_IRON_HIL_PHASE_LOCK"
+          ],
+          "recommendation": "STAGING_ONLY"
+        },
+        "pair_id": "pair_composer25_composer25",
+        "ae_plus_gate": {
+          "blocked": false,
+          "warn_only": true,
+          "operator_waive": "promote patch after WARN \u00b7 subs filed",
+          "replaces": "human canon merge review"
+        },
+        "sub_slots": {
+          "kinematics": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\moon\\APPENDAGE_SUB_KINEMATICS_AUDITOR_v1.json",
+          "iron_servo": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\moon\\APPENDAGE_SUB_IRON_SERVO_AUDITOR_v1.json"
+        }
+      },
+      "verdict": "ROBOT_APPENDAGE_DUAL_REVIEW_POST_BA_SLICE_PASS"
+    },
+    "BG_torso_mechanical": {
+      "receipt_id": "ROBOT_TORSO_SPINE_MECHANICAL_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:59:29.723978+00:00",
+      "proof_tier": "TORSO_SPINE_MECHANICAL_SLICE",
+      "phase": "BG",
+      "checks": {
+        "G1_torso_mechanical": true
+      },
+      "smoke": {
+        "verdict": "TORSO_SPINE_MECHANICAL_SLICE_PASS",
+        "checks": {
+          "F_link_masses_finite": true,
+          "F_torso_mass_bounded": true,
+          "F_alloy_adapt_tier": true,
+          "F_mount_arm_matches_al": true,
+          "F_mount_leg_matches_al": true,
+          "F_scout_bbox_bind": true,
+          "F_mass_ledger_not_stub": true,
+          "F_com_chest_above_pelvis": true
+        },
+        "fail": [],
+        "masses": {
+          "alloy_id": "al_6061_t6_extrusion",
+          "links": [
+            {
+              "link_id": "pelvis_link",
+              "volume_m3": 0.0016800000000000003,
+              "mass_frac": 0.3398,
+              "mass_kg": 0.6286
+            },
+            {
+              "link_id": "spine_yaw_link",
+              "volume_m3": 0.00192,
+              "mass_frac": 0.3883,
+              "mass_kg": 0.7184
+            },
+            {
+              "link_id": "chest_mount_link",
+              "volume_m3": 0.0013440000000000001,
+              "mass_frac": 0.2718,
+              "mass_kg": 0.5029
+            }
+          ],
+          "total_mass_kg": 1.85,
+          "tier": "ADAPT",
+          "model": "baseline_torso_kg * volume_fraction * alloy_ratio"
+        },
+        "bbox": {
+          "torso_span_m": 0.15333333333333335,
+          "scout_bbox_x_m": 0.36,
+          "fits_teaching": true
+        }
+      },
+      "honesty": {
+        "adapt_not_measured": true,
+        "not_per_link_step": true
+      },
+      "verdict": "ROBOT_TORSO_SPINE_MECHANICAL_SLICE_PASS",
+      "fail": []
+    },
+    "BH_head_mechanical": {
+      "receipt_id": "ROBOT_HEAD_NECK_MECHANICAL_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:59:29.781037+00:00",
+      "proof_tier": "HEAD_NECK_MECHANICAL_SLICE",
+      "phase": "BH",
+      "checks": {
+        "G1_head_mechanical": true
+      },
+      "smoke": {
+        "verdict": "HEAD_NECK_MECHANICAL_SLICE_PASS",
+        "checks": {
+          "F_sensor_envelope_finite": true,
+          "F_camera_mass_bounded": true,
+          "F_mount_on_chest_se3": true,
+          "F_look_at_still_works": true,
+          "F_perception_bind_named": true,
+          "F_not_slam_measured": true
+        },
+        "fail": [],
+        "envelope": {
+          "x_m": 0.06,
+          "y_m": 0.04,
+          "z_m": 0.035,
+          "volume_m3": 8.4e-05
+        },
+        "mount": {
+          "torso_ee": {
+            "source_id": "manipulator_rust_serial_chain_se3_v1",
+            "verdict": "MANIPULATOR_FK_SE3_PASS",
+            "backend_id": "serial_chain_se3_fk_v1",
+            "ee_x": 0.0,
+            "ee_y": 0.0,
+            "ee_z": 0.11000000000000001,
+            "qw": 0.9996875162757026,
+            "qx": 0.0,
+            "qy": 0.0,
+            "qz": 0.024997395914712332
+          },
+          "head_mount_world": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.06
+          }
+        }
+      },
+      "honesty": {
+        "perception_teaching_only": true,
+        "not_slam_measured": true
+      },
+      "verdict": "ROBOT_HEAD_NECK_MECHANICAL_SLICE_PASS",
+      "fail": []
+    },
+    "BI_torso_head_compose": {
+      "receipt_id": "ROBOT_TORSO_HEAD_MECHANICAL_COMPOSE_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:59:29.869667+00:00",
+      "proof_tier": "TORSO_HEAD_MECHANICAL_COMPOSE_SLICE",
+      "phase": "BI",
+      "checks": {
+        "G1_torso_head_compose": true
+      },
+      "smoke": {
+        "verdict": "TORSO_HEAD_MECHANICAL_COMPOSE_SLICE_PASS",
+        "checks": {
+          "F_bg_smoke_pass": true,
+          "F_bh_smoke_pass": true,
+          "F_aq_torso_mechanical_tier": true,
+          "F_aq_head_mechanical_tier": true,
+          "F_bc_torso_lunar": true,
+          "F_bind_deferred_named": true
+        },
+        "fail": []
+      },
+      "verdict": "ROBOT_TORSO_HEAD_MECHANICAL_COMPOSE_SLICE_PASS",
+      "fail": []
+    },
+    "BJ_mechanics_synthesis": {
+      "receipt_id": "ROBOT_MECHANICS_SYNTHESIS_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T15:59:36.580420+00:00",
+      "proof_tier": "ROBOT_MECHANICS_SYNTHESIS_SLICE",
+      "phase": "BJ",
+      "checks": {
+        "G1_synthesis": true
+      },
+      "smoke": {
+        "verdict": "ROBOT_MECHANICS_SYNTHESIS_SLICE_PASS",
+        "checks": {
+          "F_charter_ak_bm_pass": true,
+          "F_charter_engines_on_disk": true,
+          "F_registry_six_chains": true,
+          "F_taxonomy_pass": true,
+          "F_registry_promote_pass": true,
+          "F_full_body_pass": true,
+          "F_dual_region_pass": true,
+          "F_earth_lunar_motion_pass": true,
+          "F_torso_head_mechanical_pass": true,
+          "F_motion_bus_pass": true,
+          "F_hexapod_body_pass": true,
+          "F_gripper_pass": true,
+          "F_biped_zmp_pass": true,
+          "F_biped_dynamic_pass": true,
+          "F_wheeled_unpark_pass": true
+        },
+        "fail": [],
+        "charter": {
+          "phases_present": 29,
+          "all_pass": true,
+          "missing_engine": [],
+          "rows": {
+            "AK": "PASS",
+            "AL": "PASS",
+            "AM": "PASS",
+            "AN": "PASS",
+            "AO": "PASS",
+            "AP": "PASS",
+            "AQ": "PASS",
+            "AR": "PASS",
+            "AS": "PASS",
+            "AT": "PASS",
+            "AU": "PASS",
+            "AV": "PASS",
+            "AW": "PASS",
+            "AX": "PASS",
+            "AY": "PASS",
+            "AZ": "PASS",
+            "BA": "PASS",
+            "BB": "PASS",
+            "BC": "PASS",
+            "BD": "PASS",
+            "BE": "PASS",
+            "BF": "PASS",
+            "BG": "PASS",
+            "BH": "PASS",
+            "BI": "PASS",
+            "BJ": "PASS",
+            "BK": "PASS",
+            "BL": "PASS",
+            "BM": "PASS"
+          }
+        },
+        "registry": {
+          "chain_count": 6,
+          "taxonomy": "APPENDAGE_ROLE_TAXONOMY_SLICE_PASS",
+          "registry_promote": "REGISTRY_CANON_PROMOTE_SLICE_PASS",
+          "roles": [
+            "manipulator_arm",
+            "gripper_tool",
+            "locomotion_leg",
+            "wheel_axle",
+            "torso_spine",
+            "head_neck",
+            "bench_joint"
+          ]
+        },
+        "compose": {
+          "full_body": "FULL_BODY_COMPOSE_SLICE_PASS",
+          "dual_region": "DUAL_REGION_FULL_BODY_SLICE_PASS",
+          "earth_lunar_motion": "EARTH_LUNAR_MOTION_COMPOSE_SLICE_PASS",
+          "torso_head_mechanical": "TORSO_HEAD_MECHANICAL_COMPOSE_SLICE_PASS",
+          "motion_bus": "APPENDAGE_MOTION_BUS_SLICE_PASS"
+        },
+        "locomotion_manipulation": {
+          "hexapod_body": "HEXAPOD_BODY_COMPOSE_SLICE_PASS",
+          "biped_zmp": "BIPED_ZMP_TEACHING_SLICE_PASS",
+          "biped_dynamic": "BIPED_DYNAMIC_BALANCE_TEACHING_SLICE_PASS",
+          "gripper": "GRIPPER_SUBCHAIN_SLICE_PASS",
+          "wheeled_unpark": "WHEELED_CHASSIS_UNPARK_SLICE_PASS"
+        },
+        "factory_verdict": null,
+        "factory_gate": null,
+        "honesty": {
+          "teaching_tiers_only": true,
+          "not_product_ready": true,
+          "not_measured_locomotion": true,
+          "plan": "docs/agent_workflow/APPENDAGE_TORSO_HEAD_MECHANICAL_PLAN_20260712_V1.md"
+        }
+      },
+      "verdict": "ROBOT_MECHANICS_SYNTHESIS_SLICE_PASS",
+      "fail": []
+    },
+    "BK_physics_universe_playbench": {
+      "receipt_id": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T16:00:27.930490+00:00",
+      "proof_tier": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_SLICE",
+      "phase": "BK",
+      "checks": {
+        "G1_register": true,
+        "G2_intro_playbench": true,
+        "G3_lane_matrix": true
+      },
+      "register": {
+        "verdict": "PHYSICS_UNIVERSE_ENVIRONMENT_REGISTER_SLICE_PASS",
+        "checks": {
+          "F_register_nonempty": true,
+          "F_each_world_has_g": true,
+          "F_each_world_has_tier_cap": true,
+          "F_microg_explicit_out": true,
+          "F_leo_debris_out": true,
+          "F_venus_parked": true,
+          "F_lunar_in": true,
+          "F_earth_in": true,
+          "F_open_psr_listed": true,
+          "F_mesh_world_in": true,
+          "F_not_t5_claim": true
+        },
+        "fail": [],
+        "in_worlds": [
+          "earth_lab_1g",
+          "lunar_regolith_surface",
+          "mars_regolith_0_38g",
+          "lunar_regolith_mesh"
+        ],
+        "open_worlds": [
+          "lunar_psr_cold"
+        ],
+        "out_worlds": [
+          "vacuum_orbit_microg",
+          "leo_debris_orbit"
+        ],
+        "park_worlds": [
+          "venus_surface_thermal"
+        ],
+        "rows": {
+          "earth_lab_1g": {
+            "register_state": "IN",
+            "tier_cap": "T0",
+            "g_mps2": 9.80665,
+            "open_count": 0,
+            "out_count": 0
+          },
+          "lunar_regolith_surface": {
+            "register_state": "IN",
+            "tier_cap": "T0",
+            "g_mps2": 1.62,
+            "open_count": 3,
+            "out_count": 0
+          },
+          "mars_regolith_0_38g": {
+            "register_state": "IN",
+            "tier_cap": "T0",
+            "g_mps2": 3.71,
+            "open_count": 2,
+            "out_count": 1
+          },
+          "vacuum_orbit_microg": {
+            "register_state": "OUT",
+            "tier_cap": "T0",
+            "g_mps2": 0.0,
+            "open_count": 2,
+            "out_count": 3
+          },
+          "lunar_psr_cold": {
+            "register_state": "OPEN",
+            "tier_cap": "T0",
+            "g_mps2": 1.62,
+            "open_count": 2,
+            "out_count": 0
+          },
+          "venus_surface_thermal": {
+            "register_state": "PARK",
+            "tier_cap": "T0",
+            "g_mps2": 8.87,
+            "open_count": 0,
+            "out_count": 3
+          },
+          "leo_debris_orbit": {
+            "register_state": "OUT",
+            "tier_cap": "T0",
+            "g_mps2": 0.0,
+            "open_count": 3,
+            "out_count": 4
+          },
+          "lunar_regolith_mesh": {
+            "register_state": "IN",
+            "tier_cap": "T0",
+            "g_mps2": 1.62,
+            "open_count": 1,
+            "out_count": 0
+          }
+        }
+      },
+      "intro": {
+        "verdict": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_SLICE_PASS",
+        "proof_tier": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_SLICE",
+        "oracle": "MULTI_WORLD_PHYSICS_ENGINEER_LAB",
+        "lane": "intro",
+        "checks": {
+          "F_register_pass": true,
+          "F_world_probes_all_in_pass": true,
+          "F_open_worlds_probe_pass": true,
+          "F_microg_out_skips_tools": true,
+          "F_mechanics_synthesis_pass": true,
+          "F_lane_worlds_covered": true,
+          "F_not_product_ready": true,
+          "F_not_measured_locomotion": true
+        },
+        "fail": [],
+        "register": {
+          "verdict": "PHYSICS_UNIVERSE_ENVIRONMENT_REGISTER_SLICE_PASS",
+          "checks": {
+            "F_register_nonempty": true,
+            "F_each_world_has_g": true,
+            "F_each_world_has_tier_cap": true,
+            "F_microg_explicit_out": true,
+            "F_leo_debris_out": true,
+            "F_venus_parked": true,
+            "F_lunar_in": true,
+            "F_earth_in": true,
+            "F_open_psr_listed": true,
+            "F_mesh_world_in": true,
+            "F_not_t5_claim": true
+          },
+          "fail": [],
+          "in_worlds": [
+            "earth_lab_1g",
+            "lunar_regolith_surface",
+            "mars_regolith_0_38g",
+            "lunar_regolith_mesh"
+          ],
+          "open_worlds": [
+            "lunar_psr_cold"
+          ],
+          "out_worlds": [
+            "vacuum_orbit_microg",
+            "leo_debris_orbit"
+          ],
+          "park_worlds": [
+            "venus_surface_thermal"
+          ],
+          "rows": {
+            "earth_lab_1g": {
+              "register_state": "IN",
+              "tier_cap": "T0",
+              "g_mps2": 9.80665,
+              "open_count": 0,
+              "out_count": 0
+            },
+            "lunar_regolith_surface": {
+              "register_state": "IN",
+              "tier_cap": "T0",
+              "g_mps2": 1.62,
+              "open_count": 3,
+              "out_count": 0
+            },
+            "mars_regolith_0_38g": {
+              "register_state": "IN",
+              "tier_cap": "T0",
+              "g_mps2": 3.71,
+              "open_count": 2,
+              "out_count": 1
+            },
+            "vacuum_orbit_microg": {
+              "register_state": "OUT",
+              "tier_cap": "T0",
+              "g_mps2": 0.0,
+              "open_count": 2,
+              "out_count": 3
+            },
+            "lunar_psr_cold": {
+              "register_state": "OPEN",
+              "tier_cap": "T0",
+              "g_mps2": 1.62,
+              "open_count": 2,
+              "out_count": 0
+            },
+            "venus_surface_thermal": {
+              "register_state": "PARK",
+              "tier_cap": "T0",
+              "g_mps2": 8.87,
+              "open_count": 0,
+              "out_count": 3
+            },
+            "leo_debris_orbit": {
+              "register_state": "OUT",
+              "tier_cap": "T0",
+              "g_mps2": 0.0,
+              "open_count": 3,
+              "out_count": 4
+            },
+            "lunar_regolith_mesh": {
+              "register_state": "IN",
+              "tier_cap": "T0",
+              "g_mps2": 1.62,
+              "open_count": 1,
+              "out_count": 0
+            }
+          }
+        },
+        "world_probes": [
+          {
+            "world_id": "earth_lab_1g",
+            "register_state": "IN",
+            "g_mps2": 9.80665,
+            "oracle": "W_earth_lab_teaching_v0",
+            "tier_cap": "T0",
+            "tool_results": {
+              "rolling_crown": "ROLLING_KINEMATICS_CROWN_SLICE_PASS",
+              "wheeled": "WHEELED_CHASSIS_COMPOSE_SLICE_PASS"
+            },
+            "hover_thrust_n": 72.0789,
+            "probe_pass": true
+          },
+          {
+            "world_id": "lunar_regolith_surface",
+            "register_state": "IN",
+            "g_mps2": 1.62,
+            "oracle": "W_regolith_robot_v0",
+            "tier_cap": "T0",
+            "tool_results": {
+              "hexapod_foot_contact": "HEXAPOD_FOOT_CONTACT_SLICE_PASS"
+            },
+            "hover_thrust_n": 11.907,
+            "g_ratio_vs_moon": 1.0,
+            "lunar_profile_traverse_thrust_n": 11.907,
+            "probe_pass": true
+          }
+        ],
+        "hostile_sweep": null,
+        "earth_lunar_compose": null,
+        "mechanics_synthesis_verdict": "ROBOT_MECHANICS_SYNTHESIS_SLICE_PASS",
+        "engineer_nav": "docs/agent_workflow/APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_V1.md",
+        "honesty": {
+          "teaching_tiers_only": true,
+          "environment_register_explicit": true,
+          "hostile_tier": "T3",
+          "not_physics_truth_guarantee": true
+        }
+      },
+      "matrix": {
+        "verdict": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_MATRIX_PASS",
+        "lanes": {
+          "intro": {
+            "verdict": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_SLICE_PASS",
+            "proof_tier": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_SLICE",
+            "oracle": "MULTI_WORLD_PHYSICS_ENGINEER_LAB",
+            "lane": "intro",
+            "checks": {
+              "F_register_pass": true,
+              "F_world_probes_all_in_pass": true,
+              "F_open_worlds_probe_pass": true,
+              "F_microg_out_skips_tools": true,
+              "F_mechanics_synthesis_pass": true,
+              "F_lane_worlds_covered": true,
+              "F_not_product_ready": true,
+              "F_not_measured_locomotion": true
+            },
+            "fail": [],
+            "register": {
+              "verdict": "PHYSICS_UNIVERSE_ENVIRONMENT_REGISTER_SLICE_PASS",
+              "checks": {
+                "F_register_nonempty": true,
+                "F_each_world_has_g": true,
+                "F_each_world_has_tier_cap": true,
+                "F_microg_explicit_out": true,
+                "F_leo_debris_out": true,
+                "F_venus_parked": true,
+                "F_lunar_in": true,
+                "F_earth_in": true,
+                "F_open_psr_listed": true,
+                "F_mesh_world_in": true,
+                "F_not_t5_claim": true
+              },
+              "fail": [],
+              "in_worlds": [
+                "earth_lab_1g",
+                "lunar_regolith_surface",
+                "mars_regolith_0_38g",
+                "lunar_regolith_mesh"
+              ],
+              "open_worlds": [
+                "lunar_psr_cold"
+              ],
+              "out_worlds": [
+                "vacuum_orbit_microg",
+                "leo_debris_orbit"
+              ],
+              "park_worlds": [
+                "venus_surface_thermal"
+              ],
+              "rows": {
+                "earth_lab_1g": {
+                  "register_state": "IN",
+                  "tier_cap": "T0",
+                  "g_mps2": 9.80665,
+                  "open_count": 0,
+                  "out_count": 0
+                },
+                "lunar_regolith_surface": {
+                  "register_state": "IN",
+                  "tier_cap": "T0",
+                  "g_mps2": 1.62,
+                  "open_count": 3,
+                  "out_count": 0
+                },
+                "mars_regolith_0_38g": {
+                  "register_state": "IN",
+                  "tier_cap": "T0",
+                  "g_mps2": 3.71,
+                  "open_count": 2,
+                  "out_count": 1
+                },
+                "vacuum_orbit_microg": {
+                  "register_state": "OUT",
+                  "tier_cap": "T0",
+                  "g_mps2": 0.0,
+                  "open_count": 2,
+                  "out_count": 3
+                },
+                "lunar_psr_cold": {
+                  "register_state": "OPEN",
+                  "tier_cap": "T0",
+                  "g_mps2": 1.62,
+                  "open_count": 2,
+                  "out_count": 0
+                },
+                "venus_surface_thermal": {
+                  "register_state": "PARK",
+                  "tier_cap": "T0",
+                  "g_mps2": 8.87,
+                  "open_count": 0,
+                  "out_count": 3
+                },
+                "leo_debris_orbit": {
+                  "register_state": "OUT",
+                  "tier_cap": "T0",
+                  "g_mps2": 0.0,
+                  "open_count": 3,
+                  "out_count": 4
+                },
+                "lunar_regolith_mesh": {
+                  "register_state": "IN",
+                  "tier_cap": "T0",
+                  "g_mps2": 1.62,
+                  "open_count": 1,
+                  "out_count": 0
+                }
+              }
+            },
+            "world_probes": [
+              {
+                "world_id": "earth_lab_1g",
+                "register_state": "IN",
+                "g_mps2": 9.80665,
+                "oracle": "W_earth_lab_teaching_v0",
+                "tier_cap": "T0",
+                "tool_results": {
+                  "rolling_crown": "ROLLING_KINEMATICS_CROWN_SLICE_PASS",
+                  "wheeled": "WHEELED_CHASSIS_COMPOSE_SLICE_PASS"
+                },
+                "hover_thrust_n": 72.0789,
+                "probe_pass": true
+              },
+              {
+                "world_id": "lunar_regolith_surface",
+                "register_state": "IN",
+                "g_mps2": 1.62,
+                "oracle": "W_regolith_robot_v0",
+                "tier_cap": "T0",
+                "tool_results": {
+                  "hexapod_foot_contact": "HEXAPOD_FOOT_CONTACT_SLICE_PASS"
+                },
+                "hover_thrust_n": 11.907,
+                "g_ratio_vs_moon": 1.0,
+                "lunar_profile_traverse_thrust_n": 11.907,
+                "probe_pass": true
+              }
+            ],
+            "hostile_sweep": null,
+            "earth_lunar_compose": null,
+            "mechanics_synthesis_verdict": "ROBOT_MECHANICS_SYNTHESIS_SLICE_PASS",
+            "engineer_nav": "docs/agent_workflow/APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_V1.md",
+            "honesty": {
+              "teaching_tiers_only": true,
+              "environment_register_explicit": true,
+              "hostile_tier": "T3",
+              "not_physics_truth_guarantee": true
+            }
+          },
+          "practitioner": {
+            "verdict": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_SLICE_PASS",
+            "proof_tier": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_SLICE",
+            "oracle": "MULTI_WORLD_PHYSICS_ENGINEER_LAB",
+            "lane": "practitioner",
+            "checks": {
+              "F_register_pass": true,
+              "F_world_probes_all_in_pass": true,
+              "F_open_worlds_probe_pass": true,
+              "F_microg_out_skips_tools": true,
+              "F_mechanics_synthesis_pass": true,
+              "F_lane_worlds_covered": true,
+              "F_not_product_ready": true,
+              "F_not_measured_locomotion": true,
+              "F_earth_lunar_compose_pass": true
+            },
+            "fail": [],
+            "register": {
+              "verdict": "PHYSICS_UNIVERSE_ENVIRONMENT_REGISTER_SLICE_PASS",
+              "checks": {
+                "F_register_nonempty": true,
+                "F_each_world_has_g": true,
+                "F_each_world_has_tier_cap": true,
+                "F_microg_explicit_out": true,
+                "F_leo_debris_out": true,
+                "F_venus_parked": true,
+                "F_lunar_in": true,
+                "F_earth_in": true,
+                "F_open_psr_listed": true,
+                "F_mesh_world_in": true,
+                "F_not_t5_claim": true
+              },
+              "fail": [],
+              "in_worlds": [
+                "earth_lab_1g",
+                "lunar_regolith_surface",
+                "mars_regolith_0_38g",
+                "lunar_regolith_mesh"
+              ],
+              "open_worlds": [
+                "lunar_psr_cold"
+              ],
+              "out_worlds": [
+                "vacuum_orbit_microg",
+                "leo_debris_orbit"
+              ],
+              "park_worlds": [
+                "venus_surface_thermal"
+              ],
+              "rows": {
+                "earth_lab_1g": {
+                  "register_state": "IN",
+                  "tier_cap": "T0",
+                  "g_mps2": 9.80665,
+                  "open_count": 0,
+                  "out_count": 0
+                },
+                "lunar_regolith_surface": {
+                  "register_state": "IN",
+                  "tier_cap": "T0",
+                  "g_mps2": 1.62,
+                  "open_count": 3,
+                  "out_count": 0
+                },
+                "mars_regolith_0_38g": {
+                  "register_state": "IN",
+                  "tier_cap": "T0",
+                  "g_mps2": 3.71,
+                  "open_count": 2,
+                  "out_count": 1
+                },
+                "vacuum_orbit_microg": {
+                  "register_state": "OUT",
+                  "tier_cap": "T0",
+                  "g_mps2": 0.0,
+                  "open_count": 2,
+                  "out_count": 3
+                },
+                "lunar_psr_cold": {
+                  "register_state": "OPEN",
+                  "tier_cap": "T0",
+                  "g_mps2": 1.62,
+                  "open_count": 2,
+                  "out_count": 0
+                },
+                "venus_surface_thermal": {
+                  "register_state": "PARK",
+                  "tier_cap": "T0",
+                  "g_mps2": 8.87,
+                  "open_count": 0,
+                  "out_count": 3
+                },
+                "leo_debris_orbit": {
+                  "register_state": "OUT",
+                  "tier_cap": "T0",
+                  "g_mps2": 0.0,
+                  "open_count": 3,
+                  "out_count": 4
+                },
+                "lunar_regolith_mesh": {
+                  "register_state": "IN",
+                  "tier_cap": "T0",
+                  "g_mps2": 1.62,
+                  "open_count": 1,
+                  "out_count": 0
+                }
+              }
+            },
+            "world_probes": [
+              {
+                "world_id": "earth_lab_1g",
+                "register_state": "IN",
+                "g_mps2": 9.80665,
+                "oracle": "W_earth_lab_teaching_v0",
+                "tier_cap": "T0",
+                "tool_results": {
+                  "rolling_crown": "ROLLING_KINEMATICS_CROWN_SLICE_PASS",
+                  "wheeled": "WHEELED_CHASSIS_COMPOSE_SLICE_PASS"
+                },
+                "hover_thrust_n": 72.0789,
+                "probe_pass": true
+              },
+              {
+                "world_id": "lunar_regolith_surface",
+                "register_state": "IN",
+                "g_mps2": 1.62,
+                "oracle": "W_regolith_robot_v0",
+                "tier_cap": "T0",
+                "tool_results": {
+                  "hexapod_foot_contact": "HEXAPOD_FOOT_CONTACT_SLICE_PASS"
+                },
+                "hover_thrust_n": 11.907,
+                "g_ratio_vs_moon": 1.0,
+                "lunar_profile_traverse_thrust_n": 11.907,
+                "probe_pass": true
+              },
+              {
+                "world_id": "mars_regolith_0_38g",
+                "register_state": "IN",
+                "g_mps2": 3.71,
+                "oracle": "W_regolith_robot_v0",
+                "tier_cap": "T0",
+                "tool_results": {
+                  "hexapod_foot_contact": "HEXAPOD_FOOT_CONTACT_SLICE_PASS"
+                },
+                "hover_thrust_n": 27.2685,
+                "g_ratio_vs_moon": 2.2901,
+                "lunar_profile_traverse_thrust_n": null,
+                "probe_pass": true
+              }
+            ],
+            "hostile_sweep": null,
+            "earth_lunar_compose": {
+              "verdict": "EARTH_LUNAR_MOTION_COMPOSE_SLICE_PASS",
+              "checks": {
+                "F_lunar_leg_bus": true,
+                "F_earth_wheel_bus": true,
+                "F_arm_stack_bus": true,
+                "F_three_regions_tick": true,
+                "F_per_region_honesty": true,
+                "F_not_unified_loco_claim": true
+              },
+              "fail": [],
+              "buses": [
+                "appendage_stack_integrator",
+                "biped_gait",
+                "wheeled_chassis_compose"
+              ]
+            },
+            "mechanics_synthesis_verdict": "ROBOT_MECHANICS_SYNTHESIS_SLICE_PASS",
+            "engineer_nav": "docs/agent_workflow/APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_V1.md",
+            "honesty": {
+              "teaching_tiers_only": true,
+              "environment_register_explicit": true,
+              "hostile_tier": "T3",
+              "not_physics_truth_guarantee": true
+            }
+          },
+          "hostile": {
+            "verdict": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_SLICE_PASS",
+            "proof_tier": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_SLICE",
+            "oracle": "MULTI_WORLD_PHYSICS_ENGINEER_LAB",
+            "lane": "hostile",
+            "checks": {
+              "F_register_pass": true,
+              "F_world_probes_all_in_pass": true,
+              "F_open_worlds_probe_pass": true,
+              "F_microg_out_skips_tools": true,
+              "F_mechanics_synthesis_pass": true,
+              "F_lane_worlds_covered": true,
+              "F_not_product_ready": true,
+              "F_not_measured_locomotion": true,
+              "F_hostile_sweep_pass": true
+            },
+            "fail": [],
+            "register": {
+              "verdict": "PHYSICS_UNIVERSE_ENVIRONMENT_REGISTER_SLICE_PASS",
+              "checks": {
+                "F_register_nonempty": true,
+                "F_each_world_has_g": true,
+                "F_each_world_has_tier_cap": true,
+                "F_microg_explicit_out": true,
+                "F_leo_debris_out": true,
+                "F_venus_parked": true,
+                "F_lunar_in": true,
+                "F_earth_in": true,
+                "F_open_psr_listed": true,
+                "F_mesh_world_in": true,
+                "F_not_t5_claim": true
+              },
+              "fail": [],
+              "in_worlds": [
+                "earth_lab_1g",
+                "lunar_regolith_surface",
+                "mars_regolith_0_38g",
+                "lunar_regolith_mesh"
+              ],
+              "open_worlds": [
+                "lunar_psr_cold"
+              ],
+              "out_worlds": [
+                "vacuum_orbit_microg",
+                "leo_debris_orbit"
+              ],
+              "park_worlds": [
+                "venus_surface_thermal"
+              ],
+              "rows": {
+                "earth_lab_1g": {
+                  "register_state": "IN",
+                  "tier_cap": "T0",
+                  "g_mps2": 9.80665,
+                  "open_count": 0,
+                  "out_count": 0
+                },
+                "lunar_regolith_surface": {
+                  "register_state": "IN",
+                  "tier_cap": "T0",
+                  "g_mps2": 1.62,
+                  "open_count": 3,
+                  "out_count": 0
+                },
+                "mars_regolith_0_38g": {
+                  "register_state": "IN",
+                  "tier_cap": "T0",
+                  "g_mps2": 3.71,
+                  "open_count": 2,
+                  "out_count": 1
+                },
+                "vacuum_orbit_microg": {
+                  "register_state": "OUT",
+                  "tier_cap": "T0",
+                  "g_mps2": 0.0,
+                  "open_count": 2,
+                  "out_count": 3
+                },
+                "lunar_psr_cold": {
+                  "register_state": "OPEN",
+                  "tier_cap": "T0",
+                  "g_mps2": 1.62,
+                  "open_count": 2,
+                  "out_count": 0
+                },
+                "venus_surface_thermal": {
+                  "register_state": "PARK",
+                  "tier_cap": "T0",
+                  "g_mps2": 8.87,
+                  "open_count": 0,
+                  "out_count": 3
+                },
+                "leo_debris_orbit": {
+                  "register_state": "OUT",
+                  "tier_cap": "T0",
+                  "g_mps2": 0.0,
+                  "open_count": 3,
+                  "out_count": 4
+                },
+                "lunar_regolith_mesh": {
+                  "register_state": "IN",
+                  "tier_cap": "T0",
+                  "g_mps2": 1.62,
+                  "open_count": 1,
+                  "out_count": 0
+                }
+              }
+            },
+            "world_probes": [
+              {
+                "world_id": "lunar_regolith_surface",
+                "register_state": "IN",
+                "g_mps2": 1.62,
+                "oracle": "W_regolith_robot_v0",
+                "tier_cap": "T0",
+                "tool_results": {
+                  "hexapod_foot_contact": "HEXAPOD_FOOT_CONTACT_SLICE_PASS"
+                },
+                "hover_thrust_n": 11.907,
+                "g_ratio_vs_moon": 1.0,
+                "lunar_profile_traverse_thrust_n": 11.907,
+                "probe_pass": true
+              }
+            ],
+            "hostile_sweep": {
+              "verdict": "HOSTILE_PHYSICS_SWEEP_SLICE_PASS",
+              "checks": {
+                "F_g_thrust_monotone": true,
+                "F_sinkage_hostile_flips": true,
+                "F_mu_margin_monotone": true,
+                "F_sweep_grid_finite": true
+              },
+              "fail": [],
+              "g_rows": [
+                {
+                  "g_mps2": 1.62,
+                  "traverse_thrust_n": 11.907
+                },
+                {
+                  "g_mps2": 9.80665,
+                  "traverse_thrust_n": 72.0789
+                }
+              ],
+              "sink_rows": [
+                {
+                  "sinkage_mm": 2.0,
+                  "traverse_feasible_teaching": true
+                },
+                {
+                  "sinkage_mm": 22.5,
+                  "traverse_feasible_teaching": false
+                }
+              ],
+              "mu_rows": [
+                {
+                  "mu_teaching": 0.35,
+                  "margin_n": -0.8,
+                  "slip": true
+                },
+                {
+                  "mu_teaching": 0.85,
+                  "margin_n": 5.2,
+                  "slip": false
+                }
+              ],
+              "venus_thermal": null,
+              "tier": "T3"
+            },
+            "earth_lunar_compose": null,
+            "mechanics_synthesis_verdict": "ROBOT_MECHANICS_SYNTHESIS_SLICE_PASS",
+            "engineer_nav": "docs/agent_workflow/APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_V1.md",
+            "honesty": {
+              "teaching_tiers_only": true,
+              "environment_register_explicit": true,
+              "hostile_tier": "T3",
+              "not_physics_truth_guarantee": true
+            }
+          }
+        },
+        "fail_lanes": []
+      },
+      "verdict": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_SLICE_PASS",
+      "fail": []
+    },
+    "BL_physics_universe_depth": {
+      "receipt_id": "PHYSICS_UNIVERSE_DEPTH_COMPOSE_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T16:01:17.783360+00:00",
+      "proof_tier": "PHYSICS_UNIVERSE_DEPTH_COMPOSE_SLICE",
+      "phase": "BL",
+      "checks": {
+        "G1_depth_compose": true
+      },
+      "smoke": {
+        "verdict": "PHYSICS_UNIVERSE_DEPTH_COMPOSE_SLICE_PASS",
+        "proof_tier": "PHYSICS_UNIVERSE_DEPTH_COMPOSE_SLICE",
+        "oracle": "WORLDS_BENCH_SIM_T2_BIND",
+        "checks": {
+          "F_register_pass": true,
+          "F_universe_worlds_probed": true,
+          "F_leo_debris_out": true,
+          "F_in_worlds_pass": true,
+          "F_mesh_zones_pass": true,
+          "F_bench_ingress_pass": true,
+          "F_sim_crosscheck_pass": true,
+          "F_playbench_practitioner_pass": true,
+          "F_zone_probes_finite": true,
+          "F_not_isaac_truth": true,
+          "F_assembly_lab_pass": true
+        },
+        "fail": [],
+        "register": {
+          "verdict": "PHYSICS_UNIVERSE_ENVIRONMENT_REGISTER_SLICE_PASS",
+          "checks": {
+            "F_register_nonempty": true,
+            "F_each_world_has_g": true,
+            "F_each_world_has_tier_cap": true,
+            "F_microg_explicit_out": true,
+            "F_leo_debris_out": true,
+            "F_venus_parked": true,
+            "F_lunar_in": true,
+            "F_earth_in": true,
+            "F_open_psr_listed": true,
+            "F_mesh_world_in": true,
+            "F_not_t5_claim": true
+          },
+          "fail": [],
+          "in_worlds": [
+            "earth_lab_1g",
+            "lunar_regolith_surface",
+            "mars_regolith_0_38g",
+            "lunar_regolith_mesh"
+          ],
+          "open_worlds": [
+            "lunar_psr_cold"
+          ],
+          "out_worlds": [
+            "vacuum_orbit_microg",
+            "leo_debris_orbit"
+          ],
+          "park_worlds": [
+            "venus_surface_thermal"
+          ],
+          "rows": {
+            "earth_lab_1g": {
+              "register_state": "IN",
+              "tier_cap": "T0",
+              "g_mps2": 9.80665,
+              "open_count": 0,
+              "out_count": 0
+            },
+            "lunar_regolith_surface": {
+              "register_state": "IN",
+              "tier_cap": "T0",
+              "g_mps2": 1.62,
+              "open_count": 3,
+              "out_count": 0
+            },
+            "mars_regolith_0_38g": {
+              "register_state": "IN",
+              "tier_cap": "T0",
+              "g_mps2": 3.71,
+              "open_count": 2,
+              "out_count": 1
+            },
+            "vacuum_orbit_microg": {
+              "register_state": "OUT",
+              "tier_cap": "T0",
+              "g_mps2": 0.0,
+              "open_count": 2,
+              "out_count": 3
+            },
+            "lunar_psr_cold": {
+              "register_state": "OPEN",
+              "tier_cap": "T0",
+              "g_mps2": 1.62,
+              "open_count": 2,
+              "out_count": 0
+            },
+            "venus_surface_thermal": {
+              "register_state": "PARK",
+              "tier_cap": "T0",
+              "g_mps2": 8.87,
+              "open_count": 0,
+              "out_count": 3
+            },
+            "leo_debris_orbit": {
+              "register_state": "OUT",
+              "tier_cap": "T0",
+              "g_mps2": 0.0,
+              "open_count": 3,
+              "out_count": 4
+            },
+            "lunar_regolith_mesh": {
+              "register_state": "IN",
+              "tier_cap": "T0",
+              "g_mps2": 1.62,
+              "open_count": 1,
+              "out_count": 0
+            }
+          }
+        },
+        "worlds": [
+          {
+            "world_id": "leo_debris_orbit",
+            "register_state": "OUT",
+            "g_mps2": 0.0,
+            "tier_cap": "T0",
+            "open": [
+              "debris_flux",
+              "micrometeoroid_flux",
+              "attitude_disturbance"
+            ],
+            "locomotion_skipped": true,
+            "debris_flux_proxy": 1.2e-06,
+            "probe_pass": true
+          },
+          {
+            "world_id": "lunar_regolith_surface",
+            "register_state": "IN",
+            "g_mps2": 1.62,
+            "tier_cap": "T0",
+            "open": [
+              "radiation_belts",
+              "thermal_night_creep",
+              "measured_foot_force"
+            ],
+            "oracle": "W_regolith_robot_v0",
+            "tool_results": {
+              "hexapod_foot_contact": "HEXAPOD_FOOT_CONTACT_SLICE_PASS"
+            },
+            "hover_thrust_n": 11.907,
+            "g_ratio_vs_moon": 1.0,
+            "lunar_profile_traverse_thrust_n": 11.907,
+            "probe_pass": true
+          },
+          {
+            "world_id": "earth_lab_1g",
+            "register_state": "IN",
+            "g_mps2": 9.80665,
+            "tier_cap": "T0",
+            "open": [],
+            "oracle": "W_earth_lab_teaching_v0",
+            "tool_results": {
+              "rolling_crown": "ROLLING_KINEMATICS_CROWN_SLICE_PASS",
+              "wheeled": "WHEELED_CHASSIS_COMPOSE_SLICE_PASS"
+            },
+            "hover_thrust_n": 72.0789,
+            "probe_pass": true
+          }
+        ],
+        "zone_probes": [
+          {
+            "zone_id": "rim_slope",
+            "slope_deg_prior": 14.0,
+            "sinkage_prior_mm": 10.0,
+            "mu_static_prior": 0.38,
+            "contact_verdict": false,
+            "tier": "T0"
+          },
+          {
+            "zone_id": "massif_traverse",
+            "slope_deg_prior": 7.0,
+            "sinkage_prior_mm": 4.0,
+            "mu_static_prior": 0.52,
+            "contact_verdict": false,
+            "tier": "T0"
+          },
+          {
+            "zone_id": "psr_floor",
+            "slope_deg_prior": 2.0,
+            "sinkage_prior_mm": 5.0,
+            "mu_static_prior": 0.48,
+            "contact_verdict": false,
+            "tier": "T0"
+          }
+        ],
+        "mesh": {
+          "verdict": "REGOLITH_MESH_ZONE_CATALOG_SLICE_PASS",
+          "checks": {
+            "F_catalog_zones_finite": true,
+            "F_smoke_zones_probed": true,
+            "F_slope_prior_ordered": true,
+            "F_not_measured_mesh": true
+          },
+          "fail": [],
+          "probes": [
+            {
+              "zone_id": "rim_slope",
+              "slope_deg_prior": 14.0,
+              "sinkage_prior_mm": 10.0,
+              "mu_static_prior": 0.38,
+              "contact_verdict": false,
+              "tier": "T0"
+            },
+            {
+              "zone_id": "massif_traverse",
+              "slope_deg_prior": 7.0,
+              "sinkage_prior_mm": 4.0,
+              "mu_static_prior": 0.52,
+              "contact_verdict": false,
+              "tier": "T0"
+            },
+            {
+              "zone_id": "psr_floor",
+              "slope_deg_prior": 2.0,
+              "sinkage_prior_mm": 5.0,
+              "mu_static_prior": 0.48,
+              "contact_verdict": false,
+              "tier": "T0"
+            }
+          ]
+        },
+        "bench": {
+          "verdict": "PHYSICS_MEASURED_BENCH_INGRESS_SLICE_PASS",
+          "checks": {
+            "F_samples_present": true,
+            "F_earth_capture_auto": true,
+            "F_earth_bus_power_t4": true,
+            "F_earth_foc_energy_t4": true,
+            "F_earth_sinkage_t4": true,
+            "F_compare_only_honesty": true,
+            "F_no_auto_tier_upgrade_flag": true,
+            "F_t4_assigned_when_valid": true,
+            "F_teaching_not_mutated": true,
+            "F_delta_computed": true
+          },
+          "fail": [],
+          "rows": [
+            {
+              "sample_id": "earth_lab_capture_auto_v1",
+              "world_id": "earth_lab_1g",
+              "zone_id": null,
+              "provenance": {
+                "sample_id": "earth_lab_capture_auto_v1",
+                "provenance": "earth_lab_capture",
+                "valid_slots": {
+                  "bus_power_active_run_w": "T4",
+                  "foc_energy_uj_per_step": "T4",
+                  "earth_traverse_sinkage_mm": "T4"
+                },
+                "invalid_slots": [],
+                "provenance_ok": true,
+                "all_slots_valid": true
+              },
+              "comparisons": [
+                {
+                  "slot": "bus_power_active_run_w",
+                  "teaching": 24.63,
+                  "bench": 24.63,
+                  "delta": 0.0,
+                  "rel_delta": 0.0,
+                  "assigned_tier": "T4"
+                },
+                {
+                  "slot": "foc_energy_uj_per_step",
+                  "teaching": 0.4201,
+                  "bench": 0.42,
+                  "delta": -0.0001,
+                  "rel_delta": -0.0002,
+                  "assigned_tier": "T4"
+                },
+                {
+                  "slot": "earth_traverse_sinkage_mm",
+                  "teaching": 4.0,
+                  "bench": 4.216,
+                  "delta": 0.216,
+                  "rel_delta": 0.054,
+                  "assigned_tier": "T4"
+                }
+              ],
+              "teaching_mutated": false
+            },
+            {
+              "sample_id": "lc2_bench_foot_pad_nominal",
+              "world_id": "lunar_regolith_surface",
+              "zone_id": "massif_traverse",
+              "provenance": {
+                "sample_id": "lc2_bench_foot_pad_nominal",
+                "provenance": "bench_load_cell",
+                "valid_slots": {
+                  "foot_normal_force_n": "T4"
+                },
+                "invalid_slots": [
+                  "mu_static_measured",
+                  "sinkage_mm_measured"
+                ],
+                "provenance_ok": true,
+                "all_slots_valid": false
+              },
+              "comparisons": [
+                {
+                  "slot": "foot_normal_force_n",
+                  "teaching": 12.0,
+                  "bench": 14.2,
+                  "delta": 2.2,
+                  "rel_delta": 0.1833,
+                  "assigned_tier": "T4"
+                }
+              ],
+              "teaching_mutated": false
+            },
+            {
+              "sample_id": "lc2_bench_rim_slope_corner",
+              "world_id": "lunar_regolith_surface",
+              "zone_id": "rim_slope",
+              "provenance": {
+                "sample_id": "lc2_bench_rim_slope_corner",
+                "provenance": "bench_terramech",
+                "valid_slots": {
+                  "sinkage_mm_measured": "T4"
+                },
+                "invalid_slots": [],
+                "provenance_ok": true,
+                "all_slots_valid": true
+              },
+              "comparisons": [
+                {
+                  "slot": "sinkage_mm_measured",
+                  "teaching": 4.0,
+                  "bench": 9.5,
+                  "delta": 5.5,
+                  "rel_delta": 1.375,
+                  "assigned_tier": "T4"
+                }
+              ],
+              "teaching_mutated": false
+            }
+          ],
+          "tier_maps": [
+            {
+              "foot_normal_force_n": "T0",
+              "mu_static_measured": "T0",
+              "sinkage_mm_measured": "T0",
+              "bus_power_active_run_w": "T4",
+              "foc_energy_uj_per_step": "T4",
+              "earth_traverse_sinkage_mm": "T4"
+            },
+            {
+              "foot_normal_force_n": "T4",
+              "mu_static_measured": "T0",
+              "sinkage_mm_measured": "T0",
+              "bus_power_active_run_w": "T0",
+              "foc_energy_uj_per_step": "T0",
+              "earth_traverse_sinkage_mm": "T0"
+            },
+            {
+              "foot_normal_force_n": "T0",
+              "mu_static_measured": "T0",
+              "sinkage_mm_measured": "T4",
+              "bus_power_active_run_w": "T0",
+              "foc_energy_uj_per_step": "T0",
+              "earth_traverse_sinkage_mm": "T0"
+            }
+          ],
+          "honesty": {
+            "auto_tier_upgrade": false,
+            "compare_only": true,
+            "not_field_measured_claim": true,
+            "bench_row_does_not_mutate_teaching": true
+          }
+        },
+        "sim_crosscheck": {
+          "verdict": "PHYSICS_SIM_CROSSCHECK_BRIDGE_SLICE_PASS",
+          "checks": {
+            "F_newton_x_crosscheck_pass": true,
+            "F_mujoco_deferred_or_pass": true,
+            "F_isaac_parked": true,
+            "F_t2_not_oracle_labeled": true,
+            "F_no_isaac_truth_claim": true
+          },
+          "fail": [],
+          "newton_x": {
+            "verdict": "NEWTON_X_FOOT_GROUND_CROSSCHECK_PASS",
+            "checks": {
+              "F_heightfield_finite": true,
+              "F_slope_bounded": true,
+              "F_ground_plane_teaching_named": true,
+              "F_newton_x_step_emits_terrain": true,
+              "F_terramech_sinkage_finite": true,
+              "F_not_isaac": true
+            },
+            "fail": [],
+            "ground_plane_z_teaching": 0.0,
+            "terrain_samples": [
+              {
+                "cursor_m": 500.0,
+                "height_m": 6.5329,
+                "slope_deg": 0.6841,
+                "cell_index": 4
+              },
+              {
+                "cursor_m": 2500.0,
+                "height_m": 9.1745,
+                "slope_deg": -0.2542,
+                "cell_index": 24
+              },
+              {
+                "cursor_m": 4200.0,
+                "height_m": 7.0132,
+                "slope_deg": -0.0475,
+                "cell_index": 41
+              }
+            ],
+            "step_slope_deg": -0.2542,
+            "step_sinkage_mm": 2.037,
+            "tier": "T2",
+            "oracle_role": "second_path_not_truth"
+          },
+          "mujoco": {
+            "status": "DEFERRED",
+            "reason": "mujoco_not_installed",
+            "tier": "T2_deferred",
+            "install_hint": "pip install mujoco (optional T2 cross-check)"
+          },
+          "isaac": {
+            "status": "PARK",
+            "reason": "80GB footprint \u00b7 not our ground truth per NEWTON_X_PLATFORM_DECISION_RECORD",
+            "tier": "T2_deferred",
+            "alternative": "newton_x_heightfield + optional_mujoco_energy",
+            "tabu": "claim Isaac/Omniverse truth"
+          },
+          "proof_tier": "PHYSICS_SIM_CROSSCHECK_BRIDGE_SLICE"
+        },
+        "assembly_lab": {
+          "verdict": "DOGFOOD_ROBOT_HARDWARE_ASSEMBLY_LAB_SLICE_PASS",
+          "proof_tier": "DOGFOOD_ROBOT_HARDWARE_ASSEMBLY_LAB_SLICE",
+          "oracle": "EARTH_MOON_ORBIT_ASSEMBLE_TEST",
+          "checks": {
+            "F_all_mission_worlds_in_lab": true,
+            "F_earth_recipe_pass": true,
+            "F_lunar_recipe_pass": true,
+            "F_orbit_recipe_pass": true,
+            "F_venus_parked_honesty": true,
+            "F_not_product_ready": true
+          },
+          "fail": [],
+          "recipes": {
+            "earth_bench_carrier": {
+              "recipe_id": "earth_bench_carrier",
+              "verdict": "EARTH_BENCH_CARRIER_RECIPE_PASS",
+              "world_id": "earth_lab_1g",
+              "checks": {
+                "F_create_cli_pass": true,
+                "F_rolling_crown_pass": true,
+                "F_wheeled_pass": true,
+                "F_earth_fixture_procedure": true,
+                "F_earth_fixture_falsifiers": true,
+                "F_world_earth_lab": true,
+                "F_earth_bench_bus_power_t4": true,
+                "F_earth_bench_foc_t4": true,
+                "F_earth_bench_sinkage_t4": true,
+                "F_bench_not_mutate_teaching": true
+              },
+              "fail": [],
+              "create": "APPENDAGE_ROBOT_CREATE_CLI_SLICE_PASS",
+              "manifest_path": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\robot\\APPENDAGE_ROBOT_STACK_MANIFEST_v1.json",
+              "fixture_id": "earth_lab_mini_test_fixture_v1",
+              "bench_ingress": {
+                "t4_slots": [
+                  "bus_power_active_run_w",
+                  "foc_energy_uj_per_step",
+                  "earth_traverse_sinkage_mm"
+                ],
+                "tier_map": {
+                  "foot_normal_force_n": "T0",
+                  "mu_static_measured": "T0",
+                  "sinkage_mm_measured": "T0",
+                  "bus_power_active_run_w": "T4",
+                  "foc_energy_uj_per_step": "T4",
+                  "earth_traverse_sinkage_mm": "T4"
+                },
+                "comparisons": [
+                  {
+                    "slot": "bus_power_active_run_w",
+                    "teaching": 24.63,
+                    "bench": 24.63,
+                    "delta": 0.0,
+                    "rel_delta": 0.0,
+                    "assigned_tier": "T4"
+                  },
+                  {
+                    "slot": "foc_energy_uj_per_step",
+                    "teaching": 0.4201,
+                    "bench": 0.42,
+                    "delta": -0.0001,
+                    "rel_delta": -0.0002,
+                    "assigned_tier": "T4"
+                  },
+                  {
+                    "slot": "earth_traverse_sinkage_mm",
+                    "teaching": 4.0,
+                    "bench": 4.216,
+                    "delta": 0.216,
+                    "rel_delta": 0.054,
+                    "assigned_tier": "T4"
+                  }
+                ]
+              },
+              "operator_steps": [
+                "Compile create spec \u2192 stack manifest",
+                "Run rolling crown + 4WD compose smokes",
+                "Follow earth_lab_mini_test_fixture procedure on bench (encoder \u00b7 shunt \u00b7 FOC steps)"
+              ]
+            },
+            "lunar_scout_field": {
+              "recipe_id": "lunar_scout_field",
+              "verdict": "LUNAR_SCOUT_FIELD_RECIPE_PASS",
+              "world_id": "lunar_regolith_surface",
+              "checks": {
+                "F_full_body_pass": true,
+                "F_foot_contact_pass": true,
+                "F_newton_x_falsifiers": true,
+                "F_terramech_on_step": true,
+                "F_heightfield_on_step": true,
+                "F_world_lunar": true
+              },
+              "fail": [],
+              "full_body": "FULL_BODY_COMPOSE_SLICE_PASS",
+              "foot_contact": "HEXAPOD_FOOT_CONTACT_SLICE_PASS",
+              "newton_x_step_m": 50.0,
+              "sinkage_mm": 2.037,
+              "operator_steps": [
+                "Load lunar scout full-body spec \u00b7 validate per-region proof tiers",
+                "Hexapod foot contact + gait-integrated \u03bc teaching",
+                "One Newton-X heightfield + terramech world step (W_regolith)"
+              ]
+            },
+            "orbit_thermal_bus": {
+              "recipe_id": "orbit_thermal_bus",
+              "verdict": "ORBIT_THERMAL_BUS_RECIPE_PASS",
+              "world_id": "vacuum_orbit_microg",
+              "checks": {
+                "F_orbit_register_out_loco": true,
+                "F_orbit_micro_g": true,
+                "F_thermal_vacuum_open": true,
+                "F_leo_debris_open": true,
+                "F_leo_loco_out": true,
+                "F_no_locomotion_claim": true
+              },
+              "fail": [],
+              "debris_flux_proxy": 1.2e-06,
+              "operator_steps": [
+                "Confirm locomotion OUT OF SCOPE for orbit",
+                "Bind attitude / thermal vacuum rows as OPEN",
+                "Optional: LEO debris flux proxy for bus hardening trade"
+              ],
+              "honesty": "orbit = bus/thermal/debris register \u00b7 not walking robot"
+            }
+          },
+          "fail_recipes": [],
+          "canon": "docs/agent_workflow/DOGFOOD_ROBOT_HARDWARE_ASSEMBLY_LAB_V1.md",
+          "entry_command": "python -m dogfood_platform.dogfood_robot_hardware_assembly_stranger_run_v1"
+        },
+        "playbench": {
+          "verdict": "APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_SLICE_PASS",
+          "lane": "practitioner"
+        },
+        "canon": "docs/agent_workflow/APPENDAGE_PHYSICS_UNIVERSE_PLAYBENCH_V1.md",
+        "honesty": {
+          "bench_compare_only": true,
+          "sim_t2_not_oracle": true,
+          "isaac_parked": true
+        }
+      },
+      "verdict": "PHYSICS_UNIVERSE_DEPTH_COMPOSE_SLICE_PASS",
+      "fail": []
+    },
+    "BM_assembly_lab": {
+      "receipt_id": "DOGFOOD_ROBOT_HARDWARE_ASSEMBLY_LAB_SLICE_RECEIPT_v1",
+      "timestamp_utc": "2026-07-17T16:01:27.656955+00:00",
+      "proof_tier": "DOGFOOD_ROBOT_HARDWARE_ASSEMBLY_LAB_SLICE",
+      "phase": "BM",
+      "checks": {
+        "G1_assembly_lab": true
+      },
+      "smoke": {
+        "verdict": "DOGFOOD_ROBOT_HARDWARE_ASSEMBLY_LAB_SLICE_PASS",
+        "proof_tier": "DOGFOOD_ROBOT_HARDWARE_ASSEMBLY_LAB_SLICE",
+        "oracle": "EARTH_MOON_ORBIT_ASSEMBLE_TEST",
+        "checks": {
+          "F_all_mission_worlds_in_lab": true,
+          "F_earth_recipe_pass": true,
+          "F_lunar_recipe_pass": true,
+          "F_orbit_recipe_pass": true,
+          "F_venus_parked_honesty": true,
+          "F_not_product_ready": true
+        },
+        "fail": [],
+        "recipes": {
+          "earth_bench_carrier": {
+            "recipe_id": "earth_bench_carrier",
+            "verdict": "EARTH_BENCH_CARRIER_RECIPE_PASS",
+            "world_id": "earth_lab_1g",
+            "checks": {
+              "F_create_cli_pass": true,
+              "F_rolling_crown_pass": true,
+              "F_wheeled_pass": true,
+              "F_earth_fixture_procedure": true,
+              "F_earth_fixture_falsifiers": true,
+              "F_world_earth_lab": true,
+              "F_earth_bench_bus_power_t4": true,
+              "F_earth_bench_foc_t4": true,
+              "F_earth_bench_sinkage_t4": true,
+              "F_bench_not_mutate_teaching": true
+            },
+            "fail": [],
+            "create": "APPENDAGE_ROBOT_CREATE_CLI_SLICE_PASS",
+            "manifest_path": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\robot\\APPENDAGE_ROBOT_STACK_MANIFEST_v1.json",
+            "fixture_id": "earth_lab_mini_test_fixture_v1",
+            "bench_ingress": {
+              "t4_slots": [
+                "bus_power_active_run_w",
+                "foc_energy_uj_per_step",
+                "earth_traverse_sinkage_mm"
+              ],
+              "tier_map": {
+                "foot_normal_force_n": "T0",
+                "mu_static_measured": "T0",
+                "sinkage_mm_measured": "T0",
+                "bus_power_active_run_w": "T4",
+                "foc_energy_uj_per_step": "T4",
+                "earth_traverse_sinkage_mm": "T4"
+              },
+              "comparisons": [
+                {
+                  "slot": "bus_power_active_run_w",
+                  "teaching": 24.63,
+                  "bench": 24.63,
+                  "delta": 0.0,
+                  "rel_delta": 0.0,
+                  "assigned_tier": "T4"
+                },
+                {
+                  "slot": "foc_energy_uj_per_step",
+                  "teaching": 0.4201,
+                  "bench": 0.42,
+                  "delta": -0.0001,
+                  "rel_delta": -0.0002,
+                  "assigned_tier": "T4"
+                },
+                {
+                  "slot": "earth_traverse_sinkage_mm",
+                  "teaching": 4.0,
+                  "bench": 4.216,
+                  "delta": 0.216,
+                  "rel_delta": 0.054,
+                  "assigned_tier": "T4"
+                }
+              ]
+            },
+            "operator_steps": [
+              "Compile create spec \u2192 stack manifest",
+              "Run rolling crown + 4WD compose smokes",
+              "Follow earth_lab_mini_test_fixture procedure on bench (encoder \u00b7 shunt \u00b7 FOC steps)"
+            ]
+          },
+          "lunar_scout_field": {
+            "recipe_id": "lunar_scout_field",
+            "verdict": "LUNAR_SCOUT_FIELD_RECIPE_PASS",
+            "world_id": "lunar_regolith_surface",
+            "checks": {
+              "F_full_body_pass": true,
+              "F_foot_contact_pass": true,
+              "F_newton_x_falsifiers": true,
+              "F_terramech_on_step": true,
+              "F_heightfield_on_step": true,
+              "F_world_lunar": true
+            },
+            "fail": [],
+            "full_body": "FULL_BODY_COMPOSE_SLICE_PASS",
+            "foot_contact": "HEXAPOD_FOOT_CONTACT_SLICE_PASS",
+            "newton_x_step_m": 50.0,
+            "sinkage_mm": 2.037,
+            "operator_steps": [
+              "Load lunar scout full-body spec \u00b7 validate per-region proof tiers",
+              "Hexapod foot contact + gait-integrated \u03bc teaching",
+              "One Newton-X heightfield + terramech world step (W_regolith)"
+            ]
+          },
+          "orbit_thermal_bus": {
+            "recipe_id": "orbit_thermal_bus",
+            "verdict": "ORBIT_THERMAL_BUS_RECIPE_PASS",
+            "world_id": "vacuum_orbit_microg",
+            "checks": {
+              "F_orbit_register_out_loco": true,
+              "F_orbit_micro_g": true,
+              "F_thermal_vacuum_open": true,
+              "F_leo_debris_open": true,
+              "F_leo_loco_out": true,
+              "F_no_locomotion_claim": true
+            },
+            "fail": [],
+            "debris_flux_proxy": 1.2e-06,
+            "operator_steps": [
+              "Confirm locomotion OUT OF SCOPE for orbit",
+              "Bind attitude / thermal vacuum rows as OPEN",
+              "Optional: LEO debris flux proxy for bus hardening trade"
+            ],
+            "honesty": "orbit = bus/thermal/debris register \u00b7 not walking robot"
+          }
+        },
+        "fail_recipes": [],
+        "canon": "docs/agent_workflow/DOGFOOD_ROBOT_HARDWARE_ASSEMBLY_LAB_V1.md",
+        "entry_command": "python -m dogfood_platform.dogfood_robot_hardware_assembly_stranger_run_v1"
+      },
+      "verdict": "DOGFOOD_ROBOT_HARDWARE_ASSEMBLY_LAB_SLICE_PASS",
+      "fail": []
+    }
+  },
+  "honesty": {
+    "planar_and_se3": true,
+    "not_universal_robot_os": true,
+    "not_rt_servo": true,
+    "friction_tier": "ADAPT"
+  },
+  "verdict": "ROBOT_APPENDAGE_OS_FACTORY_SIGNOFF_PASS"
+}

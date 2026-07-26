@@ -1,0 +1,16 @@
+{
+  "schema": "DOGFOOD_TWIN_TELEMETRY_PACKET_v1",
+  "seq": 12,
+  "mission_id": "M-integrated-earth-bench",
+  "phi_macro_tick": 12,
+  "pose_delta": {
+    "x_m": 0.04,
+    "z_m": 0.001,
+    "y_m": 0.0
+  },
+  "traverse_m_cumulative": 54.1667,
+  "map_delta_cells": 0,
+  "clifford_motor_hex": null,
+  "replay_hash_hint": "7c6eeed6a68fd177",
+  "packet_hash": "de7c21d9b996f779"
+}

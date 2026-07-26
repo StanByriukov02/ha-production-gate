@@ -1,0 +1,116 @@
+{
+  "patch_id": "kinematic_chain_ir_patch_v1",
+  "timestamp_utc": "2026-07-17T16:01:41.797368+00:00",
+  "review_status": "REVIEW_PASS",
+  "proof_tier": "REGISTRY_PERSIST_REVIEW_SLICE",
+  "oracle": "CHAIN_IR_PATCH_REVIEW",
+  "chains": {
+    "hexapod_leg_from_urdf_v1": {
+      "geometry_class": "serial_revolute_se3",
+      "dof": 3,
+      "source_urdf": "fixtures/cad/hexapod_leg_3dof_v1.urdf",
+      "root_link": "body_mount",
+      "ee_frame": "foot_link",
+      "appendage_role": "locomotion_leg",
+      "actuator_backend_default": "sim_symplectic",
+      "derived": {
+        "se3_joints": [
+          {
+            "name": "coxa_joint",
+            "origin_xyz": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "origin_rpy": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis_xyz": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "femur_joint",
+            "origin_xyz": [
+              0.055,
+              0.0,
+              0.0
+            ],
+            "origin_rpy": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis_xyz": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "name": "tibia_joint",
+            "origin_xyz": [
+              0.12,
+              0.0,
+              0.0
+            ],
+            "origin_rpy": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis_xyz": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "joint_limits_rad": {
+          "min": [
+            -0.9,
+            -1.4,
+            -1.6
+          ],
+          "max": [
+            0.9,
+            1.4,
+            1.6
+          ]
+        },
+        "joint_torque_max_nm": [
+          3.0,
+          4.0,
+          3.0
+        ],
+        "gravity_m_s2": 1.62
+      },
+      "patch_source": "appendage_registry_persist_v1",
+      "review_status": "PENDING_REVIEW"
+    }
+  },
+  "honesty": {
+    "not_canon_mutation": true,
+    "staging_path": "C:\\Users\\dammi\\hardware_atom\\results\\platform_bpass\\robot\\kinematic_chain_ir_patch_v1.json",
+    "canon_path": "fixtures/robot/kinematic_chain_ir_v0.json",
+    "ae_plus_gate": "appendage_dual_review_v1 \u00b7 subs not human"
+  },
+  "review": {
+    "checks": {
+      "F_patch_id": true,
+      "F_has_chains": true,
+      "F_review_status": true,
+      "F_no_product_ready": true,
+      "F_hexapod_leg_from_urdf_v1_dof": true,
+      "F_hexapod_leg_from_urdf_v1_source": true
+    },
+    "fail": [],
+    "pass": true,
+    "proof_tier": "REGISTRY_PERSIST_REVIEW_SLICE",
+    "oracle": "CHAIN_IR_PATCH_REVIEW"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "envelope_id": "manipulator_governance_envelope_v1",
+  "profile_id": "lunar_crater_5km",
+  "confidence_min": 0.65,
+  "min_torque_scale_for_actuation": 0.75,
+  "min_torque_scale": 0.05,
+  "joint_torque_max_nm": [3.0, 2.5, 1.2],
+  "allowed_commands": ["idle", "hold", "move", "grasp"],
+  "stress_veto_threshold": null,
+  "honesty": {
+    "not_measured": true,
+    "sim_envelope_only": true,
+    "material_derate_from_playbench": true
+  },
+  "tabu": "claim field manipulator torque envelope MEASURED"
+}

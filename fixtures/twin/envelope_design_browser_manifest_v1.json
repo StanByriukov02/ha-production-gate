@@ -1,0 +1,20 @@
+{
+  "manifest_id": "envelope_design_browser_manifest_v1",
+  "timestamp_utc": "2026-07-04T11:48:36.058975+00:00",
+  "canon": "docs/HwatomOrgOS/06_2BRAIN/DOGFOOD/chain/ENVELOPE_ASSEMBLY_VISUAL_PROGRAM_V1.md",
+  "browser_url": "http://127.0.0.1:4178/dogfood/envelope_integrated_design_browser_v1.html",
+  "gate": "E8.4",
+  "verdict": "ENVELOPE_ASSEMBLY_VISUAL_E8_4_PASS",
+  "parents": {
+    "chip_g6": "CHIP_ASSEMBLY_VISUAL_G6_4_PASS",
+    "robot_r7": "ROBOT_ASSEMBLY_VISUAL_R7_4_PASS"
+  },
+  "renders": {
+    "cutaway_full": "visual_e8/envelope_cutaway_full_v1.png",
+    "hero": "visual_e8/envelope_hero_integrated_v1.png",
+    "exploded": "visual_e8/envelope_exploded_v1.png"
+  },
+  "pbr_url": "http://127.0.0.1:4178/dogfood/envelope_whole_pbr_v1.html",
+  "chip_browser": "http://127.0.0.1:4178/dogfood/chip_g6_design_browser_v1.html",
+  "robot_browser": "http://127.0.0.1:4178/dogfood/robot_r7_design_browser_v1.html"
+}

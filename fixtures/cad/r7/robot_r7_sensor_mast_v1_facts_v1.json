@@ -1,0 +1,19 @@
+{
+  "artifact_id": "robot_r7_sensor_mast_v1",
+  "module_family": "R5_sensor_mast",
+  "features": {
+    "lidar_puck": true,
+    "camera_shroud": true,
+    "mast_height_mm": 130,
+    "cooling_fins": 12
+  },
+  "bbox_mm": {
+    "x": 69.5,
+    "y": 83.0,
+    "z": 127.0
+  },
+  "cites": [
+    "ROBOT_PERCEPT_P95_MS"
+  ],
+  "honesty": "Cave SLAM mast \u2014 percept envelope cite \u00b7 not qualified sensor CAD"
+}

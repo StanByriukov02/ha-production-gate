@@ -1,0 +1,31 @@
+{
+  "matrix_id": "material_wear_condition_matrix_v1",
+  "parent_bus": "docs/agent_workflow/DOGFOOD_MATERIAL_PHYSICS_BUS_V0.md",
+  "material_bind": "fixtures/robot/material_physics_bind_v0.json",
+  "wear_vectors_ref": "fixtures/chip/coupling_cell_wear_vectors_v1.json",
+  "axes": {
+    "material_variant": [
+      "scout_short_traverse",
+      "scout_default_medium",
+      "scout_terminal_raw",
+      "scout_tread_shore_70a",
+      "scout_tread_shore_95a",
+      "scout_seal_b2",
+      "scout_seal_b5"
+    ],
+    "radiation_case": ["idle", "terminal_lunar_crater"],
+    "wear_oracle": ["IRON_SIM_MMIO_READBACK", "CXX_PARITY_REFERENCE"]
+  },
+  "falsifiers": {
+    "F_ingress_monotone_short_to_raw": "material ingress increases short → medium → raw",
+    "F_stress_monotone_ingress": "iron stress monotone with ingress at fixed radiation",
+    "F_radiation_monotone_idle_to_terminal": "terminal radiation ≥ idle stress at fixed material",
+    "F_all_cells_iron_parity": "every cell iron matches CXX parity"
+  },
+  "honesty": {
+    "material_ingress_from_w_regolith": true,
+    "wear_crown_is_iron_mmio": true,
+    "not_measured": true
+  },
+  "tabu": "claim materials = field measured · Python-only WEAR_OUT"
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "ha_surface_charging_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "illum/SEP/magnetotail → class + φ_s (piecewise Zheng/Stubbs anchors)",
+  "units": {
+    "phi_s": "V",
+    "illum_frac": "0..1"
+  },
+  "on_sources": [
+    {
+      "id": "L0-ZHENG-01",
+      "cite": "Zheng LSIC · sunlit lunar surface ~few V positive (photoemission)",
+      "used": [
+        "dayside_v=3"
+      ]
+    },
+    {
+      "id": "L0-ZHENG-02",
+      "cite": "Zheng LSIC · nightside floor ~100 V class negative",
+      "used": [
+        "nightside_floor_v=-100"
+      ]
+    },
+    {
+      "id": "L0-ZHENG-03",
+      "cite": "Stubbs 2014 via Zheng · terminator shadow ~-48 V",
+      "used": [
+        "shadow_v=-48"
+      ]
+    },
+    {
+      "id": "L0-ZHENG-06",
+      "cite": "Zheng · nightside plasma sheet extreme negative class",
+      "used": [
+        "nightside_extreme_v=-1000"
+      ]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate surface-charging --catalog <path> --illum <f> [--sep] [--magnetotail]"
+  },
+  "honesty": [
+    "cited Zheng/Stubbs class anchors — not CCMC live solver",
+    "not MEASURED spacecraft potential",
+    "python_not_oracle"
+  ],
+  "thresholds": {
+    "dayside_illum_min": 0.85,
+    "terminator_illum_min": 0.05
+  },
+  "phi_v": {
+    "dayside_v": 3.0,
+    "shadow_v": -48.0,
+    "nightside_floor_v": -100.0,
+    "nightside_extreme_v": -1000.0
+  },
+  "classes": {
+    "DAYSIDE_LOW_POS": "illum >= dayside_illum_min",
+    "TERMINATOR_SHADOW": "terminator_illum_min <= illum < dayside",
+    "NIGHTSIDE_HIGH_NEG": "illum < terminator and not (sep|magnetotail)",
+    "NIGHTSIDE_EXTREME_NEG": "illum < terminator and (sep|magnetotail)"
+  },
+  "dual_anchors": {
+    "safe_illum": 0.85,
+    "hostile_illum": 0.0,
+    "safe_sep": false,
+    "hostile_sep": true,
+    "cite": "Dual: dayside photoemission vs nightside+SEP extreme (dust envelope G1)"
+  }
+}

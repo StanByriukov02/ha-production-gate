@@ -1,0 +1,24 @@
+{
+  "compose_id": "appendage_robot_compose_v1",
+  "robot_id": "lunar_scout_lc2_bench_v1",
+  "proof_tier": "APPENDAGE_MULTI_COMPOSE_SLICE",
+  "oracle": "MULTI_APPENDAGE_ROBOT_BUS",
+  "tabu": "claim universal robot OS · claim field-verified multi-appendage servo",
+  "base_frame": "robot_base_link",
+  "appendages": [
+    {
+      "appendage_id": "scout_arm",
+      "chain_id": "lunar_manipulator_chain_scout_3dof_v1",
+      "role": "manipulator_arm",
+      "mount_xyz": [0.12, 0.0, 0.45],
+      "mount_rpy": [0.0, 0.0, 0.0]
+    },
+    {
+      "appendage_id": "lc2_hip_bench",
+      "chain_id": "lc2_bench_hip_1dof_v1",
+      "role": "bench_joint",
+      "mount_xyz": [0.0, 0.0, 0.18],
+      "mount_rpy": [0.0, 0.0, 0.0]
+    }
+  ]
+}

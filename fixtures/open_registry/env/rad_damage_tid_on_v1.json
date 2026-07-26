@@ -1,0 +1,21 @@
+{
+  "schema": "ha_rad_damage_tid_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "D_tid = dose_rate_gy_h * t_h; damage_proxy = D_tid / D_fail",
+  "units": { "dose_rate": "Gy/h", "t": "h", "D": "Gy" },
+  "on_sources": [
+    {
+      "id": "tid_linear_accumulate",
+      "cite": "teaching TID accumulate D=Ḋ·t; damage_proxy=D/D_fail (not CREME96 / MEASURED SEU)",
+      "used": ["D_tid", "damage_proxy"]
+    }
+  ],
+  "rust_oracle": { "crate": "ha_physics_gate", "cmd": "ha-physics-gate rad-damage-tid --catalog <path> --pack <id> --t-h <t>" },
+  "honesty": ["teaching TID proxy — not CREME FEM / MEASURED", "python_not_oracle"],
+  "packs": {
+    "quiet_safe": { "label": "quiet Dual Safe", "dose_rate_gy_h": 0.001, "d_fail_gy": 100.0 },
+    "storm_hostile": { "label": "storm Dual Hostile", "dose_rate_gy_h": 0.05, "d_fail_gy": 100.0 }
+  },
+  "defaults": { "pack": "quiet_safe", "t_h": 24.0 },
+  "dual_anchors": { "safe_pack": "quiet_safe", "hostile_pack": "storm_hostile", "t_h": 48.0 }
+}

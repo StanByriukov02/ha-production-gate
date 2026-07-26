@@ -1,0 +1,99 @@
+{
+  "anchor_id": "MOON_SHACKLETON_ANCHOR_v1",
+  "world_id": "W_moon_shackleton_v0",
+  "zones": {
+    "rim_sun": {
+      "t_k": 220.0,
+      "illumination_annual_frac": 0.96,
+      "albedo_class": "highland_regolith",
+      "l0_cites": [
+        "SK-12",
+        "SK-15",
+        "SK-16"
+      ]
+    },
+    "psr_floor": {
+      "t_k_mean": 70.0,
+      "t_k_max": 95.0,
+      "illumination_annual_frac": 0.0,
+      "albedo_class": "psr_shadowed",
+      "l0_cites": [
+        "SK-09",
+        "SK-10",
+        "SK-07"
+      ]
+    },
+    "massif_traverse": {
+      "slope_max_deg": 12.0,
+      "slope_limit_deg": 15.0,
+      "regolith_bearing_class": "MEDIUM",
+      "contact_pressure_kpa": 120.0,
+      "l0_cites": [
+        "SK-13",
+        "A-06",
+        "GAP-MR-11"
+      ]
+    }
+  },
+  "polar_cycles": 1000,
+  "wear_baseline_receipt": "results/platform_bpass/reports/EXP-M4-01_EXECUTE_v1.json",
+  "volatile_branches": {
+    "A": {
+      "model": "dry_shadowed_regolith",
+      "surface_ice_vol_frac": 0.0
+    },
+    "B": {
+      "model": "thin_ice_alt",
+      "surface_ice_vol_frac": 0.2
+    }
+  },
+  "fgm_shell_branches": {
+    "A": {
+      "material_id": "fgm_lhs_sintered",
+      "model": "LHS-1 SPS"
+    },
+    "B": {
+      "material_id": "fgm_eac_sintered",
+      "model": "EAC-1A SPS"
+    }
+  },
+  "regolith_rho_branches": {
+    "A": {
+      "material_id": "highland_regolith_loose",
+      "rho_g_cm3": 1.59,
+      "cite": "HEIKEN-L0-03"
+    },
+    "B": {
+      "material_id": "highland_regolith_compact",
+      "rho_g_cm3": 1.66,
+      "cite": "HEIKEN-L0-02"
+    }
+  },
+  "regolith_bearing": {
+    "default_class": "MEDIUM",
+    "closure": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/GAP_MR_11_ADAPT_CLOSURE_v1.json",
+    "module": "dogfood_platform.lunar_regolith_bearing_v1"
+  },
+  "regolith_rho_hop": "m-hop-regolith-rho-variant",
+  "fgm_shell_hop": "m-hop-fgm-shell-variant",
+  "pse_hops": [
+    "m-hop-illumination",
+    "m-hop-cryo-thermal",
+    "m-hop-radiation",
+    "m-hop-traverse",
+    "m-hop-volatile"
+  ],
+  "wear_hop": "m-hop-wear",
+  "mechanical_coupling_hop": "m-hop-mechanical-coupling",
+  "package_thermal_hop": "m-hop-package-thermal",
+  "lc2_duty_hop": "m-hop-lc2-duty-bind",
+  "radiation_fet_hop": "m-hop-radiation-fet",
+  "radiation_coeff_bind": "results/platform_bpass/moon/RADIATION_FET_COEFF_BIND_v1.json",
+  "lc2_harness": "dogfood_platform.lunar_lc2_package_harness_v1",
+  "engine_vault_hub": "06_2BRAIN/DOGFOOD/domains/moon/engine/W_MOON_SHACKLETON_ENGINE_INDEX_V1.md",
+  "w_chip_coupling_contract": "results/platform_bpass/universe/world_chip_coupling_v1.json",
+  "corridor_version": "v1_6",
+  "realism_maturity_register": "results/platform_bpass/moon/MOON_REALISM_MATURITY_v1.json",
+  "realism_vault_canon": "06_2BRAIN/DOGFOOD/domains/moon/engine/MOON_UNIVERSE_REALISM_MATURITY_V1.md",
+  "l0_canon": "06_2BRAIN/DOGFOOD/domains/moon/SHACKLETON_PRIMARY_SOURCES_L0_V1.md"
+}

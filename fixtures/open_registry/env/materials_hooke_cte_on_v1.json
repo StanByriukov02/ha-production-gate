@@ -1,0 +1,71 @@
+{
+  "schema": "ha_materials_hooke_cte_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "σ=E ε; δ=ε L; ΔL=α L ΔT; σ_thermal=E α ΔT (constrained)",
+  "units": {
+    "E": "Pa",
+    "eps": "1",
+    "sigma": "Pa",
+    "alpha": "1/K",
+    "L": "m",
+    "dT": "K"
+  },
+  "on_sources": [
+    {
+      "id": "hooke_law",
+      "cite": "linear elastic Hooke σ=Eε (teaching continuum)",
+      "used": ["sigma", "delta"]
+    },
+    {
+      "id": "cte_linear",
+      "cite": "linear thermal expansion ΔL=α L ΔT",
+      "used": ["delta_thermal", "sigma_thermal constrained"]
+    },
+    {
+      "id": "al6061_cte_class",
+      "cite": "Al 6061-class E~69 GPa · α~23e-6 /K teaching",
+      "used": ["al6061 row"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate materials-hooke --catalog <path> --mat <id> --eps <e> --dt-k <dT> --l-m <L>"
+  },
+  "honesty": [
+    "teaching Hooke+CTE — not anisotropic FEM / MEASURED coupon",
+    "python_not_oracle"
+  ],
+  "materials": {
+    "al6061": {
+      "E_pa": 6.9e10,
+      "alpha_per_k": 2.3e-5,
+      "label": "Al 6061 Dual Safe class"
+    },
+    "cfrp_soft": {
+      "E_pa": 7.0e10,
+      "alpha_per_k": 1.0e-6,
+      "label": "CFRP low-CTE Dual Hostile thermal mismatch class"
+    }
+  },
+  "defaults": {
+    "mat": "al6061",
+    "eps": 0.001,
+    "dt_k": 100.0,
+    "l_m": 1.0
+  },
+  "dual_anchors": {
+    "safe_mat": "al6061",
+    "hostile_mat": "cfrp_soft",
+    "dt_k": 100.0,
+    "safe_dt_k": 20.0,
+    "hostile_dt_k": 200.0,
+    "l_m": 1.0,
+    "eps": 0.001
+  },
+  "gates": {
+    "eps_min": -0.05,
+    "eps_max": 0.05,
+    "dt_k_min": -400.0,
+    "dt_k_max": 400.0
+  }
+}

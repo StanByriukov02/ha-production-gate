@@ -1,0 +1,82 @@
+{
+  "schema": "ha_multipass_rut_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "z1=(p/(kc/b+kφ))^(1/n); z_N=z1·N^α; Rc=b/(n+1)·(kc/b+kφ)·z_N^(n+1)",
+  "units": {
+    "z": "m",
+    "Rc": "N",
+    "N": "passes",
+    "alpha": "1"
+  },
+  "on_sources": [
+    {
+      "id": "wong_bekker_base",
+      "cite": "Wong §2.4.1 / §2.5.1 Bekker z and Rc — first-pass virgin soil",
+      "used": ["z1", "Rc form"]
+    },
+    {
+      "id": "multipass_power_law",
+      "cite": "terramech multi-pass rut teaching: cumulative sinkage z_N=z1·N^α (α∈(0,1) diminishing)",
+      "used": ["alpha exponent", "rut accumulation"]
+    },
+    {
+      "id": "apollo_lrv_ground_pressure_class",
+      "cite": "Apollo LRV ~210 kg · 4 wheels · lunar g → ~7 kPa ground-pressure class (published mission class)",
+      "used": ["cited_traverse.p_kpa_apollo_lrv"],
+      "refused": ["Apollo LRV field MEASURED rut campaign as our Dual"]
+    }
+  ],
+  "cited_traverse": {
+    "role": "on_sourced",
+    "p_kpa_apollo_lrv": 7.0,
+    "b_m_apollo_lrv": 0.23,
+    "n_passes_trace": 10,
+    "on_cite": {
+      "source": "Apollo LRV ground-pressure class (mission published mass/geometry)",
+      "note": "pressure class for CITED_TRANSFER Dual inequality — not MEASURED LRV rut"
+    }
+  },
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate multipass-rut --catalog <path> --soil-id <id> --n-passes <N> --p-kpa <p> --b-m <b>"
+  },
+  "honesty": [
+    "teaching multi-pass power law on Bekker virgin z1 — not full densification FEM",
+    "α catalog teaching — not MEASURED rover multi-pass campaign",
+    "python_not_oracle"
+  ],
+  "defaults": {
+    "p_kpa": 35.0,
+    "b_m": 0.15,
+    "n_passes": 1
+  },
+  "soils": {
+    "firm_lab": {
+      "label": "Firm Dual Safe — low multi-pass growth",
+      "n": 1.0,
+      "kc": 40.0,
+      "k_phi": 2000.0,
+      "alpha": 0.15
+    },
+    "soft_hostile": {
+      "label": "Soft Dual Hostile — stronger rut growth",
+      "n": 0.8,
+      "kc": 5.0,
+      "k_phi": 80.0,
+      "alpha": 0.40
+    }
+  },
+  "dual_anchors": {
+    "safe_soil_id": "firm_lab",
+    "hostile_soil_id": "soft_hostile",
+    "n_passes_dual": 10
+  },
+  "gates": {
+    "n_passes_min": 1,
+    "n_passes_max": 1000,
+    "p_kpa_min": 0.0,
+    "p_kpa_max": 500.0,
+    "b_m_min": 0.01,
+    "b_m_max": 2.0
+  }
+}

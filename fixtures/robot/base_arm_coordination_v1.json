@@ -1,0 +1,22 @@
+{
+  "coordination_id": "base_arm_coordination_v1",
+  "robot_id": "lunar_scout_traverse_arm_v1",
+  "traverse_clock_hz": 2.0,
+  "arm_phase_offset": 0.25,
+  "appendages": [
+    {
+      "appendage_id": "scout_arm",
+      "chain_id": "lunar_manipulator_chain_scout_3dof_v1",
+      "role": "manipulator_arm",
+      "mount_xyz": [0.0, 0.0, 0.35],
+      "mount_rpy": [0.0, 0.0, 0.0]
+    }
+  ],
+  "honesty": {
+    "teaching_only": true,
+    "not_iron_phase_lock": true,
+    "not_field_verified": true
+  },
+  "deferred": ["AD_IRON_HIL_PHASE_LOCK", "MEASURED_TRAVERSE_ARM_SYNC"],
+  "tabu": ["claim RT traverse‖arm phase lock on iron", "claim field-verified coordination"]
+}

@@ -1,0 +1,66 @@
+{
+  "schema": "ha_coulomb_loft_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "q=4πε0 r φ; E=|φ|/λ_D; loft_ratio = |q|E / (m g_moon); loft iff ratio>1",
+  "units": {
+    "r": "m",
+    "phi": "V",
+    "rho": "kg/m^3",
+    "lambda_d": "m",
+    "g": "m/s^2"
+  },
+  "on_sources": [
+    {
+      "id": "stubbs_2006_fountain",
+      "cite": "Stubbs et al. 2006 dynamic fountain — electrostatic loft vs gravity",
+      "used": [
+        "F_e vs F_g criterion",
+        "micron grain class"
+      ]
+    },
+    {
+      "id": "coulomb_sphere",
+      "cite": "conducting sphere q=4πε0 r φ (vacuum teaching)",
+      "used": [
+        "q(φ,r)"
+      ]
+    },
+    {
+      "id": "sheath_E_proxy",
+      "cite": "sheath scale E≈|φ|/λ_D teaching proxy (not PIC)",
+      "used": [
+        "E from φ and Debye length"
+      ]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate coulomb-loft --catalog <path> --phi-v <V> --r-um <um>"
+  },
+  "honesty": [
+    "teaching Coulomb loft — not PIC plasma / CCMC",
+    "λ_D catalog proxy — not local plasma solve",
+    "not MEASURED grain charge",
+    "python_not_oracle"
+  ],
+  "constants": {
+    "epsilon0": 8.854187817e-12,
+    "g_moon_m_s2": 1.62,
+    "pi": 3.141592653589793
+  },
+  "defaults": {
+    "rho_kg_m3": 3100.0,
+    "lambda_d_m": 1.0,
+    "r_um": 1.0
+  },
+  "gates": {
+    "r_um_min": 0.01,
+    "r_um_max": 1000.0
+  },
+  "dual_anchors": {
+    "safe_phi_v": 3.0,
+    "hostile_phi_v": -100.0,
+    "r_um": 1.0,
+    "cite": "Dual: dayside few-V loft vs nightside high-|phi| loft (dust envelope G1)"
+  }
+}

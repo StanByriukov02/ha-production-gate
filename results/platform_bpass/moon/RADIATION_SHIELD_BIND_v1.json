@@ -1,0 +1,22 @@
+{
+  "bind_id": "radiation_shield_bind_v1",
+  "oracle": "CITED_BIND",
+  "closed_at": "2026-06-16",
+  "closes_gaps": ["GAP-MR-10", "A4-1"],
+  "source_slug": "intake-a4-matthia-2024-space",
+  "cite": "Matthiä & Berger 2024 Space Weather e2024SW004095",
+  "geometry_note": "Geant4 semi-sphere + 0.5 g/cm2 suit; regolith rho=3 g/cm3 model",
+  "spe_regolith_g_cm2": {
+    "below_30day_deterministic_limit": 4.0,
+    "safety_margin_factor_2": 10.0,
+    "sweep_max_g_cm2": 20.0
+  },
+  "gcr_regolith_g_cm2": {
+    "weak_shielding_ceiling": 180.0,
+    "dose_equivalent_msv_per_year_at_180": 200.0,
+    "reduction_vs_unshielded_dose_equivalent_pct": 35.0,
+    "reduction_vs_unshielded_absorbed_pct": 25.0
+  },
+  "harness_module": "dogfood_platform.lunar_radiation_shield_v1",
+  "falsifier": "SPE dose PASS below 4 g/cm2 row; GCR must remain WEAK_SHIELD above 10 g/cm2 SPE band"
+}

@@ -1,0 +1,137 @@
+{
+  "bind_id": "env_state_physics_method_bind_v1",
+  "oracle": "CITED_BIND",
+  "gate": "U4",
+  "vault_spec": "06_2BRAIN/DOGFOOD/chain/UNIVERSE_ENV_STATE_PHYSICS_AXES_BUILD_V1.md",
+  "role": "завтра не угадывать — каждая физическая ось → именованный harness + bind + v1 scope",
+  "scope_note": "v1 = 1D column + lumped L5 where noted — NOT claim of full T(x,y,z,t) FEM",
+  "methods": [
+    {
+      "axis_id": "M1_thermal_field",
+      "chat_target": "T(x,y,z,t) на поверхности / в реголите",
+      "v1_representation": "thermal_column_1d: z_m[], t_k[], n_nodes — surface = t_k[0], subsurface = t_k[-1]",
+      "not_tomorrow": "full 3D FEM · PIC/BTE grid (PIC_BTE_PROMOTE_BIND)",
+      "primary_modules": [
+        "dogfood_platform.lunar_regolith_thermal_v1.effective_k_w_mk",
+        "dogfood_platform.lunar_psr_thermal_column_v1.effective_k_with_cryo_leg",
+        "dogfood_platform.lunar_psr_thermal_column_v1.psr_subsurface_delta_k"
+      ],
+      "binds": [
+        "results/platform_bpass/moon/REGOLITH_THERMAL_BIND_v1.json",
+        "results/platform_bpass/moon/PSR_THERMAL_COLUMN_BIND_v1.json"
+      ],
+      "init_defaults": {
+        "n_nodes": 8,
+        "depth_m": 2.0,
+        "material_id": "highland_regolith_loose",
+        "zone": "rim_sun"
+      },
+      "integrator_tomorrow": "dogfood_platform.universe_env_thermal_column_v1.step_column_implicit_1d",
+      "law_id": "L_POISSON",
+      "l0_cites": ["HEIKEN-L0-05", "SK-12", "GAP-MR-03"]
+    },
+    {
+      "axis_id": "M2_bc_flux_to_conduction",
+      "chat_target": "граничное условие q''(t) → решается теплопроводность",
+      "v1_representation": "q_solar_w_m2(t) + q_rad from Stefan–Boltzmann → drives top-node BC each dt",
+      "primary_modules": [
+        "dogfood_platform.lunar_thermal_l5_v1.radiative_net_flux_w_m2",
+        "dogfood_platform.lunar_thermal_l5_v1.thermal_time_constant_s",
+        "dogfood_platform.lunar_thermal_l5_v1.transient_junction_swing_k"
+      ],
+      "binds": [
+        "results/platform_bpass/moon/VACUUM_RADIATIVE_BC_BIND_v1.json",
+        "results/platform_bpass/moon/THERMAL_TRANSIENT_BIND_v1.json"
+      ],
+      "event_mapping": {
+        "EVT-M-03": "flare_multiplier scales solar_constant in radiative_net_flux",
+        "EVT-C-05": "flare_multiplier adversarial",
+        "EVT-C-04": "illum_frac / duration_h from params → q_solar attenuation",
+        "EVT-m-05": "thermal_shadow compares rim vs psr q"
+      },
+      "integrator_tomorrow": "universe_env_thermal_column_v1.apply_bc_from_env",
+      "formula_ref": "THERMAL_TRANSIENT_BIND lumped_model: A_transient = A_steady / sqrt(1+(omega*tau)^2)",
+      "law_id": "L_MAXWELL",
+      "l0_cites": ["SK-12", "SK-16", "GAP-MR-08", "GAP-MR-09"]
+    },
+    {
+      "axis_id": "M3_radiation_transport",
+      "chat_target": "transport radiation через shield geometry, не счётчик",
+      "v1_representation": "areal_density_g_cm2 → classify SPE/GCR → dose_at_tile via FET coeff",
+      "primary_modules": [
+        "dogfood_platform.lunar_radiation_shield_v1.classify_regolith_shield",
+        "dogfood_platform.lunar_albedo_dose_v1.evaluate_coupled_surface_dose",
+        "dogfood_platform.lunar_radiation_fet_v1.radiation_fet_wear_dict",
+        "dogfood_platform.lunar_radiation_proxy_v1.evaluate_coupled_radiation_proxy"
+      ],
+      "binds": [
+        "results/platform_bpass/moon/RADIATION_SHIELD_BIND_v1.json",
+        "results/platform_bpass/moon/ALBEDO_DOSE_FRACTION_BIND_v1.json",
+        "results/platform_bpass/moon/RADIATION_FET_COEFF_BIND_v1.json"
+      ],
+      "event_mapping": {
+        "EVT-C-02": "dose_gy + shield_depth_m → areal_density_g_cm2",
+        "EVT-u-01": "see_count + dose_gy",
+        "EVT-u-02": "tid dose_gy",
+        "EVT-C-03": "exposure_yr via evaluate_radiation_proxy"
+      },
+      "env_fields": ["radiation.shield_areal_g_cm2", "radiation.dose_gy_at_tile", "radiation.incident_dose_gy", "radiation.albedo_dose_gy", "radiation.albedo_fraction", "radiation.see_rate_1_per_yr"],
+      "not_counter_only": "dose_gy_accum only as integral of transport result, not primary state",
+      "law_id": "L_MAXWELL",
+      "l0_cites": ["MATTHIA-2024-L0-01", "L0-SEL-01", "L0-ZHENG-05", "RADIATION_FET_COEFF_BIND", "GAP-MR-10"]
+    },
+    {
+      "axis_id": "M4_ingress_rate_time_saturation",
+      "chat_target": "ingress rate × time при активном traverse, с saturation",
+      "v1_representation": "loading(t) = min(sat, prev + eff_rate * dt_sols) while event window active",
+      "primary_modules": [
+        "dogfood_platform.lunar_dust_ingress_v1.ingress_rate_g_m2_per_sol",
+        "dogfood_platform.lunar_dust_ingress_v1.evaluate_ingress_hazard",
+        "dogfood_platform.lunar_dust_ingress_v1.accumulation_after_sols",
+        "dogfood_platform.lunar_dust_ingress_v1.electrostatic_index"
+      ],
+      "binds": [
+        "results/platform_bpass/moon/DUST_INGRESS_BIND_v1.json"
+      ],
+      "saturation_key": "wear_coupling.accumulation_saturation_g_m2",
+      "saturation_default_g_m2": 2.0,
+      "event_mapping": {
+        "EVT-m-02": "ingress joint — n_sols as dt",
+        "EVT-M-01": "traverse macro",
+        "EVT-C-08": "robot mission storm"
+      },
+      "integrator_tomorrow": "universe_env_merge_v1.integrate_dust_window",
+      "law_id": "L_STOCHASTIC",
+      "l0_cites": ["BENAROYA-L0-06", "STUBBS-2006-L0-05", "GAP-MR-12"]
+    },
+    {
+      "axis_id": "M5_overlap_superposition",
+      "chat_target": "CME + eclipse ≠ два независимых patch",
+      "v1_representation": "active_windows[] → combined BC per timestep before column step",
+      "primary_modules": [
+        "dogfood_platform.universe_env_merge_v1.combine_active_solar_bc",
+        "dogfood_platform.universe_env_merge_v1.integrate_timestep"
+      ],
+      "binds": [
+        "results/platform_bpass/universe/ENV_DRIVER_BIND_v1.json",
+        "results/platform_bpass/moon/VACUUM_RADIATIVE_BC_BIND_v1.json"
+      ],
+      "merge_rules_v1": {
+        "solar_flare": "q_solar *= flare_multiplier (product across active L_MAXWELL solar events)",
+        "eclipse": "illum_frac *= (1 - illum_drop_frac) (product)",
+        "combined": "radiative_net_flux_w_m2(t_surf, zone) with combined illum + scaled solar",
+        "cap": "flare_multiplier band from ENV_DRIVER_BIND solar.flare_multiplier.band [1, 12]"
+      },
+      "falsifier": "STORM with overlap: T_column_final differs from sequential merge of same events",
+      "test_storm_pair": ["STORM-CME-MAX", "STORM-THERMAL-ECLIPSE"],
+      "law_id": "L_MAXWELL",
+      "status_tomorrow": "NEW_GLUE — rules above, not yet in universe_storm_state_v1"
+    }
+  ],
+  "new_modules_tomorrow": [
+    "dogfood_platform/universe_env_state_v1.py",
+    "dogfood_platform/universe_env_merge_v1.py",
+    "dogfood_platform/universe_env_thermal_column_v1.py"
+  ],
+  "falsifier_global": "no method row without primary_modules + bind path · v1 must cite harness not invent coefficients"
+}

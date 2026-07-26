@@ -1,0 +1,11 @@
+{
+  "unpark_id": "wheeled_chassis_unpark_v1",
+  "motion_bus": "wheeled_chassis_compose",
+  "operator_priority": "DOGFOOD_ACTIVE",
+  "honesty": {
+    "not_lunar_north_star": true,
+    "earth_carrier_only": true
+  },
+  "depends": ["AK_WHEELED_CHASSIS_COMPOSE", "ROLLING_KINEMATICS_CROWN"],
+  "tabu": ["claim lunar rover on wheels", "unpark without rolling crown receipt"]
+}

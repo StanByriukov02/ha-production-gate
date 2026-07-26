@@ -1,0 +1,303 @@
+{
+  "registry_id": "robot_scout_materials_registry_v1",
+  "timestamp_utc": "2026-07-09T12:52:23.507414+00:00",
+  "design_grade": "DESIGN_LITE_v7",
+  "render_profile": "design_lite_standard",
+  "honesty": "BOM-bound StandardMaterial · teaching physical in ledger · runtime lite",
+  "materials": {
+    "cf_epoxy_matte_white": {
+      "material_id": "cf_epoxy_matte_white",
+      "label_ru": "CF/epoxy monocoque · matte white",
+      "substance": "Carbon fiber prepreg + epoxy resin",
+      "density_kg_m3": 1600.0,
+      "tier": "CITED_BIND",
+      "cite": "airframe_monocoque · FPV LR frame class",
+      "bom_line_ids": [
+        "airframe_monocoque"
+      ],
+      "pbr": {
+        "baseColor": "#ececea",
+        "metalness": 0.06,
+        "roughness": 0.58,
+        "emissive": "#000000"
+      },
+      "physical": {
+        "clearcoat": 0.22,
+        "clearcoatRoughness": 0.38,
+        "sheen": 0.35,
+        "sheenRoughness": 0.55,
+        "ior": 1.52
+      },
+      "surface": {
+        "normal": "cf_weave",
+        "normalScale": 0.35
+      },
+      "why_ru": "Несущий корпус и крылья — лёгкий композит, матовый anti-glare",
+      "bom_binds": [
+        {
+          "line_id": "airframe_monocoque",
+          "label_ru": "Flying-wing monocoque · CF/Al",
+          "mass_kg": 0.38
+        }
+      ],
+      "runtime": {
+        "baseColor": "#e6e4e0",
+        "metalness": 0.02,
+        "roughness": 0.84,
+        "envMapIntensity": 0.32
+      },
+      "physics_link": {
+        "scout_material_id": "cf_epoxy_matte_white",
+        "physics_track": "airframe_visual_only",
+        "physics_material_id": null,
+        "seal_class": null,
+        "tier": "VISUAL_ONLY",
+        "note": "CF monocoque scout — no IFT-2 cart frame row; mass in scout BOM only",
+        "scout_label": "CF/epoxy monocoque · matte white",
+        "scout_tier": "CITED_BIND"
+      }
+    },
+    "anodized_al_gold_protect": {
+      "material_id": "anodized_al_gold_protect",
+      "label_ru": "6061-T6 · gold anodize protect",
+      "substance": "Aluminum 6061-T6 · Type II anodize (gold dye)",
+      "density_kg_m3": 2700.0,
+      "tier": "CITED_BIND",
+      "cite": "duct_edf_unit_x6 shroud · dust_seal_duct_b3",
+      "bom_line_ids": [
+        "duct_edf_unit_x6",
+        "dust_seal_duct_b3"
+      ],
+      "pbr": {
+        "baseColor": "#c4a028",
+        "metalness": 0.92,
+        "roughness": 0.28,
+        "emissive": "#000000"
+      },
+      "physical": {
+        "clearcoat": 0.45,
+        "clearcoatRoughness": 0.18,
+        "ior": 1.45
+      },
+      "surface": {
+        "normal": "brushed_al",
+        "normalScale": 0.22
+      },
+      "why_ru": "Duct shrouds и ударные кромки — износ, не декор",
+      "bom_binds": [
+        {
+          "line_id": "duct_edf_unit_x6",
+          "label_ru": "6× duct EDF (motor+fan+shroud)",
+          "mass_kg": 2.1
+        },
+        {
+          "line_id": "dust_seal_duct_b3",
+          "label_ru": "NBR lip B3 ×6 duct ingress",
+          "mass_kg": 0.18
+        }
+      ],
+      "runtime": {
+        "baseColor": "#d4af37",
+        "metalness": 0.96,
+        "roughness": 0.18,
+        "envMapIntensity": 1.25
+      },
+      "physics_link": {
+        "scout_material_id": "anodized_al_gold_protect",
+        "physics_track": "frame",
+        "physics_material_id": "al_6061_t6_extrusion",
+        "seal_class": "B3",
+        "tier": "CITED_BIND",
+        "note": "6061 duct shroud · dust_seal_duct_b3 cite → DUST ingress class B3",
+        "scout_label": "6061-T6 · gold anodize protect",
+        "scout_tier": "CITED_BIND",
+        "seal_catalog": {
+          "material_id": "nbr_lip_seal_b3",
+          "seal_class": "B3",
+          "ingress_scale": 0.55,
+          "label": "lip_seal_standard",
+          "tier": "CITED_BIND",
+          "bind": "results/platform_bpass/moon/DUST_INGRESS_BIND_v1.json",
+          "cite": "BENAROYA-L0-06 via DUST_INGRESS_BIND"
+        }
+      }
+    },
+    "pc_lens_slam_black": {
+      "material_id": "pc_lens_slam_black",
+      "label_ru": "Polycarbonate · SLAM window",
+      "substance": "PC lens guard + anti-reflect coat",
+      "density_kg_m3": 1200.0,
+      "tier": "CITED_BIND",
+      "cite": "slam_lens_guard · slam_lidar_ring",
+      "bom_line_ids": [
+        "slam_lens_guard",
+        "slam_lidar_ring"
+      ],
+      "pbr": {
+        "baseColor": "#0a0a0c",
+        "metalness": 0.05,
+        "roughness": 0.12,
+        "emissive": "#ffffff0c"
+      },
+      "physical": {
+        "transmission": 0.18,
+        "thickness": 0.6,
+        "ior": 1.59,
+        "clearcoat": 0.85,
+        "clearcoatRoughness": 0.08
+      },
+      "surface": {
+        "normal": "none"
+      },
+      "why_ru": "Окно LiDAR — пропускает, не бликует в пещере",
+      "bom_binds": [
+        {
+          "line_id": "slam_lens_guard",
+          "label_ru": "Polycarbonate SLAM lens guard",
+          "mass_kg": 0.08
+        },
+        {
+          "line_id": "slam_lidar_ring",
+          "label_ru": "Mandible LiDAR ring",
+          "mass_kg": 0.42
+        }
+      ],
+      "runtime": {
+        "baseColor": "#1c1c22",
+        "metalness": 0.18,
+        "roughness": 0.06,
+        "envMapIntensity": 0.9,
+        "emissive": "#0a1020",
+        "emissiveIntensity": 0.12
+      },
+      "physics_link": {
+        "scout_material_id": "pc_lens_slam_black",
+        "physics_track": "sensor_window_visual_only",
+        "physics_material_id": null,
+        "seal_class": null,
+        "tier": "VISUAL_ONLY",
+        "note": "SLAM lens — extero stack, not wheel/seal physics bus",
+        "scout_label": "Polycarbonate · SLAM window",
+        "scout_tier": "CITED_BIND"
+      }
+    },
+    "anodized_al_black_panel": {
+      "material_id": "anodized_al_black_panel",
+      "label_ru": "Al panel · black anodize",
+      "substance": "6061 blister + compute vault",
+      "density_kg_m3": 2700.0,
+      "tier": "DERIVED",
+      "cite": "g6_compute_stack · dorsal_sensor_dish",
+      "bom_line_ids": [
+        "g6_compute_stack",
+        "dorsal_sensor_dish"
+      ],
+      "pbr": {
+        "baseColor": "#121214",
+        "metalness": 0.78,
+        "roughness": 0.42,
+        "emissive": "#000000"
+      },
+      "physical": {
+        "clearcoat": 0.3,
+        "clearcoatRoughness": 0.25
+      },
+      "surface": {
+        "normal": "brushed_al",
+        "normalScale": 0.15
+      },
+      "why_ru": "Compute blister и V-tail — контраст, отвод тепла",
+      "bom_binds": [
+        {
+          "line_id": "g6_compute_stack",
+          "label_ru": "G6 carrier + crown + DRAM ingress",
+          "mass_kg": 0.38
+        },
+        {
+          "line_id": "dorsal_sensor_dish",
+          "label_ru": "Dorsal dish + mast (aux sensor teaching)",
+          "mass_kg": 0.12
+        }
+      ],
+      "runtime": {
+        "baseColor": "#101012",
+        "metalness": 0.88,
+        "roughness": 0.38,
+        "envMapIntensity": 0.72
+      },
+      "physics_link": {
+        "scout_material_id": "anodized_al_black_panel",
+        "physics_track": "frame",
+        "physics_material_id": "al_6061_t6_extrusion",
+        "seal_class": null,
+        "tier": "CITED_BIND",
+        "note": "6061 compute blister panel",
+        "scout_label": "Al panel · black anodize",
+        "scout_tier": "DERIVED"
+      }
+    },
+    "tpu_nose_bumper": {
+      "material_id": "tpu_nose_bumper",
+      "label_ru": "TPU 95A · nose bumper",
+      "substance": "Thermoplastic polyurethane",
+      "density_kg_m3": 1200.0,
+      "tier": "CITED_BIND",
+      "cite": "nose_bumper",
+      "bom_line_ids": [
+        "nose_bumper"
+      ],
+      "pbr": {
+        "baseColor": "#1a1a1c",
+        "metalness": 0.0,
+        "roughness": 0.88,
+        "emissive": "#000000"
+      },
+      "physical": {
+        "clearcoat": 0.0,
+        "sheen": 0.55,
+        "sheenRoughness": 0.7
+      },
+      "surface": {
+        "normal": "rubber_fine",
+        "normalScale": 0.4
+      },
+      "why_ru": "Chin guard — удар о стену пещеры",
+      "bom_binds": [
+        {
+          "line_id": "nose_bumper",
+          "label_ru": "TPU nose prow bumpers",
+          "mass_kg": 0.14
+        }
+      ],
+      "runtime": {
+        "baseColor": "#242428",
+        "metalness": 0.0,
+        "roughness": 0.96,
+        "envMapIntensity": 0.12
+      },
+      "physics_link": {
+        "scout_material_id": "tpu_nose_bumper",
+        "physics_track": "wheel_tread_variant",
+        "physics_material_id": "pu_ester_shore_95a",
+        "seal_class": null,
+        "tier": "ADAPT",
+        "note": "TPU 95A nose bumper ~ PU tread family (visual≠traverse until cite)",
+        "scout_label": "TPU 95A · nose bumper",
+        "scout_tier": "CITED_BIND"
+      }
+    }
+  },
+  "module_material": {
+    "robot_scout_fwing_hull_v1": "cf_epoxy_matte_white",
+    "robot_scout_fwing_nose_v1": "pc_lens_slam_black",
+    "robot_scout_fwing_cockpit_v1": "anodized_al_black_panel",
+    "robot_scout_fwing_aft_v1": "anodized_al_gold_protect",
+    "robot_scout_fwing_v1": "cf_epoxy_matte_white"
+  },
+  "derived_mass_kg": 5.6,
+  "physics_bridge": {
+    "bridge_id": "robot_scout_physics_material_bridge_v1",
+    "ref": "fixtures/twin/robot_scout_physics_material_bridge_v1.json",
+    "linked_count": 5
+  }
+}

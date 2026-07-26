@@ -1,0 +1,659 @@
+{
+  "branches": {
+    "loose": [
+      {
+        "tick": 0,
+        "meters": 4.1667,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.2755,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 1,
+        "meters": 8.3333,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.2861,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 2,
+        "meters": 12.5,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.2966,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 3,
+        "meters": 16.6667,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3072,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 4,
+        "meters": 20.8333,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3177,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 5,
+        "meters": 25.0,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3282,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 6,
+        "meters": 29.1667,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3388,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 7,
+        "meters": 33.3333,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3493,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 8,
+        "meters": 37.5,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3599,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 9,
+        "meters": 41.6667,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3704,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 10,
+        "meters": 45.8333,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.381,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 11,
+        "meters": 50.0,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3915,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 12,
+        "meters": 54.1667,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.402,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 13,
+        "meters": 58.3333,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4126,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 14,
+        "meters": 62.5,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4231,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 15,
+        "meters": 66.6667,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4337,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 16,
+        "meters": 70.8333,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4442,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 17,
+        "meters": 75.0,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4547,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 18,
+        "meters": 79.1667,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4653,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 19,
+        "meters": 83.3333,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4758,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 20,
+        "meters": 87.5,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4864,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 21,
+        "meters": 91.6667,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4969,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 22,
+        "meters": 95.8333,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.5075,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 23,
+        "meters": 100.0,
+        "bearing_class": "LOOSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.518,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      }
+    ],
+    "dense": [
+      {
+        "tick": 0,
+        "meters": 4.1667,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.2755,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 1,
+        "meters": 8.3333,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.2861,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 2,
+        "meters": 12.5,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.2966,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 3,
+        "meters": 16.6667,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3072,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 4,
+        "meters": 20.8333,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3177,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 5,
+        "meters": 25.0,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3282,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 6,
+        "meters": 29.1667,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3388,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 7,
+        "meters": 33.3333,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3493,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 8,
+        "meters": 37.5,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3599,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 9,
+        "meters": 41.6667,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3704,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 10,
+        "meters": 45.8333,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.381,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 11,
+        "meters": 50.0,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.3915,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 12,
+        "meters": 54.1667,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.402,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 13,
+        "meters": 58.3333,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4126,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 14,
+        "meters": 62.5,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4231,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 15,
+        "meters": 66.6667,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4337,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 16,
+        "meters": 70.8333,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4442,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 17,
+        "meters": 75.0,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4547,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 18,
+        "meters": 79.1667,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4653,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 19,
+        "meters": 83.3333,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4758,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 20,
+        "meters": 87.5,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4864,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 21,
+        "meters": 91.6667,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.4969,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 22,
+        "meters": 95.8333,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.5075,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      },
+      {
+        "tick": 23,
+        "meters": 100.0,
+        "bearing_class": "DENSE",
+        "sinkage_mm": 4.216,
+        "ingress_mult": 1.518,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 2.53
+      }
+    ],
+    "heavy_mass": [
+      {
+        "tick": 0,
+        "meters": 4.1667,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.2755,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 1,
+        "meters": 8.3333,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.2861,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 2,
+        "meters": 12.5,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.2966,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 3,
+        "meters": 16.6667,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.3072,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 4,
+        "meters": 20.8333,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.3177,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 5,
+        "meters": 25.0,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.3282,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 6,
+        "meters": 29.1667,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.3388,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 7,
+        "meters": 33.3333,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.3493,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 8,
+        "meters": 37.5,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.3599,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 9,
+        "meters": 41.6667,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.3704,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 10,
+        "meters": 45.8333,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.381,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 11,
+        "meters": 50.0,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.3915,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 12,
+        "meters": 54.1667,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.402,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 13,
+        "meters": 58.3333,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.4126,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 14,
+        "meters": 62.5,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.4231,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 15,
+        "meters": 66.6667,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.4337,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 16,
+        "meters": 70.8333,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.4442,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 17,
+        "meters": 75.0,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.4547,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 18,
+        "meters": 79.1667,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.4653,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 19,
+        "meters": 83.3333,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.4758,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 20,
+        "meters": 87.5,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.4864,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 21,
+        "meters": 91.6667,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.4969,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 22,
+        "meters": 95.8333,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.5075,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      },
+      {
+        "tick": 23,
+        "meters": 100.0,
+        "bearing_class": "MEDIUM",
+        "sinkage_mm": 5.817,
+        "ingress_mult": 1.518,
+        "traverse_feasible": true,
+        "contact_pressure_kpa": 3.8
+      }
+    ]
+  },
+  "replay_hash": "b3cdf13fcef044df"
+}

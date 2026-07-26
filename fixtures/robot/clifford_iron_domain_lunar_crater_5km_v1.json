@@ -1,0 +1,20 @@
+{
+  "domain": "lunar_crater_5km",
+  "profile_id": "lunar_crater_5km",
+  "traverse_m": 5000.0,
+  "traverse_km": 5.0,
+  "motion_source": "clifford_iron_rtl_mmio_rigid_pose",
+  "motion_replay_hash": "4713e83ced78e7ea",
+  "hash_lineage": "moon_shackleton_iron_rail_slice",
+  "points_source_domain": "moon_shackleton",
+  "points_slice_ticks": 50,
+  "iron_motion_receipt": "results/platform_bpass/chip/CHIP_CLIFFORD_MOON_MOTION_IRON_RECEIPT_v1.json",
+  "world_id": "W_lunar_crater_robot_os_v1",
+  "honesty": {
+    "not_measured": true,
+    "same_iron_rtl_rail_as_moon_shackleton": true,
+    "profile_overlay_only": true,
+    "python_does_not_geo_prod": true
+  },
+  "tabu": "claim lunar field Clifford MEASURED"
+}

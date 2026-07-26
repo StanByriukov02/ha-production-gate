@@ -1,0 +1,35 @@
+{
+  "phase": "T1_MHZ_FEED",
+  "verdict": "IRON_CLOCK_FEED_READY",
+  "study_anchor_mhz": 27.5,
+  "study_anchor_band": "25-30",
+  "bringup_mhz_ceiling": 39.6,
+  "wns_ns": -15.247,
+  "binding": "u_geo_prod_pipe/u_high_hi_synth",
+  "phi_period_ns": 36.364,
+  "macro_phi_ticks": 8,
+  "macro_compose_ns": 290.909,
+  "trail_ticks": 24,
+  "trail_iron_time_us": 6.982,
+  "playback": {
+    "mode": "teaching_slowdown",
+    "viewer_wall_sec_per_trail": 3.0,
+    "macro_ticks_per_trail": 24,
+    "iron_to_wall_scale": 429687.0,
+    "honesty": "viewer wall clock \u2260 iron \u03c6 time \u00b7 HUD shows both rails"
+  },
+  "checkpoint": "docs/agent_workflow/CLIFFORD_STA_T2_BRINGUP_CHECKPOINT_v1.md",
+  "honesty": {
+    "not_measured_iron": true,
+    "not_100mhz_phi": true,
+    "comb_model_only": true,
+    "product_ready": false
+  },
+  "world_motion_sta_bind": {
+    "receipt": "results/platform_bpass/chip/CHIP_CLIFFORD_WORLD_MOTION_STA_BIND_RECEIPT_v1.json",
+    "mapped_netlist_sha256": "1c90061652f18461e6ee279646e071e05aa84ed7d6dcce6499024ae6bbb9eea4",
+    "iron_sim_backend": "verilator",
+    "macro_compose_ns": 290.909
+  },
+  "timestamp_utc": "2026-07-05T17:28:24.364825+00:00"
+}

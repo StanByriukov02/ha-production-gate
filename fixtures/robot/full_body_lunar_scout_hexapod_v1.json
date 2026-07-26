@@ -1,0 +1,16 @@
+{
+  "compose_id": "full_body_lunar_scout_hexapod_v1",
+  "robot_id": "lunar_scout_hexapod_full_v1",
+  "proof_tier": "FULL_BODY_COMPOSE_SLICE",
+  "oracle": "FULL_BODY_REGION_HONESTY",
+  "tabu": "claim Optimus · claim product_ready full body",
+  "base_frame": "pelvis_link",
+  "regions": [
+    {"region_id": "torso", "role": "torso_spine", "chain_id": "torso_spine_2dof_v1", "proof_tier": "TORSO_SPINE_MECHANICAL_SLICE"},
+    {"region_id": "head", "role": "head_neck", "chain_id": "head_neck_pan_tilt_v1", "proof_tier": "HEAD_NECK_MECHANICAL_SLICE"},
+    {"region_id": "arm", "role": "manipulator_arm", "chain_id": "lunar_manipulator_chain_scout_3dof_v1", "proof_tier": "APPENDAGE_KINEMATICS_OS_SLICE"},
+    {"region_id": "gripper", "role": "gripper_tool", "chain_id": "gripper_parallel_1dof_v1", "proof_tier": "GRIPPER_SUBCHAIN_SLICE"},
+    {"region_id": "hexapod", "role": "locomotion_leg", "compose": "hexapod_body", "leg_count": 6, "proof_tier": "HEXAPOD_BODY_COMPOSE_SLICE"}
+  ],
+  "deferred_ids": ["AF_WIZARD_UI", "AD_IRON_HIL_PHASE_LOCK", "MEASURED_ROLLING_SLIP"]
+}

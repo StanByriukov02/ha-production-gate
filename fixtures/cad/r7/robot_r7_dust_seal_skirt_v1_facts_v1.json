@@ -1,0 +1,19 @@
+{
+  "artifact_id": "robot_r7_dust_seal_skirt_v1",
+  "module_family": "R7_dust_seal_skirt",
+  "features": {
+    "wheel_well_arc": true,
+    "seal_groove_b3": true,
+    "segments": 10
+  },
+  "bbox_mm": {
+    "x": 236.36240970354316,
+    "y": 220.0,
+    "z": 48.0
+  },
+  "cites": [
+    "DUST_INGRESS_BIND_v1",
+    "ROBOT_DUST_SEAL_CLASS"
+  ],
+  "honesty": "Dust ingress skirt \u2014 B3 seal class cite \u00b7 teaching arc not CFD validated"
+}

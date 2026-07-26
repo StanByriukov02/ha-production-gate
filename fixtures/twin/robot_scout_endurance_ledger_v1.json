@@ -1,0 +1,90 @@
+{
+  "ledger_id": "robot_scout_endurance_ledger_v1",
+  "timestamp_utc": "2026-07-05T15:37:14.826677+00:00",
+  "verdict": "ROBOT_SCOUT_ENDURANCE_1H_PASS",
+  "profile_id": "scout_endurance_1h",
+  "mass_kg": 6.176,
+  "cruise_v_m_s": 7.0,
+  "locomotion": "wingborne_map + partial_duct_hover",
+  "battery": {
+    "pack_id": "scout_4s_endurance_1h",
+    "wh_usable": 128.64,
+    "wh_cruise_1h": 68.53,
+    "wh_hover_reserve": 43.33,
+    "mass_kg": 0.536,
+    "cells": "4S LiPo",
+    "oracle": "BOM_CLOSURE",
+    "cite": "wingborne 1 h + 15% reserve + 4 min partial hover"
+  },
+  "power": {
+    "wingborne_w": 42.82,
+    "compute_map_w": 30.0,
+    "cruise_total_w": 72.82,
+    "hover_reserve_w": 650.0,
+    "hover_reserve_min": 4.0
+  },
+  "wingborne": {
+    "v_m_s": 7.0,
+    "ld_ratio": 18.0,
+    "drag_n": 3.365,
+    "power_w": 42.82,
+    "oracle": "PHYSICS_DERIVED",
+    "mode": "wingborne_map",
+    "why_ru": "Крыло несёт вес · ducts на idle/trim · не hover @ 2400 W"
+  },
+  "endurance": {
+    "cruise_flight_h": 1.172,
+    "distance_km": 29.52,
+    "map_speed_m_s": 7.0,
+    "wh_per_km": 2.89
+  },
+  "thrust": {
+    "margin": 1.413,
+    "total_vertical_n": 85.6
+  },
+  "cave_aero": {
+    "corridor_w_m": 6.0,
+    "corridor_h_m": 3.8,
+    "envelope_span_m": 0.36,
+    "disk_span_m": 0.36,
+    "clearance_side_m": 2.82,
+    "headroom_above_hover_m": 2.45,
+    "ground_effect_h_over_R": 7.5,
+    "ground_effect_negligible": true,
+    "pass": true,
+    "oracle": "GEOMETRY_DERIVED",
+    "cite": "fixtures/twin/robot_working_system_v1.html corridor mesh"
+  },
+  "required_changes_ru": [
+    "Профиль полёта: wingborne 7 m/s вместо duct-hover 10 m/s",
+    "Батарея: 0.536 kg · 128.64 Wh usable (было 0.58 kg / 74 Wh burst)",
+    "SLAM+G6 непрерывно на map speed · ducts partial power",
+    "Вход/выход пещеры: до 4 min hover @ ~650 W зарезервировано"
+  ],
+  "checks": {
+    "flight_time_1h": {
+      "pass": true,
+      "cruise_h": 1.172,
+      "target_h": 1.0,
+      "p_cruise_w": 72.82
+    },
+    "hover_thrust_margin": {
+      "pass": true,
+      "value": 1.413,
+      "mass_kg": 6.176
+    },
+    "cave_corridor_clearance": {
+      "pass": true
+    },
+    "lighter_than_legacy_20kg": {
+      "pass": true,
+      "mass_kg": 6.176
+    },
+    "burst_mode_not_1h": {
+      "pass": true,
+      "honesty": "10 m/s duct-hover burst остаётся ~1.4 min — другой profile"
+    }
+  },
+  "blockers": [],
+  "honesty": "PHYSICS_DERIVED teaching closure — iron hover/wing L/D bench TBD"
+}

@@ -1,0 +1,18 @@
+{
+  "artifact_id": "robot_r7_harness_route_tray_v1",
+  "module_family": "R9_harness_route_tray",
+  "features": {
+    "cable_clips": 14,
+    "can_spine": true,
+    "gland_plate": true
+  },
+  "bbox_mm": {
+    "x": 40.0,
+    "y": 340.0,
+    "z": 42.0
+  },
+  "cites": [
+    "ROBOT_HARNESS_ROUTE_CLASS"
+  ],
+  "honesty": "Harness routing tray \u2014 closes R4 gap register item \u00b7 not EMI-qualified layout"
+}

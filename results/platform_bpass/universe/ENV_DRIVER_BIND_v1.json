@@ -1,0 +1,47 @@
+{
+  "bind_id": "env_driver_bind_v1",
+  "oracle": "CITED_BIND",
+  "role": "R3 typical numbers — solar · vacuum/thermal · dust/charge driver bands",
+  "vault_canon": "06_2BRAIN/DOGFOOD/chain/UNIVERSE_KERNEL_V0_SPEC_V1.md",
+  "driver_axes": {
+    "solar": {
+      "solar_constant_w_m2": {"typical": 1361.0, "band": [1300.0, 1420.0], "cite": "SK-12"},
+      "illum_frac_rim": {"typical": 0.96, "band": [0.85, 1.0], "cite": "SK-15"},
+      "flare_multiplier": {"typical": 1.0, "band": [1.0, 12.0], "cite": "ADAPT_solar_particle_proxy"},
+      "albedo_highland": {"typical": 0.12, "band": [0.08, 0.18], "cite": "HEIKEN-L0-05"}
+    },
+    "vacuum_thermal": {
+      "pressure_torr": {"typical": 1e-6, "band": [1e-9, 760.0], "cite": "ORACLE_SEC_D2"},
+      "t_sky_deep_k": {"typical": 3.0, "band": [2.7, 4.0], "cite": "SK-12"},
+      "t_rim_surf_k": {"typical": 220.0, "band": [200.0, 230.0], "cite": "SK-12"},
+      "t_psr_floor_k": {"typical": 70.0, "band": [40.0, 110.0], "cite": "SK-10"},
+      "h_c_w_m2_k_vacuum": {"typical": 0.0, "band": [0.0, 5.0], "cite": "ORACLE_SEC_D2"}
+    },
+    "dust_charge": {
+      "mass_loading_g_m2": {"typical": 0.5, "band": [0.0, 2.0], "cite": "CHAMBER_SIMULANT_BIND"},
+      "electrostatic_index": {"typical": 0.85, "band": [0.3, 2.5], "cite": "STUBBS-2006-L0-05"},
+      "ingress_g_m2_per_sol": {"typical": 0.08, "band": [0.01, 0.2], "cite": "DUST_INGRESS_BIND"}
+    }
+  },
+  "typical_numbers_table": [
+    {
+      "regime": "rim_sunlit",
+      "solar_typical": "q_solar ≈ 1150 W/m²",
+      "vacuum_thermal_typical": "T_surf ≈ 220 K · P≈0",
+      "dust_charge_typical": "ingress ≈ 0.08 g/m²/sol · e_idx≈0.85"
+    },
+    {
+      "regime": "psr_floor",
+      "solar_typical": "q_solar ≈ 0",
+      "vacuum_thermal_typical": "T_floor ≈ 70 K",
+      "dust_charge_typical": "ingress ≈ 0.02 g/m²/sol · e_idx≈0.45"
+    },
+    {
+      "regime": "chamber_sunlit",
+      "solar_typical": "solar_frac≈0.96",
+      "vacuum_thermal_typical": "P<1e-4 Torr · h_c=0",
+      "dust_charge_typical": "coupon loading 0.05–1.5 g/m²"
+    }
+  ],
+  "harness_module": "dogfood_platform.universe_event_sampler_v1"
+}

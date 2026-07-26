@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+target/
+dogfood_platform.egg-info/
+*.egg-info/
+results/runtime/
+.DS_Store
+.idea/
+.vscode/
+
+SURFACE_MANIFEST.json

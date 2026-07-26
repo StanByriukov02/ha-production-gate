@@ -1,0 +1,39 @@
+{
+  "schema": "ha_li_bearing_qc_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "q_c(h) = A*exp(-h/B) + C  (h in m; q_c in kPa)",
+  "units": {
+    "q_c": "kPa",
+    "h": "m"
+  },
+  "on_sources": [
+    {
+      "id": "li2025_eq19",
+      "cite": "Li SSRN lunar-g penetration fit (teaching) · GAP-MR-11 L0-MR11-02",
+      "used": ["A=-1137.5", "B=0.16", "C=1110.9"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate li-qc --catalog <path> --depth-mm <d>"
+  },
+  "honesty": [
+    "teaching Li lunar-g fit — not field MEASURED bevameter",
+    "adjunct to Bekker oracle surface — not merge into Wong soils",
+    "python_not_oracle"
+  ],
+  "coeffs": {
+    "A": -1137.5,
+    "B_m": 0.16,
+    "C": 1110.9
+  },
+  "gates": {
+    "depth_mm_min": 0.0,
+    "depth_mm_max": 500.0
+  },
+  "dual_anchors": {
+    "safe_depth_mm": 200.0,
+    "hostile_depth_mm": 20.0,
+    "cite": "Dual bearing adjunct: deep firm qc vs shallow soft qc (Li fit monotone)"
+  }
+}

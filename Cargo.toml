@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = [
+  "crates/ha_physics_gate",
+  "crates/ha_silicon_fuse",
+  "crates/ha_energy_ledger",
+  "crates/ha_body_identity",
+  "crates/universe_kinematic",
+]

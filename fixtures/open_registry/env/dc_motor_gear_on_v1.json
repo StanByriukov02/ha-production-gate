@@ -1,0 +1,63 @@
+{
+  "schema": "ha_dc_motor_gear_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "tau_m=tau_stall*(1-omega/omega_nl); tau_out=tau_m*n*eta; omega_out=omega/n",
+  "units": {
+    "tau": "N·m",
+    "omega": "rad/s",
+    "n": "dimensionless",
+    "eta": "0..1",
+    "P": "W"
+  },
+  "on_sources": [
+    {
+      "id": "dc_linear_torque_speed",
+      "cite": "Brushed DC teaching envelope: linear tau–omega between stall and no-load (not saturation / brush drop MEASURED)",
+      "used": ["tau_m(omega)"]
+    },
+    {
+      "id": "gear_efficiency",
+      "cite": "Ideal ratio n with lumped efficiency eta: tau_out=tau_m*n*eta, omega_out=omega/n",
+      "used": ["tau_out", "omega_out"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate dc-motor-gear --catalog <path> --pack <id> --omega-rad-s <w>"
+  },
+  "honesty": [
+    "teaching linear DC + gear eta — not FOC / saturation / MEASURED dyno",
+    "python_not_oracle"
+  ],
+  "packs": {
+    "scout_safe": {
+      "label": "healthy drive Dual Safe",
+      "tau_stall_nm": 2.4,
+      "omega_nl_rad_s": 314.0,
+      "gear_ratio": 20.0,
+      "eta": 0.88
+    },
+    "scout_hostile": {
+      "label": "worn gear / sticky Dual Hostile",
+      "tau_stall_nm": 2.4,
+      "omega_nl_rad_s": 314.0,
+      "gear_ratio": 20.0,
+      "eta": 0.52
+    }
+  },
+  "defaults": {
+    "pack": "scout_safe",
+    "omega_rad_s": 120.0
+  },
+  "dual_anchors": {
+    "safe_pack": "scout_safe",
+    "hostile_pack": "scout_hostile",
+    "omega_rad_s": 150.0
+  },
+  "gates": {
+    "omega_min": 0.0,
+    "omega_max": 400.0,
+    "eta_min": 0.05,
+    "eta_max": 1.0
+  }
+}

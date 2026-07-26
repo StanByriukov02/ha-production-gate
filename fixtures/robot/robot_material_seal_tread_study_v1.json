@@ -1,0 +1,25 @@
+{
+  "study_id": "robot_material_seal_tread_study_v1",
+  "use_on": false,
+  "seal_trade": {
+    "zone": "massif_traverse",
+    "bearing_class": "MEDIUM",
+    "rover_mass_kg": 50.0,
+    "step_m": 416.67,
+    "seal_classes": ["B1", "B2", "B3", "B5"]
+  },
+  "tread_sweep": {
+    "zone": "massif_traverse",
+    "bearing_class": "MEDIUM",
+    "seal_class": "B3",
+    "rover_mass_kg": 50.0,
+    "step_m": 416.67,
+    "tread_profiles": ["pu_shore_70a", "pu_shore_90a", "pu_shore_95a"]
+  },
+  "falsifiers": {
+    "F_seal_monotone_b1_to_b5": "stress monotone B1 <= B2 <= B3 <= B5",
+    "F_tread_changes_contact_or_ingress": "70a vs 95a differ on pressure or ingress",
+    "F_b2_between_b1_b3": "B2 stress between B1 and B3"
+  },
+  "tabu": "ADAPT tread not registry until cite · no ON required"
+}

@@ -1,0 +1,192 @@
+{
+  "register_id": "physics_universe_environment_register_v1",
+  "register_version": 3,
+  "parent_canon": "docs/agent_workflow/RESEARCH_ENGINEERING_OPERATING_SYSTEM_20260531_V1.md",
+  "honesty": {
+    "not_newton_x_truth": true,
+    "not_isaac_ground_truth": true,
+    "max_honest_tier_today": "T3",
+    "sell_bounded_mechanism_plus_test_hook": true
+  },
+  "engineer_lanes": {
+    "intro": {
+      "label": "New engineer — one world contrast",
+      "worlds": ["earth_lab_1g", "lunar_regolith_surface"],
+      "hostile_sweep": false
+    },
+    "practitioner": {
+      "label": "Practitioner — multi-body + dual north star",
+      "worlds": ["earth_lab_1g", "lunar_regolith_surface", "mars_regolith_0_38g"],
+      "hostile_sweep": false,
+      "compose": "earth_lunar_motion"
+    },
+    "hostile": {
+      "label": "Hostile sweep — T3 lunar corners (Earth/Moon mission focus)",
+      "worlds": ["lunar_regolith_surface"],
+      "hostile_sweep": true,
+      "venus_thermal_sweep": false
+    },
+    "mission": {
+      "label": "Earth · Moon · Orbit — dogfood assembly lab",
+      "worlds": ["earth_lab_1g", "lunar_regolith_surface", "vacuum_orbit_microg"],
+      "assembly_lab": true
+    },
+    "universe": {
+      "label": "Extended worlds · regolith mesh · bench ingress · T2 sim",
+      "worlds": ["leo_debris_orbit", "lunar_regolith_surface", "earth_lab_1g"],
+      "regolith_zones": ["rim_slope", "massif_traverse", "psr_floor"],
+      "bench_ingress": true,
+      "sim_crosscheck": true,
+      "hostile_sweep": false
+    }
+  },
+  "worlds": {
+    "earth_lab_1g": {
+      "world_id": "earth_lab_1g",
+      "label": "Earth lab bench · 1g teaching",
+      "evidence_tier_cap": "T0",
+      "register_state": "IN",
+      "g_mps2": 9.80665,
+      "atmosphere": "earth_nitrogen",
+      "oracle": "W_earth_lab_teaching_v0",
+      "locomotion_north_star": "wheeled_4wd",
+      "tools": ["rolling_kinematics_crown_v1", "wheeled_chassis_compose_v1"],
+      "open": [],
+      "out_of_scope": []
+    },
+    "lunar_regolith_surface": {
+      "world_id": "lunar_regolith_surface",
+      "label": "Lunar regolith traverse · vacuum · 1/6g",
+      "evidence_tier_cap": "T0",
+      "register_state": "IN",
+      "g_mps2": 1.62,
+      "atmosphere": "vacuum",
+      "oracle": "W_regolith_robot_v0",
+      "locomotion_north_star": "hexapod_tripod",
+      "tools": ["hexapod_foot_contact_v1", "biped_zmp_teaching_v1", "robot_os_hal_lunar_profile_v1"],
+      "open": ["radiation_belts", "thermal_night_creep", "measured_foot_force"],
+      "out_of_scope": []
+    },
+    "mars_regolith_0_38g": {
+      "world_id": "mars_regolith_0_38g",
+      "label": "Mars regolith teaching proxy · 0.38g",
+      "evidence_tier_cap": "T0",
+      "register_state": "IN",
+      "g_mps2": 3.71,
+      "atmosphere": "mars_co2_thin",
+      "oracle": "W_regolith_robot_v0",
+      "locomotion_north_star": "hexapod_tripod",
+      "tools": ["hexapod_foot_contact_v1"],
+      "open": ["dust_storm", "co2_thermal"],
+      "out_of_scope": ["flight_qual"]
+    },
+    "vacuum_orbit_microg": {
+      "world_id": "vacuum_orbit_microg",
+      "label": "Vacuum orbit · micro-g — locomotion OUT OF SCOPE",
+      "evidence_tier_cap": "T0",
+      "register_state": "OUT",
+      "g_mps2": 0.0,
+      "atmosphere": "vacuum",
+      "oracle": "W_orbit_microg_teaching_v0",
+      "locomotion_north_star": null,
+      "tools": [],
+      "open": ["attitude_control", "thermal_vacuum"],
+      "out_of_scope": ["foot_contact", "terramech_sinkage", "zmp_stance"]
+    },
+    "lunar_psr_cold": {
+      "world_id": "lunar_psr_cold",
+      "label": "Lunar PSR cold floor — thermal OPEN",
+      "evidence_tier_cap": "T0",
+      "register_state": "OPEN",
+      "g_mps2": 1.62,
+      "atmosphere": "vacuum",
+      "oracle": "W_regolith_robot_v0",
+      "locomotion_north_star": "hexapod_tripod",
+      "tools": ["hexapod_foot_contact_v1"],
+      "open": ["cryo_joint_torque", "battery_cold_start"],
+      "out_of_scope": [],
+      "mesh_zones": ["psr_floor"]
+    },
+    "venus_surface_thermal": {
+      "world_id": "venus_surface_thermal",
+      "label": "Venus surface — PARKED (not mission focus)",
+      "evidence_tier_cap": "T0",
+      "register_state": "PARK",
+      "g_mps2": 8.87,
+      "atmosphere": "venus_co2_dense",
+      "thermal_surface_k": 737.0,
+      "oracle": "W_venus_thermal_teaching_v0",
+      "locomotion_north_star": null,
+      "tools": [],
+      "open": [],
+      "out_of_scope": ["foot_contact", "hexapod_locomotion", "all_mission_lanes"],
+      "park_reason": "operator: Earth+Moon+Orbit only"
+    },
+    "leo_debris_orbit": {
+      "world_id": "leo_debris_orbit",
+      "label": "LEO debris flux — locomotion OUT · debris OPEN",
+      "evidence_tier_cap": "T0",
+      "register_state": "OUT",
+      "g_mps2": 0.0,
+      "atmosphere": "vacuum_trace",
+      "debris_flux_proxy": 1.2e-6,
+      "oracle": "W_leo_debris_teaching_v0",
+      "locomotion_north_star": null,
+      "tools": [],
+      "open": ["debris_flux", "micrometeoroid_flux", "attitude_disturbance"],
+      "out_of_scope": ["foot_contact", "terramech", "zmp_stance", "rolling_kinematics"]
+    },
+    "lunar_regolith_mesh": {
+      "world_id": "lunar_regolith_mesh",
+      "label": "Lunar regolith mesh zones — zone catalog bind",
+      "evidence_tier_cap": "T0",
+      "register_state": "IN",
+      "g_mps2": 1.62,
+      "atmosphere": "vacuum",
+      "oracle": "W_regolith_robot_v0",
+      "locomotion_north_star": "hexapod_tripod",
+      "tools": ["regolith_mesh_zone_catalog_v1", "hexapod_foot_contact_v1"],
+      "mesh_catalog": "fixtures/robot/regolith_mesh_zone_catalog_v1.json",
+      "open": ["measured_terrain_mesh"],
+      "out_of_scope": []
+    }
+  },
+  "hostile_sweep_axes": {
+    "g_mps2": {
+      "values": [1.62, 3.71, 9.80665],
+      "labels": ["moon", "mars", "earth"],
+      "falsifier": "F_hover_thrust_scales_with_g"
+    },
+    "sinkage_mm": {
+      "values": [2.0, 12.0, 22.5],
+      "labels": ["nominal", "elevated", "hostile"],
+      "falsifier": "F_traverse_feasible_flips_at_hostile_sinkage"
+    },
+    "mu_static_override": {
+      "values": [0.35, 0.55, 0.85],
+      "labels": ["loose_regolith", "compact", "high_grip_teaching"],
+      "falsifier": "F_slip_margin_monotone_in_mu"
+    },
+    "venus_thermal_surface_k": {
+      "values": [650.0, 737.0, 820.0],
+      "labels": ["below_nominal", "venus_nominal", "hostile_upper"],
+      "falsifier": "F_seal_derate_monotone_in_surface_k",
+      "world_id": "venus_surface_thermal",
+      "fixture": "fixtures/robot/venus_thermal_hostile_corners_v1.json"
+    },
+    "venus_pressure_bar": {
+      "values": [85.0, 92.0, 95.0],
+      "labels": ["low_band", "nominal", "hostile_high"],
+      "falsifier": "F_corrosion_stress_monotone_in_pressure",
+      "world_id": "venus_surface_thermal"
+    }
+  },
+  "smoke_sweep": {
+    "g_mps2": [1.62, 9.80665],
+    "sinkage_mm": [2.0, 22.5],
+    "mu_static_override": [0.35, 0.85],
+    "venus_thermal_surface_k": [650.0, 820.0],
+    "venus_pressure_bar": [85.0, 95.0],
+    "venus_seal_class": ["B1", "B5"]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "schema": "ha_radiation_rate_sites_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "dD = (D_annual / H_year) * dt_h * clamp(flare, lo, hi)",
+  "units": {
+    "annual_dose": "Gy/year",
+    "dt": "h",
+    "window_dose": "Gy",
+    "see": "events/year"
+  },
+  "on_sources": [
+    {
+      "id": "lunar_polar_gcr_class",
+      "cite": "lunar south-pole / polar surface GCR dose class (teaching PROXY)",
+      "used": ["polar_surface annual_dose_gy=0.55 teaching class"],
+      "refused": ["CREME96 FEM mesh", "Shackleton meter as MEASURED"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate radiation-rate --catalog <path> --site-id <id> --dt-h <h> --flare-scale <s>"
+  },
+  "honesty": [
+    "teaching PROXY class — not CREME FEM",
+    "not field MEASURED",
+    "python_not_oracle"
+  ],
+  "sites": {
+    "polar_surface": {
+      "label": "Lunar polar surface GCR class (teaching Dual / U4 M3)",
+      "role": "u4_m3_teaching",
+      "annual_dose_gy": 0.55,
+      "annual_see_per_year": 0.12,
+      "mission_budget_gy": 1.0,
+      "see_budget_per_year": 0.25,
+      "note": "Maxwell FEM PARK — dose/SEE class for PSE hop · not MEASURED"
+    },
+    "quiet_cruise": {
+      "label": "Quiet deep-space cruise class (teaching)",
+      "role": "u4_m3_quiet_teaching",
+      "annual_dose_gy": 0.05,
+      "annual_see_per_year": 0.02,
+      "note": "teaching quiet floor — not MEASURED"
+    },
+    "storm_cruise": {
+      "label": "Storm cruise class (teaching)",
+      "role": "u4_m3_storm_teaching",
+      "annual_dose_gy": 0.35,
+      "annual_see_per_year": 0.08,
+      "note": "teaching storm floor — not MEASURED"
+    }
+  },
+  "gates": {
+    "flare_lo": 1.0,
+    "flare_hi": 12.0
+  },
+  "defaults": {
+    "dt_h": 24.0,
+    "site_id": "polar_surface"
+  },
+  "dual_anchors": {
+    "safe_site": "quiet_cruise",
+    "hostile_site": "polar_surface",
+    "dt_h": 24.0,
+    "safe_flare_scale": 1.0,
+    "hostile_flare_scale": 12.0,
+    "cite": "Dual: quiet cruise vs polar surface + flare clamp hi"
+  },
+  "published_envelopes": {
+    "gcr_polar_annual_class": {
+      "role": "on_sourced",
+      "max_annual_gy": 0.40,
+      "on_cite": {
+        "source": "lunar polar GCR dose class envelope (published teaching ceiling)",
+        "note": "envelope refuse threshold — not CREME FEM transport"
+      }
+    },
+    "spe_flare_window_24h_class": {
+      "role": "on_sourced",
+      "max_window_gy": 0.010,
+      "dt_h": 24.0,
+      "on_cite": {
+        "source": "SPE flare window class (published teaching ceiling)",
+        "note": "24h window refuse — not CREME FEM / MEASURED spectrometer"
+      }
+    }
+  }
+}

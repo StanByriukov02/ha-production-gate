@@ -1,0 +1,68 @@
+{
+  "schema": "ha_isru_sinter_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "rate=A·exp(-Ea/(R T)); progress=1-exp(-rate·t); E=P·t",
+  "units": {
+    "T": "K",
+    "rate": "1/s",
+    "t": "s",
+    "Ea": "J/mol",
+    "E": "J",
+    "P": "W"
+  },
+  "on_sources": [
+    {
+      "id": "arrhenius_rate",
+      "cite": "Arrhenius rate = A exp(-Ea/(R T)) teaching sinter kinetics",
+      "used": ["rate", "progress"]
+    },
+    {
+      "id": "energy_budget",
+      "cite": "E = P · t heater energy budget teaching",
+      "used": ["E_j"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate isru-sinter --catalog <path> --recipe <id> --t-k <T> --t-s <t> --p-w <P>"
+  },
+  "honesty": [
+    "teaching Arrhenius sinter — not MEASURED microwave kiln campaign",
+    "progress = 1-e^{-rate t} envelope — not full densification FEM",
+    "python_not_oracle"
+  ],
+  "constants": {
+    "R_j_mol_k": 8.314462618
+  },
+  "recipes": {
+    "lunar_mild": {
+      "A_per_s": 50.0,
+      "Ea_j_mol": 80000.0,
+      "label": "mild Dual Safe kinetics"
+    },
+    "lunar_hostile_cold": {
+      "A_per_s": 50.0,
+      "Ea_j_mol": 120000.0,
+      "label": "higher barrier Dual Hostile"
+    }
+  },
+  "defaults": {
+    "recipe": "lunar_mild",
+    "t_k": 1200.0,
+    "t_s": 600.0,
+    "p_w": 800.0
+  },
+  "dual_anchors": {
+    "safe_recipe": "lunar_mild",
+    "hostile_recipe": "lunar_hostile_cold",
+    "t_k": 1100.0,
+    "t_s": 600.0,
+    "p_w": 800.0
+  },
+  "gates": {
+    "t_k_min": 300.0,
+    "t_k_max": 2500.0,
+    "t_s_min": 0.0,
+    "t_s_max": 1.0e7
+  }
+}

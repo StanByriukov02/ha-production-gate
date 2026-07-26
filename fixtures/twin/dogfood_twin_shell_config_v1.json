@@ -1,0 +1,1178 @@
+{
+  "config_id": "dogfood_twin_shell_config_v1",
+  "timestamp_utc": "2026-07-11T18:17:15.477764+00:00",
+  "canon": "docs/agent_workflow/DOGFOOD_CAD_TWIN_APP_PLAN_V1.md",
+  "product_ready": false,
+  "iron_ceiling": "WORLD_PHYSICS_SIM",
+  "scene_id": "lc2_bench_scene_v1",
+  "default_view": "urdf",
+  "viewer_host": "127.0.0.1:4178",
+  "shell_url": "http://127.0.0.1:4178/dogfood/dogfood_twin_shell_v1.html",
+  "shell_url_legacy": "http://127.0.0.1:4179/dogfood_twin_shell_v1.html",
+  "views": {
+    "housing": {
+      "label": "LC-2 joint housing",
+      "url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad&file=lc2_joint_housing_v1.step&dogfoodCompositor=%2Fdogfood%2Fdogfood_scene_compositor_v1.json",
+      "oracle": "MODEL"
+    },
+    "urdf": {
+      "label": "1-DOF bench (hip qual)",
+      "url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad&file=lc2_bench_1dof_v1.urdf&dogfoodCompositor=%2Fdogfood%2Fdogfood_scene_compositor_v1.json",
+      "oracle": "WORLD_PHYSICS_SIM"
+    },
+    "cave": {
+      "label": "Cave corridor (teaching shell)",
+      "url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad%5Cworld&file=cave_corridor_mesh_v1.step&dogfoodCompositor=%2Fdogfood%2Fdogfood_scene_compositor_v1.json",
+      "oracle": "DATASET_ENGINE_SIM"
+    },
+    "chassis": {
+      "label": "IFT-2 R1 chassis (6061)",
+      "url": "http://127.0.0.1:4178/?dir=C%3A%5CUsers%5Cdammi%5Chardware_atom%5Cfixtures%5Ccad&file=robot_ift2_r1_chassis_v1.step&dogfoodCompositor=%2Fdogfood%2Fdogfood_scene_compositor_v1.json",
+      "oracle": "MODEL"
+    }
+  },
+  "hud": {
+    "world_id": "W_earth_lab_bench_v1",
+    "world_oracle": "WORLD_PHYSICS_SIM",
+    "theta_ja_c_w": 233.5162,
+    "slam_verdict": "PASS",
+    "slam_cells": 17,
+    "l4_replay_hash": "7c6eeed6a68fd177",
+    "cad_step": "fixtures/cad/lc2_joint_housing_v1.step",
+    "urdf": "fixtures/cad/lc2_bench_1dof_v1.urdf",
+    "joints": [
+      "hip_joint"
+    ]
+  },
+  "slam_grid": {
+    "cell_m": 0.25,
+    "origin_m": [
+      -1.9871,
+      3.4336
+    ],
+    "width": 28,
+    "height": 8,
+    "cells": [
+      {
+        "ix": 1,
+        "iz": 6,
+        "hits": 1
+      },
+      {
+        "ix": 3,
+        "iz": 5,
+        "hits": 1
+      },
+      {
+        "ix": 5,
+        "iz": 6,
+        "hits": 1
+      },
+      {
+        "ix": 7,
+        "iz": 1,
+        "hits": 1
+      },
+      {
+        "ix": 8,
+        "iz": 5,
+        "hits": 1
+      },
+      {
+        "ix": 9,
+        "iz": 1,
+        "hits": 1
+      },
+      {
+        "ix": 14,
+        "iz": 2,
+        "hits": 1
+      },
+      {
+        "ix": 14,
+        "iz": 5,
+        "hits": 1
+      },
+      {
+        "ix": 18,
+        "iz": 4,
+        "hits": 2
+      },
+      {
+        "ix": 20,
+        "iz": 4,
+        "hits": 1
+      },
+      {
+        "ix": 20,
+        "iz": 5,
+        "hits": 1
+      },
+      {
+        "ix": 22,
+        "iz": 1,
+        "hits": 1
+      },
+      {
+        "ix": 22,
+        "iz": 4,
+        "hits": 1
+      },
+      {
+        "ix": 24,
+        "iz": 1,
+        "hits": 1
+      },
+      {
+        "ix": 25,
+        "iz": 1,
+        "hits": 1
+      },
+      {
+        "ix": 25,
+        "iz": 2,
+        "hits": 2
+      },
+      {
+        "ix": 26,
+        "iz": 3,
+        "hits": 1
+      }
+    ],
+    "occupied_count": 17,
+    "plane": "XZ",
+    "plane_y_m": 0.0
+  },
+  "pose_trail": {
+    "points": [
+      {
+        "tick": 0,
+        "x_m": 1.1128,
+        "y_m": 0.449,
+        "z_m": 0.0612
+      },
+      {
+        "tick": 1,
+        "x_m": 1.1506,
+        "y_m": 0.4612,
+        "z_m": 0.061
+      },
+      {
+        "tick": 2,
+        "x_m": 1.1884,
+        "y_m": 0.4733,
+        "z_m": 0.0606
+      },
+      {
+        "tick": 3,
+        "x_m": 1.2262,
+        "y_m": 0.4855,
+        "z_m": 0.0602
+      },
+      {
+        "tick": 4,
+        "x_m": 1.2639,
+        "y_m": 0.4977,
+        "z_m": 0.0596
+      },
+      {
+        "tick": 5,
+        "x_m": 1.3017,
+        "y_m": 0.5099,
+        "z_m": 0.0588
+      },
+      {
+        "tick": 6,
+        "x_m": 1.3394,
+        "y_m": 0.522,
+        "z_m": 0.0579
+      },
+      {
+        "tick": 7,
+        "x_m": 1.3772,
+        "y_m": 0.5342,
+        "z_m": 0.0569
+      },
+      {
+        "tick": 8,
+        "x_m": 1.4149,
+        "y_m": 0.5464,
+        "z_m": 0.0557
+      },
+      {
+        "tick": 9,
+        "x_m": 1.4527,
+        "y_m": 0.5586,
+        "z_m": 0.0544
+      },
+      {
+        "tick": 10,
+        "x_m": 1.4904,
+        "y_m": 0.5708,
+        "z_m": 0.053
+      },
+      {
+        "tick": 11,
+        "x_m": 1.5282,
+        "y_m": 0.583,
+        "z_m": 0.0514
+      },
+      {
+        "tick": 12,
+        "x_m": 1.5659,
+        "y_m": 0.5952,
+        "z_m": 0.0497
+      },
+      {
+        "tick": 13,
+        "x_m": 1.6036,
+        "y_m": 0.6074,
+        "z_m": 0.0478
+      },
+      {
+        "tick": 14,
+        "x_m": 1.6413,
+        "y_m": 0.6196,
+        "z_m": 0.0458
+      },
+      {
+        "tick": 15,
+        "x_m": 1.679,
+        "y_m": 0.6318,
+        "z_m": 0.0437
+      },
+      {
+        "tick": 16,
+        "x_m": 1.7167,
+        "y_m": 0.644,
+        "z_m": 0.0414
+      },
+      {
+        "tick": 17,
+        "x_m": 1.7544,
+        "y_m": 0.6562,
+        "z_m": 0.039
+      },
+      {
+        "tick": 18,
+        "x_m": 1.7921,
+        "y_m": 0.6685,
+        "z_m": 0.0364
+      },
+      {
+        "tick": 19,
+        "x_m": 1.8297,
+        "y_m": 0.6807,
+        "z_m": 0.0338
+      },
+      {
+        "tick": 20,
+        "x_m": 1.8674,
+        "y_m": 0.6929,
+        "z_m": 0.0309
+      },
+      {
+        "tick": 21,
+        "x_m": 1.9051,
+        "y_m": 0.7051,
+        "z_m": 0.028
+      },
+      {
+        "tick": 22,
+        "x_m": 1.9427,
+        "y_m": 0.7173,
+        "z_m": 0.0249
+      },
+      {
+        "tick": 23,
+        "x_m": 1.9803,
+        "y_m": 0.7295,
+        "z_m": 0.0216
+      }
+    ],
+    "n_ticks": 24,
+    "pose_engine": "SlamPose"
+  },
+  "motion_overlay": {
+    "pose_engine": "SlamPose",
+    "compose_tier": "tier_c",
+    "pose_rail": "matrix_se3",
+    "cave": {
+      "trail_id": "slam_engine_pose_trail_v1",
+      "pose_engine": "SlamPose",
+      "n_ticks": 24,
+      "points": [
+        {
+          "tick": 0,
+          "x_m": 1.1128,
+          "y_m": 0.449,
+          "z_m": 0.0612
+        },
+        {
+          "tick": 1,
+          "x_m": 1.1506,
+          "y_m": 0.4612,
+          "z_m": 0.061
+        },
+        {
+          "tick": 2,
+          "x_m": 1.1884,
+          "y_m": 0.4733,
+          "z_m": 0.0606
+        },
+        {
+          "tick": 3,
+          "x_m": 1.2262,
+          "y_m": 0.4855,
+          "z_m": 0.0602
+        },
+        {
+          "tick": 4,
+          "x_m": 1.2639,
+          "y_m": 0.4977,
+          "z_m": 0.0596
+        },
+        {
+          "tick": 5,
+          "x_m": 1.3017,
+          "y_m": 0.5099,
+          "z_m": 0.0588
+        },
+        {
+          "tick": 6,
+          "x_m": 1.3394,
+          "y_m": 0.522,
+          "z_m": 0.0579
+        },
+        {
+          "tick": 7,
+          "x_m": 1.3772,
+          "y_m": 0.5342,
+          "z_m": 0.0569
+        },
+        {
+          "tick": 8,
+          "x_m": 1.4149,
+          "y_m": 0.5464,
+          "z_m": 0.0557
+        },
+        {
+          "tick": 9,
+          "x_m": 1.4527,
+          "y_m": 0.5586,
+          "z_m": 0.0544
+        },
+        {
+          "tick": 10,
+          "x_m": 1.4904,
+          "y_m": 0.5708,
+          "z_m": 0.053
+        },
+        {
+          "tick": 11,
+          "x_m": 1.5282,
+          "y_m": 0.583,
+          "z_m": 0.0514
+        },
+        {
+          "tick": 12,
+          "x_m": 1.5659,
+          "y_m": 0.5952,
+          "z_m": 0.0497
+        },
+        {
+          "tick": 13,
+          "x_m": 1.6036,
+          "y_m": 0.6074,
+          "z_m": 0.0478
+        },
+        {
+          "tick": 14,
+          "x_m": 1.6413,
+          "y_m": 0.6196,
+          "z_m": 0.0458
+        },
+        {
+          "tick": 15,
+          "x_m": 1.679,
+          "y_m": 0.6318,
+          "z_m": 0.0437
+        },
+        {
+          "tick": 16,
+          "x_m": 1.7167,
+          "y_m": 0.644,
+          "z_m": 0.0414
+        },
+        {
+          "tick": 17,
+          "x_m": 1.7544,
+          "y_m": 0.6562,
+          "z_m": 0.039
+        },
+        {
+          "tick": 18,
+          "x_m": 1.7921,
+          "y_m": 0.6685,
+          "z_m": 0.0364
+        },
+        {
+          "tick": 19,
+          "x_m": 1.8297,
+          "y_m": 0.6807,
+          "z_m": 0.0338
+        },
+        {
+          "tick": 20,
+          "x_m": 1.8674,
+          "y_m": 0.6929,
+          "z_m": 0.0309
+        },
+        {
+          "tick": 21,
+          "x_m": 1.9051,
+          "y_m": 0.7051,
+          "z_m": 0.028
+        },
+        {
+          "tick": 22,
+          "x_m": 1.9427,
+          "y_m": 0.7173,
+          "z_m": 0.0249
+        },
+        {
+          "tick": 23,
+          "x_m": 1.9803,
+          "y_m": 0.7295,
+          "z_m": 0.0216
+        }
+      ],
+      "view_ids": [
+        "cave"
+      ],
+      "color": "#FF6600",
+      "replay_hash": "7c6eeed6a68fd177"
+    },
+    "bench_chassis": {
+      "trail_id": "robot_chassis_motion_trail_v1",
+      "pose_engine": "SlamPose",
+      "n_ticks": 24,
+      "points": [
+        {
+          "tick": 0,
+          "x_m": 0.0,
+          "y_m": 0.0,
+          "z_m": 0.0212,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 1,
+          "x_m": 0.0401,
+          "y_m": 0.0,
+          "z_m": 0.0212,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 2,
+          "x_m": 0.0801,
+          "y_m": 0.0,
+          "z_m": 0.0211,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 3,
+          "x_m": 0.1202,
+          "y_m": 0.0,
+          "z_m": 0.0208,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 4,
+          "x_m": 0.1603,
+          "y_m": 0.0,
+          "z_m": 0.0204,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 5,
+          "x_m": 0.2004,
+          "y_m": 0.0,
+          "z_m": 0.0198,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 6,
+          "x_m": 0.2404,
+          "y_m": 0.0,
+          "z_m": 0.0191,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 7,
+          "x_m": 0.2805,
+          "y_m": 0.0,
+          "z_m": 0.0183,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 8,
+          "x_m": 0.3206,
+          "y_m": 0.0,
+          "z_m": 0.0173,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 9,
+          "x_m": 0.3606,
+          "y_m": 0.0,
+          "z_m": 0.0162,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 10,
+          "x_m": 0.4007,
+          "y_m": 0.0,
+          "z_m": 0.0149,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 11,
+          "x_m": 0.4407,
+          "y_m": 0.0,
+          "z_m": 0.0135,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 12,
+          "x_m": 0.4808,
+          "y_m": 0.0,
+          "z_m": 0.012,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 13,
+          "x_m": 0.5208,
+          "y_m": 0.0,
+          "z_m": 0.0103,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 14,
+          "x_m": 0.5608,
+          "y_m": 0.0,
+          "z_m": 0.0085,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 15,
+          "x_m": 0.6009,
+          "y_m": 0.0,
+          "z_m": 0.0065,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 16,
+          "x_m": 0.6409,
+          "y_m": 0.0,
+          "z_m": 0.0044,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 17,
+          "x_m": 0.6809,
+          "y_m": 0.0,
+          "z_m": 0.0022,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 18,
+          "x_m": 0.7209,
+          "y_m": 0.0,
+          "z_m": -0.0002,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 19,
+          "x_m": 0.7609,
+          "y_m": 0.0,
+          "z_m": -0.0027,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 20,
+          "x_m": 0.8009,
+          "y_m": 0.0,
+          "z_m": -0.0054,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 21,
+          "x_m": 0.8408,
+          "y_m": 0.0,
+          "z_m": -0.0082,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 22,
+          "x_m": 0.8808,
+          "y_m": 0.0,
+          "z_m": -0.0111,
+          "pose_engine": "SlamPose"
+        },
+        {
+          "tick": 23,
+          "x_m": 0.9208,
+          "y_m": 0.0,
+          "z_m": -0.0142,
+          "pose_engine": "SlamPose"
+        }
+      ],
+      "view_ids": [
+        "urdf",
+        "chassis"
+      ],
+      "color": "#EB7324",
+      "replay_hash": "a3b9f61a4cffdf06"
+    },
+    "honesty": {
+      "not_geo_prod_pose": true,
+      "meter_scale_corridor": true
+    }
+  },
+  "clifford_iron": {
+    "phase": "T2_BRINGUP",
+    "verdict": "T2_GP_PIPE_PLATEAU",
+    "hop": "T2.21",
+    "wns_ns": -15.247,
+    "period_ns": 10.0,
+    "bringup_mhz_max": 39.6,
+    "study_anchor_mhz": "25-30",
+    "timing_closed": false,
+    "binding": "u_geo_prod_pipe/u_high_hi_synth",
+    "checkpoint": "docs/agent_workflow/CLIFFORD_STA_T2_BRINGUP_CHECKPOINT_v1.md",
+    "receipt": "results/platform_bpass/chip/CHIP_CLIFFORD_STA_T2_GP_LOW_BLADES_SPLIT_RECEIPT_v1.json",
+    "honesty": {
+      "not_100mhz_phi": true,
+      "not_fpga_signoff": true,
+      "not_measured_iron": true,
+      "product_ready": false,
+      "gp_pipe_micro_splits_exhausted": true
+    }
+  },
+  "iron_clock_feed": {
+    "phase": "T1_MHZ_FEED",
+    "verdict": "IRON_CLOCK_FEED_READY",
+    "study_anchor_mhz": 27.5,
+    "study_anchor_band": "25-30",
+    "bringup_mhz_ceiling": 39.6,
+    "wns_ns": -15.247,
+    "binding": "u_geo_prod_pipe/u_high_hi_synth",
+    "phi_period_ns": 36.364,
+    "macro_phi_ticks": 8,
+    "macro_compose_ns": 290.909,
+    "trail_ticks": 24,
+    "trail_iron_time_us": 6.982,
+    "playback": {
+      "mode": "teaching_slowdown",
+      "viewer_wall_sec_per_trail": 3.0,
+      "macro_ticks_per_trail": 24,
+      "iron_to_wall_scale": 429687.0,
+      "honesty": "viewer wall clock \u2260 iron \u03c6 time \u00b7 HUD shows both rails"
+    },
+    "checkpoint": "docs/agent_workflow/CLIFFORD_STA_T2_BRINGUP_CHECKPOINT_v1.md",
+    "honesty": {
+      "not_measured_iron": true,
+      "not_100mhz_phi": true,
+      "comb_model_only": true,
+      "product_ready": false
+    }
+  },
+  "traverse_bringup": {
+    "phase": "T3_TRAVERSE_BRINGUP",
+    "verdict": "TRAVERSE_BRINGUP_READY",
+    "mission_id": "M-integrated-earth-bench",
+    "world_id": "W_earth_lab_bench_v1",
+    "oracle": "WORLD_PHYSICS_SIM",
+    "vi_tier": "VI-2",
+    "traverse_m": 100.0,
+    "wh_per_km": 13.68,
+    "wh_need": 1.368,
+    "study_anchor_mhz": 27.5,
+    "macro_compose_ns": 290.909,
+    "n_ticks": 24,
+    "iron_total_us": 6.982,
+    "wall_teaching_sec": 3.0,
+    "m_per_tick": 4.1667,
+    "parity_rule": "1_traverse_tick_eq_1_phi_macro_compose",
+    "ticks": [
+      {
+        "tick": 0,
+        "phi_macro_tick": 0,
+        "iron_time_us": 0.0,
+        "wall_teaching_s": 0.0,
+        "traverse_m_cumulative": 4.1667,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 1,
+        "phi_macro_tick": 1,
+        "iron_time_us": 0.291,
+        "wall_teaching_s": 0.13,
+        "traverse_m_cumulative": 8.3333,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 2,
+        "phi_macro_tick": 2,
+        "iron_time_us": 0.582,
+        "wall_teaching_s": 0.261,
+        "traverse_m_cumulative": 12.5,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 3,
+        "phi_macro_tick": 3,
+        "iron_time_us": 0.873,
+        "wall_teaching_s": 0.391,
+        "traverse_m_cumulative": 16.6667,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 4,
+        "phi_macro_tick": 4,
+        "iron_time_us": 1.164,
+        "wall_teaching_s": 0.522,
+        "traverse_m_cumulative": 20.8333,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 5,
+        "phi_macro_tick": 5,
+        "iron_time_us": 1.455,
+        "wall_teaching_s": 0.652,
+        "traverse_m_cumulative": 25.0,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 6,
+        "phi_macro_tick": 6,
+        "iron_time_us": 1.745,
+        "wall_teaching_s": 0.783,
+        "traverse_m_cumulative": 29.1667,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 7,
+        "phi_macro_tick": 7,
+        "iron_time_us": 2.036,
+        "wall_teaching_s": 0.913,
+        "traverse_m_cumulative": 33.3333,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 8,
+        "phi_macro_tick": 8,
+        "iron_time_us": 2.327,
+        "wall_teaching_s": 1.043,
+        "traverse_m_cumulative": 37.5,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 9,
+        "phi_macro_tick": 9,
+        "iron_time_us": 2.618,
+        "wall_teaching_s": 1.174,
+        "traverse_m_cumulative": 41.6667,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 10,
+        "phi_macro_tick": 10,
+        "iron_time_us": 2.909,
+        "wall_teaching_s": 1.304,
+        "traverse_m_cumulative": 45.8333,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 11,
+        "phi_macro_tick": 11,
+        "iron_time_us": 3.2,
+        "wall_teaching_s": 1.435,
+        "traverse_m_cumulative": 50.0,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 12,
+        "phi_macro_tick": 12,
+        "iron_time_us": 3.491,
+        "wall_teaching_s": 1.565,
+        "traverse_m_cumulative": 54.1667,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 13,
+        "phi_macro_tick": 13,
+        "iron_time_us": 3.782,
+        "wall_teaching_s": 1.696,
+        "traverse_m_cumulative": 58.3333,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 14,
+        "phi_macro_tick": 14,
+        "iron_time_us": 4.073,
+        "wall_teaching_s": 1.826,
+        "traverse_m_cumulative": 62.5,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 15,
+        "phi_macro_tick": 15,
+        "iron_time_us": 4.364,
+        "wall_teaching_s": 1.957,
+        "traverse_m_cumulative": 66.6667,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 16,
+        "phi_macro_tick": 16,
+        "iron_time_us": 4.655,
+        "wall_teaching_s": 2.087,
+        "traverse_m_cumulative": 70.8333,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 17,
+        "phi_macro_tick": 17,
+        "iron_time_us": 4.945,
+        "wall_teaching_s": 2.217,
+        "traverse_m_cumulative": 75.0,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 18,
+        "phi_macro_tick": 18,
+        "iron_time_us": 5.236,
+        "wall_teaching_s": 2.348,
+        "traverse_m_cumulative": 79.1667,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 19,
+        "phi_macro_tick": 19,
+        "iron_time_us": 5.527,
+        "wall_teaching_s": 2.478,
+        "traverse_m_cumulative": 83.3333,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 20,
+        "phi_macro_tick": 20,
+        "iron_time_us": 5.818,
+        "wall_teaching_s": 2.609,
+        "traverse_m_cumulative": 87.5,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 21,
+        "phi_macro_tick": 21,
+        "iron_time_us": 6.109,
+        "wall_teaching_s": 2.739,
+        "traverse_m_cumulative": 91.6667,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 22,
+        "phi_macro_tick": 22,
+        "iron_time_us": 6.4,
+        "wall_teaching_s": 2.87,
+        "traverse_m_cumulative": 95.8333,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      },
+      {
+        "tick": 23,
+        "phi_macro_tick": 23,
+        "iron_time_us": 6.691,
+        "wall_teaching_s": 3.0,
+        "traverse_m_cumulative": 100.0,
+        "sinkage_mm": 4.216,
+        "traverse_feasible": true
+      }
+    ],
+    "vision": "docs/agent_workflow/DIGITAL_TWIN_OPERATOR_VISION_AND_LADDER_V1.md",
+    "honesty": {
+      "not_measured_iron": true,
+      "sim_vi2_traverse": true,
+      "not_live_telemetry": true,
+      "product_ready": false
+    }
+  },
+  "clifford_pose": {
+    "transform": "gp(gp(R,p),reverse(R))",
+    "geo_rmse_m": 0.000261,
+    "verdict": "LC2_POSE_PROBE_PASS",
+    "pose_engine": "geo_prod_lc2",
+    "compose_tier": "tier_lc2_oracle",
+    "pose_rail": "geo_prod_chain",
+    "receipt": "results/platform_bpass/chip/CHIP_CLIFFORD_LC2_BENCH_POSE_PROBE_RECEIPT_v1.json",
+    "canon": "docs/agent_workflow/CLIFFORD_OP_SEMANTICS_LAW_V1.md",
+    "viewer_note": "pose overlay uses geo_prod chain \u2014 sandwich is falsifier only",
+    "honesty": {
+      "product_ready": false,
+      "motor7_parity": true,
+      "pga8_motion_engine": "clifford_pga8_motor_v1",
+      "iron_in_loop": true
+    }
+  },
+  "autoplay": {
+    "sequence_id": "hip_qual_foc",
+    "label": "LC-2 hip qual (nominal -> raised_45)",
+    "joint": "hip_joint",
+    "unit": "rad",
+    "keyframes": [
+      {
+        "t_s": 0.0,
+        "q": 0.0,
+        "pose": "nominal_stand"
+      },
+      {
+        "t_s": 2.0,
+        "q": 0.7853981633974483,
+        "pose": "raised_45"
+      },
+      {
+        "t_s": 3.0,
+        "q": 0.0,
+        "pose": "nominal_stand"
+      }
+    ],
+    "urdf_file": "lc2_bench_1dof_v1.urdf",
+    "trajectory": {
+      "jointNames": [
+        "hip_joint"
+      ],
+      "points": [
+        {
+          "timeFromStartSec": 0.0,
+          "positionsByNameDeg": {
+            "hip_joint": 0.0
+          }
+        },
+        {
+          "timeFromStartSec": 2.0,
+          "positionsByNameDeg": {
+            "hip_joint": 45.0
+          }
+        },
+        {
+          "timeFromStartSec": 3.0,
+          "positionsByNameDeg": {
+            "hip_joint": 0.0
+          }
+        }
+      ]
+    },
+    "honesty": "Play drives URDF mesh on 1-DOF bench view only \u00b7 does not switch scene"
+  },
+  "palette": {
+    "plate": "#8A8D91",
+    "chip": "#2B3A4A",
+    "pedestal": "#1A1A1A",
+    "demo_cube": "#E86B1F",
+    "slam_overlay": "#1F8BCB"
+  },
+  "compositor_url": "/dogfood/dogfood_scene_compositor_v1.json",
+  "compositor_layers": {
+    "slam_2d": {
+      "label": "SLAM 3D overlay (blue cells)",
+      "visible": true
+    },
+    "slam_pose_trail": {
+      "label": "SlamPose motion trail (cave + bench)",
+      "visible": true
+    },
+    "clifford_pose": {
+      "label": "LC2 geo_prod landmarks (2\u00d7GEO_PROD)",
+      "visible": true
+    },
+    "robot_materials": {
+      "label": "Robot materials HUD",
+      "visible": true
+    },
+    "lunar_mission_day": {
+      "label": "Lunar mission day HUD",
+      "visible": true
+    }
+  },
+  "robot_materials": {
+    "verdict": "PASS",
+    "hud_rows": [
+      [
+        "Frame",
+        "6061-T6 \u00b7 30x30x2_mm_hollow"
+      ],
+      [
+        "Wheel",
+        "PU shore 90A"
+      ],
+      [
+        "Bearing",
+        "ss_440c_sealed_deep_groove"
+      ],
+      [
+        "Seal",
+        "B3 \u00b7 ingress\u00d70.55"
+      ],
+      [
+        "Frame mass",
+        "1.76 kg (derived)"
+      ],
+      [
+        "Wheels mass",
+        "18.56 kg \u00b7 4\u00d7"
+      ],
+      [
+        "Footprint",
+        "620\u00d7420 mm"
+      ],
+      [
+        "Mass anchor",
+        "50.0 kg"
+      ],
+      [
+        "Chassis CAD",
+        "robot_ift2_r1_chassis_v1.step"
+      ]
+    ],
+    "registry": "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json"
+  },
+  "lunar_mission_day": {
+    "verdict": "LUNAR_MISSION_COMPOSITOR_PASS",
+    "mission_story_id": "lunar_mission_day_1",
+    "hud_rows": [
+      [
+        "Story",
+        "lunar_mission_day_1"
+      ],
+      [
+        "Inherit",
+        "lunar_crater_5km \u00b7 SITUATION_INHERIT_FALSIFIER_PASS"
+      ],
+      [
+        "Packet",
+        "500 B \u00b7 WH\u00d70.4525"
+      ],
+      [
+        "Construct",
+        "fleet snapshot bound"
+      ],
+      [
+        "ISRU stub",
+        "LUNAR_CONSTRUCT_ISRU_O2_STUB_PASS \u00b7 SIM_STUB_NOT_MEASURED"
+      ],
+      [
+        "O2 proxy",
+        "10.2 kg/sol"
+      ],
+      [
+        "Program phase",
+        "I_isru_stub_done_complete"
+      ],
+      [
+        "Matrix",
+        "56/56 pass"
+      ],
+      [
+        "Gaps named",
+        "10"
+      ],
+      [
+        "Loud corners",
+        "\u2014"
+      ]
+    ],
+    "overlay": "fixtures/twin/lunar_mission_day_overlay_v1.json",
+    "honesty": {
+      "projection_not_physics": true,
+      "slam_map_teaching_only": true,
+      "o2_stub_not_closed": true,
+      "sustained_work_bound": false
+    }
+  },
+  "vi2_mission": {
+    "mission_id": "M-integrated-earth-bench",
+    "verdict": "PASS",
+    "hud_rows": [
+      [
+        "Mission",
+        "M-integrated-earth-bench"
+      ],
+      [
+        "VI tier",
+        "VI-2"
+      ],
+      [
+        "Robot stand",
+        "PASS"
+      ],
+      [
+        "\u03b8 ja C/W",
+        "233.5162"
+      ],
+      [
+        "M1 uJ/step",
+        "0.42"
+      ],
+      [
+        "Traverse 100m",
+        "13.68 Wh/km"
+      ],
+      [
+        "VI-1 axes",
+        "11/11"
+      ]
+    ],
+    "engine_stack": {
+      "l1_event_replay_hash": "5b349be87708cb28",
+      "l2_odom_replay_hash": "8ec349cc4d170959",
+      "l3_pose_replay_hash": "188ecfcd65af069d",
+      "l4_replay_hash": "7c6eeed6a68fd177"
+    },
+    "trail_ticks": 24
+  },
+  "honesty": {
+    "not_fusion": true,
+    "not_full_digital_twin": true,
+    "not_measured_iron": true,
+    "shell_wraps_viewer": true,
+    "product_ready": false,
+    "motion_overlay_slam_pose": true,
+    "dual_pose_rails": true,
+    "clifford_pose_not_sandwich": true,
+    "iron_clock_feed_bound": true,
+    "traverse_bringup_mhz_bound": true
+  }
+}

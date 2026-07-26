@@ -1,0 +1,45 @@
+{
+  "schema": "perception_soil_stub_v1",
+  "proof_tier": "PERCEPTION_SOIL_STUB_SLICE",
+  "oracle": "CONTACT_CHANNELS_TEACHING",
+  "status": "PREP_NOT_SEND",
+  "honesty": [
+    "not MEASURED",
+    "not product_ready",
+    "not Gene multimodal skin hardware",
+    "teaching stub — world can falsify intent via contact channels"
+  ],
+  "principle": "perception is first-class platform soil next to body+PolicyPort (Gene.01 lesson L4)",
+  "vault": "docs/HwatomOrgOS/06_2BRAIN/DOGFOOD/chain/GENERATIVE_BIONICS_GENE01_LESSONS_FOR_DOGFOOD_V1.md",
+  "channels": {
+    "touch": {
+      "unit": "bool_contact",
+      "safe_nominal": false,
+      "hostile_must_diverge": true,
+      "role": "contact present / absent"
+    },
+    "proximity": {
+      "unit": "m",
+      "safe_nominal": 0.35,
+      "hostile_shift_m": -0.22,
+      "role": "anticipate presence before contact"
+    },
+    "force": {
+      "unit": "N",
+      "safe_nominal": 4.0,
+      "hostile_shift_n": 18.0,
+      "role": "load that Safe plan may ignore"
+    },
+    "temperature": {
+      "unit": "C",
+      "safe_nominal": 22.0,
+      "hostile_shift_c": 55.0,
+      "role": "thermal contact cost"
+    }
+  },
+  "world_bind": {
+    "safe_world_id": "earth_lab_1g",
+    "hostile_world_id": "lunar_regolith_surface",
+    "friction_catalog": "fixtures/robot/contact_friction_catalog_v0.json"
+  }
+}

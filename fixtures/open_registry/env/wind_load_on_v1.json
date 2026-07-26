@@ -1,0 +1,39 @@
+{
+  "schema": "ha_wind_load_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "q=0.5*rho*v^2; F=q*Cd*A",
+  "units": { "q": "Pa", "F": "N", "v": "m/s", "rho": "kg/m^3" },
+  "on_sources": [
+    {
+      "id": "dynamic_pressure_wind",
+      "cite": "ASCE/ISO teaching: dynamic pressure q=½ρv²; F=q Cd A (not CFD gust MEASURED)",
+      "used": ["q", "F_wind"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate wind-load --catalog <path> --pack <id> --v-m-s <v>"
+  },
+  "honesty": ["teaching wind load — not CFD / anemometer MEASURED", "python_not_oracle"],
+  "packs": {
+    "earth_calm": {
+      "label": "Earth calm Dual Safe",
+      "rho_kg_m3": 1.225,
+      "cd": 1.2,
+      "area_m2": 0.4,
+      "v_m_s": 5.0
+    },
+    "earth_storm": {
+      "label": "Earth storm Dual Hostile",
+      "rho_kg_m3": 1.225,
+      "cd": 1.2,
+      "area_m2": 0.4,
+      "v_m_s": 25.0
+    }
+  },
+  "defaults": { "pack": "earth_calm", "v_m_s": null },
+  "dual_anchors": {
+    "safe_pack": "earth_calm",
+    "hostile_pack": "earth_storm"
+  }
+}

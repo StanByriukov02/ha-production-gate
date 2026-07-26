@@ -1,0 +1,21 @@
+{
+  "capture_id": "earth_lab_bench_capture_v1",
+  "capture_version": 1,
+  "world_id": "earth_lab_1g",
+  "fixture_id": "earth_lab_mini_test_fixture_v1",
+  "fixture_path": "fixtures/robot/earth_lab_mini_test_fixture_v1.json",
+  "world_receipt": "results/platform_bpass/world/W_EARTH_LAB_BENCH_MISSION_RECEIPT_v1.json",
+  "provenance": "earth_lab_capture",
+  "honesty": {
+    "not_operator_dmm": true,
+    "not_flight_measured": true,
+    "tier_when_ingressed": "T4",
+    "source": "auto_extract_from_repo_world_receipt"
+  },
+  "extract_map": {
+    "bus_power_active_run_w": "hops.robot_stand.bus_power.value",
+    "foc_energy_uj_per_step": "hops.robot_stand.foc_energy.value",
+    "earth_traverse_sinkage_mm": "mission_verbs.r2_terramech_engine.loose_sinkage_mm",
+    "torque_margin": "hops.robot_stand.torque_margin"
+  }
+}

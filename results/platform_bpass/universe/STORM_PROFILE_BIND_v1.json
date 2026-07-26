@@ -1,0 +1,261 @@
+{
+  "bind_id": "storm_profile_bind_v1",
+  "oracle": "CITED_BIND",
+  "gate": "U3",
+  "catalog_ref": "results/platform_bpass/universe/EVENT_CATALOG_BIND_v1.json",
+  "vault_canon": "06_2BRAIN/DOGFOOD/chain/UNIVERSE_KERNEL_V0_SPEC_V1.md",
+  "storm_composition_rule": "concurrent env state on universe_state_v1 · overlap schedule · intensity_scale on adversarial params",
+  "composition_modes": [
+    "sequential",
+    "concurrent"
+  ],
+  "default_composition": "concurrent",
+  "storms": [
+    {
+      "storm_id": "STORM-SOLAR-PARTICLE",
+      "name": "solar_particle_burst",
+      "scale_peak": "cosmic",
+      "intensity_default": 1.0,
+      "events": [
+        "EVT-C-02",
+        "EVT-M-03",
+        "EVT-u-02",
+        "EVT-u-01"
+      ],
+      "targets_recommended": [
+        "chip",
+        "panel",
+        "rocket"
+      ],
+      "typical_numbers": {
+        "flare_multiplier": 3.0,
+        "dose_gy": 0.5
+      },
+      "l0_cites": [
+        "RADIATION_SHIELD_BIND",
+        "ENV_DRIVER_BIND"
+      ]
+    },
+    {
+      "storm_id": "STORM-REGOLITH",
+      "name": "regolith_dust_storm",
+      "scale_peak": "macro",
+      "intensity_default": 1.0,
+      "events": [
+        "EVT-m-02",
+        "EVT-m-01",
+        "EVT-M-01",
+        "EVT-C-08"
+      ],
+      "targets_recommended": [
+        "robot",
+        "panel"
+      ],
+      "typical_numbers": {
+        "n_sols": 45.0,
+        "mass_loading_g_m2": 1.0
+      },
+      "l0_cites": [
+        "DUST_INGRESS_BIND",
+        "W_regolith_robot_v0"
+      ]
+    },
+    {
+      "storm_id": "STORM-MICRO-METEOR",
+      "name": "micrometeoroid_shower",
+      "scale_peak": "cosmic",
+      "intensity_default": 1.0,
+      "events": [
+        "EVT-C-01",
+        "EVT-C-01",
+        "EVT-C-06",
+        "EVT-m-06"
+      ],
+      "targets_recommended": [
+        "robot",
+        "panel",
+        "rocket"
+      ],
+      "typical_numbers": {
+        "mass_g": 0.0001
+      },
+      "l0_cites": [
+        "MEM3-L0-03",
+        "MICROMETEOROID_THREAT_BIND"
+      ]
+    },
+    {
+      "storm_id": "STORM-THERMAL-ECLIPSE",
+      "name": "thermal_eclipse_combo",
+      "scale_peak": "meso",
+      "intensity_default": 1.0,
+      "events": [
+        "EVT-m-05",
+        "EVT-C-04",
+        "EVT-M-05",
+        "EVT-M-04"
+      ],
+      "targets_recommended": [
+        "chip",
+        "panel",
+        "robot"
+      ],
+      "typical_numbers": {
+        "illum_drop_frac": 1.0,
+        "duration_h": 2.0
+      },
+      "l0_cites": [
+        "THERMAL_TRANSIENT_BIND",
+        "VACUUM_RADIATIVE_BC_BIND"
+      ]
+    },
+    {
+      "storm_id": "STORM-EDS-PANEL",
+      "name": "eds_panel_max",
+      "scale_peak": "meso",
+      "intensity_default": 1.0,
+      "events": [
+        "EVT-m-04",
+        "EVT-m-08",
+        "EVT-m-03",
+        "EVT-M-06"
+      ],
+      "targets_recommended": [
+        "panel",
+        "rocket"
+      ],
+      "typical_numbers": {
+        "q_transport_scale": 1.5,
+        "mass_loading_g_m2": 1.2
+      },
+      "l0_cites": [
+        "EDS_2R",
+        "W1_ARENA"
+      ]
+    },
+    {
+      "storm_id": "STORM-CHIP-RAD",
+      "name": "chip_radiation_storm",
+      "scale_peak": "micro",
+      "intensity_default": 1.0,
+      "events": [
+        "EVT-u-01",
+        "EVT-u-02",
+        "EVT-C-03",
+        "EVT-C-02",
+        "EVT-M-08"
+      ],
+      "targets_recommended": [
+        "chip",
+        "rocket"
+      ],
+      "typical_numbers": {
+        "dose_gy": 0.2,
+        "see_count": 3
+      },
+      "l0_cites": [
+        "RADIATION_FET_COEFF_BIND",
+        "W_chip"
+      ]
+    },
+    {
+      "storm_id": "STORM-CME-MAX",
+      "name": "cme_cosmic_max",
+      "scale_peak": "cosmic",
+      "intensity_default": 1.2,
+      "events": [
+        "EVT-C-05",
+        "EVT-M-03",
+        "EVT-C-02",
+        "EVT-C-04"
+      ],
+      "targets_recommended": [
+        "chip",
+        "panel",
+        "robot",
+        "rocket"
+      ],
+      "typical_numbers": {
+        "flare_multiplier": 10.0
+      },
+      "l0_cites": [
+        "ENV_DRIVER_BIND"
+      ],
+      "adversarial": true
+    },
+    {
+      "storm_id": "STORM-ROBOT-DEATH",
+      "name": "robot_ingress_death",
+      "scale_peak": "macro",
+      "intensity_default": 1.0,
+      "events": [
+        "EVT-C-08",
+        "EVT-m-02",
+        "EVT-m-01",
+        "EVT-m-06",
+        "EVT-M-01"
+      ],
+      "targets_recommended": [
+        "robot"
+      ],
+      "typical_numbers": {
+        "n_sols": 60.0,
+        "cleaning_duty": 0.0
+      },
+      "l0_cites": [
+        "REGOLITH_ROBOT",
+        "GAP-MR-12"
+      ]
+    },
+    {
+      "storm_id": "STORM-UNIVERSE-MAX",
+      "name": "universe_adversarial_max",
+      "scale_peak": "cosmic",
+      "intensity_default": 1.0,
+      "events": [
+        "EVT-C-05",
+        "EVT-C-06",
+        "EVT-C-08",
+        "EVT-m-08",
+        "EVT-M-03",
+        "EVT-u-01",
+        "EVT-C-01",
+        "EVT-M-04"
+      ],
+      "targets_recommended": [
+        "chip",
+        "robot",
+        "panel",
+        "rocket"
+      ],
+      "typical_numbers": {},
+      "adversarial": true,
+      "l0_cites": [
+        "EVENT_CATALOG"
+      ]
+    },
+    {
+      "storm_id": "STORM-RANDOM",
+      "name": "stratified_random_storm",
+      "scale_peak": "mixed",
+      "intensity_default": 1.0,
+      "events": [],
+      "random_compose": {
+        "n_events": 12,
+        "stratify_scales": true
+      },
+      "targets_recommended": [
+        "chip",
+        "robot",
+        "panel",
+        "rocket"
+      ],
+      "l0_cites": [
+        "EVENT_CATALOG"
+      ]
+    }
+  ],
+  "harness_module": "dogfood_platform.universe_storm_engine_v1",
+  "state_harness": "dogfood_platform.universe_storm_state_v1",
+  "falsifier": "macro/cosmic events must not hit generic_pass · concurrent overlap_peak >= 1 on multi-event storms"
+}

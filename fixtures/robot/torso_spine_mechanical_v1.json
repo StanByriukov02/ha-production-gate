@@ -1,0 +1,20 @@
+{
+  "mechanical_id": "torso_spine_mechanical_v1",
+  "chain_id": "torso_spine_2dof_v1",
+  "alloy_id": "al_6061_t6_extrusion",
+  "scout_facts": "fixtures/cad/scout/robot_scout_fwing_v1_facts_v1.json",
+  "links": [
+    {"link_id": "pelvis_link", "bbox_m": [0.20, 0.14, 0.06]},
+    {"link_id": "spine_yaw_link", "bbox_m": [0.12, 0.10, 0.16]},
+    {"link_id": "chest_mount_link", "bbox_m": [0.14, 0.12, 0.08]}
+  ],
+  "mount_arm_xyz": [0.0, 0.0, 0.10],
+  "mount_leg_xyz": [0.0, 0.0, -0.03],
+  "al_spec": "fixtures/robot/torso_spine_chain_v1.json",
+  "honesty": {
+    "mass_ledger_adapt": true,
+    "mass_ledger_stub": false
+  },
+  "deferred": ["TORSO_IRON_HIL", "TORSO_MASS_LEDGER_MEASURED", "TORSO_PER_LINK_STEP"],
+  "tabu": ["claim humanoid torso without per-link STEP", "claim MEASURED mass"]
+}

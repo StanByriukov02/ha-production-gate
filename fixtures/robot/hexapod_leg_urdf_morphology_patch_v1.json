@@ -1,0 +1,39 @@
+{
+  "patch_id": "hexapod_leg_urdf_morphology_patch_v1",
+  "chain_id": "hexapod_leg_3dof_v1",
+  "source_urdf": "fixtures/cad/hexapod_leg_3dof_v1.urdf",
+  "link_lengths_m": [0.055, 0.12, 0.095],
+  "se3_joints": [
+    {
+      "joint_type": "revolute",
+      "name": "coxa_joint",
+      "origin_xyz": [0.055, 0.0, 0.0],
+      "origin_rpy": [0.0, 0.0, 0.0],
+      "axis_xyz": [0.0, 0.0, 1.0],
+      "link_in_child_frame": true
+    },
+    {
+      "joint_type": "revolute",
+      "name": "femur_joint",
+      "origin_xyz": [0.12, 0.0, 0.0],
+      "origin_rpy": [0.0, 0.0, 0.0],
+      "axis_xyz": [0.0, 0.0, 1.0],
+      "link_in_child_frame": true
+    },
+    {
+      "joint_type": "revolute",
+      "name": "tibia_joint",
+      "origin_xyz": [0.095, 0.0, 0.0],
+      "origin_rpy": [0.0, 0.0, 0.0],
+      "axis_xyz": [0.0, 0.0, 1.0],
+      "link_in_child_frame": true
+    }
+  ],
+  "honesty": {
+    "teaching_only": true,
+    "not_measured_morphology": true,
+    "visual_urdf_unchanged": true
+  },
+  "deferred": ["MEASURED_MORPHOLOGY_LIDAR_CROSSCHECK"],
+  "tabu": ["claim MEASURED morphology", "claim flight qual URDF patch"]
+}

@@ -1,0 +1,488 @@
+{
+  "ticks": [
+    {
+      "tick": 0,
+      "hop_trace": [
+        "boot",
+        "clock_init",
+        "encoder_init",
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 10860.0,
+      "encoder_counts": 1024,
+      "hip_q_rad": 0.08,
+      "energy_uj": 1.6804,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 1,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 2048,
+      "hip_q_rad": 0.16,
+      "energy_uj": 3.3608,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 2,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 3072,
+      "hip_q_rad": 0.24,
+      "energy_uj": 5.0412,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 3,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 4096,
+      "hip_q_rad": 0.32,
+      "energy_uj": 6.7216,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 4,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 5120,
+      "hip_q_rad": 0.4,
+      "energy_uj": 8.402,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 5,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 6144,
+      "hip_q_rad": 0.48,
+      "energy_uj": 10.0824,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 6,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 7168,
+      "hip_q_rad": 0.56,
+      "energy_uj": 11.7628,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 7,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 8192,
+      "hip_q_rad": 0.64,
+      "energy_uj": 13.4432,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 8,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 9216,
+      "hip_q_rad": 0.72,
+      "energy_uj": 15.1236,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 9,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 10240,
+      "hip_q_rad": 0.8,
+      "energy_uj": 16.804,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 10,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 11264,
+      "hip_q_rad": 0.88,
+      "energy_uj": 18.4844,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 11,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 12288,
+      "hip_q_rad": 0.96,
+      "energy_uj": 20.1648,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 12,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 13312,
+      "hip_q_rad": 1.04,
+      "energy_uj": 21.8452,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 13,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 14336,
+      "hip_q_rad": 1.12,
+      "energy_uj": 23.5256,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 14,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 15360,
+      "hip_q_rad": 1.2,
+      "energy_uj": 25.206,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 15,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 0,
+      "hip_q_rad": 1.28,
+      "energy_uj": 26.8864,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 16,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 1024,
+      "hip_q_rad": 1.36,
+      "energy_uj": 28.5668,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 17,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 2048,
+      "hip_q_rad": 1.44,
+      "energy_uj": 30.2472,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 18,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 3072,
+      "hip_q_rad": 1.52,
+      "energy_uj": 31.9276,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 19,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 4096,
+      "hip_q_rad": 1.6,
+      "energy_uj": 33.608,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 20,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 5120,
+      "hip_q_rad": 1.68,
+      "energy_uj": 35.2884,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 21,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 6144,
+      "hip_q_rad": 1.76,
+      "energy_uj": 36.9688,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 22,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 7168,
+      "hip_q_rad": 1.84,
+      "energy_uj": 38.6492,
+      "f_clock_hz": 48000000.0
+    },
+    {
+      "tick": 23,
+      "hop_trace": [
+        "encoder_sample",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "foc_isr",
+        "foc_step",
+        "telemetry_tick"
+      ],
+      "tick_us": 360.0,
+      "encoder_counts": 8192,
+      "hip_q_rad": 1.92,
+      "energy_uj": 40.3296,
+      "f_clock_hz": 48000000.0
+    }
+  ],
+  "replay_hash": "ad11ffe9de34bbd4"
+}

@@ -1,0 +1,113 @@
+{
+  "manifest_id": "robot_os_hal_manifest_v1",
+  "version": 1,
+  "proof_tier": "HAL_SIM_SLICE",
+  "oracle": "WORLD_PHYSICS_SIM",
+  "tabu": [
+    "claim LC-2 FOC drivers on real hardware",
+    "claim MEASURED actuation",
+    "claim VI-2 bus MEASURED",
+    "claim full robot OS complete"
+  ],
+  "architecture_cites": [
+    {
+      "artifact": "fixtures/twin/robot_brain_architecture_v1.json",
+      "layers": ["L_bus_vi2", "L_actuation_lc2"]
+    }
+  ],
+  "live_state_binding": {
+    "state_id": "live_fleet_state_v1",
+    "default_path": "results/runtime/live_fleet_state_v1.json",
+      "carrier_fields": {
+      "pose": ["cursor_m", "map_hash", "segment_start_m", "segment_end_m"],
+      "clock": ["ticks"],
+      "actuation": ["command", "phase"],
+      "vi2": ["map_hash", "handoff_packet.map_hash"],
+      "manipulator": [
+        "joint_positions_rad",
+        "joint_velocities_rad_s",
+        "joint_torques_nm",
+        "ee_pose",
+        "ee_pose_motor",
+        "ee_pose_motor128_hex",
+        "manipulator_phase",
+        "manipulator_command",
+        "manipulator_mutex"
+      ]
+    }
+  },
+  "modules": [
+    {
+      "module_id": "robot_os_hal_v1",
+      "layer": "L5_HAL",
+      "tier": "ABSTRACT_INTERFACE",
+      "artifact": "dogfood_platform/robot_os_hal_v1.py",
+      "exports": [
+        "PoseSource",
+        "ActuationSink",
+        "EnergyLedger",
+        "MissionClock",
+        "RobotOsHalStack",
+        "HAL_PROOF_TIER"
+      ],
+      "deps": []
+    },
+    {
+      "module_id": "robot_os_hal_sim_v1",
+      "layer": "L5_HAL",
+      "tier": "HAL_SIM_SLICE",
+      "artifact": "dogfood_platform/robot_os_hal_sim_v1.py",
+      "exports": [
+        "build_sim_hal_stack",
+        "load_sim_hal_stack",
+        "wire_sim_hal_to_kernel",
+        "attach_sim_hal_to_kernel"
+      ],
+      "deps": [
+        "robot_os_hal_v1",
+        "fleet_live_state_v1",
+        "robot_os_kernel_v1",
+        "robot_os_sched_policy_v1"
+      ]
+    },
+    {
+      "module_id": "fleet_live_state_v1",
+      "layer": "L3_LIVE_BUS",
+      "tier": "LIVE_STATE_JSON",
+      "artifact": "dogfood_platform/fleet_live_state_v1.py",
+      "exports": ["read_state", "update_state", "empty_state"],
+      "deps": []
+    },
+    {
+      "module_id": "robot_os_kernel_v1",
+      "layer": "L5_KERNEL",
+      "tier": "SIM_KERNEL_SLICE",
+      "artifact": "dogfood_platform/robot_os_kernel_v1.py",
+      "exports": ["RobotOsKernel", "HalHooks"],
+      "deps": ["robot_os_sched_policy_v1"]
+    }
+  ],
+  "kernel_integration": {
+    "kernel_module": "dogfood_platform/robot_os_kernel_v1.py",
+    "hook_class": "HalHooks",
+    "wire_entrypoint": "dogfood_platform.robot_os_hal_sim_v1.attach_sim_hal_to_kernel",
+    "tick_path": "RobotOsKernel.tick_state → HalHooks.on_tick_before/after → HAL sim",
+    "scheduler_tier": "SIM_KERNEL_SLICE",
+    "carrier_runtime": "dogfood_platform/robot_carrier_sim_runtime_v1.py"
+  },
+  "synthesis": {
+    "honest_tier": "HAL_SIM_SLICE",
+    "not_claimed": [
+      "iron LC-2 FOC @ 20 kHz",
+      "CAN spine VI-2 MEASURED",
+      "propulsion PASS from HAL"
+    ],
+    "falsifiers": [
+      "F_hal_proof_tier_sim",
+      "F_pose_tracks_cursor_m",
+      "F_clock_tracks_ticks",
+      "F_energy_wh_monotonic",
+      "F_actuation_teaching_proxy_only"
+    ]
+  }
+}

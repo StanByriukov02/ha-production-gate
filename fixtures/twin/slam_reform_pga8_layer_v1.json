@@ -1,0 +1,13 @@
+{
+  "layer_id": "slam_reform_pga8_layer_v1",
+  "engine": "dogfood_platform/slam_pga8_motion_v1.py",
+  "runtime_type": "SlamPose",
+  "event_front": "dogfood_platform/slam_event_front_v1.py",
+  "prerequisite": "P7_2_PASS",
+  "p7_2_reform_rmse_m": 0.026327,
+  "traverse_parity_rmse_m": 0.002456361,
+  "io_proxy": "motor7",
+  "sandwich_scope": "REFORM algebra only \u2014 not event_front traverse",
+  "distinct_from": "pga8_motion_layer_v1 (P7.1 motor bridge)",
+  "verdict": "F_PASS"
+}

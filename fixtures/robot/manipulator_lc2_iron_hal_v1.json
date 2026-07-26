@@ -1,0 +1,41 @@
+{
+  "fixture_id": "manipulator_lc2_iron_hal_v1",
+  "version": 1,
+  "proof_tier": "MANIPULATOR_IRON_HAL_TEACHING_SLICE",
+  "evidence_ladder": "T4",
+  "oracle": "LC2_TEACHING_FIXTURE",
+  "mcu_class": "ATSAMD21RT",
+  "hal_header": "fixtures/chip/lc2_hal_registers.h",
+  "memory_map": "fixtures/chip/lc2_baremetal_memory_map_v0.json",
+  "bench_urdf": "fixtures/cad/lc2_bench_1dof_v1.urdf",
+  "manipulator_chain": "fixtures/robot/lunar_manipulator_chain_v1.json",
+  "foc_bind": "fixtures/chip/lc2_foc_symbolic_isr_v0.json",
+  "pwm_hz": 20000,
+  "mcu_clock_hz": 48000000,
+  "encoder_counts_per_rev": 4096,
+  "joint_count": 3,
+  "torque_cmd_scale": "Q15_NM",
+  "joint_torque_max_nm": [3.0, 2.5, 1.2],
+  "mmio_base": "0x40004000",
+  "registers": [
+    {"name": "JOINT0_ENC", "offset": 0, "width": 32, "access": "ro"},
+    {"name": "JOINT1_ENC", "offset": 4, "width": 32, "access": "ro"},
+    {"name": "JOINT2_ENC", "offset": 8, "width": 32, "access": "ro"},
+    {"name": "JOINT0_TORQUE_CMD", "offset": 16, "width": 16, "access": "wo"},
+    {"name": "JOINT1_TORQUE_CMD", "offset": 18, "width": 16, "access": "wo"},
+    {"name": "JOINT2_TORQUE_CMD", "offset": 20, "width": 16, "access": "wo"},
+    {"name": "FOC_STATUS", "offset": 24, "width": 32, "access": "ro"},
+    {"name": "FOC_PWM_HZ", "offset": 28, "width": 32, "access": "ro"}
+  ],
+  "honesty": {
+    "teaching_fixture_only": true,
+    "not_rt_servo_on_iron": true,
+    "not_measured_encoder": true,
+    "product_ready": false
+  },
+  "tabu": [
+    "claim RT FOC on flight hardware",
+    "claim MEASURED manipulator iron HAL",
+    "claim encoder calibration field verified"
+  ]
+}

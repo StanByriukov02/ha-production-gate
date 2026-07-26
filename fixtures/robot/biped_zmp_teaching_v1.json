@@ -1,0 +1,12 @@
+{
+  "teaching_id": "biped_zmp_teaching_v1",
+  "binds": "biped_leg_compose_v1",
+  "honesty": {
+    "teaching_only": true,
+    "no_walk_claim": true,
+    "not_measured_zmp": true
+  },
+  "deferred": ["AN_DYNAMIC_BALANCE", "AI_MEASURED_FOOT_CONTACT"],
+  "contact_z_threshold_m": 0.14,
+  "tabu": ["claim ZMP stability MEASURED", "claim biped walks"]
+}

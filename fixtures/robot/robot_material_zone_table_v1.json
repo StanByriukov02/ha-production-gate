@@ -1,0 +1,39 @@
+{
+  "zone_table_id": "robot_material_zone_table_v1",
+  "parent_bind": "results/platform_bpass/moon/DUST_INGRESS_BIND_v1.json",
+  "harness_module": "dogfood_platform.lunar_dust_ingress_v1",
+  "zones": {
+    "rim_sun": {
+      "site_zone": "rim_sun",
+      "label": "crater rim · photoemission loft",
+      "recommended_env_seal": "B2",
+      "physics_seal_default": "B3",
+      "dust_chemistry_note": "rim loft index high · lower accumulate rate vs disturbed massif",
+      "tier": "ADAPT_CLOSED",
+      "cite": ["STUBBS-2006-L0-05", "DUST_INGRESS_BIND_v1"]
+    },
+    "massif_traverse": {
+      "site_zone": "massif_traverse",
+      "label": "disturbed massif traverse",
+      "recommended_env_seal": "B2",
+      "physics_seal_default": "B3",
+      "dust_chemistry_note": "highest disturbed ingress rate in bind · default rover traverse",
+      "tier": "ADAPT_CLOSED",
+      "cite": ["STUBBS-2007-L0-06", "DUST_INGRESS_BIND_v1"]
+    },
+    "psr_floor": {
+      "site_zone": "psr_floor",
+      "label": "PSR floor · cold trap",
+      "recommended_env_seal": "B1",
+      "physics_seal_default": "B3",
+      "dust_chemistry_note": "lower electrostatic index · lowest ingress rate ranking",
+      "tier": "ADAPT_CLOSED",
+      "cite": ["COLWELL-2007-L0-08", "DUST_INGRESS_BIND_v1"]
+    }
+  },
+  "honesty": {
+    "zone_rates_adapt_closed": true,
+    "not_shackleton_flux_meter": true,
+    "per_zone_seal_recommendation_proxy": true
+  }
+}

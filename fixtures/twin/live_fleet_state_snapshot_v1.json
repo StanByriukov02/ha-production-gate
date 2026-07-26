@@ -1,0 +1,693 @@
+{
+  "state_id": "live_fleet_state_v1",
+  "version": 15,
+  "mission_id": "M-lunar-relay-teaching",
+  "profile_id": "lunar_crater_5km",
+  "coordinator": {
+    "phase": "complete",
+    "verdict": "PASS",
+    "fail_reason": null,
+    "active_handoff_id": null,
+    "hop_index": 1,
+    "total_hops": 1,
+    "carrier_order": [
+      "scout_A",
+      "scout_B"
+    ],
+    "active_carrier_id": "scout_B",
+    "terminal_carrier_id": "scout_B"
+  },
+  "carriers": {
+    "scout_A": {
+      "carrier_id": "scout_A",
+      "phase": "relay",
+      "command": "idle",
+      "segment_start_m": 0.0,
+      "segment_end_m": 2500.0,
+      "cursor_m": 2500.0000016666663,
+      "ticks": 6,
+      "map_hash": "f91906c6bae1bf4d",
+      "handoff_packet": null,
+      "manipulator_phase": "idle",
+      "manipulator_command": "idle",
+      "joint_positions_rad": [
+        0.2,
+        0.3,
+        -0.1
+      ],
+      "joint_velocities_rad_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "joint_torques_nm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "joint_positions_target_rad": [
+        0.2,
+        0.3,
+        -0.1
+      ],
+      "ee_pose": {
+        "ee_x": 0.0,
+        "ee_y": 0.0,
+        "ee_theta": 0.0
+      },
+      "ee_pose_motor": null,
+      "ee_pose_motor128_hex": null,
+      "manipulator_backend": "manipulator_rust_serial_arm_v1",
+      "manipulator_mutex": null,
+      "manipulator_material_bind": null,
+      "manipulator_material_derate": null,
+      "manipulator_torque_scale": 1.0,
+      "manipulator_governance_hold": null,
+      "ee_pose_world_motor": null,
+      "construct_work_zone": null,
+      "construct_arm_mutex": null,
+      "grasp_bind": null,
+      "grasp_state": null,
+      "grasp_command_force_n": null,
+      "grasp_envelope": null,
+      "joint_encoder_counts": null,
+      "iron_hal_mmio": null,
+      "clifford": {
+        "pose_motor128": {
+          "qw": 0.98774388,
+          "qx": 0.0155335,
+          "qy": 0.00779306,
+          "qz": 0.15511289,
+          "tx": 1.19813032,
+          "ty": 0.3964765,
+          "tz": 0.14856223
+        },
+        "stack_replay_hash": "be6455ad23c2d538",
+        "phi_macro_tick": 0,
+        "proof_tier": "ENGINE_SIM"
+      },
+      "wear_chip": {
+        "proof_tier": "WEAR_CHIP_COUPLE_SLICE",
+        "oracle": "CITED_BIND",
+        "engine_truth": "IRON_SIM_MMIO_READBACK",
+        "carrier_id": "scout_A",
+        "traverse_fraction": 0.5,
+        "regolith": {
+          "ingress_disturbance_mult": 1.287715,
+          "ingress_source": "material_physics_bus",
+          "sinkage_mm": 4.216,
+          "sinkage_risk": false,
+          "traverse_feasible": true
+        },
+        "radiation": {
+          "delta_vth_mv": 0.3184,
+          "within_budget": true,
+          "mission_years_at_fraction": 0.5
+        },
+        "chip_stress": {
+          "stress_index": 0.0927,
+          "effective_duty_cap": 0.9768,
+          "headroom_loss_pct": 2.32
+        },
+        "iron_mmio_readback": {
+          "status": "PASS",
+          "ingress_x1e4": 12877,
+          "delta_x1e4": 3184,
+          "stress_x1e4": 927,
+          "duty_x1e4": 9768,
+          "stress_index": 0.0927,
+          "effective_duty_cap": 0.9768,
+          "valid": true,
+          "proof_tier": "IRON_SIM_MMIO_READBACK",
+          "oracle": "iverilog_vvp"
+        },
+        "tabu": "claim MEASURED chip derate",
+        "tick": 6,
+        "source": "iron_mmio_readback",
+        "mmio_mirror": {
+          "proof_tier": "IRON_SIM_MMIO_READBACK",
+          "oracle": "iverilog_vvp",
+          "ingress_x1e4": 12877,
+          "delta_x1e4": 3184,
+          "stress_x1e4": 927,
+          "duty_x1e4": 9768,
+          "valid": true
+        }
+      },
+      "_cursor_before_tick": 2083.333334666667,
+      "lie_pose_motor": {
+        "qw": 1.0,
+        "qx": 0.0,
+        "qy": 0.0,
+        "qz": 0.0,
+        "tx": 2500.000002,
+        "ty": 0.0,
+        "tz": 0.0
+      },
+      "lie_integrator_backend": "lie_symplectic_split_v1",
+      "lie_quat_norm": 1.0,
+      "lie_on_manifold": true,
+      "lunar_physics": {
+        "oracle": "W_regolith_robot_v0",
+        "world_id": "W_regolith_robot_v0",
+        "g_mps2": 1.62,
+        "zone": "massif_traverse",
+        "step_m": 416.6667,
+        "traverse_feasible": true,
+        "sinkage_mm": 4.216,
+        "ingress_disturbance_mult": 1.287715,
+        "contact_pressure_kpa": 2.53,
+        "bearing_class": "MEDIUM",
+        "sinkage_risk": false,
+        "ingress_source": "material_physics_bus",
+        "material_variant_id": "scout_default_medium",
+        "material_id": "pu_ester_shore_90a",
+        "factory_tread_material_id": "pu_ester_shore_90a"
+      },
+      "site_zone": "massif_traverse",
+      "material_physics": {
+        "variant_id": "scout_default_medium",
+        "requested_variant_id": "scout_default_medium",
+        "factory_tread_material_id": "pu_ester_shore_90a",
+        "material_id": "pu_ester_shore_90a",
+        "tread_profile": null,
+        "seal_class": "B3",
+        "seal_ingress_scale": 0.55,
+        "apply_seal": true,
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "step_m": 416.6666666666667,
+        "rover_mass_kg": 50.0,
+        "wheel_diameter_cm": 20.0,
+        "wheel_width_cm": 8.0,
+        "n_wheels": 4,
+        "wheel_class": "SMALL_WHEEL",
+        "ingress_disturbance_mult": 1.287715,
+        "ingress_disturbance_mult_raw": 2.3413,
+        "tread_ingress_factor": 1.0,
+        "sinkage_mm": 4.216,
+        "contact_pressure_kpa": 2.53,
+        "traverse_feasible": true,
+        "terramech": {
+          "meters": 416.667,
+          "zone": "massif_traverse",
+          "n_wheels": 4,
+          "wheel": {
+            "wheel_diameter_cm": 20.0,
+            "bekker_flat_plate_ok": false,
+            "wheel_class": "SMALL_WHEEL",
+            "model": "sigma = k_hat * z^n_hat * D^m_hat",
+            "oracle": "CITED_BIND",
+            "l0_cites": [
+              "MEIRION-GRIFFITH-ISTVS-2011-L0-01"
+            ],
+            "source_slug": "intake-c2-meirion-griffith-istvs"
+          },
+          "contact_pressure_kpa": 2.53,
+          "sinkage_mm": 4.216,
+          "kls1_p_kpa": 2.531,
+          "bearing": {
+            "bearing_class": "MEDIUM",
+            "contact_pressure_kpa": 2.53,
+            "q_c_at_depth_kpa": 3.0,
+            "tier_q_band_30mm_kpa": [
+              90.0,
+              250.0
+            ],
+            "pressure_ratio": 0.0149,
+            "sinkage_risk": false,
+            "slope_deg": 12.0,
+            "slope_limit_deg": 15.0,
+            "slope_ok": true,
+            "traverse_feasible": true,
+            "oracle": "ADAPT_GAP_MR_11",
+            "l0_cites": [
+              "GAP-MR-11",
+              "L0-MR11-02",
+              "L0-MR11-04"
+            ],
+            "closure_source": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/GAP_MR_11_ADAPT_CLOSURE_v1.json"
+          },
+          "ingress_disturbance_mult": 2.3413,
+          "traverse_feasible": true,
+          "l0_cites": [
+            "KIM-JASS-2021-TABLE3",
+            "MEIRION-GRIFFITH-ISTVS-2011-L0-01",
+            "GAP-MR-11"
+          ],
+          "oracle": "CITED_BIND"
+        },
+        "proof_tier": "MATERIAL_PHYSICS_PORT_SLICE",
+        "oracle": "W_regolith_robot_v0",
+        "registry": "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json",
+        "catalog_tier": "CITED_BIND",
+        "material_keys": [
+          "wheel_tread",
+          "joint_seal"
+        ]
+      }
+    },
+    "scout_B": {
+      "carrier_id": "scout_B",
+      "phase": "done",
+      "command": "idle",
+      "segment_start_m": 2500.0,
+      "segment_end_m": 5000.0,
+      "cursor_m": 5000.000002666667,
+      "ticks": 6,
+      "map_hash": "f91906c6bae1bf4d",
+      "handoff_packet": null,
+      "manipulator_phase": "idle",
+      "manipulator_command": "idle",
+      "joint_positions_rad": [
+        0.2,
+        0.3,
+        -0.1
+      ],
+      "joint_velocities_rad_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "joint_torques_nm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "joint_positions_target_rad": [
+        0.2,
+        0.3,
+        -0.1
+      ],
+      "ee_pose": {
+        "ee_x": 0.0,
+        "ee_y": 0.0,
+        "ee_theta": 0.0
+      },
+      "ee_pose_motor": null,
+      "ee_pose_motor128_hex": null,
+      "manipulator_backend": "manipulator_rust_serial_arm_v1",
+      "manipulator_mutex": null,
+      "manipulator_material_bind": null,
+      "manipulator_material_derate": null,
+      "manipulator_torque_scale": 1.0,
+      "manipulator_governance_hold": null,
+      "ee_pose_world_motor": null,
+      "construct_work_zone": null,
+      "construct_arm_mutex": null,
+      "grasp_bind": null,
+      "grasp_state": null,
+      "grasp_command_force_n": null,
+      "grasp_envelope": null,
+      "joint_encoder_counts": null,
+      "iron_hal_mmio": null,
+      "wear_chip": {
+        "proof_tier": "WEAR_CHIP_COUPLE_SLICE",
+        "oracle": "CITED_BIND",
+        "engine_truth": "IRON_SIM_MMIO_READBACK",
+        "carrier_id": "scout_B",
+        "traverse_fraction": 1.0,
+        "regolith": {
+          "ingress_disturbance_mult": 1.287715,
+          "ingress_source": "material_physics_bus",
+          "sinkage_mm": 4.216,
+          "sinkage_risk": false,
+          "traverse_feasible": true
+        },
+        "radiation": {
+          "delta_vth_mv": 0.6369,
+          "within_budget": true,
+          "mission_years_at_fraction": 1.0
+        },
+        "chip_stress": {
+          "stress_index": 0.099,
+          "effective_duty_cap": 0.9753,
+          "headroom_loss_pct": 2.47
+        },
+        "iron_mmio_readback": {
+          "status": "PASS",
+          "ingress_x1e4": 12877,
+          "delta_x1e4": 6369,
+          "stress_x1e4": 990,
+          "duty_x1e4": 9753,
+          "stress_index": 0.099,
+          "effective_duty_cap": 0.9753,
+          "valid": true,
+          "proof_tier": "IRON_SIM_MMIO_READBACK",
+          "oracle": "iverilog_vvp"
+        },
+        "tabu": "claim MEASURED chip derate",
+        "tick": 6,
+        "source": "iron_mmio_readback",
+        "mmio_mirror": {
+          "proof_tier": "IRON_SIM_MMIO_READBACK",
+          "oracle": "iverilog_vvp",
+          "ingress_x1e4": 12877,
+          "delta_x1e4": 6369,
+          "stress_x1e4": 990,
+          "duty_x1e4": 9753,
+          "valid": true
+        }
+      },
+      "_cursor_before_tick": 4583.333335666666,
+      "lie_pose_motor": {
+        "qw": 1.0,
+        "qx": 0.0,
+        "qy": 0.0,
+        "qz": 0.0,
+        "tx": 2500.000003,
+        "ty": 0.0,
+        "tz": 0.0
+      },
+      "lie_integrator_backend": "lie_symplectic_split_v1",
+      "lie_quat_norm": 1.0,
+      "lie_on_manifold": true,
+      "lunar_physics": {
+        "oracle": "W_regolith_robot_v0",
+        "world_id": "W_regolith_robot_v0",
+        "g_mps2": 1.62,
+        "zone": "massif_traverse",
+        "step_m": 416.6667,
+        "traverse_feasible": true,
+        "sinkage_mm": 4.216,
+        "ingress_disturbance_mult": 1.287715,
+        "contact_pressure_kpa": 2.53,
+        "bearing_class": "MEDIUM",
+        "sinkage_risk": false,
+        "ingress_source": "material_physics_bus",
+        "material_variant_id": "scout_default_medium",
+        "material_id": "pu_ester_shore_90a",
+        "factory_tread_material_id": "pu_ester_shore_90a"
+      },
+      "site_zone": "massif_traverse",
+      "material_physics": {
+        "variant_id": "scout_default_medium",
+        "requested_variant_id": "scout_default_medium",
+        "factory_tread_material_id": "pu_ester_shore_90a",
+        "material_id": "pu_ester_shore_90a",
+        "tread_profile": null,
+        "seal_class": "B3",
+        "seal_ingress_scale": 0.55,
+        "apply_seal": true,
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse",
+        "step_m": 416.6666666666667,
+        "rover_mass_kg": 50.0,
+        "wheel_diameter_cm": 20.0,
+        "wheel_width_cm": 8.0,
+        "n_wheels": 4,
+        "wheel_class": "SMALL_WHEEL",
+        "ingress_disturbance_mult": 1.287715,
+        "ingress_disturbance_mult_raw": 2.3413,
+        "tread_ingress_factor": 1.0,
+        "sinkage_mm": 4.216,
+        "contact_pressure_kpa": 2.53,
+        "traverse_feasible": true,
+        "terramech": {
+          "meters": 416.667,
+          "zone": "massif_traverse",
+          "n_wheels": 4,
+          "wheel": {
+            "wheel_diameter_cm": 20.0,
+            "bekker_flat_plate_ok": false,
+            "wheel_class": "SMALL_WHEEL",
+            "model": "sigma = k_hat * z^n_hat * D^m_hat",
+            "oracle": "CITED_BIND",
+            "l0_cites": [
+              "MEIRION-GRIFFITH-ISTVS-2011-L0-01"
+            ],
+            "source_slug": "intake-c2-meirion-griffith-istvs"
+          },
+          "contact_pressure_kpa": 2.53,
+          "sinkage_mm": 4.216,
+          "kls1_p_kpa": 2.531,
+          "bearing": {
+            "bearing_class": "MEDIUM",
+            "contact_pressure_kpa": 2.53,
+            "q_c_at_depth_kpa": 3.0,
+            "tier_q_band_30mm_kpa": [
+              90.0,
+              250.0
+            ],
+            "pressure_ratio": 0.0149,
+            "sinkage_risk": false,
+            "slope_deg": 12.0,
+            "slope_limit_deg": 15.0,
+            "slope_ok": true,
+            "traverse_feasible": true,
+            "oracle": "ADAPT_GAP_MR_11",
+            "l0_cites": [
+              "GAP-MR-11",
+              "L0-MR11-02",
+              "L0-MR11-04"
+            ],
+            "closure_source": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/GAP_MR_11_ADAPT_CLOSURE_v1.json"
+          },
+          "ingress_disturbance_mult": 2.3413,
+          "traverse_feasible": true,
+          "l0_cites": [
+            "KIM-JASS-2021-TABLE3",
+            "MEIRION-GRIFFITH-ISTVS-2011-L0-01",
+            "GAP-MR-11"
+          ],
+          "oracle": "CITED_BIND"
+        },
+        "proof_tier": "MATERIAL_PHYSICS_PORT_SLICE",
+        "oracle": "W_regolith_robot_v0",
+        "registry": "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json",
+        "catalog_tier": "CITED_BIND",
+        "material_keys": [
+          "wheel_tread",
+          "joint_seal"
+        ]
+      }
+    }
+  },
+  "situation_pool": {
+    "valid": true,
+    "map_hash": "f91906c6bae1bf4d",
+    "cursor_m": 2500.0000016666663,
+    "donor_id": "scout_A"
+  },
+  "handoff_log": [
+    {
+      "handoff_id": "ho-234d169d",
+      "event": "ack",
+      "recipient_id": "scout_B"
+    }
+  ],
+  "updated_utc": "2026-07-17T15:55:40.594354+00:00",
+  "clifford_bind": {
+    "proof_tier": "ENGINE_SIM",
+    "profile_id": "lunar_crater_5km",
+    "stack_replay_hash": "be6455ad23c2d538",
+    "map_ledger_hash": "f91906c6bae1bf4d",
+    "pose_motor128": {
+      "qw": 0.98774388,
+      "qx": 0.0155335,
+      "qy": 0.00779306,
+      "qz": 0.15511289,
+      "tx": 1.19813032,
+      "ty": 0.3964765,
+      "tz": 0.14856223
+    },
+    "event_front_cursor": 1,
+    "mission_tick": 0,
+    "phi_macro_tick": 0,
+    "phase_b_verdict": "PASS",
+    "oracle": "DATASET_ENGINE_SIM"
+  },
+  "lie_integrator": {
+    "enabled": true,
+    "backend": "lie_symplectic_split_v1",
+    "contract": "fixtures/robot/lie_integrator_port_v0.json",
+    "proof_tier": "LIE_INTEGRATOR_PORT_SLICE"
+  },
+  "wear_chip_bus": {
+    "enabled": true,
+    "proof_tier": "WEAR_CHIP_COUPLE_SLICE",
+    "oracle": "CITED_BIND",
+    "engine_truth": "IRON_SIM_MMIO",
+    "iron_mmio_enabled": true,
+    "iron_mmio_tick_count": 12,
+    "tick_log_len": 12,
+    "rows_by_carrier": {
+      "scout_A": {
+        "proof_tier": "WEAR_CHIP_COUPLE_SLICE",
+        "oracle": "CITED_BIND",
+        "engine_truth": "IRON_SIM_MMIO_READBACK",
+        "carrier_id": "scout_A",
+        "traverse_fraction": 0.5,
+        "regolith": {
+          "ingress_disturbance_mult": 1.287715,
+          "ingress_source": "material_physics_bus",
+          "sinkage_mm": 4.216,
+          "sinkage_risk": false,
+          "traverse_feasible": true
+        },
+        "radiation": {
+          "delta_vth_mv": 0.3184,
+          "within_budget": true,
+          "mission_years_at_fraction": 0.5
+        },
+        "chip_stress": {
+          "stress_index": 0.0927,
+          "effective_duty_cap": 0.9768,
+          "headroom_loss_pct": 2.32
+        },
+        "iron_mmio_readback": {
+          "status": "PASS",
+          "ingress_x1e4": 12877,
+          "delta_x1e4": 3184,
+          "stress_x1e4": 927,
+          "duty_x1e4": 9768,
+          "stress_index": 0.0927,
+          "effective_duty_cap": 0.9768,
+          "valid": true,
+          "proof_tier": "IRON_SIM_MMIO_READBACK",
+          "oracle": "iverilog_vvp"
+        },
+        "tabu": "claim MEASURED chip derate",
+        "tick": 6,
+        "source": "iron_mmio_readback",
+        "mmio_mirror": {
+          "proof_tier": "IRON_SIM_MMIO_READBACK",
+          "oracle": "iverilog_vvp",
+          "ingress_x1e4": 12877,
+          "delta_x1e4": 3184,
+          "stress_x1e4": 927,
+          "duty_x1e4": 9768,
+          "valid": true
+        }
+      },
+      "scout_B": {
+        "proof_tier": "WEAR_CHIP_COUPLE_SLICE",
+        "oracle": "CITED_BIND",
+        "engine_truth": "IRON_SIM_MMIO_READBACK",
+        "carrier_id": "scout_B",
+        "traverse_fraction": 1.0,
+        "regolith": {
+          "ingress_disturbance_mult": 1.287715,
+          "ingress_source": "material_physics_bus",
+          "sinkage_mm": 4.216,
+          "sinkage_risk": false,
+          "traverse_feasible": true
+        },
+        "radiation": {
+          "delta_vth_mv": 0.6369,
+          "within_budget": true,
+          "mission_years_at_fraction": 1.0
+        },
+        "chip_stress": {
+          "stress_index": 0.099,
+          "effective_duty_cap": 0.9753,
+          "headroom_loss_pct": 2.47
+        },
+        "iron_mmio_readback": {
+          "status": "PASS",
+          "ingress_x1e4": 12877,
+          "delta_x1e4": 6369,
+          "stress_x1e4": 990,
+          "duty_x1e4": 9753,
+          "stress_index": 0.099,
+          "effective_duty_cap": 0.9753,
+          "valid": true,
+          "proof_tier": "IRON_SIM_MMIO_READBACK",
+          "oracle": "iverilog_vvp"
+        },
+        "tabu": "claim MEASURED chip derate",
+        "tick": 6,
+        "source": "iron_mmio_readback",
+        "mmio_mirror": {
+          "proof_tier": "IRON_SIM_MMIO_READBACK",
+          "oracle": "iverilog_vvp",
+          "ingress_x1e4": 12877,
+          "delta_x1e4": 6369,
+          "stress_x1e4": 990,
+          "duty_x1e4": 9753,
+          "valid": true
+        }
+      }
+    },
+    "terminal_row": {
+      "proof_tier": "WEAR_CHIP_COUPLE_SLICE",
+      "oracle": "CITED_BIND",
+      "engine_truth": "IRON_SIM_MMIO_READBACK",
+      "carrier_id": "scout_B",
+      "traverse_fraction": 1.0,
+      "regolith": {
+        "ingress_disturbance_mult": 1.287715,
+        "ingress_source": "material_physics_bus",
+        "sinkage_mm": 4.216,
+        "sinkage_risk": false,
+        "traverse_feasible": true
+      },
+      "radiation": {
+        "delta_vth_mv": 0.6369,
+        "within_budget": true,
+        "mission_years_at_fraction": 1.0
+      },
+      "chip_stress": {
+        "stress_index": 0.099,
+        "effective_duty_cap": 0.9753,
+        "headroom_loss_pct": 2.47
+      },
+      "iron_mmio_readback": {
+        "status": "PASS",
+        "ingress_x1e4": 12877,
+        "delta_x1e4": 6369,
+        "stress_x1e4": 990,
+        "duty_x1e4": 9753,
+        "stress_index": 0.099,
+        "effective_duty_cap": 0.9753,
+        "valid": true,
+        "proof_tier": "IRON_SIM_MMIO_READBACK",
+        "oracle": "iverilog_vvp"
+      },
+      "tabu": "claim MEASURED chip derate",
+      "tick": 6,
+      "source": "iron_mmio_readback",
+      "mmio_mirror": {
+        "proof_tier": "IRON_SIM_MMIO_READBACK",
+        "oracle": "iverilog_vvp",
+        "ingress_x1e4": 12877,
+        "delta_x1e4": 6369,
+        "stress_x1e4": 990,
+        "duty_x1e4": 9753,
+        "valid": true
+      }
+    },
+    "last_carrier_id": "scout_B"
+  },
+  "wear_policy": {
+    "enabled": true,
+    "proof_tier": "WEAR_POLICY_COUPLE_SLICE",
+    "oracle": "CITED_BIND"
+  },
+  "cmc_mmio": {
+    "proof_tier": "MMIO_LIVE_BIND",
+    "iron_map": "IRON_SIM_MMIO_MAP",
+    "registers": {
+      "0x04": 65,
+      "0x08": 3135356749,
+      "0x0c": 4179166918,
+      "0x10": 2500,
+      "0x14": 65,
+      "0x28": 12877,
+      "0x2c": 6369,
+      "0x30": 990,
+      "0x34": 9753,
+      "0x38": 1
+    },
+    "pool_valid": true,
+    "wear_iron_readback": {
+      "proof_tier": "IRON_SIM_MMIO_READBACK",
+      "oracle": "iverilog_vvp",
+      "ingress_x1e4": 12877,
+      "delta_x1e4": 6369,
+      "stress_x1e4": 990,
+      "duty_x1e4": 9753,
+      "valid": true
+    }
+  }
+}

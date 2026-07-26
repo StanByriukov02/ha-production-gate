@@ -1,0 +1,49 @@
+{
+  "compositor_id": "world_runtime_compositor_v1",
+  "timestamp_utc": "2026-06-30T06:00:00+00:00",
+  "canon": "docs/agent_workflow/JOURNAL_2026-06-30_DAY_OPEN_V1.md",
+  "layers": {
+    "L0_iron_hud": {
+      "label": "Iron HUD",
+      "visible": true,
+      "bind": "iron_strip · struct/mapped/φ/WNS/μs · pose_bind"
+    },
+    "L1_iron_rails": {
+      "label": "Iron pose polylines",
+      "visible": true,
+      "sources": [
+        "domains.earth_combat_500m.points",
+        "domains.moon_shackleton.points"
+      ]
+    },
+    "L2_slam_lc2": {
+      "label": "LC2 / SLAM overlay",
+      "visible": true,
+      "overlay": "fixtures/twin/clifford_pose_overlay_v1.json",
+      "honesty": "pose_bind only · no world_sync"
+    },
+    "L3_mission_zones": {
+      "label": "Mission segment colors",
+      "visible": true,
+      "zones": {
+        "rim_sun": "#ffc947",
+        "massif_traverse": "#ff8c42",
+        "psr_floor": "#4466cc"
+      }
+    },
+    "L4_honesty": {
+      "label": "WORLD_PHYSICS_SIM badge",
+      "visible": true,
+      "not_measured_iron": true
+    }
+  },
+  "keyboard": {
+    "1": "earth",
+    "2": "moon",
+    "3": "toggle L1",
+    "4": "toggle L2",
+    "5": "toggle L3",
+    "6": "toggle L0",
+    "7": "toggle L4"
+  }
+}

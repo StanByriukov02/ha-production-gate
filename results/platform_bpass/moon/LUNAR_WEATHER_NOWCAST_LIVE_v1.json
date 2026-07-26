@@ -1,0 +1,104 @@
+{
+  "receipt_id": "LUNAR_WEATHER_NOWCAST_LIVE_v1",
+  "timestamp_utc": "2026-06-20T19:07:27.304007+00:00",
+  "site_id": "shackleton_rim",
+  "regime_id": "rim_sunlit",
+  "layers": {
+    "measured": {
+      "tier": "MEASURED_STALE",
+      "site_id": "shackleton_rim",
+      "instrument": "LRO_DIVINER_RDR",
+      "t_surface_k": 56.122,
+      "observation_utc": "2012-04-22T11:56:09.141000+00:00",
+      "age_h": 124135.1884,
+      "age_class": "ANCIENT",
+      "fresh": false,
+      "confidence": "LOW",
+      "lat_deg": -89.61767,
+      "lon_deg": 129.26395,
+      "distance_deg2": 0.009485,
+      "orbit": 13011,
+      "source": "ODE_GDS_VSI_TAB",
+      "product_year": 2012,
+      "tab_url": "https://oderest.rsl.wustl.edu/output/20260619t132508033/DivinerRDR_-90N-90N_129E129E_20260619T132511188.tab",
+      "oracle": "CITED_BIND",
+      "l0_cites": [
+        "SK-12",
+        "DIVINER_RDR",
+        "ODE_GDS"
+      ]
+    },
+    "sun_now": {
+      "timestamp_utc": "2026-06-20T19:07:27.304007+00:00",
+      "ephemeris_tier": "BIND_FALLBACK",
+      "site_lat_deg": -89.655,
+      "site_lon_deg": 129.174,
+      "sun_elevation_deg": 8.7773,
+      "illum_eff": 0.2158,
+      "illum_frac": 0.207168,
+      "oblique_solar_scale": 0.2158,
+      "lunar_half_period_h": 354.0,
+      "lunar_day_h": 708.0,
+      "t_lunar_h": 231888.8909,
+      "lunar_phase_half": 0.053364,
+      "lunar_sol_fraction": 327.526682,
+      "source_detail": "BIND_PHASE_FALLBACK",
+      "horizons_error": null,
+      "oracle": "CITED_BIND",
+      "l0_cites": [
+        "SK-15",
+        "SK-16",
+        "THERMAL_TRANSIENT_BIND"
+      ]
+    },
+    "nowcast": {
+      "tier": "NOWCAST",
+      "t_surface_k": 200.0,
+      "t_subsurface_k": 220.0,
+      "subsurface_lag_k": 20.0,
+      "q_in_w_m2": -80.313,
+      "forward_integrate_h": 12.0,
+      "forward_mode": "STALE_ANCHOR_BOOTSTRAP",
+      "integrator_steps": 48,
+      "void_bootstrap": true,
+      "envelope_clamped": true,
+      "t_surface_raw_k": 199.6109
+    }
+  },
+  "lunar_timeline": {
+    "t_lunar_h": 231888.8909,
+    "lunar_half_period_h": 354.0,
+    "lunar_day_h": 708.0,
+    "lunar_phase_half": 0.053364,
+    "lunar_sol_fraction": 327.526682
+  },
+  "thermal_envelope_k": [
+    200.0,
+    330.0
+  ],
+  "falsifier": {
+    "envelope_ok": true,
+    "envelope_clamped": true,
+    "t_surface_raw_k": 199.6109,
+    "assim_delta_k": 143.878,
+    "assim_within_5k": false,
+    "measured_tier": "MEASURED_STALE",
+    "measured_fresh": false,
+    "measured_age_class": "ANCIENT",
+    "forward_h": 12.0,
+    "forward_mode": "STALE_ANCHOR_BOOTSTRAP",
+    "void_bootstrap": true
+  },
+  "verdict": "DEGRADED",
+  "oracle": "CITED_BIND",
+  "bind": "results/platform_bpass/moon/LUNAR_WEATHER_BIND_v1.json",
+  "integrator": "universe_env_thermal_column_v1.step_column_implicit_1d",
+  "l0_cites": [
+    "SK-12",
+    "SK-15",
+    "SK-16",
+    "DIVINER_RDR",
+    "THERMAL_TRANSIENT_BIND",
+    "ODE_GDS"
+  ]
+}

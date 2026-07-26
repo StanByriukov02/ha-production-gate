@@ -1,0 +1,61 @@
+{
+  "schema": "ha_acoustic_wave_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "v_p=sqrt((K+4/3 G)/ρ); v_s=sqrt(G/ρ); atten T=exp(-α L)",
+  "units": {
+    "v": "m/s",
+    "K": "Pa",
+    "G": "Pa",
+    "rho": "kg/m^3",
+    "alpha": "1/m",
+    "L": "m"
+  },
+  "on_sources": [
+    {
+      "id": "elastic_wave_speeds",
+      "cite": "isotropic linear elastic vp=√((K+4/3G)/ρ) · vs=√(G/ρ)",
+      "used": ["vp", "vs"]
+    },
+    {
+      "id": "beer_atten",
+      "cite": "teaching exponential attenuation T=e^{-αL}",
+      "used": ["transmittance"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate acoustic-wave --catalog <path> --medium <id> --path-m <L>"
+  },
+  "honesty": [
+    "teaching elastic wave speeds — not full seismogram / FEM",
+    "α catalog teaching — not MEASURED lunar seismic Q",
+    "python_not_oracle"
+  ],
+  "media": {
+    "regolith_soft": {
+      "K_pa": 2.0e7,
+      "G_pa": 5.0e6,
+      "rho_kg_m3": 1500.0,
+      "alpha_per_m": 0.08
+    },
+    "basalt_firm": {
+      "K_pa": 5.0e10,
+      "G_pa": 3.0e10,
+      "rho_kg_m3": 2800.0,
+      "alpha_per_m": 0.002
+    }
+  },
+  "defaults": {
+    "medium": "regolith_soft",
+    "path_m": 10.0
+  },
+  "dual_anchors": {
+    "safe_medium": "basalt_firm",
+    "hostile_medium": "regolith_soft",
+    "path_m": 10.0
+  },
+  "gates": {
+    "path_m_min": 0.0,
+    "path_m_max": 1.0e5
+  }
+}

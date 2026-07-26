@@ -1,0 +1,1091 @@
+{
+  "bind_id": "event_catalog_bind_v1",
+  "catalog_id": "UNIVERSE_EVENT_CATALOG_v1",
+  "oracle": "CITED_BIND",
+  "gate": "U1",
+  "version": 1,
+  "vault_canon": "06_2BRAIN/DOGFOOD/chain/UNIVERSE_KERNEL_V0_SPEC_V1.md",
+  "law_registry": "results/platform_bpass/universe/law_registry_v1.json",
+  "env_driver_bind": "results/platform_bpass/universe/ENV_DRIVER_BIND_v1.json",
+  "scale_classes": [
+    "micro",
+    "meso",
+    "macro",
+    "cosmic"
+  ],
+  "coupling_targets": [
+    "chip_fet",
+    "chip_wear",
+    "robot_joint",
+    "robot_wheel",
+    "panel_dut",
+    "habitat_thermal",
+    "regolith_coupon"
+  ],
+  "rate_prior_types": [
+    "poisson",
+    "deterministic",
+    "stratified_uniform",
+    "adversarial_corner"
+  ],
+  "maturity_note": "L2-L5 moon lumped thermal SHIPPED in MOON_REALISM_MATURITY_v1 — PARK only full PIC/BTE grid/FEM benchmark",
+  "events": [
+    {
+      "event_id": "EVT-u-01",
+      "name": "see_proton_strike_fet",
+      "scale_class": "micro",
+      "law_id": "L_MAXWELL",
+      "coupling_targets": [
+        "chip_fet",
+        "chip_wear"
+      ],
+      "backend": "dogfood_platform.lunar_radiation_fet_v1",
+      "driver_vector": {
+        "solar": 0.0,
+        "vacuum_thermal": 1.0,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "see_mv_per_event": 0.8,
+        "dose_gy": 0.001
+      },
+      "parameter_envelope": {
+        "see_count": {
+          "min": 1,
+          "max": 5
+        },
+        "dose_gy": {
+          "min": 0.0001,
+          "max": 0.01
+        }
+      },
+      "rate_prior": "poisson",
+      "l0_cites": [
+        "RADIATION_FET_COEFF_BIND",
+        "IEC_62416_DVTH_50MV"
+      ],
+      "falsifier": "see increment shifts delta_vth_mv within budget band"
+    },
+    {
+      "event_id": "EVT-u-02",
+      "name": "tid_dose_step",
+      "scale_class": "micro",
+      "law_id": "L_MAXWELL",
+      "coupling_targets": [
+        "chip_fet"
+      ],
+      "backend": "dogfood_platform.lunar_radiation_fet_v1",
+      "driver_vector": {
+        "solar": 0.2,
+        "vacuum_thermal": 0.8,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "dose_mv_per_gy": 2.5,
+        "dose_gy": 0.1
+      },
+      "parameter_envelope": {
+        "dose_gy": {
+          "min": 0.01,
+          "max": 1.0
+        }
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "RADIATION_FET_COEFF_BIND"
+      ],
+      "falsifier": "dose_gy monotonic vs radiation_delta_vth"
+    },
+    {
+      "event_id": "EVT-u-03",
+      "name": "gate_wear_micro_pulse",
+      "scale_class": "micro",
+      "law_id": "L_GENERIC",
+      "coupling_targets": [
+        "chip_wear"
+      ],
+      "backend": "dogfood_platform.exp_m4_01",
+      "driver_vector": {
+        "solar": 0.0,
+        "vacuum_thermal": 0.5,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "delta_vth_mv": 0.5
+      },
+      "parameter_envelope": {
+        "duty_pulse": {
+          "min": 0.1,
+          "max": 1.0
+        }
+      },
+      "rate_prior": "poisson",
+      "l0_cites": [
+        "EXP-M4-01",
+        "L_GENERIC"
+      ],
+      "falsifier": "duty change moves wear oracle"
+    },
+    {
+      "event_id": "EVT-u-04",
+      "name": "tribo_electron_discharge",
+      "scale_class": "micro",
+      "law_id": "L_MAXWELL",
+      "coupling_targets": [
+        "panel_dut",
+        "regolith_coupon"
+      ],
+      "backend": "dogfood_platform.lunar_dust_ingress_v1",
+      "driver_vector": {
+        "solar": 0.3,
+        "vacuum_thermal": 0.0,
+        "dust_charge": 1.0
+      },
+      "typical_numbers": {
+        "electrostatic_index": 0.85,
+        "q_scale": 1.0
+      },
+      "parameter_envelope": {
+        "e_index_scale": {
+          "min": 0.5,
+          "max": 1.5
+        }
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "STUBBS-2006-L0-05",
+        "COLWELL-2007-L0-08"
+      ],
+      "falsifier": "e_index in stubbs band"
+    },
+    {
+      "event_id": "EVT-u-05",
+      "name": "phonon_thermal_spike",
+      "scale_class": "micro",
+      "law_id": "L_POISSON",
+      "coupling_targets": [
+        "chip_wear",
+        "habitat_thermal"
+      ],
+      "backend": "dogfood_platform.lunar_regolith_thermal_v1",
+      "driver_vector": {
+        "solar": 0.0,
+        "vacuum_thermal": 1.0,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "delta_t_k": 5.0,
+        "k_w_mk": 0.022
+      },
+      "parameter_envelope": {
+        "delta_t_k": {
+          "min": 1.0,
+          "max": 30.0
+        }
+      },
+      "rate_prior": "poisson",
+      "l0_cites": [
+        "HEIKEN-L0-05",
+        "REGOLITH_THERMAL_BIND"
+      ],
+      "falsifier": "k(T) path changes junction proxy"
+    },
+    {
+      "event_id": "EVT-u-06",
+      "name": "negf_tail_perturbation",
+      "scale_class": "micro",
+      "law_id": "L_POISSON",
+      "coupling_targets": [
+        "chip_fet"
+      ],
+      "backend": "dogfood_platform.exp_m1_02_negf_tile_v1",
+      "driver_vector": {
+        "solar": 0.0,
+        "vacuum_thermal": 0.3,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "tail_spread_error_mv": 18.0
+      },
+      "parameter_envelope": {
+        "tail_perturb_frac": {
+          "min": 0.0,
+          "max": 0.2
+        }
+      },
+      "rate_prior": "deterministic",
+      "l0_cites": [
+        "NEGF_TILE_GATE_G1"
+      ],
+      "falsifier": "tail within G1 band"
+    },
+    {
+      "event_id": "EVT-u-07",
+      "name": "fab_seed_geometry_draw",
+      "scale_class": "micro",
+      "law_id": "L_STOCHASTIC",
+      "coupling_targets": [
+        "chip_fet"
+      ],
+      "backend": "dogfood_platform.exp_m1_03_seed_bank_v1",
+      "driver_vector": {
+        "solar": 0.0,
+        "vacuum_thermal": 0.0,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "tail_spread_error_mv": 5.0
+      },
+      "parameter_envelope": {
+        "seed_index": {
+          "min": 0,
+          "max": 99
+        }
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "SEED_BANK_GATE_G2"
+      ],
+      "falsifier": "ensemble tail within budget"
+    },
+    {
+      "event_id": "EVT-u-08",
+      "name": "capacitive_sense_grain",
+      "scale_class": "micro",
+      "law_id": "L_MAXWELL",
+      "coupling_targets": [
+        "panel_dut"
+      ],
+      "backend": "dogfood_platform.arena.eds_2r_sense_v1",
+      "driver_vector": {
+        "solar": 0.1,
+        "vacuum_thermal": 0.0,
+        "dust_charge": 0.8
+      },
+      "typical_numbers": {
+        "dust_layer_um": 10.0,
+        "delta_c_frac": -0.05
+      },
+      "parameter_envelope": {
+        "dust_layer_um": {
+          "min": 0.0,
+          "max": 50.0
+        }
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "EDS_2R_GEOMETRY_BIND"
+      ],
+      "falsifier": "dust lowers C"
+    },
+    {
+      "event_id": "EVT-m-01",
+      "name": "dust_grain_wheel_impact",
+      "scale_class": "meso",
+      "law_id": "L_HAMILTON",
+      "coupling_targets": [
+        "robot_wheel"
+      ],
+      "backend": "dogfood_platform.lunar_wheel_locomotion_v1",
+      "driver_vector": {
+        "solar": 0.1,
+        "vacuum_thermal": 0.0,
+        "dust_charge": 0.9
+      },
+      "typical_numbers": {
+        "ingress_g_m2": 0.12,
+        "sinkage_mm": 2.0
+      },
+      "parameter_envelope": {
+        "mass_loading_g_m2": {
+          "min": 0.05,
+          "max": 1.0
+        }
+      },
+      "rate_prior": "poisson",
+      "l0_cites": [
+        "DUST_INGRESS_BIND",
+        "KLS1_BEVAMETER"
+      ],
+      "falsifier": "loading increases wheel stress proxy"
+    },
+    {
+      "event_id": "EVT-m-02",
+      "name": "joint_electrostatic_jam",
+      "scale_class": "meso",
+      "law_id": "L_STOCHASTIC",
+      "coupling_targets": [
+        "robot_joint"
+      ],
+      "backend": "dogfood_platform.lunar_robot_articulation_v1",
+      "driver_vector": {
+        "solar": 0.2,
+        "vacuum_thermal": 0.0,
+        "dust_charge": 1.0
+      },
+      "typical_numbers": {
+        "soiling_frac": 0.25,
+        "seal_class": "B3"
+      },
+      "parameter_envelope": {
+        "n_sols": {
+          "min": 5.0,
+          "max": 60.0
+        }
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "DUST_INGRESS_BIND",
+        "BENAROYA-L0-06"
+      ],
+      "falsifier": "ingress monotonic in n_sols"
+    },
+    {
+      "event_id": "EVT-m-03",
+      "name": "panel_soiling_increment",
+      "scale_class": "meso",
+      "law_id": "L_POISSON",
+      "coupling_targets": [
+        "panel_dut"
+      ],
+      "backend": "dogfood_platform.chamber.chamber_dust_coupon_v1",
+      "driver_vector": {
+        "solar": 0.5,
+        "vacuum_thermal": 0.3,
+        "dust_charge": 0.7
+      },
+      "typical_numbers": {
+        "mass_loading_g_m2": 0.5,
+        "soiling_frac": 0.25
+      },
+      "parameter_envelope": {
+        "mass_loading_g_m2": {
+          "min": 0.05,
+          "max": 1.5
+        }
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "CHAMBER_SIMULANT_BIND",
+        "ORACLE_SEC_D2"
+      ],
+      "falsifier": "delta_c < 0 when soiled"
+    },
+    {
+      "event_id": "EVT-m-04",
+      "name": "eds_transport_pulse",
+      "scale_class": "meso",
+      "law_id": "L_MAXWELL",
+      "coupling_targets": [
+        "panel_dut",
+        "regolith_coupon"
+      ],
+      "backend": "dogfood_platform.arena.eds_2r_transport_v1",
+      "driver_vector": {
+        "solar": 0.2,
+        "vacuum_thermal": 0.0,
+        "dust_charge": 0.8
+      },
+      "typical_numbers": {
+        "drift_mm": 0.006,
+        "q_proxy": 1.0
+      },
+      "parameter_envelope": {
+        "q_transport_scale": {
+          "min": 0.5,
+          "max": 2.0
+        }
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "EDS_2R_GEOMETRY_BIND",
+        "L_MAXWELL"
+      ],
+      "falsifier": "TW outward bias > idle"
+    },
+    {
+      "event_id": "EVT-m-05",
+      "name": "thermal_shadow_quench",
+      "scale_class": "meso",
+      "law_id": "L_POISSON",
+      "coupling_targets": [
+        "habitat_thermal",
+        "panel_dut"
+      ],
+      "backend": "dogfood_platform.lunar_thermal_l5_v1",
+      "driver_vector": {
+        "solar": 0.8,
+        "vacuum_thermal": 0.9,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "t_surf_k": 220.0,
+        "q_net_w_m2": -1000.0
+      },
+      "parameter_envelope": {
+        "illum_frac": {
+          "min": 0.0,
+          "max": 1.0
+        }
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "VACUUM_RADIATIVE_BC_BIND",
+        "SK-12"
+      ],
+      "falsifier": "rim q_solar > psr at matched emissivity"
+    },
+    {
+      "event_id": "EVT-m-06",
+      "name": "wheel_sinkage_bearing",
+      "scale_class": "meso",
+      "law_id": "L_HAMILTON",
+      "coupling_targets": [
+        "robot_wheel"
+      ],
+      "backend": "dogfood_platform.lunar_regolith_bearing_v1",
+      "driver_vector": {
+        "solar": 0.0,
+        "vacuum_thermal": 0.2,
+        "dust_charge": 0.5
+      },
+      "typical_numbers": {
+        "sinkage_mm": 3.0,
+        "cone_index_kpa_mm": 0.8
+      },
+      "parameter_envelope": {
+        "wheel_load_n": {
+          "min": 50.0,
+          "max": 500.0
+        }
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "GAP-MR-11",
+        "KLS1_BEVAMETER"
+      ],
+      "falsifier": "compact rho increases sinkage class"
+    },
+    {
+      "event_id": "EVT-m-07",
+      "name": "psr_ice_leg_thermal",
+      "scale_class": "meso",
+      "law_id": "L_POISSON",
+      "coupling_targets": [
+        "habitat_thermal"
+      ],
+      "backend": "dogfood_platform.lunar_psr_thermal_column_v1",
+      "driver_vector": {
+        "solar": 0.0,
+        "vacuum_thermal": 1.0,
+        "dust_charge": 0.1
+      },
+      "typical_numbers": {
+        "t_floor_k": 70.0,
+        "k_eff_drop": 0.3
+      },
+      "parameter_envelope": {
+        "ice_frac": {
+          "min": 0.0,
+          "max": 0.4
+        }
+      },
+      "rate_prior": "deterministic",
+      "l0_cites": [
+        "PSR_THERMAL_COLUMN_BIND",
+        "GAP-MR-05"
+      ],
+      "falsifier": "cryo leg lowers k_eff vs legacy"
+    },
+    {
+      "event_id": "EVT-m-08",
+      "name": "maxwell_field_gap_perturb",
+      "scale_class": "meso",
+      "law_id": "L_MAXWELL",
+      "coupling_targets": [
+        "panel_dut"
+      ],
+      "backend": "dogfood_platform.arena.maxwell_g1_v1",
+      "driver_vector": {
+        "solar": 0.0,
+        "vacuum_thermal": 0.0,
+        "dust_charge": 0.6
+      },
+      "typical_numbers": {
+        "e_peak_per_v": 0.27,
+        "epsilon_r": 3.2
+      },
+      "parameter_envelope": {
+        "gap_inner_scale": {
+          "min": 0.85,
+          "max": 1.15
+        }
+      },
+      "rate_prior": "adversarial_corner",
+      "l0_cites": [
+        "ARENA_MAXWELL_G1_BC_BIND"
+      ],
+      "falsifier": "G0 G1 uniform ratio"
+    },
+    {
+      "event_id": "EVT-M-01",
+      "name": "traverse_sol_dust_load",
+      "scale_class": "macro",
+      "law_id": "L_HAMILTON",
+      "coupling_targets": [
+        "robot_wheel",
+        "robot_joint",
+        "chip_wear"
+      ],
+      "backend": "dogfood_platform.world_regolith_robot_v0",
+      "driver_vector": {
+        "solar": 0.3,
+        "vacuum_thermal": 0.2,
+        "dust_charge": 0.9
+      },
+      "typical_numbers": {
+        "n_sols": 30.0,
+        "meters_per_sol": 100.0
+      },
+      "parameter_envelope": {
+        "n_sols": {
+          "min": 1.0,
+          "max": 60.0
+        },
+        "zone": [
+          "rim_sun",
+          "massif_traverse",
+          "psr_floor"
+        ]
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "DUST_INGRESS_BIND",
+        "W_regolith_robot_v0"
+      ],
+      "falsifier": "mission coupling wear increases with traverse"
+    },
+    {
+      "event_id": "EVT-M-02",
+      "name": "moon_shackleton_corridor",
+      "scale_class": "macro",
+      "law_id": "L_GENERIC",
+      "coupling_targets": [
+        "chip_wear",
+        "habitat_thermal",
+        "robot_joint"
+      ],
+      "backend": "dogfood_platform.world_moon_shackleton_v1",
+      "driver_vector": {
+        "solar": 0.4,
+        "vacuum_thermal": 0.5,
+        "dust_charge": 0.4
+      },
+      "typical_numbers": {
+        "pse": 0.85,
+        "thermal_index": 1.2
+      },
+      "parameter_envelope": {
+        "corridor": "v1_6",
+        "fgm_branch": [
+          "A",
+          "B"
+        ]
+      },
+      "rate_prior": "deterministic",
+      "l0_cites": [
+        "MOON_REALISM_MATURITY_v1",
+        "W_moon_shackleton_v0"
+      ],
+      "falsifier": "13-hop corridor receipt PASS"
+    },
+    {
+      "event_id": "EVT-M-03",
+      "name": "solar_flare_flux_multiplier",
+      "scale_class": "macro",
+      "law_id": "L_MAXWELL",
+      "coupling_targets": [
+        "panel_dut",
+        "habitat_thermal",
+        "chip_fet"
+      ],
+      "backend": "dogfood_platform.lunar_thermal_l5_v1",
+      "driver_vector": {
+        "solar": 1.0,
+        "vacuum_thermal": 0.6,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "flare_multiplier": 3.0,
+        "solar_constant_w_m2": 1361.0
+      },
+      "parameter_envelope": {
+        "flare_multiplier": {
+          "min": 1.0,
+          "max": 12.0
+        }
+      },
+      "rate_prior": "adversarial_corner",
+      "l0_cites": [
+        "ENV_DRIVER_BIND",
+        "SK-12"
+      ],
+      "falsifier": "q_solar scales with multiplier within band"
+    },
+    {
+      "event_id": "EVT-M-04",
+      "name": "chamber_pump_thermal_cycle",
+      "scale_class": "macro",
+      "law_id": "L_POISSON",
+      "coupling_targets": [
+        "panel_dut",
+        "regolith_coupon"
+      ],
+      "backend": "dogfood_platform.world_chamber_v0",
+      "driver_vector": {
+        "solar": 0.4,
+        "vacuum_thermal": 1.0,
+        "dust_charge": 0.5
+      },
+      "typical_numbers": {
+        "p_final_torr": 1.1e-05,
+        "t_dut_k": 220.0
+      },
+      "parameter_envelope": {
+        "mode": [
+          "lunar_sunlit",
+          "chamber_a_cold"
+        ]
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "CHAMBER_ENVELOPE_BIND",
+        "ORACLE_SEC_D2"
+      ],
+      "falsifier": "vacuum h_c=0 at pump end"
+    },
+    {
+      "event_id": "EVT-M-05",
+      "name": "lc2_package_duty_swing",
+      "scale_class": "macro",
+      "law_id": "L_POISSON",
+      "coupling_targets": [
+        "chip_wear",
+        "habitat_thermal"
+      ],
+      "backend": "dogfood_platform.lunar_lc2_duty_bind_v1",
+      "driver_vector": {
+        "solar": 0.5,
+        "vacuum_thermal": 0.7,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "duty_frac": 0.5,
+        "junction_delta_k": 15.0
+      },
+      "parameter_envelope": {
+        "duty_frac": {
+          "min": 0.1,
+          "max": 0.9
+        }
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "LC2_DUTY_BIND",
+        "L1_L5_THERMAL"
+      ],
+      "falsifier": "duty shifts thermal_index"
+    },
+    {
+      "event_id": "EVT-M-06",
+      "name": "arena_moon_coupled_stack",
+      "scale_class": "macro",
+      "law_id": "L_MAXWELL",
+      "coupling_targets": [
+        "panel_dut",
+        "regolith_coupon"
+      ],
+      "backend": "dogfood_platform.world_arena_w1_v1",
+      "driver_vector": {
+        "solar": 0.5,
+        "vacuum_thermal": 0.4,
+        "dust_charge": 0.7
+      },
+      "typical_numbers": {
+        "drift_mm": 0.006,
+        "t_moon_k": 220.0
+      },
+      "parameter_envelope": {
+        "n_sols": {
+          "min": 10.0,
+          "max": 60.0
+        }
+      },
+      "rate_prior": "deterministic",
+      "l0_cites": [
+        "W1_ARENA",
+        "arena_moon_coupling"
+      ],
+      "falsifier": "moon coupling falsifier_pass"
+    },
+    {
+      "event_id": "EVT-M-07",
+      "name": "site_burial_path_shift",
+      "scale_class": "macro",
+      "law_id": "L_STOCHASTIC",
+      "coupling_targets": [
+        "habitat_thermal",
+        "robot_wheel"
+      ],
+      "backend": "dogfood_platform.lunar_site_burial_v1",
+      "driver_vector": {
+        "solar": 0.2,
+        "vacuum_thermal": 0.6,
+        "dust_charge": 0.3
+      },
+      "typical_numbers": {
+        "burial_m": 1.5,
+        "slope_deg": 6.0
+      },
+      "parameter_envelope": {
+        "burial_m": {
+          "min": 0.5,
+          "max": 3.0
+        }
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "SITE_BURIAL_BIND",
+        "GAP-MR-06"
+      ],
+      "falsifier": "burial thickness changes thermal path"
+    },
+    {
+      "event_id": "EVT-M-08",
+      "name": "universe_w_chip_corridor",
+      "scale_class": "macro",
+      "law_id": "L_RG",
+      "coupling_targets": [
+        "chip_wear",
+        "chip_fet"
+      ],
+      "backend": "dogfood_platform.universe_kernel_v1",
+      "driver_vector": {
+        "solar": 0.0,
+        "vacuum_thermal": 0.3,
+        "dust_charge": 0.2
+      },
+      "typical_numbers": {
+        "stress_index_multiplier": 1.05,
+        "delta_vth_mv": 38.4
+      },
+      "parameter_envelope": {
+        "corridor_key": "w_chip"
+      },
+      "rate_prior": "deterministic",
+      "l0_cites": [
+        "UNIVERSE_ONTOLOGY",
+        "world_chip_coupling"
+      ],
+      "falsifier": "coupling_slice present on bus"
+    },
+    {
+      "event_id": "EVT-C-01",
+      "name": "micrometeoroid_mass_hit",
+      "scale_class": "cosmic",
+      "law_id": "L_STOCHASTIC",
+      "coupling_targets": [
+        "robot_wheel",
+        "panel_dut",
+        "habitat_thermal"
+      ],
+      "backend": "dogfood_platform.lunar_micrometeoroid_threat_v1",
+      "driver_vector": {
+        "solar": 0.0,
+        "vacuum_thermal": 0.0,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "mass_g": 0.0001,
+        "mem_class": "MEM3"
+      },
+      "parameter_envelope": {
+        "mass_g": {
+          "min": 1e-06,
+          "max": 1.0
+        }
+      },
+      "rate_prior": "poisson",
+      "l0_cites": [
+        "MEM3-L0-03",
+        "MICROMETEOROID_THREAT_BIND"
+      ],
+      "falsifier": "mass in MEM threat band"
+    },
+    {
+      "event_id": "EVT-C-02",
+      "name": "solar_particle_event_proxy",
+      "scale_class": "cosmic",
+      "law_id": "L_MAXWELL",
+      "coupling_targets": [
+        "chip_fet",
+        "chip_wear"
+      ],
+      "backend": "dogfood_platform.lunar_radiation_shield_v1",
+      "driver_vector": {
+        "solar": 1.0,
+        "vacuum_thermal": 0.2,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "dose_gy": 0.5,
+        "shield_depth_m": 0.5
+      },
+      "parameter_envelope": {
+        "dose_gy": {
+          "min": 0.1,
+          "max": 2.0
+        }
+      },
+      "rate_prior": "adversarial_corner",
+      "l0_cites": [
+        "RADIATION_SHIELD_BIND",
+        "GAP-MR-10"
+      ],
+      "falsifier": "shield depth reduces dose at tile"
+    },
+    {
+      "event_id": "EVT-C-03",
+      "name": "cosmic_ray_background_step",
+      "scale_class": "cosmic",
+      "law_id": "L_MAXWELL",
+      "coupling_targets": [
+        "chip_fet"
+      ],
+      "backend": "dogfood_platform.lunar_radiation_proxy_v1",
+      "driver_vector": {
+        "solar": 0.1,
+        "vacuum_thermal": 0.0,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "dose_rate_gy_per_yr": 0.01
+      },
+      "parameter_envelope": {
+        "exposure_yr": {
+          "min": 0.1,
+          "max": 5.0
+        }
+      },
+      "rate_prior": "stratified_uniform",
+      "l0_cites": [
+        "MOON_SAGAN_COSMOS_BAG",
+        "L0-14"
+      ],
+      "falsifier": "dose integral in polar budget"
+    },
+    {
+      "event_id": "EVT-C-04",
+      "name": "lunar_eclipse_thermal_transient",
+      "scale_class": "cosmic",
+      "law_id": "L_POISSON",
+      "coupling_targets": [
+        "habitat_thermal",
+        "panel_dut"
+      ],
+      "backend": "dogfood_platform.lunar_thermal_l5_v1",
+      "driver_vector": {
+        "solar": 0.9,
+        "vacuum_thermal": 1.0,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "illum_drop_frac": 1.0,
+        "tau_thermal_s": 3600.0
+      },
+      "parameter_envelope": {
+        "duration_h": {
+          "min": 1.0,
+          "max": 4.0
+        }
+      },
+      "rate_prior": "adversarial_corner",
+      "l0_cites": [
+        "THERMAL_TRANSIENT_BIND",
+        "GAP-MR-09"
+      ],
+      "falsifier": "transient swing exceeds steady divider"
+    },
+    {
+      "event_id": "EVT-C-05",
+      "name": "cme_flux_spike_10x",
+      "scale_class": "cosmic",
+      "law_id": "L_MAXWELL",
+      "coupling_targets": [
+        "panel_dut",
+        "chip_fet",
+        "habitat_thermal"
+      ],
+      "backend": "dogfood_platform.lunar_thermal_l5_v1",
+      "driver_vector": {
+        "solar": 1.0,
+        "vacuum_thermal": 0.8,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "flare_multiplier": 10.0,
+        "q_solar_w_m2": 12000.0
+      },
+      "parameter_envelope": {
+        "flare_multiplier": {
+          "min": 5.0,
+          "max": 12.0
+        }
+      },
+      "rate_prior": "adversarial_corner",
+      "l0_cites": [
+        "ENV_DRIVER_BIND"
+      ],
+      "falsifier": "within solar driver band max"
+    },
+    {
+      "event_id": "EVT-C-06",
+      "name": "symplectic_kinematic_shock",
+      "scale_class": "cosmic",
+      "law_id": "L_HAMILTON",
+      "coupling_targets": [
+        "robot_joint",
+        "chip_wear"
+      ],
+      "backend": "dogfood_platform.universe_backend_native_v1",
+      "driver_vector": {
+        "solar": 0.0,
+        "vacuum_thermal": 0.0,
+        "dust_charge": 0.3
+      },
+      "typical_numbers": {
+        "mlcc_jerk_peak": 8000.0,
+        "energy_drift_rms_rel": 0.5
+      },
+      "parameter_envelope": {
+        "impulse_scale": {
+          "min": 0.5,
+          "max": 2.0
+        }
+      },
+      "rate_prior": "adversarial_corner",
+      "l0_cites": [
+        "SPIKE_CGA_vs_SYMPLECTIC",
+        "L_HAMILTON"
+      ],
+      "falsifier": "drift within spike budget"
+    },
+    {
+      "event_id": "EVT-C-07",
+      "name": "operator_rg_scale_bridge",
+      "scale_class": "cosmic",
+      "law_id": "L_RG",
+      "coupling_targets": [
+        "chip_fet",
+        "chip_wear"
+      ],
+      "backend": "dogfood_platform.universe_kernel_v1",
+      "driver_vector": {
+        "solar": 0.0,
+        "vacuum_thermal": 0.0,
+        "dust_charge": 0.0
+      },
+      "typical_numbers": {
+        "generator_residual_mean": 0.01,
+        "vth_tail_spread_error_mv": 5.0
+      },
+      "parameter_envelope": {
+        "corridor_key": [
+          "w0_v1_1",
+          "w_chip"
+        ]
+      },
+      "rate_prior": "deterministic",
+      "l0_cites": [
+        "SPIKE_OPERATOR_RG",
+        "L_RG"
+      ],
+      "falsifier": "operator RG beats naive MOR tail"
+    },
+    {
+      "event_id": "EVT-C-08",
+      "name": "regolith_robot_mission_storm",
+      "scale_class": "cosmic",
+      "law_id": "L_GENERIC",
+      "coupling_targets": [
+        "robot_joint",
+        "robot_wheel",
+        "chip_wear"
+      ],
+      "backend": "dogfood_platform.world_regolith_robot_v0",
+      "driver_vector": {
+        "solar": 0.4,
+        "vacuum_thermal": 0.3,
+        "dust_charge": 1.0
+      },
+      "typical_numbers": {
+        "n_sols": 60.0,
+        "thermal_wear_mv": 12.0
+      },
+      "parameter_envelope": {
+        "cleaning_duty": {
+          "min": 0.0,
+          "max": 0.8
+        },
+        "zone": [
+          "rim_sun",
+          "massif_traverse"
+        ]
+      },
+      "rate_prior": "adversarial_corner",
+      "l0_cites": [
+        "REGOLITH_ROBOT_MISSION",
+        "L6_regolith"
+      ],
+      "falsifier": "wear death threshold documented"
+    },
+    {
+      "event_id": "EVT-A2-01",
+      "name": "ascent_acoustic_maxq_envelope",
+      "scale_class": "macro",
+      "law_id": "L_AERO_ACOUSTIC",
+      "coupling_targets": [],
+      "backend": "dogfood_platform.rocket_ascent_load_v1",
+      "driver_vector": {
+        "atmosphere": 1.0,
+        "acoustic": 1.0,
+        "aero_load": 0.8
+      },
+      "typical_numbers": {
+        "oaspl_db": 137.7,
+        "impulse_scale": 1.0
+      },
+      "parameter_envelope": {
+        "impulse_scale": {
+          "min": 0.5,
+          "max": 1.2
+        }
+      },
+      "rate_prior": "deterministic",
+      "l0_cites": [
+        "ROCKET_ASCENT_ENV_BIND_v1",
+        "spacex-starship-users-guide-v1"
+      ],
+      "falsifier": "ascent envelope stress from cited OASPL — not generic_pass",
+      "phase_id": "A2_ascent_maxq"
+    }
+  ],
+  "campaign_defaults": {
+    "n_event_runs": 100,
+    "n_adversarial": 16,
+    "stratify_by_scale": true,
+    "seed_canon": "UNIVERSE_EVENT_CAMPAIGN_v1"
+  },
+  "harness_module": "dogfood_platform.universe_event_sampler_v1",
+  "falsifier": "each scale_class represented · event applies within typical_numbers band · coupling target receives epsilon"
+}

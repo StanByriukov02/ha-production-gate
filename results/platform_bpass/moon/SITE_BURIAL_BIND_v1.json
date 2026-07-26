@@ -1,0 +1,51 @@
+{
+  "bind_id": "site_burial_bind_v1",
+  "oracle": "CITED_BIND",
+  "closed_at": "2026-06-16",
+  "closes_gaps": ["GAP-MR-06", "A1-4", "D1"],
+  "evidence_stack": [
+    {"id": "E1", "source": "Heiken 1991 §9.1", "role": "top 15 cm / 60 cm density depth classes", "cite": "HEIKEN-L0-03", "confidence": "HIGH"},
+    {"id": "E2", "source": "Goossens 2025 PSJ", "role": "south polar shallow crustal density gradient", "cite": "GOOSSENS-L0-04", "confidence": "HIGH"},
+    {"id": "E3", "source": "Benaroya 2021 Ch.3", "role": "1 m dose reduction · 2-3 m habitat shield depth band", "cite": "BENAROYA-L0-01", "confidence": "HIGH"}
+  ],
+  "embed_classes": {
+    "lc2_micro_package": {
+      "thickness_m": 0.1,
+      "depth_class": "top_15cm",
+      "site_zone": "rim_sun",
+      "purpose": "LC-2 chip outer regolith burial default",
+      "cite": ["HEIKEN-L0-03", "LC2-harness-default"]
+    },
+    "traverse_berm": {
+      "thickness_m": 0.25,
+      "depth_class": "traffic_compacted_60cm",
+      "site_zone": "massif_traverse",
+      "purpose": "wheel disturbance / berm embed",
+      "cite": ["HEIKEN-L0-02", "GOOSSENS-L0-04"]
+    },
+    "radiation_berm_1m": {
+      "thickness_m": 1.0,
+      "depth_class": "radiation_reduction",
+      "site_zone": "rim_sun",
+      "purpose": "annual dose reduction class",
+      "cite": ["BENAROYA-L0-02"]
+    },
+    "habitat_shield_2m": {
+      "thickness_m": 2.5,
+      "depth_class": "habitat_health_shield",
+      "site_zone": "rim_sun",
+      "purpose": "crew habitat regolith overburden",
+      "cite": ["BENAROYA-L0-01"]
+    }
+  },
+  "density_gradient": {
+    "mean_crustal_kg_m3": 2481,
+    "psr_mean_kg_m3": 2475,
+    "non_psr_mean_kg_m3": 2483,
+    "gradient_kg_m3_per_km": 25,
+    "psr_gradient_multiplier_2_4km": 3.0,
+    "cite": ["GOOSSENS-L0-01", "GOOSSENS-L0-02", "GOOSSENS-L0-04", "GOOSSENS-L0-05"]
+  },
+  "harness_module": "dogfood_platform.lunar_site_burial_v1",
+  "falsifier": "thickness sweep lc2→habitat must monotonically increase areal column and thermal_index"
+}

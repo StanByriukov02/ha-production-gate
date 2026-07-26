@@ -1,0 +1,34 @@
+{
+  "active_id": "robot_project_active_v1",
+  "project_id": "arena-earth_lab-18fbb213",
+  "name": "Arena earth_lab",
+  "updated_utc": "2026-07-24T22:07:49.134820+00:00",
+  "has_body": false,
+  "has_policy": false,
+  "last_run_id": null,
+  "project": {
+    "project_id": "arena-earth_lab-18fbb213",
+    "name": "Arena earth_lab",
+    "created_utc": "2026-07-24T22:07:49.112902+00:00",
+    "updated_utc": "2026-07-24T22:07:49.112902+00:00",
+    "body": null,
+    "policy": null,
+    "policy_port": null,
+    "last_run_id": null,
+    "last_run": null,
+    "proof_tier": "ROBOT_PROJECT_DESK_SLICE",
+    "honesty": {
+      "not_product_ready": true,
+      "not_full_builder": true,
+      "not_measured": true,
+      "sim_slice": true
+    },
+    "hil": null,
+    "fleet": null,
+    "tabu": [
+      "product_ready claims",
+      "MEASURED field claims"
+    ],
+    "trust_tier": "T1_empty"
+  }
+}

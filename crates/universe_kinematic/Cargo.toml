@@ -1,0 +1,28 @@
+[package]
+name = "universe_kinematic"
+version = "0.1.0"
+edition = "2021"
+description = "Universe kernel native backend — symplectic vs Cl(3,0) rotor (CGA-class) kinematic spike"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "universe_kinematic_spike"
+path = "src/bin/universe_kinematic_spike.rs"
+
+[[bin]]
+name = "lie_integrator_step"
+path = "src/bin/lie_integrator_step.rs"
+
+[[bin]]
+name = "lie_multibody_step"
+path = "src/bin/lie_multibody_step.rs"
+
+[[bin]]
+name = "manipulator_kinematics_step"
+path = "src/bin/manipulator_kinematics_step.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

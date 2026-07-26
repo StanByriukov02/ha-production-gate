@@ -1,0 +1,249 @@
+{
+  "scene_id": "robot_combat_pbr_assembly_scene_v1",
+  "timestamp_utc": "2026-07-04T12:31:08.305744+00:00",
+  "title": "LC-2 Combat Carrier \u2014 sci-fi PBR",
+  "design_language": "sci_fi_cave_carrier_2026",
+  "parts": [
+    {
+      "module_id": "robot_combat_hull_v1",
+      "role": "hull",
+      "glb": "combat_glb/robot_combat_hull_v1.glb",
+      "offset_mm": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#2b3d52",
+        "metalness": 0.82,
+        "roughness": 0.38,
+        "emissive": "#001828",
+        "why": "Matte gunmetal \u2014 anti-glare in GPS-denied cave; cyan tram ribs = active SLAM path",
+        "label": "Hull \u00b7 cave armor"
+      }
+    },
+    {
+      "module_id": "robot_combat_compute_vault_v1",
+      "role": "vault",
+      "glb": "combat_glb/robot_combat_compute_vault_v1.glb",
+      "offset_mm": {
+        "x": 0,
+        "y": 30,
+        "z": 133.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#9aa8b8",
+        "metalness": 0.92,
+        "roughness": 0.22,
+        "emissive": "#ff9f4308",
+        "why": "Light Ti vault \u2014 \u03b8_ja thermal; amber vents = power service teaching",
+        "label": "Compute vault \u00b7 chip chest"
+      }
+    },
+    {
+      "module_id": "robot_combat_sensor_ring_v1",
+      "role": "sensor_bow",
+      "glb": "combat_glb/robot_combat_sensor_ring_v1.glb",
+      "offset_mm": {
+        "x": 0,
+        "y": -175,
+        "z": 123.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#22d3ee",
+        "metalness": 0.35,
+        "roughness": 0.48,
+        "emissive": "#22d3ee33",
+        "why": "Cyan ring \u2014 lidar active in darkness; no sun albedo",
+        "label": "SLAM sensor ring"
+      }
+    },
+    {
+      "module_id": "robot_combat_drive_pod_v1",
+      "role": "pod_0",
+      "glb": "combat_glb/robot_combat_drive_pod_v1.glb",
+      "offset_mm": {
+        "x": -220,
+        "y": -150,
+        "z": 93.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#3d2e4a",
+        "metalness": 0.78,
+        "roughness": 0.42,
+        "emissive": "#ff6b3506",
+        "why": "Dark pod + fin stack \u2014 tier-J FOC thermal @ 20 kHz",
+        "label": "LC-2 drive pod"
+      }
+    },
+    {
+      "module_id": "robot_combat_wheel_v1",
+      "role": "wheel_0",
+      "glb": "combat_glb/robot_combat_wheel_v1.glb",
+      "offset_mm": {
+        "x": -220,
+        "y": -150,
+        "z": 100
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#0a0c10",
+        "metalness": 0.12,
+        "roughness": 0.9,
+        "emissive": "#00e5ff18",
+        "why": "Black tread + cyan rim \u2014 terramech sinkage; rim = odometry teaching",
+        "label": "Wheel \u00b7 PU tread"
+      }
+    },
+    {
+      "module_id": "robot_combat_drive_pod_v1",
+      "role": "pod_1",
+      "glb": "combat_glb/robot_combat_drive_pod_v1.glb",
+      "offset_mm": {
+        "x": 220,
+        "y": -150,
+        "z": 93.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#3d2e4a",
+        "metalness": 0.78,
+        "roughness": 0.42,
+        "emissive": "#ff6b3506",
+        "why": "Dark pod + fin stack \u2014 tier-J FOC thermal @ 20 kHz",
+        "label": "LC-2 drive pod"
+      }
+    },
+    {
+      "module_id": "robot_combat_wheel_v1",
+      "role": "wheel_1",
+      "glb": "combat_glb/robot_combat_wheel_v1.glb",
+      "offset_mm": {
+        "x": 220,
+        "y": -150,
+        "z": 100
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#0a0c10",
+        "metalness": 0.12,
+        "roughness": 0.9,
+        "emissive": "#00e5ff18",
+        "why": "Black tread + cyan rim \u2014 terramech sinkage; rim = odometry teaching",
+        "label": "Wheel \u00b7 PU tread"
+      }
+    },
+    {
+      "module_id": "robot_combat_drive_pod_v1",
+      "role": "pod_2",
+      "glb": "combat_glb/robot_combat_drive_pod_v1.glb",
+      "offset_mm": {
+        "x": -220,
+        "y": 150,
+        "z": 93.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#3d2e4a",
+        "metalness": 0.78,
+        "roughness": 0.42,
+        "emissive": "#ff6b3506",
+        "why": "Dark pod + fin stack \u2014 tier-J FOC thermal @ 20 kHz",
+        "label": "LC-2 drive pod"
+      }
+    },
+    {
+      "module_id": "robot_combat_wheel_v1",
+      "role": "wheel_2",
+      "glb": "combat_glb/robot_combat_wheel_v1.glb",
+      "offset_mm": {
+        "x": -220,
+        "y": 150,
+        "z": 100
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#0a0c10",
+        "metalness": 0.12,
+        "roughness": 0.9,
+        "emissive": "#00e5ff18",
+        "why": "Black tread + cyan rim \u2014 terramech sinkage; rim = odometry teaching",
+        "label": "Wheel \u00b7 PU tread"
+      }
+    },
+    {
+      "module_id": "robot_combat_drive_pod_v1",
+      "role": "pod_3",
+      "glb": "combat_glb/robot_combat_drive_pod_v1.glb",
+      "offset_mm": {
+        "x": 220,
+        "y": 150,
+        "z": 93.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#3d2e4a",
+        "metalness": 0.78,
+        "roughness": 0.42,
+        "emissive": "#ff6b3506",
+        "why": "Dark pod + fin stack \u2014 tier-J FOC thermal @ 20 kHz",
+        "label": "LC-2 drive pod"
+      }
+    },
+    {
+      "module_id": "robot_combat_wheel_v1",
+      "role": "wheel_3",
+      "glb": "combat_glb/robot_combat_wheel_v1.glb",
+      "offset_mm": {
+        "x": 220,
+        "y": 150,
+        "z": 100
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#0a0c10",
+        "metalness": 0.12,
+        "roughness": 0.9,
+        "emissive": "#00e5ff18",
+        "why": "Black tread + cyan rim \u2014 terramech sinkage; rim = odometry teaching",
+        "label": "Wheel \u00b7 PU tread"
+      }
+    }
+  ],
+  "legend": [
+    {
+      "zone_id": "hull_armor",
+      "label": "Hull \u00b7 cave armor",
+      "baseColor": "#2b3d52",
+      "why": "Matte gunmetal \u2014 anti-glare in GPS-denied cave; cyan tram ribs = active SLAM path"
+    },
+    {
+      "zone_id": "compute_core",
+      "label": "Compute vault \u00b7 chip chest",
+      "baseColor": "#9aa8b8",
+      "why": "Light Ti vault \u2014 \u03b8_ja thermal; amber vents = power service teaching"
+    },
+    {
+      "zone_id": "lc2_pod",
+      "label": "LC-2 drive pod",
+      "baseColor": "#3d2e4a",
+      "why": "Dark pod + fin stack \u2014 tier-J FOC thermal @ 20 kHz"
+    },
+    {
+      "zone_id": "slam_ring",
+      "label": "SLAM sensor ring",
+      "baseColor": "#22d3ee",
+      "why": "Cyan ring \u2014 lidar active in darkness; no sun albedo"
+    },
+    {
+      "zone_id": "wheel_traction",
+      "label": "Wheel \u00b7 PU tread",
+      "baseColor": "#0a0c10",
+      "why": "Black tread + cyan rim \u2014 terramech sinkage; rim = odometry teaching"
+    }
+  ]
+}

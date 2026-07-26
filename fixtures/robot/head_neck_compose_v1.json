@@ -1,0 +1,11 @@
+{
+  "compose_id": "head_neck_compose_v1",
+  "chain_id": "head_neck_pan_tilt_v1",
+  "urdf": "fixtures/cad/head_neck_pan_tilt_v1.urdf",
+  "root_link": "neck_base_link",
+  "ee_frame": "sensor_mount_link",
+  "appendage_role": "head_neck",
+  "look_at_target": [1.0, 0.2, 0.5],
+  "mount_xyz": [0.0, 0.0, 0.35],
+  "tabu": "claim SLAM head tracking MEASURED"
+}

@@ -1,0 +1,65 @@
+{
+  "schema": "ha_battery_peukert_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "t=C_p/I^k; OCV=Voc_full-(Voc_full-Voc_empty)*(1-soc)",
+  "units": {
+    "I": "A",
+    "t": "h",
+    "C": "Ah",
+    "soc": "0..1",
+    "OCV": "V"
+  },
+  "on_sources": [
+    {
+      "id": "peukert_law",
+      "cite": "Peukert: I^k · t = C_p  =>  t = C_p / I^k (teaching discharge)",
+      "used": ["t_h", "effective capacity"]
+    },
+    {
+      "id": "ocv_soc_linear",
+      "cite": "linear OCV–SOC teaching envelope (not Nernst electrochem)",
+      "used": ["OCV(soc)"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate battery-peukert --catalog <path> --pack <id> --i-a <I> --soc <s>"
+  },
+  "honesty": [
+    "teaching Peukert + linear OCV — not BMS MEASURED / Nernst cell model",
+    "python_not_oracle"
+  ],
+  "packs": {
+    "scout_safe": {
+      "label": "mild discharge Dual Safe",
+      "c_p_ah_k": 12.0,
+      "k": 1.05,
+      "voc_full_v": 29.4,
+      "voc_empty_v": 21.0
+    },
+    "scout_hostile": {
+      "label": "high-k Dual Hostile (colder/aged class)",
+      "c_p_ah_k": 10.0,
+      "k": 1.35,
+      "voc_full_v": 29.0,
+      "voc_empty_v": 20.0
+    }
+  },
+  "defaults": {
+    "pack": "scout_safe",
+    "i_a": 5.0,
+    "soc": 0.8
+  },
+  "dual_anchors": {
+    "safe_pack": "scout_safe",
+    "hostile_pack": "scout_hostile",
+    "i_a": 8.0,
+    "soc": 0.5
+  },
+  "gates": {
+    "i_a_min": 0.01,
+    "i_a_max": 200.0,
+    "soc_min": 0.0,
+    "soc_max": 1.0
+  }
+}

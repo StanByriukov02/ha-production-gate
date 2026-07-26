@@ -1,0 +1,72 @@
+{
+  "session_id": "start_here_session_v1",
+  "timestamp_utc": "2026-07-24T14:54:43.688430+00:00",
+  "rev": 1100,
+  "preset_id": null,
+  "robot": null,
+  "trace": null,
+  "presets": [
+    {
+      "id": "open_rrbot",
+      "label": "Open rrbot (2-DoF)",
+      "blurb": "Open-registry arm — Dual Bekker + pack law default.",
+      "for": "stranger"
+    },
+    {
+      "id": "open_diffbot",
+      "label": "Open diffbot",
+      "blurb": "Open-registry differential base — Dual soil probe.",
+      "for": "stranger"
+    },
+    {
+      "id": "lunar_scout",
+      "label": "Lunar scout",
+      "blurb": "Hexapod assembly recipe — optional crater teaching world.",
+      "for": "optional"
+    },
+    {
+      "id": "earth_bench",
+      "label": "Earth bench",
+      "blurb": "Create CLI + wheeled chassis + bench ingress — lab carrier starter.",
+      "for": "optional"
+    }
+  ],
+  "honesty": {
+    "not_full_builder": true,
+    "not_product_ready": true,
+    "robot_project_bound": true,
+    "project_id": "rel-smoke-1990794c"
+  },
+  "project": {
+    "project_id": "rel-smoke-1990794c",
+    "name": "rel-smoke",
+    "body": null,
+    "policy": null,
+    "last_run": null
+  },
+  "kind": "demo",
+  "label": "rel-smoke",
+  "pane_hints": {
+    "policies": "Project rel-smoke — attach a body preset or load policy.",
+    "mission": "Mission syncs with shell condition once project is wired.",
+    "receipt": "No body or policy yet on this project."
+  },
+  "cta": {
+    "novice": "Attach body (Lunar scout / Earth bench).",
+    "engineer": "Load policy JSONL onto this project."
+  },
+  "scene": {
+    "clean": false,
+    "globe": "moon",
+    "world_id": "W_lunar_crater_robot_os_v1",
+    "condition": "hostile",
+    "sinkage_mm": 135.539,
+    "sinkage_risk": true,
+    "traverse_feasible": false,
+    "stub_command": "traverse",
+    "planner_command": "recover",
+    "diverged": true,
+    "g_mps2": 1.62,
+    "note": "last Run probe on this machine"
+  }
+}

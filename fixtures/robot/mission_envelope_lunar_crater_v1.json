@@ -1,0 +1,24 @@
+{
+  "envelope_id": "mission_envelope_lunar_crater_v1",
+  "profile_id": "lunar_crater_5km",
+  "world_id": "W_lunar_crater_robot_os_v1",
+  "confidence_min": 0.6,
+  "allowed_commands": ["traverse", "idle", "recover", "handoff"],
+  "forbidden_zones": [
+    {
+      "zone_id": "fragile_rim",
+      "cursor_m_min": 2520.0,
+      "cursor_m_max": 2620.0,
+      "reason": "fragile_regolith_rim_no_traverse"
+    }
+  ],
+  "physics_gates": {
+    "require_traverse_feasible": true,
+    "sinkage_mm_max_traverse": 18.0
+  },
+  "honesty": {
+    "not_measured": true,
+    "sim_envelope_only": true
+  },
+  "tabu": "claim field workspace envelope MEASURED"
+}

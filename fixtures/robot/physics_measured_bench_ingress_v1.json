@@ -1,0 +1,84 @@
+{
+  "ingress_id": "physics_measured_bench_ingress_v1",
+  "ingress_version": 2,
+  "honesty": {
+    "auto_tier_upgrade": false,
+    "compare_only": true,
+    "not_field_measured_claim": true,
+    "bench_row_does_not_mutate_teaching": true
+  },
+  "slots": {
+    "foot_normal_force_n": {
+      "unit": "N",
+      "assign_tier_when_valid": "T4",
+      "teaching_default": 12.0,
+      "required_provenance": ["bench_load_cell", "lc2_iron_ft_stub", "field_ft_sensor"]
+    },
+    "mu_static_measured": {
+      "unit": "dimensionless",
+      "assign_tier_when_valid": "T4",
+      "teaching_default": 0.52,
+      "required_provenance": ["bench_tribology", "lc2_iron_ft_stub"]
+    },
+    "sinkage_mm_measured": {
+      "unit": "mm",
+      "assign_tier_when_valid": "T4",
+      "teaching_default": 4.0,
+      "required_provenance": ["bench_terramech", "wheel_sinkage_rig", "earth_lab_capture"]
+    },
+    "bus_power_active_run_w": {
+      "unit": "W",
+      "assign_tier_when_valid": "T4",
+      "teaching_default": 24.63,
+      "required_provenance": ["earth_lab_capture", "bench_shunt_dmm"]
+    },
+    "foc_energy_uj_per_step": {
+      "unit": "uJ",
+      "assign_tier_when_valid": "T4",
+      "teaching_default": 0.4201,
+      "required_provenance": ["earth_lab_capture", "bench_encoder_session"]
+    },
+    "earth_traverse_sinkage_mm": {
+      "unit": "mm",
+      "assign_tier_when_valid": "T4",
+      "teaching_default": 4.0,
+      "required_provenance": ["earth_lab_capture", "bench_terramech"]
+    }
+  },
+  "earth_lab_capture_bind": "fixtures/robot/earth_lab_bench_capture_v1.json",
+  "bench_samples": [
+    {
+      "sample_id": "earth_lab_capture_auto_v1",
+      "provenance": "earth_lab_capture",
+      "world_id": "earth_lab_1g",
+      "fixture_id": "earth_lab_mini_test_fixture_v1",
+      "capture_bind": "results/platform_bpass/world/W_EARTH_LAB_BENCH_MISSION_RECEIPT_v1.json",
+      "bus_power_active_run_w": 24.63,
+      "foc_energy_uj_per_step": 0.42,
+      "earth_traverse_sinkage_mm": 4.216,
+      "torque_margin": 6.4007,
+      "captured_utc": "2026-06-30T11:12:12.768773+00:00",
+      "note": "Auto from repo W_EARTH_LAB_BENCH receipt — T4 bench compare · not operator DMM"
+    },
+    {
+      "sample_id": "lc2_bench_foot_pad_nominal",
+      "provenance": "bench_load_cell",
+      "world_id": "lunar_regolith_surface",
+      "zone_id": "massif_traverse",
+      "foot_normal_force_n": 14.2,
+      "mu_static_measured": 0.51,
+      "sinkage_mm_measured": 3.8,
+      "captured_utc": "2026-06-01T12:00:00Z",
+      "note": "Teaching bench stub — not flight MEASURED"
+    },
+    {
+      "sample_id": "lc2_bench_rim_slope_corner",
+      "provenance": "bench_terramech",
+      "world_id": "lunar_regolith_surface",
+      "zone_id": "rim_slope",
+      "sinkage_mm_measured": 9.5,
+      "captured_utc": "2026-06-15T09:30:00Z"
+    }
+  ],
+  "tabu": ["claim flight MEASURED", "silent tier upgrade", "mutate ADAPT teaching constants"]
+}

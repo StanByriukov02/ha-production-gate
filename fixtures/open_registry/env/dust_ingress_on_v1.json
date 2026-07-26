@@ -1,0 +1,78 @@
+{
+  "schema": "ha_dust_ingress_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "rate=base(zone)*seal*gap*ES*(1-mit); acc=min(sat, prev+rate*n_sols); wear=min(cap,1+coeff*acc)",
+  "units": {
+    "rate": "g/(m^2·sol)",
+    "accumulation": "g/m^2",
+    "gap": "mm"
+  },
+  "on_sources": [
+    {
+      "id": "stubbs_2006",
+      "cite": "Stubbs 2006 dynamic fountain · zone ranking",
+      "used": ["zone rates", "electrostatic indices"]
+    },
+    {
+      "id": "benaroya_seals",
+      "cite": "Benaroya seal/joint ingress taxonomy",
+      "used": ["seal_classes B1–B5", "mitigation"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate dust-ingress --catalog <path> --zone <z> --seal <B> --n-sols <n> [--mit <d>] [--gap-mm <g>] [--prev <p>]"
+  },
+  "honesty": [
+    "ADAPT tier — relative zone ranking; not Shackleton flux meter",
+    "not MEASURED",
+    "python_not_oracle"
+  ],
+  "zones": {
+    "rim_sun": {
+      "base_rate_g_m2_per_sol": 0.08,
+      "electrostatic_index": 0.85
+    },
+    "massif_traverse": {
+      "base_rate_g_m2_per_sol": 0.12,
+      "electrostatic_index": 0.95
+    },
+    "psr_floor": {
+      "base_rate_g_m2_per_sol": 0.02,
+      "electrostatic_index": 0.45
+    }
+  },
+  "seal_classes": {
+    "B1": { "ingress_scale": 0.15 },
+    "B2": { "ingress_scale": 0.35 },
+    "B3": { "ingress_scale": 0.55 },
+    "B4": { "ingress_scale": 0.80 },
+    "B5": { "ingress_scale": 1.0 }
+  },
+  "mitigation": {
+    "wiper_magnet_max_reduction": 0.65
+  },
+  "wear_coupling": {
+    "abrasion_coeff_per_g_m2": 0.05,
+    "max_stress_mult": 1.35,
+    "accumulation_saturation_g_m2": 2.0
+  },
+  "loft_altitude_km": 100.0,
+  "hazard_thresholds_g_m2_per_sol": {
+    "MEDIUM": 0.06,
+    "HIGH": 0.09,
+    "SEVERE": 0.12
+  },
+  "dual_anchors": {
+    "safe_zone": "psr_floor",
+    "hostile_zone": "massif_traverse",
+    "safe_seal": "B1",
+    "hostile_seal": "B5",
+    "n_sols": 10.0,
+    "safe_mitigation": 0.8,
+    "hostile_mitigation": 0.0,
+    "gap_mm_safe": 0.2,
+    "gap_mm_hostile": 1.0,
+    "cite": "Dual: PSR+B1+mitigation vs massif+B5+open gap"
+  }
+}

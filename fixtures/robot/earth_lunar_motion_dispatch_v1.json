@@ -1,0 +1,14 @@
+{
+  "dispatch_id": "earth_lunar_motion_dispatch_v1",
+  "robot_id": "earth_lunar_motion_teaching_v1",
+  "honesty": {
+    "dual_north_star": true,
+    "not_unified_locomotion": true
+  },
+  "regions": [
+    {"appendage_id": "scout_arm", "role": "manipulator_arm", "chain_id": "lunar_manipulator_chain_scout_3dof_v1", "mount_xyz": [0.1, 0.0, 0.4], "lunar_north_star": true},
+    {"appendage_id": "leg_0", "role": "locomotion_leg", "chain_id": "hexapod_leg_3dof_v1", "mount_xyz": [0.1, 0.0, 0.0], "bus": "biped_gait", "lunar_north_star": true},
+    {"appendage_id": "wheel_fl", "role": "wheel_axle", "chain_id": "lc2_combat_carrier_4wd_v1", "mount_xyz": [0.2, 0.15, 0.0], "bus": "wheeled_chassis_compose", "lunar_north_star": false}
+  ],
+  "tabu": ["claim unified locomotion", "hide per-region north star"]
+}

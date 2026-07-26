@@ -1,0 +1,33 @@
+{
+  "schedule_id": "cmc_cinema_material_schedule_v1",
+  "default_variant": "scout_default_medium",
+  "step_m_from": "cursor_m",
+  "bands": [
+    {
+      "coverage_min": 0.0,
+      "variant_id": "scout_short_traverse",
+      "label": "early traverse · sealed · short step class"
+    },
+    {
+      "coverage_min": 0.35,
+      "variant_id": "scout_default_medium",
+      "label": "mid traverse · sealed B3"
+    },
+    {
+      "coverage_min": 0.7,
+      "variant_id": "scout_terminal_raw",
+      "label": "late traverse · raw terramech (no seal scale)"
+    }
+  ],
+  "radiation": {
+    "source": "lunar_physics_or_traverse_fraction",
+    "mission_years": 1.0,
+    "shield_g_cm2": 5.0,
+    "site_class": "lunar_equatorial"
+  },
+  "honesty": {
+    "material_from_registry": true,
+    "wear_from_iron_mmio": true,
+    "not_measured": true
+  }
+}

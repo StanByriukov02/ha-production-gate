@@ -1,0 +1,24 @@
+{
+  "artifact_id": "lc2_mount_plate_v1",
+  "generator": "cad/envelope/lc2_mount_plate_v1.py",
+  "cites": [
+    "LC2_JOINT_CONTROLLER_FIXTURE_V1",
+    "earth_lab_mini_test_fixture_v1"
+  ],
+  "bbox_mm": {
+    "x": 120.0,
+    "y": 82.0,
+    "z": 98.0
+  },
+  "plate_nominal_mm": {
+    "l": 120.0,
+    "w": 80.0,
+    "t": 8.0
+  },
+  "chip_body_mm": 24.0,
+  "hole_count": 4,
+  "hole_dia_mm": 4.4,
+  "chip_pad_top_z_mm": 10.8,
+  "oracle": "MODEL",
+  "honesty": "Teaching bench mount \u2014 not flight bracket \u00b7 not MEASURED"
+}

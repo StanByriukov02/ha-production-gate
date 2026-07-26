@@ -1,0 +1,2233 @@
+{
+  "overlay_id": "lunar_robot_material_playbench_overlay_v1",
+  "timestamp_utc": "2026-07-11T19:45:08.040091+00:00",
+  "canon": "docs/agent_workflow/DOGFOOD_MATERIAL_PHYSICS_BUS_V0.md",
+  "product_ready": false,
+  "hud_rows": [
+    [
+      "Playbench",
+      "v4 · subsystem materials"
+    ],
+    [
+      "Stacks",
+      "8"
+    ],
+    [
+      "Cells",
+      "8/8"
+    ],
+    [
+      "Chain",
+      "terramech→tread→trv seal→joint→env→dust→CXX"
+    ]
+  ],
+  "top_t5": [
+    {
+      "cell_id": "registry_90a__trv_B1__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "registry_90a__trv_B1__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B1",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B1",
+      "joint_tier": "hip_actuator",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B2",
+      "env_seal_class": "B2",
+      "tread_profile": null,
+      "tread_material_id": "pu_ester_shore_90a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 4.216,
+          "contact_pressure_kpa": 2.53,
+          "bearing_pressure_ratio": 0.0149,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": null,
+          "tread_material_id": "pu_ester_shore_90a",
+          "tread_ingress_factor": 1.0,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.0
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B1",
+          "material_id": "nbr_fully_sealed_oem_b1",
+          "label": "fully_sealed_oem",
+          "ingress_scale": 0.15
+        },
+        "L3_joint_tier": {
+          "joint_tier": "hip_actuator",
+          "tier_label": "primary_actuator_gap",
+          "joint_seal_effective": "B2",
+          "joint_seal_material_id": "labyrinth_wiper_b2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "hip_actuator",
+          "joint_seal_effective": "B2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 1.4133,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.04711,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3413,
+          "traverse_after_seal": 0.351195,
+          "after_abrasion": 0.386315
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.0127,
+          "effective_duty_cap": 0.9968
+        }
+      },
+      "sinkage_mm": 4.216,
+      "contact_pressure_kpa": 2.53,
+      "bearing_pressure_ratio": 0.0149,
+      "ingress_terramech": 2.3413,
+      "ingress_traverse_combined": 0.351195,
+      "ingress_disturbance_mult": 0.386315,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.0127,
+      "chip_duty_cap": 0.9968,
+      "chip_derated_wh_per_km": 10.9551,
+      "headroom_loss_pct": 0.32,
+      "t5_sustained_work_per_wh_proxy": 91.28,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "registry_90a__trv_B1__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "registry_90a__trv_B1__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B1",
+        "joint_tier": "reducer_slot",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B1",
+      "joint_tier": "reducer_slot",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B4",
+      "env_seal_class": "B2",
+      "tread_profile": null,
+      "tread_material_id": "pu_ester_shore_90a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 4.216,
+          "contact_pressure_kpa": 2.53,
+          "bearing_pressure_ratio": 0.0149,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": null,
+          "tread_material_id": "pu_ester_shore_90a",
+          "tread_ingress_factor": 1.0,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.0
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B1",
+          "material_id": "nbr_fully_sealed_oem_b1",
+          "label": "fully_sealed_oem",
+          "ingress_scale": 0.15
+        },
+        "L3_joint_tier": {
+          "joint_tier": "reducer_slot",
+          "tier_label": "gearbox_ingress_path",
+          "joint_seal_effective": "B4",
+          "joint_seal_material_id": "minimal_cover_b4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "reducer_slot",
+          "joint_seal_effective": "B4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 2.0,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.1604,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3413,
+          "traverse_after_seal": 0.351195,
+          "after_abrasion": 0.386315
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.0127,
+          "effective_duty_cap": 0.9968
+        }
+      },
+      "sinkage_mm": 4.216,
+      "contact_pressure_kpa": 2.53,
+      "bearing_pressure_ratio": 0.0149,
+      "ingress_terramech": 2.3413,
+      "ingress_traverse_combined": 0.351195,
+      "ingress_disturbance_mult": 0.386315,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.0127,
+      "chip_duty_cap": 0.9968,
+      "chip_derated_wh_per_km": 10.9551,
+      "headroom_loss_pct": 0.32,
+      "t5_sustained_work_per_wh_proxy": 91.28,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "pu_shore_70a__trv_B1__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "pu_shore_70a__trv_B1__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": "pu_shore_70a",
+        "traverse_seal_class": "B1",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B1",
+      "joint_tier": "hip_actuator",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B2",
+      "env_seal_class": "B2",
+      "tread_profile": "pu_shore_70a",
+      "tread_material_id": "pu_ester_shore_70a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 3.886,
+          "contact_pressure_kpa": 2.35,
+          "bearing_pressure_ratio": 0.0139,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": "pu_shore_70a",
+          "tread_material_id": "pu_ester_shore_70a",
+          "tread_ingress_factor": 1.04,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.6
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B1",
+          "material_id": "nbr_fully_sealed_oem_b1",
+          "label": "fully_sealed_oem",
+          "ingress_scale": 0.15
+        },
+        "L3_joint_tier": {
+          "joint_tier": "hip_actuator",
+          "tier_label": "primary_actuator_gap",
+          "joint_seal_effective": "B2",
+          "joint_seal_material_id": "labyrinth_wiper_b2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "hip_actuator",
+          "joint_seal_effective": "B2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 1.4133,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.04711,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3067,
+          "traverse_after_seal": 0.359845,
+          "after_abrasion": 0.39583
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.0127,
+          "effective_duty_cap": 0.9968
+        }
+      },
+      "sinkage_mm": 3.886,
+      "contact_pressure_kpa": 2.35,
+      "bearing_pressure_ratio": 0.0139,
+      "ingress_terramech": 2.3067,
+      "ingress_traverse_combined": 0.359845,
+      "ingress_disturbance_mult": 0.39583,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.0127,
+      "chip_duty_cap": 0.9968,
+      "chip_derated_wh_per_km": 10.9551,
+      "headroom_loss_pct": 0.32,
+      "t5_sustained_work_per_wh_proxy": 91.28,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "pu_shore_70a__trv_B1__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "pu_shore_70a__trv_B1__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": "pu_shore_70a",
+        "traverse_seal_class": "B1",
+        "joint_tier": "reducer_slot",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B1",
+      "joint_tier": "reducer_slot",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B4",
+      "env_seal_class": "B2",
+      "tread_profile": "pu_shore_70a",
+      "tread_material_id": "pu_ester_shore_70a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 3.886,
+          "contact_pressure_kpa": 2.35,
+          "bearing_pressure_ratio": 0.0139,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": "pu_shore_70a",
+          "tread_material_id": "pu_ester_shore_70a",
+          "tread_ingress_factor": 1.04,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.6
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B1",
+          "material_id": "nbr_fully_sealed_oem_b1",
+          "label": "fully_sealed_oem",
+          "ingress_scale": 0.15
+        },
+        "L3_joint_tier": {
+          "joint_tier": "reducer_slot",
+          "tier_label": "gearbox_ingress_path",
+          "joint_seal_effective": "B4",
+          "joint_seal_material_id": "minimal_cover_b4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "reducer_slot",
+          "joint_seal_effective": "B4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 2.0,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.1604,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3067,
+          "traverse_after_seal": 0.359845,
+          "after_abrasion": 0.39583
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.0127,
+          "effective_duty_cap": 0.9968
+        }
+      },
+      "sinkage_mm": 3.886,
+      "contact_pressure_kpa": 2.35,
+      "bearing_pressure_ratio": 0.0139,
+      "ingress_terramech": 2.3067,
+      "ingress_traverse_combined": 0.359845,
+      "ingress_disturbance_mult": 0.39583,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.0127,
+      "chip_duty_cap": 0.9968,
+      "chip_derated_wh_per_km": 10.9551,
+      "headroom_loss_pct": 0.32,
+      "t5_sustained_work_per_wh_proxy": 91.28,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "registry_90a__trv_B5__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "registry_90a__trv_B5__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B5",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B5",
+      "joint_tier": "hip_actuator",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B2",
+      "env_seal_class": "B2",
+      "tread_profile": null,
+      "tread_material_id": "pu_ester_shore_90a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 4.216,
+          "contact_pressure_kpa": 2.53,
+          "bearing_pressure_ratio": 0.0149,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": null,
+          "tread_material_id": "pu_ester_shore_90a",
+          "tread_ingress_factor": 1.0,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.0
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B5",
+          "material_id": "open_joint_b5",
+          "label": "open_joint",
+          "ingress_scale": 1.0
+        },
+        "L3_joint_tier": {
+          "joint_tier": "hip_actuator",
+          "tier_label": "primary_actuator_gap",
+          "joint_seal_effective": "B2",
+          "joint_seal_material_id": "labyrinth_wiper_b2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "hip_actuator",
+          "joint_seal_effective": "B2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 2.0,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.08825,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3413,
+          "traverse_after_seal": 2.3413,
+          "after_abrasion": 2.57543
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.4854,
+          "effective_duty_cap": 0.8787
+        }
+      },
+      "sinkage_mm": 4.216,
+      "contact_pressure_kpa": 2.53,
+      "bearing_pressure_ratio": 0.0149,
+      "ingress_terramech": 2.3413,
+      "ingress_traverse_combined": 2.3413,
+      "ingress_disturbance_mult": 2.57543,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.4854,
+        "effective_duty_cap": 0.8787,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.4853,
+        "effective_duty_cap": 0.8787,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.4854,
+      "chip_duty_cap": 0.8787,
+      "chip_derated_wh_per_km": 12.4274,
+      "headroom_loss_pct": 12.13,
+      "t5_sustained_work_per_wh_proxy": 80.47,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "registry_90a__trv_B5__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "registry_90a__trv_B5__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B5",
+        "joint_tier": "reducer_slot",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B5",
+      "joint_tier": "reducer_slot",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B4",
+      "env_seal_class": "B2",
+      "tread_profile": null,
+      "tread_material_id": "pu_ester_shore_90a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 4.216,
+          "contact_pressure_kpa": 2.53,
+          "bearing_pressure_ratio": 0.0149,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": null,
+          "tread_material_id": "pu_ester_shore_90a",
+          "tread_ingress_factor": 1.0,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.0
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B5",
+          "material_id": "open_joint_b5",
+          "label": "open_joint",
+          "ingress_scale": 1.0
+        },
+        "L3_joint_tier": {
+          "joint_tier": "reducer_slot",
+          "tier_label": "gearbox_ingress_path",
+          "joint_seal_effective": "B4",
+          "joint_seal_material_id": "minimal_cover_b4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "reducer_slot",
+          "joint_seal_effective": "B4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 2.0,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.30044,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3413,
+          "traverse_after_seal": 2.3413,
+          "after_abrasion": 2.57543
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.4854,
+          "effective_duty_cap": 0.8787
+        }
+      },
+      "sinkage_mm": 4.216,
+      "contact_pressure_kpa": 2.53,
+      "bearing_pressure_ratio": 0.0149,
+      "ingress_terramech": 2.3413,
+      "ingress_traverse_combined": 2.3413,
+      "ingress_disturbance_mult": 2.57543,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.4854,
+        "effective_duty_cap": 0.8787,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.4853,
+        "effective_duty_cap": 0.8787,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.4854,
+      "chip_duty_cap": 0.8787,
+      "chip_derated_wh_per_km": 12.4274,
+      "headroom_loss_pct": 12.13,
+      "t5_sustained_work_per_wh_proxy": 80.47,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "pu_shore_70a__trv_B5__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "pu_shore_70a__trv_B5__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": "pu_shore_70a",
+        "traverse_seal_class": "B5",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B5",
+      "joint_tier": "hip_actuator",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B2",
+      "env_seal_class": "B2",
+      "tread_profile": "pu_shore_70a",
+      "tread_material_id": "pu_ester_shore_70a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 3.886,
+          "contact_pressure_kpa": 2.35,
+          "bearing_pressure_ratio": 0.0139,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": "pu_shore_70a",
+          "tread_material_id": "pu_ester_shore_70a",
+          "tread_ingress_factor": 1.04,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.6
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B5",
+          "material_id": "open_joint_b5",
+          "label": "open_joint",
+          "ingress_scale": 1.0
+        },
+        "L3_joint_tier": {
+          "joint_tier": "hip_actuator",
+          "tier_label": "primary_actuator_gap",
+          "joint_seal_effective": "B2",
+          "joint_seal_material_id": "labyrinth_wiper_b2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "hip_actuator",
+          "joint_seal_effective": "B2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 2.0,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.09042,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3067,
+          "traverse_after_seal": 2.398968,
+          "after_abrasion": 2.638865
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.5044,
+          "effective_duty_cap": 0.8739
+        }
+      },
+      "sinkage_mm": 3.886,
+      "contact_pressure_kpa": 2.35,
+      "bearing_pressure_ratio": 0.0139,
+      "ingress_terramech": 2.3067,
+      "ingress_traverse_combined": 2.398968,
+      "ingress_disturbance_mult": 2.638865,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.5044,
+        "effective_duty_cap": 0.8739,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.5044,
+        "effective_duty_cap": 0.8739,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.5044,
+      "chip_duty_cap": 0.8739,
+      "chip_derated_wh_per_km": 12.4957,
+      "headroom_loss_pct": 12.61,
+      "t5_sustained_work_per_wh_proxy": 80.03,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "pu_shore_70a__trv_B5__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "pu_shore_70a__trv_B5__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": "pu_shore_70a",
+        "traverse_seal_class": "B5",
+        "joint_tier": "reducer_slot",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B5",
+      "joint_tier": "reducer_slot",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B4",
+      "env_seal_class": "B2",
+      "tread_profile": "pu_shore_70a",
+      "tread_material_id": "pu_ester_shore_70a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 3.886,
+          "contact_pressure_kpa": 2.35,
+          "bearing_pressure_ratio": 0.0139,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": "pu_shore_70a",
+          "tread_material_id": "pu_ester_shore_70a",
+          "tread_ingress_factor": 1.04,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.6
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B5",
+          "material_id": "open_joint_b5",
+          "label": "open_joint",
+          "ingress_scale": 1.0
+        },
+        "L3_joint_tier": {
+          "joint_tier": "reducer_slot",
+          "tier_label": "gearbox_ingress_path",
+          "joint_seal_effective": "B4",
+          "joint_seal_material_id": "minimal_cover_b4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "reducer_slot",
+          "joint_seal_effective": "B4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 2.0,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.30783,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3067,
+          "traverse_after_seal": 2.398968,
+          "after_abrasion": 2.638865
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.5044,
+          "effective_duty_cap": 0.8739
+        }
+      },
+      "sinkage_mm": 3.886,
+      "contact_pressure_kpa": 2.35,
+      "bearing_pressure_ratio": 0.0139,
+      "ingress_terramech": 2.3067,
+      "ingress_traverse_combined": 2.398968,
+      "ingress_disturbance_mult": 2.638865,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.5044,
+        "effective_duty_cap": 0.8739,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.5044,
+        "effective_duty_cap": 0.8739,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.5044,
+      "chip_duty_cap": 0.8739,
+      "chip_derated_wh_per_km": 12.4957,
+      "headroom_loss_pct": 12.61,
+      "t5_sustained_work_per_wh_proxy": 80.03,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    }
+  ],
+  "highest_stress": [
+    {
+      "cell_id": "pu_shore_70a__trv_B5__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "pu_shore_70a__trv_B5__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": "pu_shore_70a",
+        "traverse_seal_class": "B5",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B5",
+      "joint_tier": "hip_actuator",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B2",
+      "env_seal_class": "B2",
+      "tread_profile": "pu_shore_70a",
+      "tread_material_id": "pu_ester_shore_70a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 3.886,
+          "contact_pressure_kpa": 2.35,
+          "bearing_pressure_ratio": 0.0139,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": "pu_shore_70a",
+          "tread_material_id": "pu_ester_shore_70a",
+          "tread_ingress_factor": 1.04,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.6
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B5",
+          "material_id": "open_joint_b5",
+          "label": "open_joint",
+          "ingress_scale": 1.0
+        },
+        "L3_joint_tier": {
+          "joint_tier": "hip_actuator",
+          "tier_label": "primary_actuator_gap",
+          "joint_seal_effective": "B2",
+          "joint_seal_material_id": "labyrinth_wiper_b2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "hip_actuator",
+          "joint_seal_effective": "B2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 2.0,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.09042,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3067,
+          "traverse_after_seal": 2.398968,
+          "after_abrasion": 2.638865
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.5044,
+          "effective_duty_cap": 0.8739
+        }
+      },
+      "sinkage_mm": 3.886,
+      "contact_pressure_kpa": 2.35,
+      "bearing_pressure_ratio": 0.0139,
+      "ingress_terramech": 2.3067,
+      "ingress_traverse_combined": 2.398968,
+      "ingress_disturbance_mult": 2.638865,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.5044,
+        "effective_duty_cap": 0.8739,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.5044,
+        "effective_duty_cap": 0.8739,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.5044,
+      "chip_duty_cap": 0.8739,
+      "chip_derated_wh_per_km": 12.4957,
+      "headroom_loss_pct": 12.61,
+      "t5_sustained_work_per_wh_proxy": 80.03,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "pu_shore_70a__trv_B5__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "pu_shore_70a__trv_B5__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": "pu_shore_70a",
+        "traverse_seal_class": "B5",
+        "joint_tier": "reducer_slot",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B5",
+      "joint_tier": "reducer_slot",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B4",
+      "env_seal_class": "B2",
+      "tread_profile": "pu_shore_70a",
+      "tread_material_id": "pu_ester_shore_70a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 3.886,
+          "contact_pressure_kpa": 2.35,
+          "bearing_pressure_ratio": 0.0139,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": "pu_shore_70a",
+          "tread_material_id": "pu_ester_shore_70a",
+          "tread_ingress_factor": 1.04,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.6
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B5",
+          "material_id": "open_joint_b5",
+          "label": "open_joint",
+          "ingress_scale": 1.0
+        },
+        "L3_joint_tier": {
+          "joint_tier": "reducer_slot",
+          "tier_label": "gearbox_ingress_path",
+          "joint_seal_effective": "B4",
+          "joint_seal_material_id": "minimal_cover_b4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "reducer_slot",
+          "joint_seal_effective": "B4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 2.0,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.30783,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3067,
+          "traverse_after_seal": 2.398968,
+          "after_abrasion": 2.638865
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.5044,
+          "effective_duty_cap": 0.8739
+        }
+      },
+      "sinkage_mm": 3.886,
+      "contact_pressure_kpa": 2.35,
+      "bearing_pressure_ratio": 0.0139,
+      "ingress_terramech": 2.3067,
+      "ingress_traverse_combined": 2.398968,
+      "ingress_disturbance_mult": 2.638865,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.5044,
+        "effective_duty_cap": 0.8739,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.5044,
+        "effective_duty_cap": 0.8739,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.5044,
+      "chip_duty_cap": 0.8739,
+      "chip_derated_wh_per_km": 12.4957,
+      "headroom_loss_pct": 12.61,
+      "t5_sustained_work_per_wh_proxy": 80.03,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "registry_90a__trv_B5__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "registry_90a__trv_B5__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B5",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B5",
+      "joint_tier": "hip_actuator",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B2",
+      "env_seal_class": "B2",
+      "tread_profile": null,
+      "tread_material_id": "pu_ester_shore_90a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 4.216,
+          "contact_pressure_kpa": 2.53,
+          "bearing_pressure_ratio": 0.0149,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": null,
+          "tread_material_id": "pu_ester_shore_90a",
+          "tread_ingress_factor": 1.0,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.0
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B5",
+          "material_id": "open_joint_b5",
+          "label": "open_joint",
+          "ingress_scale": 1.0
+        },
+        "L3_joint_tier": {
+          "joint_tier": "hip_actuator",
+          "tier_label": "primary_actuator_gap",
+          "joint_seal_effective": "B2",
+          "joint_seal_material_id": "labyrinth_wiper_b2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "hip_actuator",
+          "joint_seal_effective": "B2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 2.0,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.08825,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3413,
+          "traverse_after_seal": 2.3413,
+          "after_abrasion": 2.57543
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.4854,
+          "effective_duty_cap": 0.8787
+        }
+      },
+      "sinkage_mm": 4.216,
+      "contact_pressure_kpa": 2.53,
+      "bearing_pressure_ratio": 0.0149,
+      "ingress_terramech": 2.3413,
+      "ingress_traverse_combined": 2.3413,
+      "ingress_disturbance_mult": 2.57543,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.4854,
+        "effective_duty_cap": 0.8787,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.4853,
+        "effective_duty_cap": 0.8787,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.4854,
+      "chip_duty_cap": 0.8787,
+      "chip_derated_wh_per_km": 12.4274,
+      "headroom_loss_pct": 12.13,
+      "t5_sustained_work_per_wh_proxy": 80.47,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "registry_90a__trv_B5__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "registry_90a__trv_B5__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B5",
+        "joint_tier": "reducer_slot",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B5",
+      "joint_tier": "reducer_slot",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B4",
+      "env_seal_class": "B2",
+      "tread_profile": null,
+      "tread_material_id": "pu_ester_shore_90a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 4.216,
+          "contact_pressure_kpa": 2.53,
+          "bearing_pressure_ratio": 0.0149,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": null,
+          "tread_material_id": "pu_ester_shore_90a",
+          "tread_ingress_factor": 1.0,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.0
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B5",
+          "material_id": "open_joint_b5",
+          "label": "open_joint",
+          "ingress_scale": 1.0
+        },
+        "L3_joint_tier": {
+          "joint_tier": "reducer_slot",
+          "tier_label": "gearbox_ingress_path",
+          "joint_seal_effective": "B4",
+          "joint_seal_material_id": "minimal_cover_b4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "reducer_slot",
+          "joint_seal_effective": "B4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 2.0,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.30044,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3413,
+          "traverse_after_seal": 2.3413,
+          "after_abrasion": 2.57543
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.4854,
+          "effective_duty_cap": 0.8787
+        }
+      },
+      "sinkage_mm": 4.216,
+      "contact_pressure_kpa": 2.53,
+      "bearing_pressure_ratio": 0.0149,
+      "ingress_terramech": 2.3413,
+      "ingress_traverse_combined": 2.3413,
+      "ingress_disturbance_mult": 2.57543,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.4854,
+        "effective_duty_cap": 0.8787,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.4853,
+        "effective_duty_cap": 0.8787,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.4854,
+      "chip_duty_cap": 0.8787,
+      "chip_derated_wh_per_km": 12.4274,
+      "headroom_loss_pct": 12.13,
+      "t5_sustained_work_per_wh_proxy": 80.47,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "registry_90a__trv_B1__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "registry_90a__trv_B1__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B1",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B1",
+      "joint_tier": "hip_actuator",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B2",
+      "env_seal_class": "B2",
+      "tread_profile": null,
+      "tread_material_id": "pu_ester_shore_90a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 4.216,
+          "contact_pressure_kpa": 2.53,
+          "bearing_pressure_ratio": 0.0149,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": null,
+          "tread_material_id": "pu_ester_shore_90a",
+          "tread_ingress_factor": 1.0,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.0
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B1",
+          "material_id": "nbr_fully_sealed_oem_b1",
+          "label": "fully_sealed_oem",
+          "ingress_scale": 0.15
+        },
+        "L3_joint_tier": {
+          "joint_tier": "hip_actuator",
+          "tier_label": "primary_actuator_gap",
+          "joint_seal_effective": "B2",
+          "joint_seal_material_id": "labyrinth_wiper_b2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "hip_actuator",
+          "joint_seal_effective": "B2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 1.4133,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.04711,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3413,
+          "traverse_after_seal": 0.351195,
+          "after_abrasion": 0.386315
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.0127,
+          "effective_duty_cap": 0.9968
+        }
+      },
+      "sinkage_mm": 4.216,
+      "contact_pressure_kpa": 2.53,
+      "bearing_pressure_ratio": 0.0149,
+      "ingress_terramech": 2.3413,
+      "ingress_traverse_combined": 0.351195,
+      "ingress_disturbance_mult": 0.386315,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.0127,
+      "chip_duty_cap": 0.9968,
+      "chip_derated_wh_per_km": 10.9551,
+      "headroom_loss_pct": 0.32,
+      "t5_sustained_work_per_wh_proxy": 91.28,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "registry_90a__trv_B1__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "registry_90a__trv_B1__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": null,
+        "traverse_seal_class": "B1",
+        "joint_tier": "reducer_slot",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B1",
+      "joint_tier": "reducer_slot",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B4",
+      "env_seal_class": "B2",
+      "tread_profile": null,
+      "tread_material_id": "pu_ester_shore_90a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 4.216,
+          "contact_pressure_kpa": 2.53,
+          "bearing_pressure_ratio": 0.0149,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": null,
+          "tread_material_id": "pu_ester_shore_90a",
+          "tread_ingress_factor": 1.0,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.0
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B1",
+          "material_id": "nbr_fully_sealed_oem_b1",
+          "label": "fully_sealed_oem",
+          "ingress_scale": 0.15
+        },
+        "L3_joint_tier": {
+          "joint_tier": "reducer_slot",
+          "tier_label": "gearbox_ingress_path",
+          "joint_seal_effective": "B4",
+          "joint_seal_material_id": "minimal_cover_b4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "reducer_slot",
+          "joint_seal_effective": "B4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 2.0,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.1604,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3413,
+          "traverse_after_seal": 0.351195,
+          "after_abrasion": 0.386315
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.0127,
+          "effective_duty_cap": 0.9968
+        }
+      },
+      "sinkage_mm": 4.216,
+      "contact_pressure_kpa": 2.53,
+      "bearing_pressure_ratio": 0.0149,
+      "ingress_terramech": 2.3413,
+      "ingress_traverse_combined": 0.351195,
+      "ingress_disturbance_mult": 0.386315,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.0127,
+      "chip_duty_cap": 0.9968,
+      "chip_derated_wh_per_km": 10.9551,
+      "headroom_loss_pct": 0.32,
+      "t5_sustained_work_per_wh_proxy": 91.28,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "pu_shore_70a__trv_B1__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "pu_shore_70a__trv_B1__hip_actuator__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": "pu_shore_70a",
+        "traverse_seal_class": "B1",
+        "joint_tier": "hip_actuator",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B1",
+      "joint_tier": "hip_actuator",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B2",
+      "env_seal_class": "B2",
+      "tread_profile": "pu_shore_70a",
+      "tread_material_id": "pu_ester_shore_70a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 3.886,
+          "contact_pressure_kpa": 2.35,
+          "bearing_pressure_ratio": 0.0139,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": "pu_shore_70a",
+          "tread_material_id": "pu_ester_shore_70a",
+          "tread_ingress_factor": 1.04,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.6
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B1",
+          "material_id": "nbr_fully_sealed_oem_b1",
+          "label": "fully_sealed_oem",
+          "ingress_scale": 0.15
+        },
+        "L3_joint_tier": {
+          "joint_tier": "hip_actuator",
+          "tier_label": "primary_actuator_gap",
+          "joint_seal_effective": "B2",
+          "joint_seal_material_id": "labyrinth_wiper_b2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "hip_actuator",
+          "joint_seal_effective": "B2",
+          "joint_gap_mm": 0.35,
+          "exposure_area_cm2": 12.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 1.4133,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.04711,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3067,
+          "traverse_after_seal": 0.359845,
+          "after_abrasion": 0.39583
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.0127,
+          "effective_duty_cap": 0.9968
+        }
+      },
+      "sinkage_mm": 3.886,
+      "contact_pressure_kpa": 2.35,
+      "bearing_pressure_ratio": 0.0139,
+      "ingress_terramech": 2.3067,
+      "ingress_traverse_combined": 0.359845,
+      "ingress_disturbance_mult": 0.39583,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.0127,
+      "chip_duty_cap": 0.9968,
+      "chip_derated_wh_per_km": 10.9551,
+      "headroom_loss_pct": 0.32,
+      "t5_sustained_work_per_wh_proxy": 91.28,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    },
+    {
+      "cell_id": "pu_shore_70a__trv_B1__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse__traverse_nominal",
+      "stack_id": "pu_shore_70a__trv_B1__reducer_slot__js_tier_default__env_B2__MEDIUM__massif_traverse",
+      "stack": {
+        "tread_profile": "pu_shore_70a",
+        "traverse_seal_class": "B1",
+        "joint_tier": "reducer_slot",
+        "joint_seal_override": null,
+        "env_seal_class": "B2",
+        "bearing_class": "MEDIUM",
+        "zone": "massif_traverse"
+      },
+      "load_id": "traverse_nominal",
+      "load_label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "zone": "massif_traverse",
+      "bearing_class": "MEDIUM",
+      "traverse_seal_class": "B1",
+      "joint_tier": "reducer_slot",
+      "joint_seal_override": null,
+      "joint_seal_effective": "B4",
+      "env_seal_class": "B2",
+      "tread_profile": "pu_shore_70a",
+      "tread_material_id": "pu_ester_shore_70a",
+      "world_oracle": "W_regolith_robot_v0",
+      "rover_mass_kg": 50.0,
+      "shield_g_cm2": 10.0,
+      "n_wheels": 4,
+      "step_m": 416.67,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "physics_chain": {
+        "L0_terramech": {
+          "sinkage_mm": 3.886,
+          "contact_pressure_kpa": 2.35,
+          "bearing_pressure_ratio": 0.0139,
+          "bearing_sinkage_risk": false,
+          "traverse_feasible": true,
+          "wheel_class": "SMALL_WHEEL",
+          "frame_material_id": "al_6061_t6_extrusion",
+          "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+        },
+        "L1_tread": {
+          "tread_profile": "pu_shore_70a",
+          "tread_material_id": "pu_ester_shore_70a",
+          "tread_ingress_factor": 1.04,
+          "wheel_diameter_cm": 20.0,
+          "wheel_width_cm": 8.6
+        },
+        "L2_traverse_seal": {
+          "traverse_seal_class": "B1",
+          "material_id": "nbr_fully_sealed_oem_b1",
+          "label": "fully_sealed_oem",
+          "ingress_scale": 0.15
+        },
+        "L3_joint_tier": {
+          "joint_tier": "reducer_slot",
+          "tier_label": "gearbox_ingress_path",
+          "joint_seal_effective": "B4",
+          "joint_seal_material_id": "minimal_cover_b4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0
+        },
+        "L4_env_seal": {
+          "env_seal_class": "B2",
+          "material_id": "labyrinth_wiper_b2",
+          "label": "labyrinth_wiper",
+          "ingress_scale": 0.35
+        },
+        "L5_mission_dust": {
+          "joint_tier": "reducer_slot",
+          "joint_seal_effective": "B4",
+          "joint_gap_mm": 0.8,
+          "exposure_area_cm2": 15.0,
+          "cleaning_duty": 0.25,
+          "mission_sols": 30.0,
+          "meters_per_sol": 100.0,
+          "articulation_accumulation_g_m2": 2.0,
+          "env_accumulation_g_m2": 1.5036,
+          "total_accumulation_g_m2": 2.0,
+          "abrasion_stress_mult": 1.1,
+          "last_articulation_rate": 0.1604,
+          "env_seal_class": "B2"
+        },
+        "L6_abrasion": {
+          "stress_index_multiplier": 1.1
+        },
+        "L7_combined_ingress": {
+          "terramech_mult": 2.3067,
+          "traverse_after_seal": 0.359845,
+          "after_abrasion": 0.39583
+        },
+        "L8_radiation": {
+          "radiation_delta_vth_mv": 0.6369,
+          "shield_g_cm2": 10.0
+        },
+        "L9_wear_crown": {
+          "cxx_status": "PASS",
+          "stress_index": 0.0127,
+          "effective_duty_cap": 0.9968
+        }
+      },
+      "sinkage_mm": 3.886,
+      "contact_pressure_kpa": 2.35,
+      "bearing_pressure_ratio": 0.0139,
+      "ingress_terramech": 2.3067,
+      "ingress_traverse_combined": 0.359845,
+      "ingress_disturbance_mult": 0.39583,
+      "accumulation_g_m2": 2.0,
+      "abrasion_stress_mult": 1.1,
+      "traverse_feasible": true,
+      "wheel_class": "SMALL_WHEEL",
+      "cxx": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "oracle": "CXX_DUAL_EVAL_RAIL"
+      },
+      "iron": {
+        "status": "PASS",
+        "stress_index": 0.0127,
+        "effective_duty_cap": 0.9968,
+        "proof_tier": "IRON_SIM_MMIO_READBACK"
+      },
+      "cxx_iron_parity_ok": true,
+      "chip_stress_index": 0.0127,
+      "chip_duty_cap": 0.9968,
+      "chip_derated_wh_per_km": 10.9551,
+      "headroom_loss_pct": 0.32,
+      "t5_sustained_work_per_wh_proxy": 91.28,
+      "radiation_delta_vth_mv": 0.6369,
+      "wear_crown": "CXX_DUAL_EVAL_RAIL"
+    }
+  ],
+  "joint_tier_trade": [],
+  "env_seal_trade": [],
+  "traverse_seal_curve": [
+    {
+      "traverse_seal_class": "B1",
+      "ingress": 0.386315,
+      "accumulation_g_m2": 2.0,
+      "stress": 0.0127
+    },
+    {
+      "traverse_seal_class": "B5",
+      "ingress": 2.57543,
+      "accumulation_g_m2": 2.0,
+      "stress": 0.4854
+    }
+  ],
+  "subsystem_axis_spread": {
+    "traverse_seal_class": {
+      "B1": {
+        "count": 4,
+        "stress_min": 0.0127,
+        "stress_max": 0.0127,
+        "stress_spread": 0.0
+      },
+      "B5": {
+        "count": 4,
+        "stress_min": 0.4854,
+        "stress_max": 0.5044,
+        "stress_spread": 0.019
+      }
+    },
+    "joint_tier": {
+      "hip_actuator": {
+        "count": 4,
+        "stress_min": 0.0127,
+        "stress_max": 0.5044,
+        "stress_spread": 0.4917
+      },
+      "reducer_slot": {
+        "count": 4,
+        "stress_min": 0.0127,
+        "stress_max": 0.5044,
+        "stress_spread": 0.4917
+      }
+    },
+    "env_seal_class": {
+      "B2": {
+        "count": 8,
+        "stress_min": 0.0127,
+        "stress_max": 0.5044,
+        "stress_spread": 0.4917
+      }
+    },
+    "tread_profile": {
+      "unknown": {
+        "count": 4,
+        "stress_min": 0.0127,
+        "stress_max": 0.4854,
+        "stress_spread": 0.4727
+      },
+      "pu_shore_70a": {
+        "count": 4,
+        "stress_min": 0.0127,
+        "stress_max": 0.5044,
+        "stress_spread": 0.4917
+      }
+    },
+    "bearing_class": {
+      "MEDIUM": {
+        "count": 8,
+        "stress_min": 0.0127,
+        "stress_max": 0.5044,
+        "stress_spread": 0.4917
+      }
+    },
+    "zone": {
+      "massif_traverse": {
+        "count": 8,
+        "stress_min": 0.0127,
+        "stress_max": 0.5044,
+        "stress_spread": 0.4917
+      }
+    }
+  },
+  "honesty": {
+    "sim_not_measured": true,
+    "cxx_crown_not_python": true,
+    "iron_sim_mmio": true,
+    "subsystem_parts_from_registry": true,
+    "dual_seal_slot_documented": true,
+    "cited_bind_physics_chain": true,
+    "teaching_playbench": true
+  }
+}

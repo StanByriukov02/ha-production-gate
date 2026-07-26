@@ -1,0 +1,10 @@
+{
+  "teaching_id": "biped_dynamic_balance_teaching_v1",
+  "max_com_velocity_m_per_tick": 0.05,
+  "honesty": {
+    "teaching_only": true,
+    "no_walk_claim": true
+  },
+  "deferred": ["AN_DYNAMIC_BALANCE", "AI_MEASURED_FOOT_CONTACT"],
+  "tabu": ["claim biped walks", "claim dynamic balance MEASURED"]
+}

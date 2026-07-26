@@ -1,0 +1,140 @@
+{
+  "taxonomy_id": "appendage_role_taxonomy_v0",
+  "version": 0,
+  "proof_tier": "APPENDAGE_ROLE_TAXONOMY_SLICE",
+  "oracle": "BODY_PART_MOTION_CLASS_BIND",
+  "note": "Maps body part roles → geometry engine · motion bus · proof tier · honest deferred gaps",
+  "tabu": "claim one role taxonomy equals full humanoid OS",
+  "roles": {
+    "manipulator_arm": {
+      "body_region": "upper_limb",
+      "typical_dof": [3, 6, 7],
+      "geometry_classes": ["planar_serial_revolute", "serial_revolute_se3"],
+      "motion_bus": "appendage_stack_integrator",
+      "actuator_backends": ["sim_symplectic", "lc2_iron_teaching"],
+      "contact_tier": "ADAPT",
+      "proof_tier": "APPENDAGE_KINEMATICS_OS_SLICE",
+      "canon_chain_example": "lunar_manipulator_chain_scout_3dof_v1",
+      "deferred": ["MEASURED_GRASP_FORCE", "BASE_ARM_COORDINATION"]
+    },
+    "gripper_tool": {
+      "body_region": "end_effector",
+      "typical_dof": [1, 2],
+      "geometry_classes": ["serial_revolute_se3", "planar_serial_revolute"],
+      "motion_bus": "appendage_stack_integrator",
+      "actuator_backends": ["sim_symplectic"],
+      "contact_tier": "ADAPT",
+      "proof_tier": "GRIPPER_SUBCHAIN_SLICE",
+      "canon_chain_example": null,
+      "deferred": ["GRIPPER_AJ_CHAIN", "MEASURED_GRASP_FORCE"]
+    },
+    "locomotion_leg": {
+      "body_region": "lower_limb",
+      "typical_dof": [3, 4],
+      "geometry_classes": ["planar_serial_revolute", "serial_revolute_se3"],
+      "motion_bus": "hexapod_gait_bus",
+      "actuator_backends": ["sim_symplectic", "lc2_iron_teaching"],
+      "contact_tier": "ADAPT",
+      "proof_tier": "HEXAPOD_LEG_CHAIN_SLICE",
+      "canon_chain_example": "hexapod_leg_3dof_v1",
+      "deferred": ["AI_MEASURED_FOOT_CONTACT", "BIPED_BALANCE_BUS"]
+    },
+    "wheel_axle": {
+      "body_region": "locomotion",
+      "operator_priority": "DOGFOOD_ACTIVE",
+      "lunar_north_star": false,
+      "note": "Earth bench carrier · terramech/material bus — not lunar scout locomotion",
+      "typical_dof": [1],
+      "geometry_classes": ["kinematic_tree_se3"],
+      "motion_bus": "wheeled_chassis_compose",
+      "actuator_backends": ["sim_symplectic"],
+      "contact_tier": "TERRAMECH_ADAPT",
+      "proof_tier": "KINEMATIC_TREE_IR_SLICE",
+      "canon_chain_example": "lc2_combat_carrier_4wd_v1",
+      "deferred": ["MEASURED_ROLLING_SLIP"]
+    },
+    "torso_spine": {
+      "body_region": "trunk",
+      "typical_dof": [1, 3],
+      "geometry_classes": ["serial_revolute_se3", "kinematic_tree_se3"],
+      "motion_bus": "appendage_stack_integrator",
+      "actuator_backends": ["sim_symplectic", "lc2_iron_teaching"],
+      "contact_tier": null,
+      "proof_tier": "TORSO_SPINE_SLICE",
+      "canon_chain_example": null,
+      "deferred": ["AL_TORSO_SPINE_CHAIN", "TORSO_MASS_LEDGER_CROSSCHECK"]
+    },
+    "head_neck": {
+      "body_region": "head",
+      "typical_dof": [2, 3],
+      "geometry_classes": ["serial_revolute_se3", "planar_serial_revolute"],
+      "motion_bus": "pan_tilt_bus",
+      "actuator_backends": ["sim_symplectic"],
+      "contact_tier": null,
+      "proof_tier": "HEAD_NECK_SLICE",
+      "canon_chain_example": null,
+      "deferred": ["AM_HEAD_NECK_CHAIN", "PERCEPTION_MOUNT_BIND"]
+    },
+    "bench_joint": {
+      "body_region": "qual_fixture",
+      "typical_dof": [1],
+      "geometry_classes": ["serial_revolute_se3"],
+      "motion_bus": "appendage_stack_integrator",
+      "actuator_backends": ["lc2_iron_teaching"],
+      "contact_tier": null,
+      "proof_tier": "APPENDAGE_IRON_HIL_SLICE",
+      "canon_chain_example": "lc2_bench_hip_1dof_v1",
+      "deferred": []
+    }
+  },
+  "motion_buses": {
+    "appendage_stack_integrator": {
+      "module": "dogfood_platform/appendage_stack_integrator_v1.py",
+      "status": "PASS",
+      "roles": ["manipulator_arm", "gripper_tool", "torso_spine", "bench_joint"]
+    },
+    "hexapod_gait_bus": {
+      "module": "dogfood_platform/hexapod_gait_bus_v1.py",
+      "status": "PASS",
+      "roles": ["locomotion_leg"]
+    },
+    "hexapod_body_compose": {
+      "module": "dogfood_platform/hexapod_body_compose_v1.py",
+      "status": "PASS",
+      "roles": ["locomotion_leg"]
+    },
+    "wheeled_chassis_compose": {
+      "module": "dogfood_platform/wheeled_chassis_compose_v1.py",
+      "status": "PASS",
+      "target_phase": "BA",
+      "operator_priority": "DOGFOOD_ACTIVE",
+      "roles": ["wheel_axle"]
+    },
+    "pan_tilt_bus": {
+      "module": "dogfood_platform/head_neck_pan_tilt_v1.py",
+      "status": "PASS",
+      "target_phase": "AM",
+      "roles": ["head_neck"]
+    },
+    "biped_gait_bus": {
+      "module": "dogfood_platform/biped_leg_compose_v1.py",
+      "status": "PASS",
+      "target_phase": "AN",
+      "roles": ["locomotion_leg"]
+    },
+    "terramech_wheel_locomotion": {
+      "module": "dogfood_platform/lunar_wheel_locomotion_v1.py",
+      "status": "PASS",
+      "roles": ["wheel_axle"],
+      "note": "physics sinkage/ingress — not joint-space rolling crown yet"
+    }
+  },
+  "registry_coverage": {
+    "lunar_manipulator_chain_scout_3dof_v1": "manipulator_arm",
+    "lc2_bench_hip_1dof_v1": "bench_joint",
+    "hexapod_leg_3dof_v1": "locomotion_leg",
+    "torso_spine_2dof_v1": "torso_spine",
+    "head_neck_pan_tilt_v1": "head_neck",
+    "gripper_parallel_1dof_v1": "gripper_tool"
+  }
+}

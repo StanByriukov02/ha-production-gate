@@ -1,0 +1,9 @@
+{
+  "dispatch_id": "appendage_motion_bus_dispatch_v1",
+  "robot_id": "motion_bus_teaching_v1",
+  "regions": [
+    {"appendage_id": "scout_arm", "role": "manipulator_arm", "chain_id": "lunar_manipulator_chain_scout_3dof_v1", "mount_xyz": [0.1, 0.0, 0.4]},
+    {"appendage_id": "leg_0", "role": "locomotion_leg", "chain_id": "hexapod_leg_3dof_v1", "mount_xyz": [0.1, 0.0, 0.0], "bus": "biped_gait"},
+    {"appendage_id": "neck", "role": "head_neck", "chain_id": "head_neck_pan_tilt_v1", "mount_xyz": [0.0, 0.0, 0.35], "bus": "pan_tilt"}
+  ]
+}

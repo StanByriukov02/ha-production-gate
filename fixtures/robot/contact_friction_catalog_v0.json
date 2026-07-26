@@ -1,0 +1,42 @@
+{
+  "catalog_id": "contact_friction_catalog_v0",
+  "version": 0,
+  "proof_tier": "CONTACT_FRICTION_SLICE",
+  "oracle": "FRICTION_IDENTIFICATION_CATALOG",
+  "note": "Identified μ from literature/teaching bounds — NOT MEASURED flight data",
+  "friction_pairs": {
+    "nbr_70a__lunar_regolith_compact": {
+      "pad_material_id": "nbr_70a",
+      "surface_id": "lunar_regolith_compact",
+      "mu_static": 0.62,
+      "mu_kinetic": 0.41,
+      "source": "teaching_literature_proxy_v0",
+      "confidence": "ADAPT"
+    },
+    "nbr_lip_seal_b2__lunar_regolith_compact": {
+      "pad_material_id": "nbr_lip_seal_b2",
+      "surface_id": "lunar_regolith_compact",
+      "mu_static": 0.64,
+      "mu_kinetic": 0.43,
+      "source": "teaching_literature_proxy_v0",
+      "confidence": "ADAPT"
+    },
+    "pu_95a__lunar_regolith_compact": {
+      "pad_material_id": "pu_95a",
+      "surface_id": "lunar_regolith_compact",
+      "mu_static": 0.55,
+      "mu_kinetic": 0.38,
+      "source": "teaching_literature_proxy_v0",
+      "confidence": "ADAPT"
+    },
+    "nbr_70a__aluminum_anodized": {
+      "pad_material_id": "nbr_70a",
+      "surface_id": "aluminum_anodized",
+      "mu_static": 0.48,
+      "mu_kinetic": 0.32,
+      "source": "bench_teaching_v0",
+      "confidence": "ADAPT"
+    }
+  },
+  "tabu": "claim MEASURED lunar regolith friction"
+}

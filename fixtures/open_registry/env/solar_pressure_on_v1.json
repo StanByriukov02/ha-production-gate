@@ -1,0 +1,40 @@
+{
+  "schema": "ha_solar_pressure_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "P=S/c; F=P*A*Cr*max(cos(i),0)^2",
+  "units": { "S": "W/m^2", "P": "Pa", "F": "N", "i": "rad" },
+  "on_sources": [
+    {
+      "id": "srp_cannonball",
+      "cite": "solar radiation pressure teaching P=S/c; F=P A Cr cos²i (not full BRDF / MEASURED)",
+      "used": ["F_srp"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate solar-pressure --catalog <path> --pack <id> --i-rad <i>"
+  },
+  "honesty": ["teaching SRP cannonball — not attitude-resolved MEASURED", "python_not_oracle"],
+  "packs": {
+    "edge_safe": {
+      "label": "edge-on Dual Safe (force→0)",
+      "s_w_m2": 1361.0,
+      "area_m2": 2.0,
+      "cr": 1.5,
+      "i_rad": 1.5707963267948966
+    },
+    "face_hostile": {
+      "label": "1 AU face-on Dual Hostile (max disturbance)",
+      "s_w_m2": 1361.0,
+      "area_m2": 2.0,
+      "cr": 1.5,
+      "i_rad": 0.0
+    }
+  },
+  "defaults": { "pack": "edge_safe", "i_rad": null },
+  "dual_anchors": {
+    "safe_pack": "edge_safe",
+    "hostile_pack": "face_hostile"
+  },
+  "constants": { "c_m_s": 299792458.0 }
+}

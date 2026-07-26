@@ -1,0 +1,84 @@
+{
+  "vectors_id": "material_wear_condition_vectors_v1",
+  "radiation_cases": {
+    "idle": {
+      "radiation_delta_vth_mv": 0.0
+    },
+    "terminal_lunar_crater": {
+      "radiation_delta_vth_mv": 0.6369
+    }
+  },
+  "material_monotone_axis": [
+    "scout_short_traverse",
+    "scout_default_medium",
+    "scout_terminal_raw"
+  ],
+  "tread_compare_axis": [
+    "scout_tread_shore_70a",
+    "scout_default_medium",
+    "scout_tread_shore_95a"
+  ],
+  "seal_compare_axis": [
+    "scout_seal_b1",
+    "scout_seal_b2",
+    "scout_seal_b3",
+    "scout_seal_b5"
+  ],
+  "cells": [
+    {
+      "id": "short_idle",
+      "material_variant": "scout_short_traverse",
+      "radiation_case": "idle"
+    },
+    {
+      "id": "medium_idle",
+      "material_variant": "scout_default_medium",
+      "radiation_case": "idle"
+    },
+    {
+      "id": "raw_idle",
+      "material_variant": "scout_terminal_raw",
+      "radiation_case": "idle"
+    },
+    {
+      "id": "medium_terminal",
+      "material_variant": "scout_default_medium",
+      "radiation_case": "terminal_lunar_crater"
+    },
+    {
+      "id": "raw_terminal",
+      "material_variant": "scout_terminal_raw",
+      "radiation_case": "terminal_lunar_crater"
+    },
+    {
+      "id": "tread_70a_idle",
+      "material_variant": "scout_tread_shore_70a",
+      "radiation_case": "idle"
+    },
+    {
+      "id": "tread_95a_idle",
+      "material_variant": "scout_tread_shore_95a",
+      "radiation_case": "idle"
+    },
+    {
+      "id": "seal_b1_idle",
+      "material_variant": "scout_seal_b1",
+      "radiation_case": "idle"
+    },
+    {
+      "id": "seal_b2_idle",
+      "material_variant": "scout_seal_b2",
+      "radiation_case": "idle"
+    },
+    {
+      "id": "seal_b3_idle",
+      "material_variant": "scout_seal_b3",
+      "radiation_case": "idle"
+    },
+    {
+      "id": "seal_b5_idle",
+      "material_variant": "scout_seal_b5",
+      "radiation_case": "idle"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "artifact_id": "robot_ift2_r1_chassis_v1",
+  "generator": "cad/envelope/robot_ift2_r1_chassis_v1.py",
+  "cites": [
+    "ROBOT_MATERIALS_REGISTRY_v1",
+    "ROBOT_IFT2_R1_MATERIALS_RECEIPT_v1"
+  ],
+  "footprint_mm": {
+    "length": 620.0,
+    "width": 420.0,
+    "height": 280.0
+  },
+  "frame_profile": "30x30x2_mm_hollow",
+  "wheel_diameter_mm": 200.0,
+  "wheel_count": 4,
+  "bbox_mm": {
+    "x": 620.0,
+    "y": 420.0,
+    "z": 212.0
+  },
+  "oracle": "MODEL",
+  "honesty": "Teaching chassis envelope \u2014 extrusion rails + PU wheel cylinders \u00b7 not harness CAD"
+}

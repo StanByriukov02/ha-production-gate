@@ -1,0 +1,1474 @@
+{
+  "projection_id": "cmc_projection_lunar_relay_v1",
+  "timestamp_utc": "2026-07-06T08:51:13.709125+00:00",
+  "scope": "docs/agent_workflow/ROBOT_CONSCIOUSNESS_CLIFFORD_SCOPE_V1.md",
+  "oracle": "DATASET_ENGINE_SIM",
+  "mission_id": "M-lunar-relay-teaching",
+  "primary_profiles": [
+    "lunar_crater_5km",
+    "lunar_traverse_50km"
+  ],
+  "cave_regression": {
+    "profile_id": "cave_500m",
+    "verdict": "PASS"
+  },
+  "simulations": {
+    "lunar_crater_5km": {
+      "profile_id": "lunar_crater_5km",
+      "traverse_m": 5000.0,
+      "n_carriers": 2,
+      "carrier_ids": [
+        "scout_A",
+        "scout_B"
+      ],
+      "hops": [
+        {
+          "frac": 0.5,
+          "donor": "scout_A",
+          "recipient": "scout_B"
+        }
+      ],
+      "relay_segments": [
+        {
+          "carrier_id": "scout_A",
+          "mode": "cold",
+          "seg_start_frac": 0.0,
+          "seg_end_frac": 0.5,
+          "segment_traverse_m": 2500.0,
+          "path_wh": 27.325,
+          "wh_per_km": 10.93,
+          "comm_bytes": 31795200,
+          "time_to_task_s": 1071.4285
+        },
+        {
+          "carrier_id": "scout_B",
+          "mode": "inherit",
+          "seg_start_frac": 0.5,
+          "seg_end_frac": 1.0,
+          "segment_traverse_m": 2500.0,
+          "path_wh": 12.364562,
+          "wh_per_km": 4.9458,
+          "comm_bytes": 0,
+          "time_to_task_s": 142.857
+        }
+      ],
+      "cold_segments": [
+        {
+          "carrier_id": "scout_A",
+          "mode": "cold",
+          "seg_start_frac": 0.0,
+          "seg_end_frac": 0.5,
+          "segment_traverse_m": 2500.0,
+          "path_wh": 27.325,
+          "wh_per_km": 10.93,
+          "comm_bytes": 31795200,
+          "time_to_task_s": 1071.4285
+        },
+        {
+          "carrier_id": "scout_B",
+          "mode": "cold",
+          "seg_start_frac": 0.5,
+          "seg_end_frac": 1.0,
+          "segment_traverse_m": 2500.0,
+          "path_wh": 27.325,
+          "wh_per_km": 10.93,
+          "comm_bytes": 30412800,
+          "time_to_task_s": 1071.429
+        }
+      ],
+      "packets": [
+        {
+          "packet_version": "situation_inherit_v1",
+          "profile_id": "lunar_crater_5km",
+          "donor_robot_id": "scout_A",
+          "recipient_robot_id": "scout_B",
+          "handoff_traverse_m": 2500.0,
+          "binding_radius_m": 500.0,
+          "pose_motor128": {
+            "qw": 0.98774388,
+            "qx": 0.0155335,
+            "qy": 0.00779306,
+            "qz": 0.15511289,
+            "tx": 1.19813032,
+            "ty": 0.3964765,
+            "tz": 0.14856223
+          },
+          "map_ledger_hash": "f91906c6bae1bf4d",
+          "event_front_cursor": 11,
+          "mission_tick": 357142,
+          "stack_replay_hash": "be6455ad23c2d538",
+          "oracle": "DATASET_ENGINE_SIM",
+          "packet_bytes": 500
+        }
+      ],
+      "relay_total_wh": 39.6896,
+      "cold_chain_total_wh": 54.65,
+      "wh_ratio_relay_over_cold": 0.7262,
+      "relay_comm_bytes": 31795700,
+      "cold_comm_bytes": 62208000,
+      "projection_ticks": [
+        {
+          "tick": 0,
+          "traverse_m": 0.0,
+          "event": "mission_start",
+          "carriers": []
+        },
+        {
+          "tick": 1,
+          "traverse_m": 2500.0,
+          "event": "segment_complete:scout_A",
+          "carriers": [
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_A",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_crater_5km",
+              "intent": {
+                "goal_traverse_m": 5000.0,
+                "binding_radius_m": 500.0,
+                "mode": "traverse",
+                "segment_start_m": 0.0,
+                "segment_end_m": 2500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 2250.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 6,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 11,
+                "coverage_frac": 0.5
+              },
+              "mission_clock": {
+                "tick": 357142,
+                "wh_spent": 27.325,
+                "wh_budget_remain": 172.675
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            }
+          ]
+        },
+        {
+          "tick": 2,
+          "traverse_m": 2500.0,
+          "event": "handoff:scout_A->scout_B",
+          "carriers": [
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_A",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_crater_5km",
+              "intent": {
+                "goal_traverse_m": 5000.0,
+                "binding_radius_m": 500.0,
+                "mode": "handoff_pending",
+                "segment_start_m": 0.0,
+                "segment_end_m": 2500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 2250.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 6,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 11,
+                "coverage_frac": 0.5
+              },
+              "mission_clock": {
+                "tick": 357142,
+                "wh_spent": 27.325,
+                "wh_budget_remain": 172.675
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            }
+          ]
+        },
+        {
+          "tick": 3,
+          "traverse_m": 5000.0,
+          "event": "segment_complete:scout_B",
+          "carriers": [
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_A",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_crater_5km",
+              "intent": {
+                "goal_traverse_m": 5000.0,
+                "binding_radius_m": 500.0,
+                "mode": "relay",
+                "segment_start_m": 0.0,
+                "segment_end_m": 2500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 2250.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 6,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 11,
+                "coverage_frac": 0.5
+              },
+              "mission_clock": {
+                "tick": 357142,
+                "wh_spent": 27.325,
+                "wh_budget_remain": 172.675
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            },
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_B",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_crater_5km",
+              "intent": {
+                "goal_traverse_m": 5000.0,
+                "binding_radius_m": 500.0,
+                "mode": "traverse",
+                "segment_start_m": 2500.0,
+                "segment_end_m": 5000.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 4500.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 5,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 22,
+                "coverage_frac": 1.0
+              },
+              "mission_clock": {
+                "tick": 714285,
+                "wh_spent": 39.6896,
+                "wh_budget_remain": 160.3104
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            }
+          ]
+        }
+      ],
+      "final_carriers": [
+        {
+          "cmc_version": "carrier_mission_cognition_v1",
+          "carrier_id": "scout_A",
+          "mission_id": "M-lunar-relay-teaching",
+          "profile_id": "lunar_crater_5km",
+          "intent": {
+            "goal_traverse_m": 5000.0,
+            "binding_radius_m": 500.0,
+            "mode": "relay",
+            "segment_start_m": 0.0,
+            "segment_end_m": 2500.0
+          },
+          "clifford": {
+            "pose_motor128": {
+              "qw": 0.98774388,
+              "qx": 0.0155335,
+              "qy": 0.00779306,
+              "qz": 0.15511289,
+              "tx": 2250.0,
+              "ty": 0.0,
+              "tz": -1.2
+            },
+            "phi_macro_tick": 6,
+            "stack_replay_hash": "be6455ad23c2d538"
+          },
+          "situation": {
+            "map_ledger_hash": "",
+            "event_front_cursor": 11,
+            "coverage_frac": 0.5
+          },
+          "mission_clock": {
+            "tick": 357142,
+            "wh_spent": 27.325,
+            "wh_budget_remain": 172.675
+          },
+          "vi2_bind": {
+            "hash_aligned": true,
+            "slam_stack_hash": "be6455ad23c2d538"
+          },
+          "oracle": "DATASET_ENGINE_SIM"
+        },
+        {
+          "cmc_version": "carrier_mission_cognition_v1",
+          "carrier_id": "scout_B",
+          "mission_id": "M-lunar-relay-teaching",
+          "profile_id": "lunar_crater_5km",
+          "intent": {
+            "goal_traverse_m": 5000.0,
+            "binding_radius_m": 500.0,
+            "mode": "traverse",
+            "segment_start_m": 2500.0,
+            "segment_end_m": 5000.0
+          },
+          "clifford": {
+            "pose_motor128": {
+              "qw": 0.98774388,
+              "qx": 0.0155335,
+              "qy": 0.00779306,
+              "qz": 0.15511289,
+              "tx": 4500.0,
+              "ty": 0.0,
+              "tz": -1.2
+            },
+            "phi_macro_tick": 5,
+            "stack_replay_hash": "be6455ad23c2d538"
+          },
+          "situation": {
+            "map_ledger_hash": "",
+            "event_front_cursor": 22,
+            "coverage_frac": 1.0
+          },
+          "mission_clock": {
+            "tick": 714285,
+            "wh_spent": 39.6896,
+            "wh_budget_remain": 160.3104
+          },
+          "vi2_bind": {
+            "hash_aligned": true,
+            "slam_stack_hash": "be6455ad23c2d538"
+          },
+          "oracle": "DATASET_ENGINE_SIM"
+        }
+      ]
+    },
+    "lunar_traverse_50km": {
+      "profile_id": "lunar_traverse_50km",
+      "traverse_m": 50000.0,
+      "n_carriers": 4,
+      "carrier_ids": [
+        "scout_A",
+        "scout_B",
+        "scout_C",
+        "scout_D"
+      ],
+      "hops": [
+        {
+          "frac": 0.25,
+          "donor": "scout_A",
+          "recipient": "scout_B"
+        },
+        {
+          "frac": 0.5,
+          "donor": "scout_B",
+          "recipient": "scout_C"
+        },
+        {
+          "frac": 0.75,
+          "donor": "scout_C",
+          "recipient": "scout_D"
+        }
+      ],
+      "relay_segments": [
+        {
+          "carrier_id": "scout_A",
+          "mode": "cold",
+          "seg_start_frac": 0.0,
+          "seg_end_frac": 0.25,
+          "segment_traverse_m": 12500.0,
+          "path_wh": 136.75,
+          "wh_per_km": 10.94,
+          "comm_bytes": 15897600,
+          "time_to_task_s": 7500.0
+        },
+        {
+          "carrier_id": "scout_B",
+          "mode": "inherit",
+          "seg_start_frac": 0.25,
+          "seg_end_frac": 0.5,
+          "segment_traverse_m": 12500.0,
+          "path_wh": 61.879375,
+          "wh_per_km": 4.9504,
+          "comm_bytes": 0,
+          "time_to_task_s": 1000.0
+        },
+        {
+          "carrier_id": "scout_C",
+          "mode": "inherit",
+          "seg_start_frac": 0.5,
+          "seg_end_frac": 0.75,
+          "segment_traverse_m": 12500.0,
+          "path_wh": 61.879375,
+          "wh_per_km": 4.9504,
+          "comm_bytes": 0,
+          "time_to_task_s": 1000.0
+        },
+        {
+          "carrier_id": "scout_D",
+          "mode": "inherit",
+          "seg_start_frac": 0.75,
+          "seg_end_frac": 1.0,
+          "segment_traverse_m": 12500.0,
+          "path_wh": 61.879375,
+          "wh_per_km": 4.9504,
+          "comm_bytes": 0,
+          "time_to_task_s": 1000.0
+        }
+      ],
+      "cold_segments": [
+        {
+          "carrier_id": "scout_A",
+          "mode": "cold",
+          "seg_start_frac": 0.0,
+          "seg_end_frac": 0.25,
+          "segment_traverse_m": 12500.0,
+          "path_wh": 136.75,
+          "wh_per_km": 10.94,
+          "comm_bytes": 15897600,
+          "time_to_task_s": 7500.0
+        },
+        {
+          "carrier_id": "scout_B",
+          "mode": "cold",
+          "seg_start_frac": 0.25,
+          "seg_end_frac": 0.5,
+          "segment_traverse_m": 12500.0,
+          "path_wh": 136.75,
+          "wh_per_km": 10.94,
+          "comm_bytes": 15667200,
+          "time_to_task_s": 7500.0
+        },
+        {
+          "carrier_id": "scout_C",
+          "mode": "cold",
+          "seg_start_frac": 0.5,
+          "seg_end_frac": 0.75,
+          "segment_traverse_m": 12500.0,
+          "path_wh": 136.75,
+          "wh_per_km": 10.94,
+          "comm_bytes": 15206400,
+          "time_to_task_s": 7500.0
+        },
+        {
+          "carrier_id": "scout_D",
+          "mode": "cold",
+          "seg_start_frac": 0.75,
+          "seg_end_frac": 1.0,
+          "segment_traverse_m": 12500.0,
+          "path_wh": 136.75,
+          "wh_per_km": 10.94,
+          "comm_bytes": 13824000,
+          "time_to_task_s": 7500.0
+        }
+      ],
+      "packets": [
+        {
+          "packet_version": "situation_inherit_v1",
+          "profile_id": "lunar_traverse_50km",
+          "donor_robot_id": "scout_A",
+          "recipient_robot_id": "scout_B",
+          "handoff_traverse_m": 12500.0,
+          "binding_radius_m": 2000.0,
+          "pose_motor128": {
+            "qw": 0.98774388,
+            "qx": 0.0155335,
+            "qy": 0.00779306,
+            "qz": 0.15511289,
+            "tx": 1.19813032,
+            "ty": 0.3964765,
+            "tz": 0.14856223
+          },
+          "map_ledger_hash": "f91906c6bae1bf4d",
+          "event_front_cursor": 5,
+          "mission_tick": 2500000,
+          "stack_replay_hash": "be6455ad23c2d538",
+          "oracle": "DATASET_ENGINE_SIM",
+          "packet_bytes": 505
+        },
+        {
+          "packet_version": "situation_inherit_v1",
+          "profile_id": "lunar_traverse_50km",
+          "donor_robot_id": "scout_B",
+          "recipient_robot_id": "scout_C",
+          "handoff_traverse_m": 25000.0,
+          "binding_radius_m": 2000.0,
+          "pose_motor128": {
+            "qw": 0.98774388,
+            "qx": 0.0155335,
+            "qy": 0.00779306,
+            "qz": 0.15511289,
+            "tx": 1.19813032,
+            "ty": 0.3964765,
+            "tz": 0.14856223
+          },
+          "map_ledger_hash": "f91906c6bae1bf4d",
+          "event_front_cursor": 11,
+          "mission_tick": 5000000,
+          "stack_replay_hash": "be6455ad23c2d538",
+          "oracle": "DATASET_ENGINE_SIM",
+          "packet_bytes": 506
+        },
+        {
+          "packet_version": "situation_inherit_v1",
+          "profile_id": "lunar_traverse_50km",
+          "donor_robot_id": "scout_C",
+          "recipient_robot_id": "scout_D",
+          "handoff_traverse_m": 37500.0,
+          "binding_radius_m": 2000.0,
+          "pose_motor128": {
+            "qw": 0.98774388,
+            "qx": 0.0155335,
+            "qy": 0.00779306,
+            "qz": 0.15511289,
+            "tx": 1.19813032,
+            "ty": 0.3964765,
+            "tz": 0.14856223
+          },
+          "map_ledger_hash": "f91906c6bae1bf4d",
+          "event_front_cursor": 17,
+          "mission_tick": 7500000,
+          "stack_replay_hash": "be6455ad23c2d538",
+          "oracle": "DATASET_ENGINE_SIM",
+          "packet_bytes": 506
+        }
+      ],
+      "relay_total_wh": 322.3881,
+      "cold_chain_total_wh": 547.0,
+      "wh_ratio_relay_over_cold": 0.5894,
+      "relay_comm_bytes": 15899117,
+      "cold_comm_bytes": 60595200,
+      "projection_ticks": [
+        {
+          "tick": 0,
+          "traverse_m": 0.0,
+          "event": "mission_start",
+          "carriers": []
+        },
+        {
+          "tick": 1,
+          "traverse_m": 12500.0,
+          "event": "segment_complete:scout_A",
+          "carriers": [
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_A",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "traverse",
+                "segment_start_m": 0.0,
+                "segment_end_m": 12500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 11250.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 5,
+                "coverage_frac": 0.25
+              },
+              "mission_clock": {
+                "tick": 2500000,
+                "wh_spent": 136.75,
+                "wh_budget_remain": 63.25
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            }
+          ]
+        },
+        {
+          "tick": 2,
+          "traverse_m": 12500.0,
+          "event": "handoff:scout_A->scout_B",
+          "carriers": [
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_A",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "handoff_pending",
+                "segment_start_m": 0.0,
+                "segment_end_m": 12500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 11250.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 5,
+                "coverage_frac": 0.25
+              },
+              "mission_clock": {
+                "tick": 2500000,
+                "wh_spent": 136.75,
+                "wh_budget_remain": 63.25
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            }
+          ]
+        },
+        {
+          "tick": 3,
+          "traverse_m": 25000.0,
+          "event": "segment_complete:scout_B",
+          "carriers": [
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_A",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "relay",
+                "segment_start_m": 0.0,
+                "segment_end_m": 12500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 11250.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 5,
+                "coverage_frac": 0.25
+              },
+              "mission_clock": {
+                "tick": 2500000,
+                "wh_spent": 136.75,
+                "wh_budget_remain": 63.25
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            },
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_B",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "traverse",
+                "segment_start_m": 12500.0,
+                "segment_end_m": 25000.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 22500.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 11,
+                "coverage_frac": 0.5
+              },
+              "mission_clock": {
+                "tick": 5000000,
+                "wh_spent": 198.6294,
+                "wh_budget_remain": 1.3706
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            }
+          ]
+        },
+        {
+          "tick": 4,
+          "traverse_m": 25000.0,
+          "event": "handoff:scout_B->scout_C",
+          "carriers": [
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_A",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "relay",
+                "segment_start_m": 0.0,
+                "segment_end_m": 12500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 11250.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 5,
+                "coverage_frac": 0.25
+              },
+              "mission_clock": {
+                "tick": 2500000,
+                "wh_spent": 136.75,
+                "wh_budget_remain": 63.25
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            },
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_B",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "handoff_pending",
+                "segment_start_m": 12500.0,
+                "segment_end_m": 25000.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 22500.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 11,
+                "coverage_frac": 0.5
+              },
+              "mission_clock": {
+                "tick": 5000000,
+                "wh_spent": 198.6294,
+                "wh_budget_remain": 1.3706
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            }
+          ]
+        },
+        {
+          "tick": 5,
+          "traverse_m": 37500.0,
+          "event": "segment_complete:scout_C",
+          "carriers": [
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_A",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "relay",
+                "segment_start_m": 0.0,
+                "segment_end_m": 12500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 11250.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 5,
+                "coverage_frac": 0.25
+              },
+              "mission_clock": {
+                "tick": 2500000,
+                "wh_spent": 136.75,
+                "wh_budget_remain": 63.25
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            },
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_B",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "relay",
+                "segment_start_m": 12500.0,
+                "segment_end_m": 25000.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 22500.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 11,
+                "coverage_frac": 0.5
+              },
+              "mission_clock": {
+                "tick": 5000000,
+                "wh_spent": 198.6294,
+                "wh_budget_remain": 1.3706
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            },
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_C",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "traverse",
+                "segment_start_m": 25000.0,
+                "segment_end_m": 37500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 33750.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 17,
+                "coverage_frac": 0.75
+              },
+              "mission_clock": {
+                "tick": 7500000,
+                "wh_spent": 260.5088,
+                "wh_budget_remain": 0.0
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            }
+          ]
+        },
+        {
+          "tick": 6,
+          "traverse_m": 37500.0,
+          "event": "handoff:scout_C->scout_D",
+          "carriers": [
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_A",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "relay",
+                "segment_start_m": 0.0,
+                "segment_end_m": 12500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 11250.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 5,
+                "coverage_frac": 0.25
+              },
+              "mission_clock": {
+                "tick": 2500000,
+                "wh_spent": 136.75,
+                "wh_budget_remain": 63.25
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            },
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_B",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "relay",
+                "segment_start_m": 12500.0,
+                "segment_end_m": 25000.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 22500.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 11,
+                "coverage_frac": 0.5
+              },
+              "mission_clock": {
+                "tick": 5000000,
+                "wh_spent": 198.6294,
+                "wh_budget_remain": 1.3706
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            },
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_C",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "handoff_pending",
+                "segment_start_m": 25000.0,
+                "segment_end_m": 37500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 33750.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 17,
+                "coverage_frac": 0.75
+              },
+              "mission_clock": {
+                "tick": 7500000,
+                "wh_spent": 260.5088,
+                "wh_budget_remain": 0.0
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            }
+          ]
+        },
+        {
+          "tick": 7,
+          "traverse_m": 50000.0,
+          "event": "segment_complete:scout_D",
+          "carriers": [
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_A",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "relay",
+                "segment_start_m": 0.0,
+                "segment_end_m": 12500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 11250.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 5,
+                "coverage_frac": 0.25
+              },
+              "mission_clock": {
+                "tick": 2500000,
+                "wh_spent": 136.75,
+                "wh_budget_remain": 63.25
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            },
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_B",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "relay",
+                "segment_start_m": 12500.0,
+                "segment_end_m": 25000.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 22500.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 11,
+                "coverage_frac": 0.5
+              },
+              "mission_clock": {
+                "tick": 5000000,
+                "wh_spent": 198.6294,
+                "wh_budget_remain": 1.3706
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            },
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_C",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "relay",
+                "segment_start_m": 25000.0,
+                "segment_end_m": 37500.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 33750.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 17,
+                "coverage_frac": 0.75
+              },
+              "mission_clock": {
+                "tick": 7500000,
+                "wh_spent": 260.5088,
+                "wh_budget_remain": 0.0
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            },
+            {
+              "cmc_version": "carrier_mission_cognition_v1",
+              "carrier_id": "scout_D",
+              "mission_id": "M-lunar-relay-teaching",
+              "profile_id": "lunar_traverse_50km",
+              "intent": {
+                "goal_traverse_m": 50000.0,
+                "binding_radius_m": 2000.0,
+                "mode": "traverse",
+                "segment_start_m": 37500.0,
+                "segment_end_m": 50000.0
+              },
+              "clifford": {
+                "pose_motor128": {
+                  "qw": 0.98774388,
+                  "qx": 0.0155335,
+                  "qy": 0.00779306,
+                  "qz": 0.15511289,
+                  "tx": 45000.0,
+                  "ty": 0.0,
+                  "tz": -1.2
+                },
+                "phi_macro_tick": 0,
+                "stack_replay_hash": "be6455ad23c2d538"
+              },
+              "situation": {
+                "map_ledger_hash": "",
+                "event_front_cursor": 22,
+                "coverage_frac": 1.0
+              },
+              "mission_clock": {
+                "tick": 10000000,
+                "wh_spent": 322.3881,
+                "wh_budget_remain": 0.0
+              },
+              "vi2_bind": {
+                "hash_aligned": true,
+                "slam_stack_hash": "be6455ad23c2d538"
+              },
+              "oracle": "DATASET_ENGINE_SIM"
+            }
+          ]
+        }
+      ],
+      "final_carriers": [
+        {
+          "cmc_version": "carrier_mission_cognition_v1",
+          "carrier_id": "scout_A",
+          "mission_id": "M-lunar-relay-teaching",
+          "profile_id": "lunar_traverse_50km",
+          "intent": {
+            "goal_traverse_m": 50000.0,
+            "binding_radius_m": 2000.0,
+            "mode": "relay",
+            "segment_start_m": 0.0,
+            "segment_end_m": 12500.0
+          },
+          "clifford": {
+            "pose_motor128": {
+              "qw": 0.98774388,
+              "qx": 0.0155335,
+              "qy": 0.00779306,
+              "qz": 0.15511289,
+              "tx": 11250.0,
+              "ty": 0.0,
+              "tz": -1.2
+            },
+            "phi_macro_tick": 0,
+            "stack_replay_hash": "be6455ad23c2d538"
+          },
+          "situation": {
+            "map_ledger_hash": "",
+            "event_front_cursor": 5,
+            "coverage_frac": 0.25
+          },
+          "mission_clock": {
+            "tick": 2500000,
+            "wh_spent": 136.75,
+            "wh_budget_remain": 63.25
+          },
+          "vi2_bind": {
+            "hash_aligned": true,
+            "slam_stack_hash": "be6455ad23c2d538"
+          },
+          "oracle": "DATASET_ENGINE_SIM"
+        },
+        {
+          "cmc_version": "carrier_mission_cognition_v1",
+          "carrier_id": "scout_B",
+          "mission_id": "M-lunar-relay-teaching",
+          "profile_id": "lunar_traverse_50km",
+          "intent": {
+            "goal_traverse_m": 50000.0,
+            "binding_radius_m": 2000.0,
+            "mode": "relay",
+            "segment_start_m": 12500.0,
+            "segment_end_m": 25000.0
+          },
+          "clifford": {
+            "pose_motor128": {
+              "qw": 0.98774388,
+              "qx": 0.0155335,
+              "qy": 0.00779306,
+              "qz": 0.15511289,
+              "tx": 22500.0,
+              "ty": 0.0,
+              "tz": -1.2
+            },
+            "phi_macro_tick": 0,
+            "stack_replay_hash": "be6455ad23c2d538"
+          },
+          "situation": {
+            "map_ledger_hash": "",
+            "event_front_cursor": 11,
+            "coverage_frac": 0.5
+          },
+          "mission_clock": {
+            "tick": 5000000,
+            "wh_spent": 198.6294,
+            "wh_budget_remain": 1.3706
+          },
+          "vi2_bind": {
+            "hash_aligned": true,
+            "slam_stack_hash": "be6455ad23c2d538"
+          },
+          "oracle": "DATASET_ENGINE_SIM"
+        },
+        {
+          "cmc_version": "carrier_mission_cognition_v1",
+          "carrier_id": "scout_C",
+          "mission_id": "M-lunar-relay-teaching",
+          "profile_id": "lunar_traverse_50km",
+          "intent": {
+            "goal_traverse_m": 50000.0,
+            "binding_radius_m": 2000.0,
+            "mode": "relay",
+            "segment_start_m": 25000.0,
+            "segment_end_m": 37500.0
+          },
+          "clifford": {
+            "pose_motor128": {
+              "qw": 0.98774388,
+              "qx": 0.0155335,
+              "qy": 0.00779306,
+              "qz": 0.15511289,
+              "tx": 33750.0,
+              "ty": 0.0,
+              "tz": -1.2
+            },
+            "phi_macro_tick": 0,
+            "stack_replay_hash": "be6455ad23c2d538"
+          },
+          "situation": {
+            "map_ledger_hash": "",
+            "event_front_cursor": 17,
+            "coverage_frac": 0.75
+          },
+          "mission_clock": {
+            "tick": 7500000,
+            "wh_spent": 260.5088,
+            "wh_budget_remain": 0.0
+          },
+          "vi2_bind": {
+            "hash_aligned": true,
+            "slam_stack_hash": "be6455ad23c2d538"
+          },
+          "oracle": "DATASET_ENGINE_SIM"
+        },
+        {
+          "cmc_version": "carrier_mission_cognition_v1",
+          "carrier_id": "scout_D",
+          "mission_id": "M-lunar-relay-teaching",
+          "profile_id": "lunar_traverse_50km",
+          "intent": {
+            "goal_traverse_m": 50000.0,
+            "binding_radius_m": 2000.0,
+            "mode": "traverse",
+            "segment_start_m": 37500.0,
+            "segment_end_m": 50000.0
+          },
+          "clifford": {
+            "pose_motor128": {
+              "qw": 0.98774388,
+              "qx": 0.0155335,
+              "qy": 0.00779306,
+              "qz": 0.15511289,
+              "tx": 45000.0,
+              "ty": 0.0,
+              "tz": -1.2
+            },
+            "phi_macro_tick": 0,
+            "stack_replay_hash": "be6455ad23c2d538"
+          },
+          "situation": {
+            "map_ledger_hash": "",
+            "event_front_cursor": 22,
+            "coverage_frac": 1.0
+          },
+          "mission_clock": {
+            "tick": 10000000,
+            "wh_spent": 322.3881,
+            "wh_budget_remain": 0.0
+          },
+          "vi2_bind": {
+            "hash_aligned": true,
+            "slam_stack_hash": "be6455ad23c2d538"
+          },
+          "oracle": "DATASET_ENGINE_SIM"
+        }
+      ]
+    }
+  },
+  "brain_panel": {
+    "schema": "fixtures/twin/robot_brain_architecture_v1.json",
+    "hud_source": "projection_ticks[].carriers[] \u2014 not invented",
+    "language": "ru"
+  },
+  "twin_serve": "python -m dogfood_platform.dogfood_twin_world_runtime_serve_v1",
+  "honesty": {
+    "not_measured": true,
+    "physics_in_engines": true,
+    "visual_is_projection": true
+  }
+}

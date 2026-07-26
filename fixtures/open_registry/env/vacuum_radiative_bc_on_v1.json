@@ -1,0 +1,67 @@
+{
+  "schema": "ha_vacuum_radiative_bc_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "q_rad = eps*sigma*(T^4 - T_sky^4); q_solar = (1-A)*S*illum; q_net = q_rad - q_solar; q_in = -q_net",
+  "units": {
+    "q": "W/m^2",
+    "t": "K",
+    "sigma": "W/(m^2·K^4)"
+  },
+  "on_sources": [
+    {
+      "id": "stefan_boltzmann",
+      "cite": "CODATA / SK-12 Diviner polar rim class",
+      "used": [
+        "sigma",
+        "rim_effective",
+        "psr_effective"
+      ]
+    },
+    {
+      "id": "heiken_regolith_emissivity",
+      "cite": "Heiken Lunar Sourcebook thermal · highland albedo",
+      "used": [
+        "emissivity",
+        "albedo_highland"
+      ]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate radiative-bc --catalog <path> --zone <rim_sun|psr_floor> --t-k <T> [--illum <f>]"
+  },
+  "honesty": [
+    "teaching vacuum radiative BC — not Diviner MEASURED timeseries",
+    "polar rim oblique illum is catalog-owned ADAPT",
+    "python_not_oracle"
+  ],
+  "constants": {
+    "stefan_boltzmann_w_m2_k4": 5.670374419e-08,
+    "surface_emissivity_regolith": 0.95,
+    "solar_constant_w_m2": 1361.0,
+    "albedo_highland": 0.12,
+    "rim_illumination_frac": 0.96
+  },
+  "sky_temperature_k": {
+    "deep_space": 3.0,
+    "psr_effective": 70.0,
+    "rim_effective": 220.0
+  },
+  "zones": {
+    "rim_sun": {
+      "label": "Shackleton-class polar rim sunlit",
+      "default_illum_from": "rim_illumination_frac",
+      "sky_ambient_from": "rim_effective"
+    },
+    "psr_floor": {
+      "label": "PSR floor cold trap",
+      "default_illum": 0.0,
+      "sky_ambient_from": "psr_effective"
+    }
+  },
+  "dual_anchors": {
+    "safe_zone": "rim_sun",
+    "hostile_zone": "psr_floor",
+    "cite": "Dual: polar rim sunlit vs PSR cold-trap (thermal world G5)"
+  }
+}

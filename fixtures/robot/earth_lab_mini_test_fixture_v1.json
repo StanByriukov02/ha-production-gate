@@ -1,0 +1,121 @@
+{
+  "fixture_id": "earth_lab_mini_test_fixture_v1",
+  "environment_id": "earth_lab_298k",
+  "description": "Personal mini-test stand \u2014 one hip axis + encoder + bus monitor",
+  "safe_poses": [
+    {
+      "name": "nominal_stand",
+      "hip_deg": 0.0,
+      "note": "gravity aligned \u00b7 no binding"
+    },
+    {
+      "name": "raised_45",
+      "hip_deg": 45.0,
+      "note": "peak torque check \u00b7 spotter required"
+    }
+  ],
+  "telemetry_hops": [
+    "bus_V_shunt",
+    "bus_I_shunt",
+    "encoder_position",
+    "mcu_case_temp",
+    "foc_step_j_estimate"
+  ],
+  "bench_footprint_mm": {
+    "table": "800x600",
+    "clear_height": 500
+  },
+  "procedure": [
+    "Mount LC-2-class MCU on hip_actuator fixture per ROBOT_ARTICULATION_BIND",
+    "Connect 12 V bus with fused shunt \u00b7 current limited supply",
+    "Verify encoder CPR and direction before FOC enable",
+    "Run 1000 FOC steps active_run \u00b7 log J/step vs CHIP_IFT3 energy bench",
+    "Thermal steady 10 min \u00b7 T_case < 85 C teaching limit"
+  ],
+  "falsifiers": [
+    "open_loop_only \u2192 INELIGIBLE",
+    "no encoder telemetry hop \u2192 INELIGIBLE",
+    "PASS without power budget cross-check R4 \u2192 slop"
+  ],
+  "oracle": "FIXTURE_SPEC",
+  "not_built_hardware": false,
+  "capture_status": "COMPLETE",
+  "operator_session_required": true,
+  "bus_power": {
+    "metric_id": "bus_power_active_run",
+    "unit": "W",
+    "procedure": [
+      "12 V fused bus \u00b7 DMM shunt on return path (not PSU display)",
+      "Encoder verified \u00b7 FOC active_run \u00b7 \u22651000 steps",
+      "P_avg = V_bus_shunt \u00d7 I_avg_shunt over steady window",
+      "Record: V_bus_V \u00b7 I_avg_A \u00b7 P_avg_W \u00b7 DMM model \u00b7 date"
+    ],
+    "measured": null,
+    "derived_reference": {
+      "value_w": 24.63,
+      "oracle": "DERIVED",
+      "bind": "ROBOT_FACTORY_SLOTS_v1.json ROBOT_POWER_P_AVG_W"
+    },
+    "falsifier": {
+      "note": "P_avg_measured > R4 budget \u2192 power FAIL"
+    },
+    "world_sim": {
+      "oracle": "WORLD_PHYSICS_SIM",
+      "metric_id": "bus_power_active_run",
+      "value": 24.63,
+      "unit": "W",
+      "world_id": "W_earth_lab_bench_v1",
+      "binds": [
+        "results/platform_bpass/moon/ROBOT_FACTORY_SLOTS_v1.json",
+        "results/platform_bpass/chip/CHIP_IFT3_ENERGY_BENCH_RECEIPT_v1.json"
+      ],
+      "physics_chain": [
+        "traverse_live ledger E_mech + E_info_chip + E_info_slam + E_info_comm",
+        "ideal shunt instrument \u2014 zero lead loss (world model)"
+      ],
+      "simulated_utc": "2026-06-30T11:12:06.246910+00:00",
+      "not_operator_dmm": true
+    }
+  },
+  "foc_energy": {
+    "metric_id": "M1_j_per_foc_step_uj",
+    "unit": "uJ",
+    "procedure": [
+      "Same session as chip m1_energy \u2014 one hip axis MCU",
+      "J/step = \u222bP dt / N_steps \u00b7 exclude boot/sleep",
+      "Cross-check vs CHIP_IFT3 energy bench PHYSICS_DERIVED"
+    ],
+    "measured": null,
+    "physics_derived_reference": {
+      "value_uj": 0.4201,
+      "oracle": "PHYSICS_DERIVED",
+      "bind": "CHIP_IFT3_ENERGY_BENCH_RECEIPT_v1.json"
+    },
+    "falsifier": {
+      "target_max_uj": 1.0,
+      "iron_margin_min": 2.0
+    },
+    "world_sim": {
+      "oracle": "WORLD_PHYSICS_SIM",
+      "metric_id": "M1_j_per_foc_step_uj",
+      "value": 0.42,
+      "unit": "uJ",
+      "world_id": "W_earth_lab_bench_v1",
+      "binds": [
+        "results/platform_bpass/chip/CHIP_IFT3_ENERGY_BENCH_RECEIPT_v1.json",
+        "fixtures/mod04/w0_foc_isr_hot_block.c"
+      ],
+      "physics_chain": [
+        "trace_sim \u2192 E1_SP/E2_AF duty from fixtures/mod04/w0_foc_isr_hot_block.c",
+        "Weste Ch5 P_dyn = \u03b1CV\u00b2f with C_eff calibrated to MCU-class anchor",
+        "sleep: f \u2192 1 MHz WFI class; burst: duty_75 gate policy (mission grid corner)",
+        "J/step = P_total / pwm_hz (20 kHz class)"
+      ],
+      "simulated_utc": "2026-06-30T11:12:06.247124+00:00",
+      "not_operator_dmm": true
+    }
+  },
+  "capture_oracle": "WORLD_PHYSICS_SIM",
+  "world_receipt": "results/platform_bpass/world/W_EARTH_LAB_BENCH_MISSION_RECEIPT_v1.json",
+  "hardware_mode": "world_physics_sim"
+}

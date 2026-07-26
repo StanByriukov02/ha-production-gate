@@ -1,0 +1,248 @@
+{
+  "schema": "ha_terramech_bekker_soils_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "p = (kc/b + k_phi) * z^n   =>   z = (p / (kc/b + k_phi))^(1/n)",
+  "units": {
+    "p": "kPa",
+    "b": "m",
+    "z": "m",
+    "kc": "kN/m^(n+1)  [same numeric family as kPa·m^(n-1) in HA teaching rows]",
+    "k_phi": "kN/m^(n+2)",
+    "n": "dimensionless"
+  },
+  "on_sources": [
+    {
+      "id": "wong_terramechanics_2ed",
+      "cite": "Wong, J.Y. Terramechanics and Off-Road Vehicle Engineering, 2nd ed.",
+      "used": [
+        "Table 8.3 LETE sand (kc, k_phi, n)",
+        "Example 7.1 clayey soil (n, kc, k_phi)"
+      ]
+    },
+    {
+      "id": "wong_theory_ground_vehicles_2001",
+      "cite": "Wong, J.Y. Theory of Ground Vehicles, 2001 — Bekker pressure–sinkage form",
+      "used": [
+        "equation form §2.4.1 / §2.5.1"
+      ],
+      "refused": [
+        "Table 2.3 — OCR lost numeric cells (names only)",
+        "muskeg as Bekker n/kc/k_phi — Wong uses different mat/peat model"
+      ]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate bekker-eval --catalog <path> --soil-id <id>"
+  },
+  "honesty": [
+    "only soils with explicit ON numbers or Dual teaching anchors",
+    "no OCR-table porridge",
+    "no muskeg forced into Bekker form",
+    "teaching Dual anchors are not Wong table rows",
+    "sim_slice · not field MEASURED · python_not_oracle"
+  ],
+  "soils": {
+    "firm_lab": {
+      "label": "Firm lab / compacted soil (Safe Dual anchor)",
+      "role": "dual_safe_teaching",
+      "n": 1.0,
+      "kc": 40.0,
+      "k_phi": 2000.0,
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 3.0,
+        "phi_deg": 30.0,
+        "K_m": 0.02,
+        "j_m_default": 0.05,
+        "note": "teaching Dual Safe shear — not MEASURED bevameter"
+      },
+      "note": "teaching Dual Safe — not a Wong table row"
+    },
+    "soft_hostile": {
+      "label": "Soft hostile / high sinkage (Hostile Dual anchor)",
+      "role": "dual_hostile_teaching",
+      "n": 0.8,
+      "kc": 5.0,
+      "k_phi": 80.0,
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 0.5,
+        "phi_deg": 15.0,
+        "K_m": 0.04,
+        "j_m_default": 0.05,
+        "note": "teaching Dual Hostile shear — not MEASURED bevameter"
+      },
+      "note": "teaching Dual Hostile — not a Wong table row"
+    },
+    "lete_sand_wong_t83": {
+      "label": "LETE sand (Wong Table 8.3)",
+      "role": "on_sourced",
+      "n": 0.793,
+      "kc": 102.0,
+      "k_phi": 5301.0,
+      "on_cite": {
+        "source_id": "wong_terramechanics_2ed",
+        "table": "Table 8.3",
+        "fields": [
+          "kc=102",
+          "k_phi=5301",
+          "n=0.793"
+        ]
+      },
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 1.04,
+        "phi_deg": 33.7,
+        "K_m": 0.025,
+        "j_m_default": 0.05,
+        "note": "shear params teaching-family for LETE-class sand — not a field bevameter campaign"
+      },
+      "note": "dense sandy terrain — ON explicit row"
+    },
+    "clayey_wong_ex71": {
+      "label": "Clayey soil (Wong Example 7.1)",
+      "role": "on_sourced",
+      "n": 1.0,
+      "kc": 20.68,
+      "k_phi": 814.3,
+      "on_cite": {
+        "source_id": "wong_terramechanics_2ed",
+        "table": "Example 7.1",
+        "fields": [
+          "n=1.0",
+          "kc=20.68",
+          "k_phi=814.3"
+        ]
+      },
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 4.14,
+        "phi_deg": 13.0,
+        "K_m": 0.01,
+        "j_m_default": 0.05,
+        "note": "shear teaching-family near clayey Ex7.1 class — not MEASURED"
+      },
+      "note": "explicit problem statement params — ON"
+    },
+    "lunar_firm_proxy": {
+      "label": "Lunar firm proxy (teaching Dual Safe under low-g lane)",
+      "role": "dual_safe_teaching_lunar_lane",
+      "n": 1.0,
+      "kc": 55.0,
+      "k_phi": 2800.0,
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 2.5,
+        "phi_deg": 32.0,
+        "K_m": 0.022,
+        "j_m_default": 0.05,
+        "note": "teaching lunar Safe shear — not Shackleton MEASURED"
+      },
+      "note": "teaching Dual Safe for Moon globe lane — not Shackleton bevameter · not MEASURED"
+    },
+    "lunar_soft_proxy": {
+      "label": "Lunar soft proxy (teaching Dual Hostile under low-g lane)",
+      "role": "dual_hostile_teaching_lunar_lane",
+      "n": 0.7,
+      "kc": 2.0,
+      "k_phi": 25.0,
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 0.4,
+        "phi_deg": 12.0,
+        "K_m": 0.045,
+        "j_m_default": 0.05,
+        "note": "teaching lunar Hostile shear — not MEASURED"
+      },
+      "note": "teaching Dual Hostile for Moon — soft enough that default rrbot/diffbot still diverge under g=1.62 · not MEASURED"
+    },
+    "mars_firm_proxy": {
+      "label": "Mars firm proxy (teaching Dual Safe · Jezero lane)",
+      "role": "dual_safe_teaching_mars_lane",
+      "n": 0.9,
+      "kc": 30.0,
+      "k_phi": 1600.0,
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 2.0,
+        "phi_deg": 28.0,
+        "K_m": 0.025,
+        "j_m_default": 0.05,
+        "note": "teaching Mars Safe shear — not Jezero MEASURED"
+      },
+      "note": "teaching Dual Safe for Mars globe lane — not Jezero MEASURED"
+    },
+    "mars_soft_proxy": {
+      "label": "Mars soft proxy (teaching Dual Hostile · Jezero lane)",
+      "role": "dual_hostile_teaching_mars_lane",
+      "n": 0.85,
+      "kc": 8.0,
+      "k_phi": 120.0,
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 0.6,
+        "phi_deg": 14.0,
+        "K_m": 0.04,
+        "j_m_default": 0.05,
+        "note": "teaching Mars Hostile shear — not MEASURED"
+      },
+      "note": "teaching Dual Hostile for Mars globe lane — not MEASURED"
+    },
+    "cave_firm_proxy": {
+      "label": "Cave firm proxy (teaching Dual Safe · packed floor)",
+      "role": "dual_safe_teaching_cave_lane",
+      "n": 1.05,
+      "kc": 48.0,
+      "k_phi": 2200.0,
+      "note": "teaching Dual Safe for Cave/void lane — not lidar spelunking · not MEASURED"
+    },
+    "cave_soft_proxy": {
+      "label": "Cave soft proxy (teaching Dual Hostile · wet silt)",
+      "role": "dual_hostile_teaching_cave_lane",
+      "n": 0.7,
+      "kc": 2.5,
+      "k_phi": 35.0,
+      "note": "teaching Dual Hostile for Cave/void lane — deeper wet family · not MEASURED"
+    },
+    "kls1_kim_jass_t3": {
+      "label": "KLS-1 Kim JASS 2021 Table 3 (bevameter gold adjunct)",
+      "role": "on_sourced_kls1_bevameter",
+      "n": 1.2594,
+      "kc": -44.0554,
+      "k_phi": 3581.8106,
+      "on_cite": {
+        "source_id": "kim_jass_2021_table3",
+        "fields": [
+          "n",
+          "kc",
+          "k_phi"
+        ],
+        "doi": "10.5140/JASS.2021.38.4.237"
+      },
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 1.5,
+        "phi_deg": 35.0,
+        "K_m": 0.02,
+        "j_m_default": 0.05,
+        "note": "teaching shear near lunar highland class — not KLS-1 bevameter shear MEASURED"
+      },
+      "note": "Kim JASS Table 3 CITED_BIND → Rust oracle · not desk MEASURED"
+    }
+  },
+  "vehicle": {
+    "contact_width_b_m": 0.12,
+    "contact_length_m": 0.25,
+    "ground_pressure_kpa": 35.0,
+    "note": "diffbot/scout-class teaching contact — not measured tire print · A=b·ℓ for drawbar"
+  },
+  "gates": {
+    "sinkage_mm_max_traverse": 18.0
+  },
+  "dual_anchors": {
+    "safe_soil_id": "firm_lab",
+    "hostile_soil_id": "soft_hostile",
+    "cite": "Dual teaching soils for B0 / field_world_bind lunar lane"
+  }
+}

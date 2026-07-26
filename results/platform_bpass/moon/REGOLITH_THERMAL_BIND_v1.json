@@ -1,0 +1,75 @@
+{
+  "bind_id": "regolith_thermal_bind_v1",
+  "oracle": "CITED_BIND",
+  "closed_at": "2026-06-16",
+  "closes_gaps": ["GAP-MR-01", "GAP-MR-02", "GAP-MR-03"],
+  "evidence_stack": [
+    {
+      "id": "E1",
+      "source": "Heiken 1991 Lunar Sourcebook L0-05",
+      "role": "Apollo 17 in-situ k band 1.72-2.95e-4 W/cm·K at ~300 K",
+      "cite": "HEIKEN-L0-05",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "E2",
+      "source": "Sakatani et al. LPSC 2017 #1552",
+      "role": "vacuum powder k(T)=A·km(T)+B·T³; φ=0.40-0.42 FGB analogue",
+      "cite": "SAKATANI-LPSC-1552",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "E3",
+      "source": "Wieczorek et al. HAL GRAIL",
+      "role": "bulk crustal φ~12%; surface farside ≥20%; e-folding d~9.8 km",
+      "cite": "WIECZOREK-HAL-GRAIL",
+      "confidence": "HIGH"
+    }
+  ],
+  "porosity": {
+    "surface_loose": {
+      "phi": 0.42,
+      "depth_class": "top_15cm",
+      "material_id": "highland_regolith_loose",
+      "cite": "SAKATANI-LPSC-1552-Table1"
+    },
+    "depth_compact": {
+      "phi": 0.40,
+      "depth_class": "60cm_compact",
+      "material_id": "highland_regolith_compact",
+      "cite": "SAKATANI-LPSC-1552-FGB-80"
+    },
+    "crustal_bulk_grail": {
+      "phi": 0.12,
+      "scale": "km_crust",
+      "cite": "WIECZOREK-HAL-L0-01"
+    },
+    "e_folding_depth_km": 9.8,
+    "e_folding_cite": "WIECZOREK-HAL-L0-05"
+  },
+  "k_temperature": {
+    "model": "sakatani_vacuum_linear_plus_radiative",
+    "formula": "k(T) = k_solid + B_rad * T^3",
+    "t_ref_k": 300.0,
+    "branches": {
+      "highland_regolith_loose": {
+        "k_at_t_ref_w_mk": 0.022,
+        "k_solid_w_mk": 0.0154,
+        "b_rad": 2.45e-10,
+        "heiken_band_w_mk": [0.0172, 0.0295],
+        "cite": ["HEIKEN-L0-05", "SAKATANI-LPSC-1552"]
+      },
+      "highland_regolith_compact": {
+        "k_at_t_ref_w_mk": 0.025,
+        "k_solid_w_mk": 0.0175,
+        "b_rad": 2.78e-10,
+        "heiken_band_w_mk": [0.0172, 0.0295],
+        "cite": ["HEIKEN-L0-02", "SAKATANI-LPSC-1552"]
+      }
+    },
+    "polar_envelope_k": [250.0, 330.0],
+    "falsifier": "k(330K) <= k(250K) for same branch; or k_ref outside Heiken band"
+  },
+  "harness_module": "dogfood_platform.lunar_regolith_thermal_v1",
+  "porosity_module": "dogfood_platform.lunar_regolith_porosity_v1"
+}

@@ -1,0 +1,157 @@
+{
+  "scene_id": "robot_scout_pbr_scene_v1",
+  "title": "Cave Scout \u2014 Reaper \u00b7 design-lite materials",
+  "design_language": "cave_scout_reaper_flight_v7_design_lite",
+  "design_grade": "DESIGN_LITE_v7",
+  "render_profile": "design_lite_standard",
+  "materials_registry": "robot_scout_materials_registry_v1.json",
+  "mass_kg_max": 20.0,
+  "cruise_m_s": 10.0,
+  "hero_tilt_deg": 0,
+  "flight_attitude": {
+    "cad_frame": "build123d \u00b7 nose \u2212Y \u00b7 dorsal +Z",
+    "runtime_frame": "three.js \u00b7 nose +Z traverse \u00b7 belly \u2212Y world",
+    "rotation_euler_deg": {
+      "x": -90,
+      "y": 0,
+      "z": 0
+    },
+    "cruise_pitch_deg": 3
+  },
+  "parts": [
+    {
+      "module_id": "robot_scout_fwing_hull_v1",
+      "role": "hull",
+      "glb": "scout_glb/robot_scout_fwing_hull_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#e6e4e0",
+        "metalness": 0.02,
+        "roughness": 0.84,
+        "envMapIntensity": 0.32,
+        "material_id": "cf_epoxy_matte_white"
+      },
+      "material_id": "cf_epoxy_matte_white"
+    },
+    {
+      "module_id": "robot_scout_fwing_nose_v1",
+      "role": "nose",
+      "glb": "scout_glb/robot_scout_fwing_nose_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#1c1c22",
+        "metalness": 0.18,
+        "roughness": 0.06,
+        "envMapIntensity": 0.9,
+        "emissive": "#0a1020",
+        "emissiveIntensity": 0.12,
+        "material_id": "pc_lens_slam_black"
+      },
+      "material_id": "pc_lens_slam_black"
+    },
+    {
+      "module_id": "robot_scout_fwing_cockpit_v1",
+      "role": "cockpit",
+      "glb": "scout_glb/robot_scout_fwing_cockpit_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#101012",
+        "metalness": 0.88,
+        "roughness": 0.38,
+        "envMapIntensity": 0.72,
+        "material_id": "anodized_al_black_panel"
+      },
+      "material_id": "anodized_al_black_panel"
+    },
+    {
+      "module_id": "robot_scout_fwing_aft_v1",
+      "role": "aft",
+      "glb": "scout_glb/robot_scout_fwing_aft_v1.glb",
+      "offset_mm": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#d4af37",
+        "metalness": 0.96,
+        "roughness": 0.18,
+        "envMapIntensity": 1.25,
+        "material_id": "anodized_al_gold_protect"
+      },
+      "material_id": "anodized_al_gold_protect"
+    },
+    {
+      "module_id": "robot_scout_fwing_v1",
+      "role": "fusion",
+      "glb": "scout_glb/robot_scout_fwing_v1.glb",
+      "offset_mm": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": 1.0,
+      "finish": {
+        "baseColor": "#e6e4e0",
+        "metalness": 0.02,
+        "roughness": 0.84,
+        "envMapIntensity": 0.32,
+        "material_id": "cf_epoxy_matte_white"
+      },
+      "runtime_only": true
+    }
+  ],
+  "legend": [
+    {
+      "zone_id": "cf_epoxy_matte_white",
+      "label": "CF/epoxy monocoque \u00b7 matte white",
+      "baseColor": "#ececea",
+      "why": "\u041d\u0435\u0441\u0443\u0449\u0438\u0439 \u043a\u043e\u0440\u043f\u0443\u0441 \u0438 \u043a\u0440\u044b\u043b\u044c\u044f \u2014 \u043b\u0451\u0433\u043a\u0438\u0439 \u043a\u043e\u043c\u043f\u043e\u0437\u0438\u0442, \u043c\u0430\u0442\u043e\u0432\u044b\u0439 anti-glare",
+      "substance": "Carbon fiber prepreg + epoxy resin"
+    },
+    {
+      "zone_id": "anodized_al_gold_protect",
+      "label": "6061-T6 \u00b7 gold anodize protect",
+      "baseColor": "#c4a028",
+      "why": "Duct shrouds \u0438 \u0443\u0434\u0430\u0440\u043d\u044b\u0435 \u043a\u0440\u043e\u043c\u043a\u0438 \u2014 \u0438\u0437\u043d\u043e\u0441, \u043d\u0435 \u0434\u0435\u043a\u043e\u0440",
+      "substance": "Aluminum 6061-T6 \u00b7 Type II anodize (gold dye)"
+    },
+    {
+      "zone_id": "pc_lens_slam_black",
+      "label": "Polycarbonate \u00b7 SLAM window",
+      "baseColor": "#0a0a0c",
+      "why": "\u041e\u043a\u043d\u043e LiDAR \u2014 \u043f\u0440\u043e\u043f\u0443\u0441\u043a\u0430\u0435\u0442, \u043d\u0435 \u0431\u043b\u0438\u043a\u0443\u0435\u0442 \u0432 \u043f\u0435\u0449\u0435\u0440\u0435",
+      "substance": "PC lens guard + anti-reflect coat"
+    },
+    {
+      "zone_id": "anodized_al_black_panel",
+      "label": "Al panel \u00b7 black anodize",
+      "baseColor": "#121214",
+      "why": "Compute blister \u0438 V-tail \u2014 \u043a\u043e\u043d\u0442\u0440\u0430\u0441\u0442, \u043e\u0442\u0432\u043e\u0434 \u0442\u0435\u043f\u043b\u0430",
+      "substance": "6061 blister + compute vault"
+    },
+    {
+      "zone_id": "tpu_nose_bumper",
+      "label": "TPU 95A \u00b7 nose bumper",
+      "baseColor": "#1a1a1c",
+      "why": "Chin guard \u2014 \u0443\u0434\u0430\u0440 \u043e \u0441\u0442\u0435\u043d\u0443 \u043f\u0435\u0449\u0435\u0440\u044b",
+      "substance": "Thermoplastic polyurethane"
+    }
+  ]
+}

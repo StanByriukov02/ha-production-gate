@@ -1,0 +1,12 @@
+{
+  "contact_spec_id": "hexapod_foot_contact_v1",
+  "ground_plane_z_m": 0.0,
+  "contact_z_threshold_m": 0.14,
+  "pad_material_id": "nbr_70a",
+  "surface_id": "lunar_regolith_compact",
+  "stance_normal_force_n": 12.0,
+  "swing_tangential_force_n": 9.0,
+  "stance_tangential_safe_n": 1.5,
+  "proof_tier": "HEXAPOD_FOOT_CONTACT_SLICE",
+  "tabu": "claim MEASURED foot friction"
+}

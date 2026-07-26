@@ -1,0 +1,21 @@
+{
+  "schema": "ha_trapped_belt_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "dose_rate = base_rate * belt_scale; window_dose = dose_rate * t_h",
+  "units": { "dose_rate": "Gy/h", "t": "h" },
+  "on_sources": [
+    {
+      "id": "van_allen_class",
+      "cite": "trapped belt class teaching: belt_scale amplifies quiet base (not AE9/AP9 MEASURED)",
+      "used": ["dose_rate", "window_dose"]
+    }
+  ],
+  "rust_oracle": { "crate": "ha_physics_gate", "cmd": "ha-physics-gate trapped-belt --catalog <path> --pack <id> --t-h <t>" },
+  "honesty": ["teaching Van Allen class — not AE9 MEASURED", "python_not_oracle"],
+  "packs": {
+    "outside_safe": { "label": "outside belts Dual Safe", "base_rate_gy_h": 0.0005, "belt_scale": 1.0 },
+    "inner_hostile": { "label": "inner belt Dual Hostile", "base_rate_gy_h": 0.0005, "belt_scale": 80.0 }
+  },
+  "defaults": { "pack": "outside_safe", "t_h": 6.0 },
+  "dual_anchors": { "safe_pack": "outside_safe", "hostile_pack": "inner_hostile", "t_h": 6.0 }
+}

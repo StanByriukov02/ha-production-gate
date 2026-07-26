@@ -1,0 +1,15 @@
+{
+  "artifact_id": "combat_corridor_500m_mesh_v1",
+  "generator": "cad/envelope/combat_corridor_500m_mesh_v1.py",
+  "mission_bind": "M-combat-earth",
+  "traverse_m": 500.0,
+  "segment_m": 50.0,
+  "dims_m": {
+    "width": 5.0,
+    "length": 500.0,
+    "wall_height": 3.0
+  },
+  "tick_stream": "fixtures/robot/m_combat_earth_traverse_tick_stream_v1.json",
+  "oracle": "WORLD_PHYSICS_SIM",
+  "honesty": "Synthetic corridor shell at combat traverse scale \u2014 pairs with tick replay, not photogrammetry"
+}

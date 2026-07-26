@@ -1,0 +1,52 @@
+{
+  "schema": "ha_soiling_thermal_bc_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "f=min(1,m/m_sat); A_eff=(1-f)A_c+f A_d; eps_eff=(1-f)eps_c+f eps_d; R_th=L/k; L=m_kg/rho",
+  "units": {
+    "m": "g/m^2",
+    "A": "1",
+    "eps": "1",
+    "R_th": "m^2·K/W",
+    "L": "m"
+  },
+  "on_sources": [
+    {
+      "id": "eds_d2_soiling",
+      "cite": "EDS panel / ORACLE_SEC_D2 — soiled radiator albedo↓ · emissivity shift · dust R_th",
+      "used": ["A_eff", "eps_eff", "R_th layer"]
+    },
+    {
+      "id": "heiken_dust_optics_thermal",
+      "cite": "Heiken Lunar Sourcebook dust optical/thermal class",
+      "used": ["A_dust", "eps_dust", "k_dust teaching"]
+    }
+  ],
+  "rust_oracle": {
+    "crate": "ha_physics_gate",
+    "cmd": "ha-physics-gate soiling-bc --catalog <path> --mass-g-m2 <m>"
+  },
+  "honesty": [
+    "teaching soiling BC shift — not Diviner soiled coupon MEASURED",
+    "linear cover fraction — not full radiative transfer",
+    "python_not_oracle"
+  ],
+  "clean": {
+    "albedo": 0.12,
+    "emissivity": 0.95
+  },
+  "dust": {
+    "albedo": 0.08,
+    "emissivity": 0.88,
+    "k_w_mk": 0.0025,
+    "rho_kg_m3": 1500.0
+  },
+  "saturation_g_m2": 4.0,
+  "dual_anchors": {
+    "clean_g_m2": 0.0,
+    "hostile_g_m2": 3.0
+  },
+  "gates": {
+    "mass_g_m2_min": 0.0,
+    "mass_g_m2_max": 50.0
+  }
+}

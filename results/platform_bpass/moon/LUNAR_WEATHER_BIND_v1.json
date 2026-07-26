@@ -1,0 +1,38 @@
+{
+  "bind_id": "lunar_weather_bind_v1",
+  "oracle": "CITED_BIND",
+  "gate": "LUNAR_WEATHER_NOWCAST",
+  "site_id": "shackleton_rim",
+  "site_geometry_bind": "results/platform_bpass/moon/SITE_GEOMETRY_BIND_v1.json",
+  "anchor_bind": "results/platform_bpass/moon/MOON_SHACKLETON_ANCHOR_v1.json",
+  "thermal_binds": [
+    "results/platform_bpass/moon/VACUUM_RADIATIVE_BC_BIND_v1.json",
+    "results/platform_bpass/moon/THERMAL_TRANSIENT_BIND_v1.json"
+  ],
+  "integrator": "dogfood_platform.universe_env_thermal_column_v1.step_column_implicit_1d",
+  "ephemeris": {
+    "primary": "JPL_HORIZONS_API",
+    "fallback": "THERMAL_TRANSIENT_BIND_lunar_half_period_h + SITE_GEOMETRY_illumination"
+  },
+  "measured": {
+    "primary": "ODE_GDS_DIVINER_RDR",
+    "ode_gds": {
+      "endpoint": "https://oderest.rsl.wustl.edu/livegds",
+      "channel": "3",
+      "bbox_pad_deg": 0.1,
+      "n_passes": 5
+    },
+    "cache_receipt": "results/platform_bpass/moon/diviner_cache/LUNAR_WEATHER_MEASURED_ANCHOR_v1.json",
+    "pass_archive": "results/platform_bpass/moon/diviner_cache/LUNAR_WEATHER_DIVINER_PASSES_v1.json",
+    "fresh_threshold_h": 12.0,
+    "stale_threshold_h": 72.0,
+    "assim_max_delta_k": 5.0
+  },
+  "nowcast": {
+    "void_bootstrap_h": 12.0,
+    "void_bootstrap_night_scale": 1.5,
+    "max_forward_h": 168.0
+  },
+  "honesty_tiers": ["MEASURED", "MEASURED_STALE", "NOWCAST", "VOID", "DEGRADED"],
+  "falsifier": "receipt must label tier; fresh MEASURED assim delta; ANCIENT measured never forward age"
+}

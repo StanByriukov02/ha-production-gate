@@ -1,0 +1,121 @@
+{
+  "bind_id": "albedo_dose_fraction_bind_v1",
+  "oracle": "PROXY_CITED",
+  "closed_at": "2026-06-19",
+  "closes_gaps": ["B-GAP-ALBEDO-UNMEASURED", "B-GAP-ZHENG-SELINE-JOIN", "L2-SEL-surrogate"],
+  "parent_binds": [
+    "fixtures/open_seed/LUNAR_SPACE_WEATHER_BIND_v1.json",
+    "fixtures/open_seed/RADIATION_SHIELD_BIND_v1.json",
+    "fixtures/open_seed/LSIC_SELINE_INTEGRATION_CHAIN_v1.json",
+    "fixtures/open_seed/LSIC_ZHENG_INTEGRATION_CHAIN_v1.json"
+  ],
+  "integration_chains": [
+    "fixtures/open_seed/LSIC_SELINE_INTEGRATION_CHAIN_v1.json",
+    "fixtures/open_seed/LSIC_ZHENG_INTEGRATION_CHAIN_v1.json"
+  ],
+  "operator_synthesis": "fixtures/open_seed/LSIC_SELINE_DOGFOOD_OPERATOR_SYNTHESIS_v1.json",
+  "scenario_matrix_hooks": ["S2", "S5", "S6"],
+  "on_retrieve": {
+    "notebook": "moon-study",
+    "query": "SELINE albedo dose fraction 25 35 LaRC Matthia regolith shield neutron",
+    "chunks_hit": 4,
+    "backend": "open_notebook"
+  },
+  "physics_l1": {
+    "mechanism_id": "L1-ALB-01",
+    "summary": "GCR/SEP incident on regolith → nuclear interactions → albedo secondaries (charged, gamma, fast neutrons); surface dose = incident + albedo",
+    "cite": "SELINE science objectives · Dobynde & Guo 2021 unvalidated maps · CRISP zenith+nadir split",
+    "coupled_formula_class": "D_total = D_incident(shield, regime) + D_albedo(regolith, shield, f_albedo_eff)",
+    "not_claim": "Event-level CRISP spectroscopy without flight data — PROXY/SIM tier only"
+  },
+  "l0_rows": {
+    "L0-SEL-01": {
+      "claim": "Crew surface dose fraction from albedo particles (LaRC Q&A)",
+      "value_mid": 0.3,
+      "range": [0.25, 0.35],
+      "unit": "fraction_of_surface_dose",
+      "tier": "PROXY_CHAT",
+      "source": "LSIC SELINE telecon Q&A NASA LaRC cite",
+      "harness": "albedo_dose_fraction_base"
+    },
+    "L0-SEL-08": {
+      "claim": "Regolith shield paradox — ~30 cm worse than thinner due to albedo neutron buildup",
+      "value_cm": 30,
+      "peak_areal_g_cm2": 90,
+      "unit": "cm_regolith_worse_than_thinner",
+      "tier": "CITED_SLIDE",
+      "source": "Matthia & Berger 2024 via SELINE shielding slide",
+      "harness": "shielding_albedo_neutron_peak",
+      "matthia_bind": "MATTHIA-2024-L0-01"
+    },
+    "L0-ZHENG-04": {
+      "claim": "CRaTER SEP spike peak dose rate class",
+      "value": 100,
+      "unit": "cGy_per_day",
+      "tier": "ORBIT_PROXY",
+      "source": "Zheng ISWA lunar dashboard",
+      "role": "incident_regime_upper_bound"
+    },
+    "L0-ZHENG-05": {
+      "claim": "CRaTER GCR baseline dose rate class",
+      "value": 0.02,
+      "unit": "cGy_per_day",
+      "tier": "ORBIT_PROXY",
+      "source": "Zheng CRaTER plot",
+      "role": "incident_regime_quiescent"
+    },
+    "ANCHOR-DOSE": {
+      "claim": "Polar surface annual absorbed dose proxy (couples radiation_proxy until CREME ingest)",
+      "value_gy_per_yr": 0.55,
+      "tier": "PROXY_CREME_CLASS",
+      "source": "lunar_radiation_proxy_v1 + SK-07 polar PSR class",
+      "harness": "evaluate_radiation_proxy"
+    }
+  },
+  "shield_paradox": {
+    "peak_areal_g_cm2": 90,
+    "rho_regolith_g_cm3": 3.0,
+    "peak_depth_cm": 30,
+    "fraction_multiplier_at_peak": 1.67,
+    "total_dose_multiplier_at_peak": 1.12,
+    "sigma_g_cm2": 40,
+    "cite": "Matthia & Berger 2024 Space Weather e2024SW004095 · SELINE session capture",
+    "bind_cross": "fixtures/open_seed/RADIATION_SHIELD_BIND_v1.json"
+  },
+  "incident_attenuation": {
+    "model": "exp(-shield_g_cm2 / scale_g_cm2)",
+    "scale_g_cm2": 120,
+    "note": "GCR weak-shield class — primary zenith attenuation PROXY not full Geant4"
+  },
+  "site_class_modifiers": {
+    "highland_regolith": {"f_albedo_scale": 1.0, "cite": "SELINE site-agnostic default"},
+    "mare_regolith": {"f_albedo_scale": 0.92, "cite": "PROXY — lower H content vs highland"},
+    "magnetic_anomaly": {"f_albedo_scale": 1.08, "cite": "B-GAP-SITE-AGNOSTIC falsifier — Lunar Vertex class"}
+  },
+  "see_albedo_coupling": {
+    "base_see_per_yr": 0.12,
+    "albedo_neutron_gain": 0.85,
+    "cite": "LSIC scenario S2 — FaNS 0.1-20 MeV albedo neutron channel · SEE proxy not cross-section table",
+    "tier": "PROXY"
+  },
+  "honesty_tiers": ["MEASURED", "MEASURED_STALE", "ORBIT_PROXY", "PROXY_CHAT", "PROXY_CITED", "SIM", "VOID"],
+  "ingest_hook": {
+    "artifact": "sync_seline_data_products_v1",
+    "status": "PARK",
+    "flip_tier_when": "SELINE/LEIA public CRISP+FaNS spectra → replace L0-SEL-01 mid with MEASURED"
+  },
+  "harness_module": "dogfood_platform.lunar_albedo_dose_v1",
+  "feeds": {
+    "lunar_space_weather": "incident_dose_regime from L0-ZHENG-04/05",
+    "radiation_proxy": "D_anchor annual Gy",
+    "radiation_fet": "mission_dose_gy split → dose_component_mv",
+    "arena_moon_coupling": "surface_dose.albedo_fraction when use_nowcast"
+  },
+  "falsifiers": [
+    "unshielded: albedo_fraction within L0-SEL-01 range [0.25, 0.35]",
+    "shield paradox: total_dose at 90 g/cm2 > total_dose at 10 g/cm2 (S5)",
+    "S2: see_rate rises when f_albedo_eff > f_base before dose budget fails",
+    "tier label PROXY_CHAT never MEASURED without ingest_hook flip",
+    "incident + albedo = total_dose within 1e-6 relative"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "phase_lock_id": "iron_hil_phase_lock_teaching_v1",
+  "phase_mod": 1000,
+  "honesty": {
+    "teaching_only": true,
+    "not_iron_mmio_sync": true
+  },
+  "deferred": ["MEASURED_IRON_MMIO_PHASE_SYNC"],
+  "tabu": ["claim iron MMIO phase sync MEASURED", "claim RT multi-stack lock"]
+}

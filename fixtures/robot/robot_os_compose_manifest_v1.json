@@ -1,0 +1,928 @@
+{
+  "manifest_id": "robot_os_compose_manifest_v1",
+  "version": 1,
+  "compose_id": "ROBOT_OS_SYNTHESIS_v1",
+  "canon": "docs/agent_workflow/ROBOT_OS_SYNTHESIS_V1.md",
+  "proof_tier": "COMPOSE_BIND",
+  "tabu": "claim robot OS complete · claim MEASURED fleet · claim AGI",
+  "modules": [
+    {
+      "module_id": "fleet_live_state",
+      "layer": "L3",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/fleet_live_state_v1.py",
+      "proof_tier": "LIVE_STATE_BUS",
+      "note": "single JSON truth bus for coordinator + carriers"
+    },
+    {
+      "module_id": "handoff_protocol",
+      "layer": "L4",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/fleet_handoff_protocol_v1.py",
+      "proof_tier": "HANDOFF_HASH",
+      "note": "ack/nack · content_hash falsifier"
+    },
+    {
+      "module_id": "coordinator",
+      "layer": "L6",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/fleet_coordinator_runtime_v1.py",
+      "proof_tier": "MULTI_PROCESS_RUNTIME",
+      "note": "sim dispatcher process — not full fleet OS"
+    },
+    {
+      "module_id": "clifford_bind",
+      "layer": "L1+L2",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/robot_os_clifford_bind_v1.py",
+      "proof_tier": "ENGINE_SIM_BIND",
+      "note": "Phase B stack → live state · motor128 · stack_replay_hash"
+    },
+    {
+      "module_id": "kernel",
+      "layer": "L5",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/robot_os_kernel_v1.py",
+      "proof_tier": "SIM_KERNEL_SLICE",
+      "note": "priority queue + Wh budget gate — dep check only in compose"
+    },
+    {
+      "module_id": "hal_sim",
+      "layer": "L5",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/robot_carrier_sim_runtime_v1.py",
+      "proof_tier": "MULTI_PROCESS_RUNTIME",
+      "note": "carrier sim HAL — bound via fleet runtime gate"
+    },
+    {
+      "module_id": "cmc_mmio_bridge",
+      "layer": "L2+L3",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/robot_os_cmc_mmio_bridge_v1.py",
+      "proof_tier": "MMIO_LIVE_BIND",
+      "note": "iron MMIO map ↔ live situation_pool · coordinator handoff"
+    },
+    {
+      "module_id": "hal_lunar_profile",
+      "layer": "L5",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/robot_os_hal_lunar_profile_v1.py",
+      "proof_tier": "HAL_LUNAR_PROFILE_SLICE",
+      "note": "W_regolith g_moon + terramech ingress on HAL — not field robot"
+    },
+    {
+      "module_id": "lunar_crater_world",
+      "layer": "L0–L6",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/robot_os_lunar_crater_world_v1.py",
+      "proof_tier": "WORLD_PHYSICS_SIM_SLICE",
+      "note": "in-process dogfood crater scenario + radiation gap probe"
+    },
+    {
+      "module_id": "radiation_bind",
+      "layer": "L5+L1",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/robot_os_radiation_bind_v1.py",
+      "proof_tier": "RADIATION_SIM_BIND",
+      "note": "FET/SEE → kernel RECOVER · fleet degrade on coordinator"
+    },
+    {
+      "module_id": "fleet_radiation_degrade",
+      "layer": "L6",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/fleet_coordinator_degrade_v1.py",
+      "proof_tier": "FLEET_DEGRADE_SLICE",
+      "note": "radiation RECOVER → fleet stand-down + coordinator FAIL"
+    },
+    {
+      "module_id": "clifford_iron_bind",
+      "layer": "L1",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/robot_os_clifford_iron_bind_v1.py",
+      "proof_tier": "IRON_SIM_RTL_LAYER",
+      "note": "iron crown motion rail layered on ENGINE_SIM handoff hash"
+    },
+    {
+      "module_id": "governance_interceptor",
+      "layer": "L5+L7",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/robot_os_governance_interceptor_v1.py",
+      "proof_tier": "GOVERNANCE_SLICE",
+      "note": "policy stub → interceptor → veto before actuation · dual-run falsifier"
+    },
+    {
+      "module_id": "policy_port",
+      "layer": "L5",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/robot_os_policy_port_v1.py",
+      "proof_tier": "POLICY_PORT_SLICE",
+      "note": "PolicyPort — stub · regolith planner · VlaMock trace only"
+    },
+    {
+      "module_id": "newton_x_world",
+      "layer": "L0",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/robot_os_newton_x_world_step_v1.py",
+      "proof_tier": "WORLD_PHYSICS_SIM_SLICE",
+      "note": "L0 desk world — heightfield · W_regolith step · sensor synth"
+    },
+    {
+      "module_id": "lie_integrator",
+      "layer": "L0",
+      "status": "BUILT",
+      "module_path": "dogfood_platform/lie_integrator_port_v1.py",
+      "proof_tier": "LIE_INTEGRATOR_PORT_SLICE",
+      "note": "LieIntegratorPort — exp map · symplectic split · Rust cga · kernel opt-in"
+    },
+    {
+      "module_id": "manipulator_kinematics",
+      "layer": "L0+L5",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/manipulator_kinematics_port_v1.py",
+      "proof_tier": "MANIPULATOR_KINEMATICS_SLICE",
+      "note": "Rust serial_arm_planar FK/IK/dynamics — not RT servo · Phase A stack"
+    },
+    {
+      "module_id": "kinematic_chain_ir",
+      "layer": "L0",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/kinematic_chain_ir_v1.py",
+      "proof_tier": "APPENDAGE_KINEMATICS_OS_SLICE",
+      "note": "Chain IR registry — JSON/URDF → Rust crown · multi-appendage dispatch"
+    },
+    {
+      "module_id": "urdf_to_chain_ir",
+      "layer": "L0",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/urdf_to_chain_ir_v1.py",
+      "proof_tier": "URDF_CHAIN_IR_SLICE",
+      "note": "URDF tree compiler — fixed+revolute flatten → chain IR"
+    },
+    {
+      "module_id": "actuator_plugin_bus",
+      "layer": "L2_L5",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/actuator_plugin_bus_v1.py",
+      "proof_tier": "ACTUATOR_PLUGIN_BUS_SLICE",
+      "note": "sim_symplectic | lc2_iron | backlash_friction dispatch"
+    },
+    {
+      "module_id": "appendage_iron_hil",
+      "layer": "L2",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/robot_lc2_appendage_hil_v1.py",
+      "proof_tier": "APPENDAGE_IRON_HIL_SLICE",
+      "note": "LC-2 baremetal map · QEMU structural · HAL cross-bind"
+    },
+    {
+      "module_id": "contact_friction_model",
+      "layer": "L6",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/contact_friction_model_v1.py",
+      "proof_tier": "CONTACT_FRICTION_SLICE",
+      "note": "Coulomb μ identification · grasp envelope extension"
+    },
+    {
+      "module_id": "kinematic_tree_ir",
+      "layer": "L0",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/urdf_to_kinematic_tree_v1.py",
+      "proof_tier": "KINEMATIC_TREE_IR_SLICE",
+      "note": "Branched URDF tree · per-link SE(3) FK · Phase N"
+    },
+    {
+      "module_id": "appendage_foc_rt",
+      "layer": "L2",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/appendage_foc_rt_loop_v1.py",
+      "proof_tier": "APPENDAGE_FOC_RT_SLICE",
+      "note": "kHz FOC ISR burst teaching · lc2 symbolic bind · Phase O"
+    },
+    {
+      "module_id": "appendage_calibration",
+      "layer": "L3",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/appendage_calibration_pipeline_v1.py",
+      "proof_tier": "APPENDAGE_CALIBRATION_SLICE",
+      "note": "encoder zero · backlash · FK residual · Phase P"
+    },
+    {
+      "module_id": "tree_ik",
+      "layer": "L0",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/urdf_to_kinematic_tree_v1.py",
+      "proof_tier": "TREE_IK_SLICE",
+      "note": "tree position IK · prismatic URDF · Phase Q"
+    },
+    {
+      "module_id": "appendage_foc_firmware_hil",
+      "layer": "L2",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/appendage_foc_firmware_hil_v1.py",
+      "proof_tier": "APPENDAGE_FOC_FIRMWARE_HIL_SLICE",
+      "note": "baremetal smoke · foc symbolic · iron closure · Phase R"
+    },
+    {
+      "module_id": "appendage_field_calibration",
+      "layer": "L3",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/appendage_field_calibration_cycle_v1.py",
+      "proof_tier": "APPENDAGE_FIELD_CALIBRATION_SLICE",
+      "note": "teaching sample replay cycle · Phase S"
+    },
+    {
+      "module_id": "appendage_stack_integrator",
+      "layer": "L3_L5",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/appendage_stack_integrator_v1.py",
+      "proof_tier": "APPENDAGE_STACK_INTEGRATOR_SLICE",
+      "note": "unified tick bus — chain IR · FK · actuator · calibration · Phase T"
+    },
+    {
+      "module_id": "se3_planar_parity",
+      "layer": "L0",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/se3_planar_parity_v1.py",
+      "proof_tier": "SE3_PLANAR_PARITY_SLICE",
+      "note": "planar vs SE(3) dual crown bound · link_in_child_frame · Phase U"
+    },
+    {
+      "module_id": "kinematic_registry_roundtrip",
+      "layer": "L0",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/kinematic_registry_roundtrip_v1.py",
+      "proof_tier": "KINEMATIC_REGISTRY_ROUNDTRIP_SLICE",
+      "note": "URDF compile ↔ resolve · tree FK-IK roundtrip · Phase V/W"
+    },
+    {
+      "module_id": "appendage_closed_loop_track",
+      "layer": "L5",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/appendage_closed_loop_track_v1.py",
+      "proof_tier": "APPENDAGE_CLOSED_LOOP_SLICE",
+      "note": "multi-tick P tracking on stack bus · Phase X"
+    },
+    {
+      "module_id": "appendage_multi_compose",
+      "layer": "L3_L5",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/appendage_multi_compose_v1.py",
+      "proof_tier": "APPENDAGE_MULTI_COMPOSE_SLICE",
+      "note": "scout arm + LC-2 hip on one robot bus · mount offsets · Phase Y"
+    },
+    {
+      "module_id": "appendage_robot_create_cli",
+      "layer": "L7",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/appendage_robot_create_cli_v1.py",
+      "proof_tier": "APPENDAGE_ROBOT_CREATE_CLI_SLICE",
+      "note": "describe robot JSON → layered stack manifest · Phase Z · deferred AF_WIZARD_UI"
+    },
+    {
+      "module_id": "appendage_urdf_create",
+      "layer": "L7",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/appendage_urdf_create_v1.py",
+      "proof_tier": "APPENDAGE_URDF_CREATE_SLICE",
+      "note": "URDF-first create · overlay registry · Phase AA · deferred AE_REGISTRY_PERSIST_REVIEW"
+    },
+    {
+      "module_id": "hexapod_leg_chain",
+      "layer": "L0",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/hexapod_leg_chain_v1.py",
+      "proof_tier": "HEXAPOD_LEG_CHAIN_SLICE",
+      "note": "3-DOF locomotion leg registry · Phase AB · deferred AH/AI"
+    },
+    {
+      "module_id": "appendage_mount_se3",
+      "layer": "L0_L3",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/appendage_mount_se3_v1.py",
+      "proof_tier": "APPENDAGE_MOUNT_SE3_SLICE",
+      "note": "mount_xyz + mount_rpy motor compose · Phase AC"
+    },
+    {
+      "module_id": "hexapod_body_compose",
+      "layer": "L3_L5",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/hexapod_body_compose_v1.py",
+      "proof_tier": "HEXAPOD_BODY_COMPOSE_SLICE",
+      "note": "6× leg hexapod body bus · Phase AG · deferred AI_HEXAPOD_CONTACT"
+    },
+    {
+      "module_id": "hexapod_gait_bus",
+      "layer": "L5_L6",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/hexapod_gait_bus_v1.py",
+      "proof_tier": "HEXAPOD_GAIT_BUS_SLICE",
+      "note": "tripod/wave gait phase clock · Phase AH · deferred AI_HEXAPOD_CONTACT"
+    },
+    {
+      "module_id": "multi_appendage_field_servo",
+      "layer": "L3_L5",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/multi_appendage_field_servo_v1.py",
+      "proof_tier": "MULTI_APPENDAGE_FIELD_SERVO_SLICE",
+      "note": "shared servo clock · field cal bind · Phase AD · deferred AD_IRON_HIL_PHASE_LOCK"
+    },
+    {
+      "module_id": "hexapod_foot_contact",
+      "layer": "L6",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/hexapod_foot_contact_v1.py",
+      "proof_tier": "HEXAPOD_FOOT_CONTACT_SLICE",
+      "note": "μ catalog per foot · gait-integrated · Phase AI · ADAPT tier"
+    },
+    {
+      "module_id": "appendage_registry_persist",
+      "layer": "L0",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/appendage_registry_persist_v1.py",
+      "proof_tier": "REGISTRY_PERSIST_REVIEW_SLICE",
+      "note": "URDF patch staging · review receipt · Phase AE · not silent canon edit"
+    },
+    {
+      "module_id": "manipulator_integrator",
+      "layer": "L5_HAL",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/manipulator_integrator_port_v1.py",
+      "proof_tier": "HAL_MANIPULATOR_SLICE",
+      "note": "joint bus · kernel tick · traverse mutex · Phase B"
+    },
+    {
+      "module_id": "manipulator_governed_actuation",
+      "layer": "L6",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/robot_os_manipulator_governed_actuation_v1.py",
+      "proof_tier": "MANIPULATOR_GOVERNED_ACTUATION_SLICE",
+      "note": "material derate · torque envelope · symplectic veto · Phase D"
+    },
+    {
+      "module_id": "construct_arm_coord",
+      "layer": "L7",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/fleet_construct_arm_coord_v1.py",
+      "proof_tier": "CONSTRUCT_ARM_COORD_SLICE",
+      "note": "fleet zone lock · base+arm world pose · Phase E"
+    },
+    {
+      "module_id": "manipulator_grasp_loop",
+      "layer": "L6",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/manipulator_grasp_loop_v1.py",
+      "proof_tier": "GRASP_FORCE_SLICE",
+      "note": "Rust force ramp · ingress feedback · Phase F ADAPT"
+    },
+    {
+      "module_id": "manipulator_iron_hal",
+      "layer": "L2",
+      "status": "SLICE",
+      "module_path": "dogfood_platform/manipulator_lc2_iron_hal_v1.py",
+      "proof_tier": "MANIPULATOR_IRON_HAL_TEACHING_SLICE",
+      "note": "LC-2 teaching MMIO · encoder · FOC ISR · Phase G T4"
+    },
+    {
+      "module_id": "iron_cmc_mmio",
+      "layer": "L2",
+      "status": "PARTIAL",
+      "module_path": "dogfood_platform/chip_mission_cognition_mmio_bind_v1.py",
+      "proof_tier": "IRON_SIM_MMIO",
+      "rtl_deps": [
+        "fixtures/chip/clifford_situation_pool_v0.v",
+        "fixtures/chip/clifford_mission_intent_fsm_v0.v",
+        "fixtures/chip/clifford_cmc_mmio_shell_v0.v",
+        "fixtures/chip/clifford_cmc_mmio_tb_v0.v",
+        "fixtures/chip/clifford_alu_cmc_mmio_v0.v"
+      ],
+      "note": "iron FSM + MMIO bind — child gates only"
+    }
+  ],
+  "child_gates": [
+    {
+      "gate_id": "fleet_runtime",
+      "runner_module": "dogfood_platform.fleet_lunar_relay_runtime_gate_v1",
+      "run_fn": "run_fleet_lunar_relay_runtime",
+      "receipt_id": "CHIP_FLEET_LUNAR_RELAY_RUNTIME_RECEIPT_v1",
+      "proof_tier": "MULTI_PROCESS_RUNTIME",
+      "binds_modules": [
+        "fleet_live_state",
+        "handoff_protocol",
+        "coordinator",
+        "hal_sim"
+      ]
+    },
+    {
+      "gate_id": "lunar_clifford_bind",
+      "runner_module": "dogfood_platform.robot_os_lunar_clifford_gate_v1",
+      "run_fn": "run_lunar_clifford_bind_gate",
+      "receipt_id": "ROBOT_OS_LUNAR_CLIFFORD_BIND_RECEIPT_v1",
+      "proof_tier": "ENGINE_SIM_BIND",
+      "binds_modules": ["clifford_bind"]
+    },
+    {
+      "gate_id": "cmc_mmio_bridge",
+      "runner_module": "dogfood_platform.robot_os_cmc_mmio_bridge_gate_v1",
+      "run_fn": "run_cmc_mmio_bridge_gate",
+      "receipt_id": "ROBOT_OS_CMC_MMIO_BRIDGE_RECEIPT_v1",
+      "proof_tier": "MMIO_LIVE_BIND",
+      "binds_modules": ["cmc_mmio_bridge", "lunar_crater_world", "coordinator"]
+    },
+    {
+      "gate_id": "hal_lunar_profile",
+      "runner_module": "dogfood_platform.robot_os_hal_lunar_profile_gate_v1",
+      "run_fn": "run_hal_lunar_profile_gate",
+      "receipt_id": "ROBOT_OS_HAL_LUNAR_PROFILE_RECEIPT_v1",
+      "proof_tier": "HAL_LUNAR_PROFILE_SLICE",
+      "binds_modules": ["hal_lunar_profile", "lunar_crater_world"]
+    },
+    {
+      "gate_id": "radiation_bind",
+      "runner_module": "dogfood_platform.robot_os_radiation_bind_gate_v1",
+      "run_fn": "run_radiation_bind_gate",
+      "receipt_id": "ROBOT_OS_RADIATION_BIND_RECEIPT_v1",
+      "proof_tier": "RADIATION_SIM_BIND",
+      "binds_modules": ["radiation_bind", "hal_lunar_profile", "lunar_crater_world", "fleet_radiation_degrade"]
+    },
+    {
+      "gate_id": "fleet_radiation_degrade",
+      "runner_module": "dogfood_platform.fleet_radiation_degrade_gate_v1",
+      "run_fn": "run_fleet_radiation_degrade_gate",
+      "receipt_id": "FLEET_RADIATION_DEGRADE_RECEIPT_v1",
+      "proof_tier": "FLEET_DEGRADE_SLICE",
+      "binds_modules": ["fleet_radiation_degrade", "coordinator", "lunar_crater_world"]
+    },
+    {
+      "gate_id": "fleet_radiation_multiprocess",
+      "runner_module": "dogfood_platform.fleet_radiation_multiprocess_gate_v1",
+      "run_fn": "run_fleet_radiation_multiprocess_gate",
+      "receipt_id": "FLEET_RADIATION_MULTIPROCESS_RECEIPT_v1",
+      "proof_tier": "MULTI_PROCESS_RUNTIME",
+      "binds_modules": [
+        "fleet_radiation_degrade",
+        "coordinator",
+        "hal_lunar_profile",
+        "radiation_bind",
+        "hal_sim"
+      ]
+    },
+    {
+      "gate_id": "governance_slice",
+      "runner_module": "dogfood_platform.robot_os_governance_gate_v1",
+      "run_fn": "run_governance_slice_gate",
+      "receipt_id": "ROBOT_OS_GOVERNANCE_SLICE_RECEIPT_v1",
+      "proof_tier": "GOVERNANCE_DUAL_RUN_SLICE",
+      "binds_modules": [
+        "governance_interceptor",
+        "lunar_crater_world",
+        "kernel",
+        "hal_lunar_profile"
+      ]
+    },
+    {
+      "gate_id": "governance_multiprocess",
+      "runner_module": "dogfood_platform.robot_os_governance_multiprocess_gate_v1",
+      "run_fn": "run_governance_multiprocess_gate",
+      "receipt_id": "ROBOT_OS_GOVERNANCE_MULTIPROCESS_RECEIPT_v1",
+      "proof_tier": "MULTI_PROCESS_RUNTIME",
+      "binds_modules": [
+        "governance_interceptor",
+        "coordinator",
+        "hal_lunar_profile",
+        "hal_sim",
+        "lunar_crater_world"
+      ]
+    },
+    {
+      "gate_id": "newton_x_world_step",
+      "runner_module": "dogfood_platform.robot_os_newton_x_world_step_gate_v1",
+      "run_fn": "run_newton_x_world_step_gate",
+      "receipt_id": "ROBOT_OS_NEWTON_X_WORLD_STEP_RECEIPT_v1",
+      "proof_tier": "WORLD_PHYSICS_SIM_SLICE",
+      "binds_modules": [
+        "newton_x_world",
+        "hal_lunar_profile",
+        "lunar_crater_world"
+      ]
+    },
+    {
+      "gate_id": "clifford_iron_bind",
+      "runner_module": "dogfood_platform.robot_os_clifford_iron_bind_gate_v1",
+      "run_fn": "run_clifford_iron_bind_gate",
+      "receipt_id": "ROBOT_OS_CLIFFORD_IRON_BIND_RECEIPT_v1",
+      "proof_tier": "IRON_SIM_RTL_LAYER",
+      "binds_modules": ["clifford_iron_bind", "clifford_bind", "lunar_crater_world"]
+    },
+    {
+      "gate_id": "iron_cmc_fsm",
+      "runner_module": "dogfood_platform.chip_mission_cognition_iron_gate_v1",
+      "run_fn": "run_mission_cognition_iron_gate",
+      "receipt_id": "CHIP_MISSION_COGNITION_IRON_GATE_RECEIPT_v1",
+      "proof_tier": "IRON_SIM_RTL",
+      "binds_modules": [
+        "iron_cmc_mmio"
+      ]
+    },
+    {
+      "gate_id": "iron_cmc_mmio",
+      "runner_module": "dogfood_platform.chip_mission_cognition_mmio_bind_v1",
+      "run_fn": "run_mission_cognition_mmio_bind",
+      "receipt_id": "CHIP_MISSION_COGNITION_MMIO_BIND_RECEIPT_v1",
+      "proof_tier": "IRON_SIM_MMIO",
+      "binds_modules": [
+        "iron_cmc_mmio"
+      ]
+    },
+    {
+      "gate_id": "coupling_cell_one_tick",
+      "runner_module": "dogfood_platform.coupling_cell_one_tick_falsifier_v1",
+      "run_fn": "run_coupling_cell_one_tick_gate",
+      "receipt_id": "COUPLING_CELL_ONE_TICK_RECEIPT_v1",
+      "proof_tier": "COUPLING_CELL_ONE_TICK_SLICE",
+      "binds_modules": [
+        "kernel",
+        "hal_lunar_profile",
+        "cmc_mmio_bridge",
+        "clifford_bind"
+      ]
+    },
+    {
+      "gate_id": "coupling_cell_wear_matrix",
+      "runner_module": "dogfood_platform.coupling_cell_wear_condition_matrix_v1",
+      "run_fn": "run_coupling_cell_wear_condition_matrix_gate",
+      "receipt_id": "COUPLING_CELL_WEAR_CONDITION_MATRIX_RECEIPT_v1",
+      "proof_tier": "COUPLING_CELL_WEAR_MATRIX_SLICE",
+      "binds_modules": [
+        "kernel",
+        "hal_lunar_profile",
+        "clifford_bind"
+      ]
+    },
+    {
+      "gate_id": "material_physics_bus",
+      "runner_module": "dogfood_platform.material_physics_bus_gate_v1",
+      "run_fn": "run_material_physics_bus_compose_gate",
+      "receipt_id": "MATERIAL_PHYSICS_BUS_RECEIPT_v1",
+      "proof_tier": "MATERIAL_PHYSICS_BUS_SLICE",
+      "binds_modules": [
+        "material_physics_port",
+        "external_oracle_adapter",
+        "material_wear_condition_matrix",
+        "cmc_cinema_material_bus"
+      ]
+    },
+    {
+      "gate_id": "material_chip_robot_cross",
+      "runner_module": "dogfood_platform.chip_material_robot_cross_v1",
+      "run_fn": "run_material_chip_robot_cross_gate",
+      "receipt_id": "MATERIAL_CHIP_ROBOT_CROSS_RECEIPT_v1",
+      "proof_tier": "MATERIAL_CHIP_ROBOT_CROSS_SLICE",
+      "binds_modules": [
+        "ROBOT_MATERIALS_REGISTRY",
+        "chip_mission_robot_wear_bus_bind",
+        "cmr_wear_chip_coupling"
+      ]
+    },
+    {
+      "gate_id": "coupling_cell_governance_one_tick",
+      "runner_module": "dogfood_platform.coupling_cell_governance_one_tick_v1",
+      "run_fn": "run_coupling_cell_governance_one_tick_gate",
+      "receipt_id": "COUPLING_CELL_GOVERNANCE_ONE_TICK_RECEIPT_v1",
+      "proof_tier": "COUPLING_CELL_GOVERNANCE_ONE_TICK_SLICE",
+      "binds_modules": [
+        "governance_interceptor",
+        "kernel",
+        "hal_lunar_profile",
+        "clifford_bind"
+      ]
+    },
+    {
+      "gate_id": "newton_x_policy_slice",
+      "runner_module": "dogfood_platform.robot_os_newton_x_policy_slice_gate_v1",
+      "run_fn": "run_newton_x_policy_slice_gate",
+      "receipt_id": "ROBOT_OS_NEWTON_X_POLICY_SLICE_RECEIPT_v1",
+      "proof_tier": "REGOLITH_POLICY_DUAL_RUN_SLICE",
+      "binds_modules": [
+        "newton_x_world",
+        "policy_port",
+        "hal_lunar_profile",
+        "kernel"
+      ]
+    },
+    {
+      "gate_id": "lie_integrator_slice",
+      "runner_module": "dogfood_platform.robot_os_lie_integrator_slice_gate_v1",
+      "run_fn": "run_lie_integrator_slice_gate",
+      "receipt_id": "ROBOT_OS_LIE_INTEGRATOR_SLICE_RECEIPT_v1",
+      "proof_tier": "LIE_INTEGRATOR_PORT_SLICE",
+      "binds_modules": [
+        "lie_integrator",
+        "kernel",
+        "clifford_bind"
+      ]
+    },
+    {
+      "gate_id": "manipulator_kinematics_slice",
+      "runner_module": "dogfood_platform.robot_manipulator_kinematics_slice_gate_v1",
+      "run_fn": "run_manipulator_kinematics_slice_gate",
+      "receipt_id": "ROBOT_MANIPULATOR_KINEMATICS_SLICE_RECEIPT_v1",
+      "proof_tier": "MANIPULATOR_KINEMATICS_SLICE",
+      "binds_modules": [
+        "manipulator_kinematics",
+        "lie_integrator"
+      ]
+    },
+    {
+      "gate_id": "kinematic_chain_slice",
+      "runner_module": "dogfood_platform.robot_kinematic_chain_slice_gate_v1",
+      "run_fn": "run_kinematic_chain_slice_gate",
+      "receipt_id": "ROBOT_KINEMATIC_CHAIN_SLICE_RECEIPT_v1",
+      "proof_tier": "APPENDAGE_KINEMATICS_OS_SLICE",
+      "binds_modules": [
+        "kinematic_chain_ir",
+        "manipulator_kinematics"
+      ]
+    },
+    {
+      "gate_id": "appendage_os_factory",
+      "runner_module": "dogfood_platform.robot_appendage_os_factory_signoff_v1",
+      "run_fn": "run_appendage_os_factory_signoff",
+      "receipt_id": "ROBOT_APPENDAGE_OS_FACTORY_SIGNOFF_RECEIPT_v1",
+      "proof_tier": "APPENDAGE_OS_FACTORY_SIGNOFF",
+      "binds_modules": [
+        "kinematic_chain_ir",
+        "urdf_to_chain_ir",
+        "actuator_plugin_bus",
+        "appendage_iron_hil",
+        "contact_friction_model",
+        "kinematic_tree_ir",
+        "appendage_foc_rt",
+        "appendage_calibration",
+        "tree_ik",
+        "appendage_foc_firmware_hil",
+        "appendage_field_calibration",
+        "appendage_stack_integrator",
+        "se3_planar_parity",
+        "kinematic_registry_roundtrip",
+        "appendage_closed_loop_track",
+        "appendage_multi_compose",
+        "appendage_robot_create_cli",
+        "appendage_urdf_create",
+        "hexapod_leg_chain",
+        "appendage_mount_se3",
+        "hexapod_body_compose",
+        "hexapod_gait_bus",
+        "multi_appendage_field_servo",
+        "hexapod_foot_contact",
+        "appendage_registry_persist",
+        "manipulator_kinematics"
+      ]
+    },
+    {
+      "gate_id": "hexapod_foot_contact_slice",
+      "runner_module": "dogfood_platform.robot_hexapod_foot_contact_slice_gate_v1",
+      "run_fn": "run_hexapod_foot_contact_slice_gate",
+      "receipt_id": "ROBOT_HEXAPOD_FOOT_CONTACT_SLICE_RECEIPT_v1",
+      "proof_tier": "HEXAPOD_FOOT_CONTACT_SLICE",
+      "binds_modules": ["hexapod_foot_contact", "hexapod_gait_bus", "contact_friction_model"]
+    },
+    {
+      "gate_id": "appendage_registry_persist_slice",
+      "runner_module": "dogfood_platform.robot_appendage_registry_persist_slice_gate_v1",
+      "run_fn": "run_appendage_registry_persist_slice_gate",
+      "receipt_id": "ROBOT_APPENDAGE_REGISTRY_PERSIST_SLICE_RECEIPT_v1",
+      "proof_tier": "REGISTRY_PERSIST_REVIEW_SLICE",
+      "binds_modules": ["appendage_registry_persist", "urdf_to_chain_ir", "kinematic_chain_ir"]
+    },
+    {
+      "gate_id": "hexapod_gait_bus_slice",
+      "runner_module": "dogfood_platform.robot_hexapod_gait_bus_slice_gate_v1",
+      "run_fn": "run_hexapod_gait_bus_slice_gate",
+      "receipt_id": "ROBOT_HEXAPOD_GAIT_BUS_SLICE_RECEIPT_v1",
+      "proof_tier": "HEXAPOD_GAIT_BUS_SLICE",
+      "binds_modules": ["hexapod_gait_bus", "hexapod_body_compose", "hexapod_leg_chain"]
+    },
+    {
+      "gate_id": "multi_appendage_field_servo_slice",
+      "runner_module": "dogfood_platform.robot_multi_appendage_field_servo_slice_gate_v1",
+      "run_fn": "run_multi_appendage_field_servo_slice_gate",
+      "receipt_id": "ROBOT_MULTI_APPENDAGE_FIELD_SERVO_SLICE_RECEIPT_v1",
+      "proof_tier": "MULTI_APPENDAGE_FIELD_SERVO_SLICE",
+      "binds_modules": ["multi_appendage_field_servo", "appendage_multi_compose", "appendage_field_calibration"]
+    },
+    {
+      "gate_id": "appendage_mount_se3_slice",
+      "runner_module": "dogfood_platform.robot_appendage_mount_se3_slice_gate_v1",
+      "run_fn": "run_appendage_mount_se3_slice_gate",
+      "receipt_id": "ROBOT_APPENDAGE_MOUNT_SE3_SLICE_RECEIPT_v1",
+      "proof_tier": "APPENDAGE_MOUNT_SE3_SLICE",
+      "binds_modules": ["appendage_mount_se3", "appendage_multi_compose"]
+    },
+    {
+      "gate_id": "hexapod_body_compose_slice",
+      "runner_module": "dogfood_platform.robot_hexapod_body_compose_slice_gate_v1",
+      "run_fn": "run_hexapod_body_compose_slice_gate",
+      "receipt_id": "ROBOT_HEXAPOD_BODY_COMPOSE_SLICE_RECEIPT_v1",
+      "proof_tier": "HEXAPOD_BODY_COMPOSE_SLICE",
+      "binds_modules": ["hexapod_body_compose", "hexapod_leg_chain", "appendage_multi_compose", "appendage_mount_se3"]
+    },
+    {
+      "gate_id": "appendage_urdf_create_slice",
+      "runner_module": "dogfood_platform.robot_appendage_urdf_create_slice_gate_v1",
+      "run_fn": "run_appendage_urdf_create_slice_gate",
+      "receipt_id": "ROBOT_APPENDAGE_URDF_CREATE_SLICE_RECEIPT_v1",
+      "proof_tier": "APPENDAGE_URDF_CREATE_SLICE",
+      "binds_modules": ["appendage_urdf_create", "urdf_to_chain_ir", "kinematic_chain_ir"]
+    },
+    {
+      "gate_id": "hexapod_leg_chain_slice",
+      "runner_module": "dogfood_platform.robot_hexapod_leg_chain_slice_gate_v1",
+      "run_fn": "run_hexapod_leg_chain_slice_gate",
+      "receipt_id": "ROBOT_HEXAPOD_LEG_CHAIN_SLICE_RECEIPT_v1",
+      "proof_tier": "HEXAPOD_LEG_CHAIN_SLICE",
+      "binds_modules": ["hexapod_leg_chain", "kinematic_chain_ir"]
+    },
+    {
+      "gate_id": "appendage_multi_compose_slice",
+      "runner_module": "dogfood_platform.robot_appendage_multi_compose_slice_gate_v1",
+      "run_fn": "run_appendage_multi_compose_slice_gate",
+      "receipt_id": "ROBOT_APPENDAGE_MULTI_COMPOSE_SLICE_RECEIPT_v1",
+      "proof_tier": "APPENDAGE_MULTI_COMPOSE_SLICE",
+      "binds_modules": ["appendage_multi_compose", "appendage_stack_integrator", "kinematic_chain_ir"]
+    },
+    {
+      "gate_id": "appendage_create_cli_slice",
+      "runner_module": "dogfood_platform.robot_appendage_create_cli_slice_gate_v1",
+      "run_fn": "run_appendage_create_cli_slice_gate",
+      "receipt_id": "ROBOT_APPENDAGE_CREATE_CLI_SLICE_RECEIPT_v1",
+      "proof_tier": "APPENDAGE_ROBOT_CREATE_CLI_SLICE",
+      "binds_modules": ["appendage_robot_create_cli", "appendage_multi_compose", "kinematic_chain_ir"]
+    },
+    {
+      "gate_id": "appendage_stack_integrator_slice",
+      "runner_module": "dogfood_platform.robot_appendage_stack_integrator_slice_gate_v1",
+      "run_fn": "run_appendage_stack_integrator_slice_gate",
+      "receipt_id": "ROBOT_APPENDAGE_STACK_INTEGRATOR_SLICE_RECEIPT_v1",
+      "proof_tier": "APPENDAGE_STACK_INTEGRATOR_SLICE",
+      "binds_modules": ["appendage_stack_integrator", "kinematic_chain_ir", "actuator_plugin_bus"]
+    },
+    {
+      "gate_id": "se3_planar_parity_slice",
+      "runner_module": "dogfood_platform.robot_se3_planar_parity_slice_gate_v1",
+      "run_fn": "run_se3_planar_parity_slice_gate",
+      "receipt_id": "ROBOT_SE3_PLANAR_PARITY_SLICE_RECEIPT_v1",
+      "proof_tier": "SE3_PLANAR_PARITY_SLICE",
+      "binds_modules": ["se3_planar_parity", "kinematic_chain_ir", "manipulator_kinematics"]
+    },
+    {
+      "gate_id": "kinematic_registry_roundtrip_slice",
+      "runner_module": "dogfood_platform.robot_kinematic_registry_roundtrip_slice_gate_v1",
+      "run_fn": "run_kinematic_registry_roundtrip_slice_gate",
+      "receipt_id": "ROBOT_KINEMATIC_REGISTRY_ROUNDTRIP_SLICE_RECEIPT_v1",
+      "proof_tier": "KINEMATIC_REGISTRY_ROUNDTRIP_SLICE",
+      "binds_modules": ["kinematic_registry_roundtrip", "urdf_to_chain_ir", "kinematic_chain_ir"]
+    },
+    {
+      "gate_id": "tree_fk_ik_roundtrip_slice",
+      "runner_module": "dogfood_platform.robot_kinematic_registry_roundtrip_slice_gate_v1",
+      "run_fn": "run_tree_fk_ik_roundtrip_slice_gate",
+      "receipt_id": "ROBOT_TREE_FK_IK_ROUNDTRIP_SLICE_RECEIPT_v1",
+      "proof_tier": "TREE_FK_IK_ROUNDTRIP_SLICE",
+      "binds_modules": ["kinematic_registry_roundtrip", "kinematic_tree_ir", "tree_ik"]
+    },
+    {
+      "gate_id": "appendage_closed_loop_slice",
+      "runner_module": "dogfood_platform.robot_appendage_closed_loop_slice_gate_v1",
+      "run_fn": "run_appendage_closed_loop_slice_gate",
+      "receipt_id": "ROBOT_APPENDAGE_CLOSED_LOOP_SLICE_RECEIPT_v1",
+      "proof_tier": "APPENDAGE_CLOSED_LOOP_SLICE",
+      "binds_modules": ["appendage_closed_loop_track", "appendage_stack_integrator"]
+    },
+    {
+      "gate_id": "tree_ik_slice",
+      "runner_module": "dogfood_platform.robot_tree_ik_slice_gate_v1",
+      "run_fn": "run_tree_ik_slice_gate",
+      "receipt_id": "ROBOT_TREE_IK_SLICE_RECEIPT_v1",
+      "proof_tier": "TREE_IK_SLICE",
+      "binds_modules": ["tree_ik", "kinematic_tree_ir"]
+    },
+    {
+      "gate_id": "appendage_foc_firmware_hil_slice",
+      "runner_module": "dogfood_platform.robot_appendage_foc_firmware_hil_slice_gate_v1",
+      "run_fn": "run_appendage_foc_firmware_hil_slice_gate",
+      "receipt_id": "ROBOT_APPENDAGE_FOC_FIRMWARE_HIL_SLICE_RECEIPT_v1",
+      "proof_tier": "APPENDAGE_FOC_FIRMWARE_HIL_SLICE",
+      "binds_modules": ["appendage_foc_firmware_hil", "appendage_foc_rt", "appendage_iron_hil"]
+    },
+    {
+      "gate_id": "appendage_field_calibration_slice",
+      "runner_module": "dogfood_platform.robot_appendage_field_calibration_slice_gate_v1",
+      "run_fn": "run_appendage_field_calibration_slice_gate",
+      "receipt_id": "ROBOT_APPENDAGE_FIELD_CALIBRATION_SLICE_RECEIPT_v1",
+      "proof_tier": "APPENDAGE_FIELD_CALIBRATION_SLICE",
+      "binds_modules": ["appendage_field_calibration", "appendage_calibration"]
+    },
+    {
+      "gate_id": "kinematic_tree_slice",
+      "runner_module": "dogfood_platform.robot_kinematic_tree_slice_gate_v1",
+      "run_fn": "run_kinematic_tree_slice_gate",
+      "receipt_id": "ROBOT_KINEMATIC_TREE_SLICE_RECEIPT_v1",
+      "proof_tier": "KINEMATIC_TREE_IR_SLICE",
+      "binds_modules": ["kinematic_tree_ir", "manipulator_kinematics"]
+    },
+    {
+      "gate_id": "appendage_foc_rt_slice",
+      "runner_module": "dogfood_platform.robot_appendage_foc_rt_slice_gate_v1",
+      "run_fn": "run_appendage_foc_rt_slice_gate",
+      "receipt_id": "ROBOT_APPENDAGE_FOC_RT_SLICE_RECEIPT_v1",
+      "proof_tier": "APPENDAGE_FOC_RT_SLICE",
+      "binds_modules": ["appendage_foc_rt", "appendage_iron_hil"]
+    },
+    {
+      "gate_id": "appendage_calibration_slice",
+      "runner_module": "dogfood_platform.robot_appendage_calibration_slice_gate_v1",
+      "run_fn": "run_appendage_calibration_slice_gate",
+      "receipt_id": "ROBOT_APPENDAGE_CALIBRATION_SLICE_RECEIPT_v1",
+      "proof_tier": "APPENDAGE_CALIBRATION_SLICE",
+      "binds_modules": ["appendage_calibration", "kinematic_chain_ir"]
+    },
+    {
+      "gate_id": "manipulator_hal_slice",
+      "runner_module": "dogfood_platform.robot_manipulator_hal_slice_gate_v1",
+      "run_fn": "run_manipulator_hal_slice_gate",
+      "receipt_id": "ROBOT_MANIPULATOR_HAL_SLICE_RECEIPT_v1",
+      "proof_tier": "HAL_MANIPULATOR_SLICE",
+      "binds_modules": [
+        "manipulator_integrator",
+        "manipulator_kinematics",
+        "kernel",
+        "hal_sim"
+      ]
+    },
+    {
+      "gate_id": "manipulator_pose_cxx_slice",
+      "runner_module": "dogfood_platform.robot_manipulator_pose_cxx_slice_gate_v1",
+      "run_fn": "run_manipulator_pose_cxx_slice_gate",
+      "receipt_id": "ROBOT_MANIPULATOR_POSE_CXX_SLICE_RECEIPT_v1",
+      "proof_tier": "MANIPULATOR_POSE_CXX_PARITY_SLICE",
+      "binds_modules": [
+        "manipulator_integrator",
+        "manipulator_kinematics",
+        "clifford_bind"
+      ]
+    },
+    {
+      "gate_id": "manipulator_governed_actuation_slice",
+      "runner_module": "dogfood_platform.robot_manipulator_governed_actuation_slice_gate_v1",
+      "run_fn": "run_manipulator_governed_actuation_slice_gate",
+      "receipt_id": "ROBOT_MANIPULATOR_GOVERNED_ACTUATION_SLICE_RECEIPT_v1",
+      "proof_tier": "MANIPULATOR_GOVERNED_ACTUATION_SLICE",
+      "binds_modules": [
+        "manipulator_governed_actuation",
+        "manipulator_integrator",
+        "manipulator_kinematics",
+        "kernel"
+      ]
+    },
+    {
+      "gate_id": "construct_arm_coord_slice",
+      "runner_module": "dogfood_platform.robot_construct_arm_coord_slice_gate_v1",
+      "run_fn": "run_construct_arm_coord_slice_gate",
+      "receipt_id": "ROBOT_CONSTRUCT_ARM_COORD_SLICE_RECEIPT_v1",
+      "proof_tier": "CONSTRUCT_ARM_COORD_SLICE",
+      "binds_modules": [
+        "construct_arm_coord",
+        "manipulator_integrator",
+        "manipulator_governed_actuation",
+        "kernel",
+        "lie_integrator"
+      ]
+    },
+    {
+      "gate_id": "manipulator_grasp_force_slice",
+      "runner_module": "dogfood_platform.robot_manipulator_grasp_force_slice_gate_v1",
+      "run_fn": "run_manipulator_grasp_force_slice_gate",
+      "receipt_id": "ROBOT_MANIPULATOR_GRASP_FORCE_SLICE_RECEIPT_v1",
+      "proof_tier": "GRASP_FORCE_SLICE",
+      "binds_modules": [
+        "manipulator_grasp_loop",
+        "manipulator_integrator",
+        "manipulator_kinematics",
+        "construct_arm_coord"
+      ]
+    },
+    {
+      "gate_id": "manipulator_iron_hal_slice",
+      "runner_module": "dogfood_platform.robot_manipulator_iron_hal_slice_gate_v1",
+      "run_fn": "run_manipulator_iron_hal_slice_gate",
+      "receipt_id": "ROBOT_MANIPULATOR_IRON_HAL_SLICE_RECEIPT_v1",
+      "proof_tier": "MANIPULATOR_IRON_HAL_TEACHING_SLICE",
+      "binds_modules": [
+        "manipulator_iron_hal",
+        "manipulator_integrator",
+        "manipulator_grasp_loop",
+        "manipulator_kinematics"
+      ]
+    }
+  ]
+}

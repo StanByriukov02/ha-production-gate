@@ -1,0 +1,15 @@
+{
+  "honesty_id": "measured_foot_contact_honesty_v1",
+  "binds": "hexapod_foot_contact_v1",
+  "measuring_path": {
+    "sensor_stub": "force_torque_foot_pad_v0",
+    "status": "DEFERRED",
+    "target_tier": "MEASURED"
+  },
+  "honesty": {
+    "not_measured": true,
+    "adapt_tier_only": true
+  },
+  "deferred": ["AI_MEASURED_FOOT_CONTACT", "TERRAIN_MESH_CONTACT"],
+  "tabu": ["claim MEASURED foot force", "claim field locomotion contact truth"]
+}

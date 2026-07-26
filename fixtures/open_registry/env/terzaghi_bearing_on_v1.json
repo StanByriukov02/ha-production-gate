@@ -1,0 +1,29 @@
+{
+  "schema": "ha_terzaghi_bearing_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "equation": "q_ult=c*Nc + gamma*Df*Nq + 0.5*gamma*B*Ngamma",
+  "units": { "c": "kPa", "gamma": "kN/m^3", "B": "m", "q": "kPa" },
+  "on_sources": [
+    {
+      "id": "terzaghi_bearing",
+      "cite": "Terzaghi ultimate bearing teaching q_ult=c Nc + γ Df Nq + ½ γ B Nγ (not 3D FEM MEASURED)",
+      "used": ["q_ult"]
+    }
+  ],
+  "rust_oracle": { "crate": "ha_physics_gate", "cmd": "ha-physics-gate terzaghi-bearing --catalog <path> --pack <id>" },
+  "honesty": ["teaching Terzaghi — not FEM / CPT MEASURED", "python_not_oracle"],
+  "packs": {
+    "earth_firm_safe": {
+      "label": "Earth firm Dual Safe",
+      "c_kpa": 25.0, "gamma_kn_m3": 18.0, "df_m": 0.3, "b_m": 0.4,
+      "nc": 17.7, "nq": 7.4, "ngamma": 5.0
+    },
+    "earth_soft_hostile": {
+      "label": "Earth soft Dual Hostile",
+      "c_kpa": 5.0, "gamma_kn_m3": 16.0, "df_m": 0.3, "b_m": 0.4,
+      "nc": 10.0, "nq": 3.0, "ngamma": 1.5
+    }
+  },
+  "defaults": { "pack": "earth_firm_safe" },
+  "dual_anchors": { "safe_pack": "earth_firm_safe", "hostile_pack": "earth_soft_hostile" }
+}

@@ -1,0 +1,25 @@
+{
+  "bind_id": "psr_thermal_column_bind_v1",
+  "oracle": "CITED_BIND",
+  "closed_at": "2026-06-16",
+  "closes_gaps": ["GAP-MR-05", "A3-1"],
+  "status": "ADAPT_CLOSED",
+  "evidence_stack": [
+    {"id": "E1", "source": "Woods-Robinson 2019 JGR", "role": "k up to 10x lower below 150K", "cite": "intake-a2-woods-robinson-2019"},
+    {"id": "E2", "source": "Martinez & Siegler LPSC 2022 #2754", "role": "PSR subsurface +15K @2m +30K @4m Shoemaker class", "cite": "intake-a2-martinez-siegler-lpsc"}
+  ],
+  "cryo_leg": {
+    "t_cryo_k": 150.0,
+    "k_scale_below_t_cryo": 0.1,
+    "cite": ["WOODS-ROBINSON-2019-L0-02", "WOODS-ROBINSON-2019-L0-06"],
+    "note": "order-of-magnitude ADAPT until full Woods k(T,rho) in harness"
+  },
+  "psr_subsurface_delta_k": {
+    "site": "Shoemaker_PSR_class",
+    "depth_2m_k": 15.0,
+    "depth_4m_k": 30.0,
+    "cite": ["MARTINEZ-LPSC-L0-06", "MARTINEZ-LPSC-L0-05"]
+  },
+  "harness_module": "dogfood_platform.lunar_psr_thermal_column_v1",
+  "falsifier": "cryo k at 80K must be < legacy k at 80K; subsurface delta must be >0 at 2m"
+}

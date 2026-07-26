@@ -1,0 +1,36 @@
+{
+  "adapt_id": "robot_material_adapt_tread_v1",
+  "status": "ADAPT",
+  "product_ready": false,
+  "tier": "ADAPT",
+  "cite": "ISTVS wheel-terrain · Kim JASS / Meirion-Griffith small-wheel family — operator ADAPT sweep only",
+  "tabu": "claim ADAPT tread = measured lunar field · not in ROBOT_MATERIALS_REGISTRY until operator cite",
+  "registry_ref": "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json#material_variants.wheel_tread",
+  "superseded_note": "canonical tread variants live in registry material_variants — this file is legacy mirror",
+  "profiles": {
+    "pu_shore_70a": {
+      "shore_a": 70,
+      "material_id": "pu_ester_shore_70a_adapt",
+      "wheel_width_cm": 8.6,
+      "wheel_diameter_cm": 20.0,
+      "ingress_mult_factor": 1.04,
+      "note": "softer tread — wider effective patch (ADAPT)"
+    },
+    "pu_shore_90a": {
+      "shore_a": 90,
+      "material_id": "pu_ester_shore_90a",
+      "wheel_width_cm": 8.0,
+      "wheel_diameter_cm": 20.0,
+      "ingress_mult_factor": 1.0,
+      "note": "registry baseline"
+    },
+    "pu_shore_95a": {
+      "shore_a": 95,
+      "material_id": "pu_ester_shore_95a_adapt",
+      "wheel_width_cm": 7.6,
+      "wheel_diameter_cm": 20.0,
+      "ingress_mult_factor": 0.98,
+      "note": "harder tread — narrower patch (ADAPT)"
+    }
+  }
+}

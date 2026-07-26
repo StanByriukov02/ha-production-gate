@@ -1,0 +1,25 @@
+{
+  "layer_id": "robot_chassis_motion_layer_v1",
+  "pose_source": "SlamPose",
+  "runtime": "dogfood_platform/slam_pga8_motion_v1.py",
+  "trail": "fixtures/twin/robot_chassis_motion_trail_v1.json",
+  "replay_hash": "a3b9f61a4cffdf06",
+  "chassis_step": "fixtures/cad/robot_ift2_r1_chassis_v1.step",
+  "pga8_motion_bind": {
+    "layer_id": "pga8_motion_layer_v1",
+    "verdict": "P7_1_PASS",
+    "runtime_motor": "PGA8_motor128"
+  },
+  "slam_reform_bind": {
+    "layer_id": "slam_reform_pga8_layer_v1",
+    "verdict": "F_PASS",
+    "traverse_parity_rmse_m": 0.002456361
+  },
+  "shell_chassis_view": "http://127.0.0.1:4178/dogfood/dogfood_twin_shell_v1.html",
+  "honesty": {
+    "teaching_envelope": true,
+    "not_full_robot_urdf": true,
+    "not_iron": true
+  },
+  "verdict": "G_PASS"
+}

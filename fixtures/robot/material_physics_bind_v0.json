@@ -1,0 +1,163 @@
+{
+  "bind_id": "material_physics_bind_v0",
+  "status": "DRAFT",
+  "product_ready": false,
+  "registry": "fixtures/open_seed/ROBOT_MATERIALS_REGISTRY_v1.json",
+  "physics_oracle": "W_regolith_robot_v0",
+  "module": "dogfood_platform.material_physics_port_v1",
+  "variants": {
+    "scout_default_medium": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "bearing_class": "MEDIUM",
+      "zone": "massif_traverse",
+      "step_m": 416.67
+    },
+    "scout_loose_seal_b3": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "bearing_class": "LOOSE",
+      "zone": "massif_traverse",
+      "step_m": 416.67
+    },
+    "scout_dense_wheel": {
+      "material_keys": ["wheel_tread"],
+      "bearing_class": "DENSE",
+      "zone": "massif_traverse",
+      "step_m": 416.67
+    },
+    "scout_short_traverse": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "bearing_class": "MEDIUM",
+      "zone": "massif_traverse",
+      "step_m": 50.0
+    },
+    "scout_terminal_raw": {
+      "material_keys": ["wheel_tread"],
+      "bearing_class": "MEDIUM",
+      "zone": "massif_traverse",
+      "step_m": 416.67,
+      "apply_seal": false
+    },
+    "scout_seal_b1": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "seal_class": "B1",
+      "bearing_class": "MEDIUM",
+      "zone": "massif_traverse",
+      "step_m": 416.67
+    },
+    "scout_seal_b2": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "seal_class": "B2",
+      "bearing_class": "MEDIUM",
+      "zone": "massif_traverse",
+      "step_m": 416.67
+    },
+    "scout_seal_b3": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "seal_class": "B3",
+      "bearing_class": "MEDIUM",
+      "zone": "massif_traverse",
+      "step_m": 416.67
+    },
+    "scout_seal_b4": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "seal_class": "B4",
+      "bearing_class": "MEDIUM",
+      "zone": "massif_traverse",
+      "step_m": 416.67
+    },
+    "scout_seal_b5": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "seal_class": "B5",
+      "bearing_class": "MEDIUM",
+      "zone": "massif_traverse",
+      "step_m": 416.67
+    },
+    "scout_tread_shore_70a": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "seal_class": "B3",
+      "tread_profile": "pu_shore_70a",
+      "bearing_class": "MEDIUM",
+      "zone": "massif_traverse",
+      "step_m": 416.67
+    },
+    "scout_tread_shore_95a": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "seal_class": "B3",
+      "tread_profile": "pu_shore_95a",
+      "bearing_class": "MEDIUM",
+      "zone": "massif_traverse",
+      "step_m": 416.67
+    },
+    "hauler_loose_massif_b3": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "bearing_class": "LOOSE",
+      "seal_class": "B3",
+      "zone": "massif_traverse",
+      "step_m": 200.0
+    },
+    "hauler_dense_sealed_b1": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "bearing_class": "DENSE",
+      "seal_class": "B1",
+      "zone": "massif_traverse",
+      "step_m": 300.0
+    },
+    "rim_labyrinth_b2": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "seal_class": "B2",
+      "bearing_class": "MEDIUM",
+      "zone": "rim_sun",
+      "step_m": 120.0
+    },
+    "psr_sealed_b1_soft": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "seal_class": "B1",
+      "tread_profile": "pu_shore_70a",
+      "bearing_class": "MEDIUM",
+      "zone": "psr_floor",
+      "step_m": 200.0
+    },
+    "excavator_loose_b5": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "bearing_class": "LOOSE",
+      "seal_class": "B5",
+      "zone": "massif_traverse",
+      "step_m": 25.0
+    },
+    "wide_soft_b2_massif": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "seal_class": "B2",
+      "tread_profile": "pu_shore_70a",
+      "bearing_class": "LOOSE",
+      "zone": "massif_traverse",
+      "step_m": 150.0
+    },
+    "hard_dense_95a": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "tread_profile": "pu_shore_95a",
+      "bearing_class": "DENSE",
+      "seal_class": "B3",
+      "zone": "massif_traverse",
+      "step_m": 416.67
+    },
+    "minimal_cover_b4": {
+      "material_keys": ["wheel_tread", "joint_seal"],
+      "seal_class": "B4",
+      "bearing_class": "MEDIUM",
+      "zone": "rim_sun",
+      "step_m": 100.0
+    },
+    "bare_wheel_no_seal": {
+      "material_keys": ["wheel_tread"],
+      "bearing_class": "MEDIUM",
+      "zone": "massif_traverse",
+      "step_m": 100.0,
+      "apply_seal": false
+    }
+  },
+  "falsifiers": {
+    "F_bearing_changes_pressure_ratio": "LOOSE vs DENSE pressure_ratio must differ (bearing gate)",
+    "F_seal_scales_ingress": "joint_seal ingress_scale applies to mult"
+  },
+  "tabu": "claim materials registry = measured lunar field"
+}

@@ -1,0 +1,47 @@
+{
+  "bind_id": "dust_ingress_bind_v1",
+  "oracle": "ADAPT_CLOSED",
+  "closed_at": "2026-06-16",
+  "closes_gaps": ["GAP-MR-12", "A5-1", "A5-2", "B1", "B2"],
+  "status": "ADAPT_CLOSED",
+  "evidence_stack": [
+    {"id": "E1", "source": "Stubbs 2006 dynamic fountain", "role": "charged dust loft ~100 km ballistic", "cite": "STUBBS-2006-L0-05", "confidence": "HIGH"},
+    {"id": "E2", "source": "Colwell 2007 Rev Geophys", "role": "electrostatic adhesion + regolith densification", "cite": "COLWELL-2007-L0-08", "confidence": "HIGH"},
+    {"id": "E3", "source": "Benaroya 2021 Ch.3", "role": "seal/joint/bearing ingress failure taxonomy", "cite": "BENAROYA-L0-06", "confidence": "HIGH"},
+    {"id": "E4", "source": "Stubbs 2007 impact review", "role": "dust adhesion+abrasion operational areas", "cite": "STUBBS-2007-L0-06", "confidence": "MED"}
+  ],
+  "electrostatic": {
+    "loft_altitude_km": 100.0,
+    "rim_photoemission_index": 0.85,
+    "massif_disturbed_index": 0.95,
+    "psr_floor_index": 0.45,
+    "cite": ["STUBBS-2006-L0-05", "COLWELL-2007-L0-08"]
+  },
+  "ingress_rate_g_m2_per_sol": {
+    "rim_sun": 0.08,
+    "massif_traverse": 0.12,
+    "psr_floor": 0.02,
+    "note": "ADAPT tier — relative zone ranking from fountain+traverse disturbance; not Shackleton flux meter",
+    "cite": ["STUBBS-2006", "BENAROYA-L0-06"]
+  },
+  "seal_classes": {
+    "B1": {"ingress_scale": 0.15, "label": "fully_sealed_oem"},
+    "B2": {"ingress_scale": 0.35, "label": "labyrinth_wiper"},
+    "B3": {"ingress_scale": 0.55, "label": "lip_seal_standard"},
+    "B4": {"ingress_scale": 0.80, "label": "minimal_cover"},
+    "B5": {"ingress_scale": 1.0, "label": "open_joint"}
+  },
+  "mitigation": {
+    "wiper_magnet_max_reduction": 0.65,
+    "positive_pressure_max_reduction": 0.5,
+    "cite": ["BENAROYA-L0-06", "MOON_REALISM_mitigations"]
+  },
+  "wear_coupling": {
+    "abrasion_coeff_per_g_m2": 0.05,
+    "max_stress_mult": 1.35,
+    "accumulation_saturation_g_m2": 2.0,
+    "cite": ["BENAROYA-L0-04", "STUBBS-2007-L0-06"]
+  },
+  "harness_module": "dogfood_platform.lunar_dust_ingress_v1",
+  "falsifier": "B5 open joint + zero mitigation must raise wear stress_mult vs B1 + full mitigation at same zone"
+}

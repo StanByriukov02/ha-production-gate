@@ -1,0 +1,22 @@
+{
+  "create_spec_id": "appendage_robot_urdf_create_spec_v1",
+  "robot_id": "hexapod_single_leg_bench_v1",
+  "mode": "urdf_first",
+  "description": "URDF-first create — hexapod leg compiled at runtime · overlay registry",
+  "appendages": [
+    {
+      "appendage_id": "leg_0",
+      "urdf": "fixtures/cad/hexapod_leg_3dof_v1.urdf",
+      "root_link": "body_mount",
+      "ee_link": "foot_link",
+      "chain_id": "hexapod_leg_from_urdf_v1",
+      "role": "locomotion_leg",
+      "geometry_class": "serial_revolute_se3",
+      "actuator_backend": "sim_symplectic",
+      "mount_xyz": [0.0, 0.0, 0.1]
+    }
+  ],
+  "emit": {
+    "factory_gate": "dogfood_platform.robot_appendage_os_factory_signoff_v1"
+  }
+}

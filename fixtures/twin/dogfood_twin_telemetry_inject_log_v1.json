@@ -1,0 +1,19 @@
+{
+  "inject_id": "dogfood_twin_telemetry_inject_log_v1",
+  "timestamp_utc": "2026-06-29T06:30:33.611533+00:00",
+  "last_seq": 12,
+  "last_phi_macro_tick": 12,
+  "last_traverse_m": 54.1667,
+  "packet_hash": "de7c21d9b996f779",
+  "scene_diff": {
+    "motion_overlay_tick": 12,
+    "slam_map_delta_cells": 0
+  },
+  "prior_seq": 12,
+  "honesty": {
+    "sim_inject_only": true,
+    "not_rf_link": true,
+    "not_measured_iron": true,
+    "product_ready": false
+  }
+}

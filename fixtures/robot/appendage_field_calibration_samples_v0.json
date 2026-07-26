@@ -1,0 +1,15 @@
+{
+  "samples_id": "appendage_field_calibration_samples_v0",
+  "version": 0,
+  "chain_id": "lc2_bench_hip_1dof_v1",
+  "counts_per_rev": 4096,
+  "teaching_backlash_rad": 0.002,
+  "cycles": [
+    {"encoder_counts": 818, "q_cmd": 0.0, "note": "home"},
+    {"encoder_counts": 920, "q_cmd": 0.1, "note": "sweep_a"},
+    {"encoder_counts": 1025, "q_cmd": 0.2, "note": "sweep_b"},
+    {"encoder_counts": 920, "q_cmd": 0.1, "note": "return_a"},
+    {"encoder_counts": 818, "q_cmd": 0.0, "note": "return_home"}
+  ],
+  "tabu": "claim field-measured calibration on flight hardware"
+}

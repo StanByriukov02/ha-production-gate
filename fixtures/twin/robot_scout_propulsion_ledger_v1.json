@@ -1,0 +1,141 @@
+{
+  "ledger_id": "robot_scout_propulsion_ledger_v1",
+  "timestamp_utc": "2026-07-06T06:08:59.897315+00:00",
+  "verdict": "ROBOT_SCOUT_PROPULSION_PASS",
+  "mass_kg": 5.6,
+  "mass_kg_source": "robot_scout_mass_budget_v1",
+  "legacy_morph_cap_kg": 20.0,
+  "cruise_m_s": 10.0,
+  "hover_agl_m": 1.35,
+  "locomotion": "ducted_hover_cheap_energy",
+  "geometry": {
+    "duct_count": 6,
+    "duct_class": "edf_70mm_flight",
+    "duct_shroud_od_mm": 82.0,
+    "duct_bore_id_mm": 70.0,
+    "nacelle_tilt_deg_axis_x": 18.0,
+    "nacelle_length_mm": 112.0,
+    "flight_power_per_duct_w": 400.0,
+    "wingspan_mm": 360.0,
+    "envelope_span_mm": 360.0,
+    "disk_span_mm": 360.0,
+    "mass_kg_max": 20.0,
+    "cruise_m_s": 10.0
+  },
+  "areas": {
+    "per_duct_bore_m2": 0.003848,
+    "total_bore_m2": 0.023091,
+    "total_shroud_m2": 0.031686
+  },
+  "tilt_vertical_fraction": 0.9511,
+  "power_bus": {
+    "v_bus": 12.0,
+    "i_peak_a": 8.0,
+    "p_bus_max_w": 96.0,
+    "p_flight_hover_w": 2400.0,
+    "cite": "ROBOT_FACTORY_SLOTS_v1.json + PROPULSION_GEOMETRY flight_power_per_duct_w"
+  },
+  "thrust": {
+    "empirical_flight_per_duct": {
+      "thrust_n_per_duct": 15.0,
+      "oracle": "ADAPT",
+      "anchor": "70 mm EDF \u00b7 ~15 N @ 400 W teaching envelope (not iron bench)",
+      "power_per_duct_w": 400.0
+    },
+    "empirical_bench_per_duct": {
+      "thrust_n_per_duct": 3.0,
+      "oracle": "ADAPT",
+      "anchor": "70 mm EDF \u00b7 ~15 N @ 400 W teaching envelope (not iron bench)",
+      "power_per_duct_w": 16.0
+    },
+    "total_vertical_n": 85.6,
+    "margin": 1.559,
+    "margin_if_legacy_20kg": 0.436,
+    "margin_if_lc2_bench_bus": 0.312
+  },
+  "hover_power": {
+    "momentum_theory_w": 3143.2,
+    "cruise_total_w": 3237.5,
+    "oracle": "PHYSICS_DERIVED"
+  },
+  "battery": {
+    "pack": "scout_4s_flight_pack",
+    "mass_kg": 0.58,
+    "wh_usable": 74.0,
+    "cite": "4S 5000 mAh class \u00b7 148 Wh nom \u00b7 50% usable burst teaching",
+    "oracle": "BOM_CLOSURE"
+  },
+  "mission_500m": {
+    "duration_s": 50.0,
+    "wh_propulsion": 44.96,
+    "wh_km_propulsion": 89.93
+  },
+  "cave_aero": {
+    "corridor_w_m": 6.0,
+    "corridor_h_m": 3.8,
+    "envelope_span_m": 0.36,
+    "disk_span_m": 0.36,
+    "clearance_side_m": 2.82,
+    "headroom_above_hover_m": 2.45,
+    "ground_effect_h_over_R": 7.5,
+    "ground_effect_negligible": true,
+    "pass": true,
+    "oracle": "GEOMETRY_DERIVED",
+    "cite": "fixtures/twin/robot_working_system_v1.html corridor mesh"
+  },
+  "cruise_drag": {
+    "v_m_s": 10.0,
+    "frontal_area_m2": 0.0792,
+    "cd": 1.15,
+    "drag_n": 5.46,
+    "power_w": 54.6,
+    "oracle": "PHYSICS_DERIVED"
+  },
+  "remediation": {
+    "summary_ru": "70 mm ducts \u0432 CAD v3 \u00b7 flight 400 W/duct \u00b7 BOM ~6.3 kg.",
+    "min_bore_id_mm_at_600w": 75.6
+  },
+  "checks": {
+    "hover_thrust_margin": {
+      "pass": true,
+      "value": 1.559,
+      "min": 1.1,
+      "thrust_total_n": 85.6,
+      "weight_n": 54.9,
+      "power_per_duct_w": 400.0,
+      "model": "ADAPT EDF \u00b7 70 mm CAD ducts \u00b7 flight 400 W/duct"
+    },
+    "lc2_bench_bus_not_flight": {
+      "pass": false,
+      "thrust_bench_n": 17.1,
+      "p_bus_max_w": 96.0,
+      "honesty": "96 W LC-2 bench bus \u2260 flight hover pack \u2014 expected FAIL"
+    },
+    "flight_pack_covers_hover": {
+      "pass": true,
+      "p_flight_total_w": 2400.0,
+      "p_hover_momentum_w": 3143.2,
+      "note": "Empirical ADAPT thrust@400W/duct is binding; momentum theory is upper teaching bound"
+    },
+    "cruise_10ms_wh_mission": {
+      "pass": true,
+      "p_total_cruise_w": 3237.5,
+      "p_hover_w": 3197.8,
+      "p_drag_w": 54.6
+    },
+    "cave_corridor_clearance": {
+      "pass": true,
+      "clearance_side_m": 2.82,
+      "headroom_above_hover_m": 2.45,
+      "ground_effect_negligible": true
+    },
+    "cad_duct_70mm_class": {
+      "pass": true,
+      "duct_bore_id_mm": 70.0,
+      "duct_shroud_od_mm": 82.0,
+      "min_bore_id_mm_for_600w_hover": 75.6
+    }
+  },
+  "blockers": [],
+  "honesty": "PHYSICS_DERIVED + ADAPT anchors \u2014 not iron bench \u00b7 WORLD_PHYSICS_SIM flight UI \u2260 this receipt"
+}

@@ -1,0 +1,42 @@
+{
+  "corners_id": "venus_thermal_hostile_corners_v1",
+  "corners_version": 1,
+  "world_id": "venus_surface_thermal",
+  "oracle": "W_venus_thermal_teaching_v0",
+  "tier": "T3",
+  "honesty": {
+    "not_measured_surface_temp": true,
+    "locomotion_always_out": true,
+    "teaching_derate_only": true
+  },
+  "nominal": {
+    "thermal_surface_k": 737.0,
+    "pressure_bar": 92.0,
+    "seal_class": "B3"
+  },
+  "thermal_surface_k_corners": {
+    "values": [650.0, 737.0, 820.0],
+    "labels": ["below_nominal_teaching", "venus_nominal", "hostile_upper"],
+    "falsifier": "F_seal_derate_monotone_in_surface_k"
+  },
+  "pressure_bar_corners": {
+    "values": [85.0, 92.0, 95.0],
+    "labels": ["low_band", "nominal", "hostile_high"],
+    "falsifier": "F_corrosion_stress_monotone_in_pressure"
+  },
+  "seal_class_corners": {
+    "values": ["B1", "B3", "B5"],
+    "labels": ["sealed_oem", "mission_default", "open_hostile"],
+    "falsifier": "F_b5_derate_worse_than_b1_at_hostile_t"
+  },
+  "smoke_sweep": {
+    "thermal_surface_k": [650.0, 820.0],
+    "pressure_bar": [85.0, 95.0],
+    "seal_class": ["B1", "B5"]
+  },
+  "teaching_limits": {
+    "joint_temp_soft_limit_k": 400.0,
+    "locomotion_out_of_scope": true
+  },
+  "tabu": ["claim Venus flight qual", "claim locomotion on Venus surface", "claim MEASURED 737 K"]
+}

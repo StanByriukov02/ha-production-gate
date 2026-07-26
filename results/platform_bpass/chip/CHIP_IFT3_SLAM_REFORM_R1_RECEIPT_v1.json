@@ -1,0 +1,82 @@
+{
+  "receipt_id": "CHIP_IFT3_SLAM_REFORM_R1_RECEIPT_v1",
+  "timestamp_utc": "2026-07-02T11:15:32.557990+00:00",
+  "canon": "docs/HwatomOrgOS/05_OPERATOR_PLAST/_REGISTERS/CHIP_IFT3_SLAM_DIGITAL_TWIN_SCOPE_V1.md",
+  "track": "LUNAR_CHIP_IFT3",
+  "phase": "TIER-C-SLAM-R1",
+  "ladder_layer": "L3_pose_backend_resample",
+  "oracle": "STUDY_SIM_FIXED_DATASET",
+  "verdict": "PASS",
+  "dataset": "fixtures/slam/cave_corridor_dataset_v1.json",
+  "benchmark": {
+    "dataset_id": "cave_corridor_dataset_v1",
+    "noise_sigma_m": 0.015,
+    "reform_resample": {
+      "rmse_m": 0.02637,
+      "rmse_trace": [
+        0.02623,
+        0.026362,
+        0.026433,
+        0.026254,
+        0.026085,
+        0.02637
+      ],
+      "final_iter_rmse": 0.02637
+    },
+    "icp_iterative_proxy": {
+      "rmse_m": 0.02583,
+      "rmse_trace": [
+        0.02583,
+        0.02583,
+        0.02583,
+        0.02583,
+        0.02583,
+        0.02583,
+        0.02583,
+        0.02583
+      ],
+      "opencv_falsifier_label": "iterative point Kabsch \u2014 OpenCV ICP class proxy"
+    },
+    "reform_beats_or_matches_icp": true,
+    "monotonic_last_step": false
+  },
+  "checks": [
+    {
+      "id": "r0_prerequisite",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "dataset_fixture_present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "reform_rmse_under_8cm",
+      "pass": true,
+      "detail": "0.02637"
+    },
+    {
+      "id": "reform_beats_or_matches_icp",
+      "pass": true,
+      "detail": "reform=0.02637 icp=0.02583"
+    },
+    {
+      "id": "resample_at_noise_floor",
+      "pass": true,
+      "detail": "rmse=0.02637 sigma=0.015"
+    }
+  ],
+  "honesty": {
+    "not_opencv_binary": true,
+    "icp_is_kabsch_iter_proxy": true,
+    "not_l4_l5": true,
+    "iron_margin": true,
+    "notes": "Fixed dataset with 15mm noise \u2014 real cave needs L0 sensor truth"
+  },
+  "slam_rd_ladder": {
+    "completed": "R1",
+    "next": "R2_event_front"
+  },
+  "next_phase": "P1 \u2014 CHIP_IFT3_MOVEMENT_TARGET_REPLACE"
+}

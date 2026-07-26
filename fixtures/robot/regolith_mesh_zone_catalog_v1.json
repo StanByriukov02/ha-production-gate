@@ -1,0 +1,48 @@
+{
+  "catalog_id": "regolith_mesh_zone_catalog_v1",
+  "catalog_version": 1,
+  "parent_world": "lunar_regolith_surface",
+  "oracle": "W_regolith_robot_v0",
+  "tier": "T0",
+  "honesty": {
+    "not_measured_terrain_mesh": true,
+    "teaching_prior_only": true
+  },
+  "zones": {
+    "rim_slope": {
+      "zone_id": "rim_slope",
+      "label": "Crater rim slope · loose shear",
+      "slope_deg_prior": 14.0,
+      "surface_id": "lunar_regolith_compact",
+      "sinkage_prior_mm": 10.0,
+      "mu_static_prior": 0.38,
+      "note": "loose shear teaching prior · compact surface_id for friction catalog bind"
+    },
+    "crater_floor": {
+      "zone_id": "crater_floor",
+      "label": "Crater floor · compacted fines",
+      "slope_deg_prior": 3.0,
+      "surface_id": "lunar_regolith_compact",
+      "sinkage_prior_mm": 6.0,
+      "mu_static_prior": 0.55
+    },
+    "massif_traverse": {
+      "zone_id": "massif_traverse",
+      "label": "Massif traverse · mission default",
+      "slope_deg_prior": 7.0,
+      "surface_id": "lunar_regolith_compact",
+      "sinkage_prior_mm": 4.0,
+      "mu_static_prior": 0.52
+    },
+    "psr_floor": {
+      "zone_id": "psr_floor",
+      "label": "PSR cold floor · cryo OPEN elsewhere",
+      "slope_deg_prior": 2.0,
+      "surface_id": "lunar_regolith_compact",
+      "sinkage_prior_mm": 5.0,
+      "mu_static_prior": 0.48,
+      "thermal_open": true
+    }
+  },
+  "smoke_zones": ["rim_slope", "massif_traverse", "psr_floor"]
+}

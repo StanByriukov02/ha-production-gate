@@ -1,0 +1,39 @@
+{
+  "mode": "APPENDAGE_KINEMATICS_AUDITOR",
+  "target": "AE_PLUS",
+  "model": "composer-2.5",
+  "verdict": "WARN",
+  "findings": [
+    {
+      "severity": "LOW",
+      "file": "dogfood_platform/hexapod_gait_bus_v1.py",
+      "line": 141,
+      "detail": "F_tripod_gait is tautological (gait_name == 'tripod'); real alternation falsifier is F_tripod_stance_group_alternate which passes after int(phase*2)%2 fix."
+    },
+    {
+      "severity": "LOW",
+      "file": "dogfood_platform/hexapod_foot_contact_v1.py",
+      "line": 30,
+      "detail": "is_stance_leg always uses tripod stance_groups default; wave gait has no stance_groups — contact stance wrong if wave+contact integrated; smoke gates tripod only."
+    },
+    {
+      "severity": "MEDIUM",
+      "file": "fixtures/robot/kinematic_chain_ir_v0.json",
+      "line": 54,
+      "detail": "Runtime hexapod compose uses planar hexapod_leg_3dof_v1; staging patch hexapod_leg_from_urdf_v1 is SE3 from body_mount — no planar↔URDF parity falsifier for hexapod."
+    }
+  ],
+  "falsifiers": [
+    "F_tripod_stance_group_alternate",
+    "F_feet_move_foot_y_span_full_run",
+    "F_adapt_tier",
+    "F_hexapod_planar_urdf_se3_parity",
+    "F_wave_gait_stance_contact"
+  ],
+  "deferred_ids": [
+    "AD_IRON_HIL_PHASE_LOCK",
+    "AI_MEASURED_FOOT_CONTACT",
+    "AF_WIZARD_UI"
+  ],
+  "recommendation": "PROMOTE_PATCH"
+}
