@@ -41,21 +41,31 @@ What you do **not** get elsewhere for free: a shared, stranger-checkable **physi
 
 ## What it looks like
 
-Companion **Start here** desk (Hardware Atom vertical) — World + Mission — so the Dual is visible, not only a terminal board.
+Full desktop viewport (**1440×900**) — companion Start here desk. Not a cropped IDE pane.
 
-<p align="center">
-  <img src="docs/assets/desk-world.png" alt="Start here · World — Dual Safe/Hostile sinkage bed" width="920" />
-</p>
+![World — Dual Safe/Hostile sinkage bed](docs/assets/desk-world.png)
 
-<p align="center"><sub><b>World</b> — change one condition · policies diverge · Hostile sinkage on Moon field</sub></p>
+**World** — change one condition · policies diverge · Hostile sinkage on Moon field
 
-<p align="center">
-  <img src="docs/assets/desk-mission.png" alt="Start here · Mission — Safe vs Hostile sinkage on lunar globe" width="920" />
-</p>
+![Mission — Safe vs Hostile sinkage on lunar globe](docs/assets/desk-mission.png)
 
-<p align="center"><sub><b>Mission</b> — Dual on the globe · Safe 10.7 mm vs Hostile 779.5 mm sinkage (Δ visible)</sub></p>
+**Mission** — Dual on the globe · Safe vs Hostile sinkage Δ visible
 
-Public clone core action remains the gate CLI. Desk screens show the physics surface humans work in.
+Public clone core action remains the gate CLI. These frames are the physics surface humans work in.
+
+---
+
+## Languages on GitHub
+
+GitHub’s language bar counts **bytes**, not importance. An early extract left ~2 MB Python orchestration + chip scripts next to ~0.3 MB Rust — so the bar lied.
+
+This repo now:
+
+- ships the **Rust physics cores** (`ha_physics_gate`, `universe_kinematic`, `ha_artifact_law`, `universe_scale`, `ha_iron_attestation`, energy/body/silicon)
+- marks Python/scripts/fixtures as **Linguist-vendored** so the bar reflects the physics substance  
+  (Python still ships and runs — glue only; oracle is Rust)
+
+See [`.gitattributes`](.gitattributes).
 
 ---
 

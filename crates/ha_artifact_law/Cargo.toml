@@ -1,0 +1,25 @@
+[package]
+name = "ha_artifact_law"
+version = "0.1.0"
+edition = "2021"
+description = "Artifact Existence Law — Rust aggregator oracle (not Python)"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "ha-artifact-law"
+path = "src/main.rs"
+
+[[bin]]
+name = "ha-world-join"
+path = "src/bin/ha_world_join.rs"
+
+[dependencies]
+serde_json = "1"
+clap = { version = "4", features = ["derive"] }
+ha_body_identity = { path = "../ha_body_identity" }
+ha_energy_ledger = { path = "../ha_energy_ledger" }
+ha_physics_gate = { path = "../ha_physics_gate" }
+ha_silicon_fuse = { path = "../ha_silicon_fuse" }
+ha_iron_attestation = { path = "../ha_iron_attestation" }

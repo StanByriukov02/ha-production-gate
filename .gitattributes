@@ -1,0 +1,9 @@
+# Language bar = physics substance (Rust/C). Glue still ships and runs.
+dogfood_platform/** linguist-vendored
+scripts/** linguist-vendored
+fixtures/** linguist-vendored
+results/** linguist-vendored
+docs/** linguist-documentation
+*.md linguist-documentation
+*.json linguist-vendored
+*.urdf linguist-vendored

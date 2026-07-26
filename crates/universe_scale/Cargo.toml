@@ -1,0 +1,20 @@
+[package]
+name = "universe_scale"
+version = "0.1.0"
+edition = "2021"
+description = "Universe kernel native backend — Laplacian network RG vs naive MOR (scale bridge spike)"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "universe_scale_spike"
+path = "src/bin/universe_scale_spike.rs"
+
+[[bin]]
+name = "universe_scale_operator_spike"
+path = "src/bin/universe_scale_operator_spike.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

@@ -6,4 +6,7 @@ members = [
   "crates/ha_energy_ledger",
   "crates/ha_body_identity",
   "crates/universe_kinematic",
+  "crates/ha_artifact_law",
+  "crates/universe_scale",
+  "crates/ha_iron_attestation",
 ]
