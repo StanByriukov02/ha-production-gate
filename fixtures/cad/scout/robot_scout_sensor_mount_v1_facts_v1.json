@@ -1,0 +1,20 @@
+{
+  "facts_id": "robot_scout_sensor_mount_v1",
+  "parent_morphology": "robot_scout_fwing_v1",
+  "operator_ref": "chin sensor · cockpit SLAM window",
+  "sensor_mount_link": "sensor_mount_link",
+  "camera_module": {
+    "mass_kg": 0.082,
+    "bbox_mm": {"x": 60.0, "y": 40.0, "z": 35.0},
+    "lens_material_ref": "pc_lens_slam_black"
+  },
+  "mount_on_torso": {
+    "parent_frame": "chest_mount_link",
+    "mount_xyz": [0.0, 0.0, 0.06],
+    "mount_rpy": [0.0, 0.0, 0.0]
+  },
+  "honesty": {
+    "teaching_only": true,
+    "not_measured_envelope": true
+  }
+}

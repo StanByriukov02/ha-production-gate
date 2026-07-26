@@ -1,0 +1,20 @@
+{
+  "artifact_id": "robot_scout_fwing_v1",
+  "morphology": "cave_scout_flight_reaper_v7_design_lite",
+  "mass_kg_target": 20.0,
+  "cruise_m_s": 10.0,
+  "locomotion": "ducted_hover_cheap_energy",
+  "bbox_mm": {
+    "x": 360.0,
+    "y": 541.0,
+    "z": 196.04
+  },
+  "layer_modules": [
+    "robot_scout_fwing_hull_v1",
+    "robot_scout_fwing_nose_v1",
+    "robot_scout_fwing_cockpit_v1",
+    "robot_scout_fwing_aft_v1"
+  ],
+  "operator_ref": "MQ-9 Reaper-class UAV read \u00b7 nose \u2212Y \u00b7 V-tail \u00b7 chin sensor",
+  "honesty": "Reaper v7 design-lite \u2014 BOM materials per layer \u00b7 V-tail black \u00b7 ducts gold only"
+}

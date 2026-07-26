@@ -6,7 +6,7 @@
   "tabu": "claim flight grasp qual",
   "arm_chain_id": "lunar_manipulator_chain_scout_3dof_v1",
   "gripper_chain_id": "gripper_parallel_1dof_v1",
-  "gripper_urdf": "fixtures/cad/gripper_parallel_1dof_v1.urdf",
+  "gripper_urdf": "dogfood_platform/robot_models/urdf/gripper_parallel_1dof_v1.urdf",
   "arm_mount_xyz": [0.0, 0.0, 0.0],
   "gripper_mount_on_arm_ee": [0.0, 0.0, 0.0],
   "grasp": {

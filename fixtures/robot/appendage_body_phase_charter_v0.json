@@ -18,7 +18,7 @@
       "oracle": "FOUR_WD_TREE_TERRAMECH_BIND",
       "depends": ["N_kinematic_tree", "lunar_wheel_locomotion_v1", "urdf_to_kinematic_tree_v1"],
       "fixtures": [
-        "fixtures/cad/lc2_combat_carrier_4wd_v1.urdf",
+        "dogfood_platform/robot_models/urdf/lc2_combat_carrier_4wd_v1.urdf",
         "fixtures/robot/wheeled_chassis_compose_v1.json"
       ],
       "falsifiers": [
@@ -44,7 +44,7 @@
       "oracle": "TORSO_SPINE_REGISTRY_FK",
       "depends": ["I_serial_chain_se3", "J_urdf_to_chain_ir", "AC_mount_se3", "AJ_role_taxonomy"],
       "fixtures": [
-        "fixtures/cad/torso_spine_2dof_v1.urdf",
+        "dogfood_platform/robot_models/urdf/torso_spine_2dof_v1.urdf",
         "fixtures/robot/torso_spine_chain_v1.json"
       ],
       "falsifiers": [
@@ -71,7 +71,7 @@
       "oracle": "PAN_TILT_LOOK_AT_TEACHING",
       "depends": ["I_serial_chain_se3", "AC_mount_se3", "T_stack_integrator"],
       "fixtures": [
-        "fixtures/cad/head_neck_pan_tilt_v1.urdf",
+        "dogfood_platform/robot_models/urdf/head_neck_pan_tilt_v1.urdf",
         "fixtures/robot/head_neck_compose_v1.json"
       ],
       "falsifiers": [
@@ -124,7 +124,7 @@
       "oracle": "GRIPPER_EE_COMPOSE_GRASP",
       "depends": ["H_chain_ir", "M_contact_friction", "Y_multi_compose", "AC_mount_se3"],
       "fixtures": [
-        "fixtures/cad/gripper_parallel_1dof_v1.urdf",
+        "dogfood_platform/robot_models/urdf/gripper_parallel_1dof_v1.urdf",
         "fixtures/robot/gripper_subchain_compose_v1.json"
       ],
       "falsifiers": [
@@ -221,7 +221,7 @@
       "depends": ["AB_hexapod_leg", "J_urdf_to_chain_ir", "U_se3_planar_parity"],
       "fixtures": [
         "fixtures/robot/hexapod_leg_chain_v1.json",
-        "fixtures/cad/hexapod_leg_3dof_v1.urdf"
+        "dogfood_platform/robot_models/urdf/hexapod_leg_3dof_v1.urdf"
       ],
       "falsifiers": [
         "F_aligned_crown_parity",

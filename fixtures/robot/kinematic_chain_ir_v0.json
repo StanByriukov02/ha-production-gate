@@ -31,7 +31,7 @@
     "lc2_bench_hip_1dof_v1": {
       "geometry_class": "serial_revolute_se3",
       "dof": 1,
-      "source_urdf": "fixtures/cad/lc2_bench_1dof_v1.urdf",
+      "source_urdf": "dogfood_platform/robot_models/urdf/lc2_bench_1dof_v1.urdf",
       "active_joint": "hip_joint",
       "ee_frame": "hip_output_link",
       "actuator_backend_default": "lc2_iron_teaching",
@@ -62,7 +62,7 @@
     "torso_spine_2dof_v1": {
       "geometry_class": "serial_revolute_se3",
       "dof": 2,
-      "source_urdf": "fixtures/cad/torso_spine_2dof_v1.urdf",
+      "source_urdf": "dogfood_platform/robot_models/urdf/torso_spine_2dof_v1.urdf",
       "root_link": "pelvis_link",
       "ee_frame": "chest_mount_link",
       "actuator_backend_default": "sim_symplectic",
@@ -80,7 +80,7 @@
     "head_neck_pan_tilt_v1": {
       "geometry_class": "serial_revolute_se3",
       "dof": 2,
-      "source_urdf": "fixtures/cad/head_neck_pan_tilt_v1.urdf",
+      "source_urdf": "dogfood_platform/robot_models/urdf/head_neck_pan_tilt_v1.urdf",
       "root_link": "neck_base_link",
       "ee_frame": "sensor_mount_link",
       "actuator_backend_default": "sim_symplectic",
@@ -98,7 +98,7 @@
     "gripper_parallel_1dof_v1": {
       "geometry_class": "serial_revolute_se3",
       "dof": 1,
-      "source_urdf": "fixtures/cad/gripper_parallel_1dof_v1.urdf",
+      "source_urdf": "dogfood_platform/robot_models/urdf/gripper_parallel_1dof_v1.urdf",
       "root_link": "gripper_base_link",
       "ee_frame": "finger_link",
       "actuator_backend_default": "sim_symplectic",

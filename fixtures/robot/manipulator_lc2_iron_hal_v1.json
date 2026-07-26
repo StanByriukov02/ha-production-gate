@@ -7,7 +7,7 @@
   "mcu_class": "ATSAMD21RT",
   "hal_header": "fixtures/chip/lc2_hal_registers.h",
   "memory_map": "fixtures/chip/lc2_baremetal_memory_map_v0.json",
-  "bench_urdf": "fixtures/cad/lc2_bench_1dof_v1.urdf",
+  "bench_urdf": "dogfood_platform/robot_models/urdf/lc2_bench_1dof_v1.urdf",
   "manipulator_chain": "fixtures/robot/lunar_manipulator_chain_v1.json",
   "foc_bind": "fixtures/chip/lc2_foc_symbolic_isr_v0.json",
   "pwm_hz": 20000,

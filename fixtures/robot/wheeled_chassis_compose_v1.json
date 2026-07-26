@@ -5,7 +5,7 @@
   "oracle": "FOUR_WD_TREE_TERRAMECH_BIND",
   "status": "DOGFOOD_ACTIVE",
   "tabu": "claim lunar rover on wheels",
-  "urdf": "fixtures/cad/lc2_combat_carrier_4wd_v1.urdf",
+  "urdf": "dogfood_platform/robot_models/urdf/lc2_combat_carrier_4wd_v1.urdf",
   "tree_id": "lc2_combat_carrier_4wd_v1",
   "wheel_links": ["wheel_fl_link", "wheel_fr_link", "wheel_rl_link", "wheel_rr_link"],
   "terramech": {

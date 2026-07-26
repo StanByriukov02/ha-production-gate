@@ -158,7 +158,7 @@
           "ee_frame": "hip_output_link",
           "appendage_role": "bench_joint",
           "actuator_backend_default": "lc2_iron_teaching",
-          "source": "fixtures/cad/lc2_bench_1dof_v1.urdf",
+          "source": "dogfood_platform/robot_models/urdf/lc2_bench_1dof_v1.urdf",
           "se3_joints": [
             {
               "name": "hip_joint",
@@ -271,7 +271,7 @@
           "iron_hal_fixture": "manipulator_lc2_iron_hal_v1",
           "memory_map_id": "lc2_baremetal_memory_map_v0",
           "mcu_class": "ATSAMD21RT",
-          "bench_urdf": "fixtures/cad/lc2_bench_1dof_v1.urdf",
+          "bench_urdf": "dogfood_platform/robot_models/urdf/lc2_bench_1dof_v1.urdf",
           "fw_feed": {
             "map_id": "lc2_baremetal_memory_map_v0",
             "slot_overrides": {
@@ -368,7 +368,7 @@
           "spec": {
             "tree_id": "lc2_combat_carrier_4wd_v1",
             "root_link": "base_link",
-            "source": "fixtures/cad/lc2_combat_carrier_4wd_v1.urdf",
+            "source": "dogfood_platform/robot_models/urdf/lc2_combat_carrier_4wd_v1.urdf",
             "joints": [
               {
                 "name": "compute_vault_fixed",
@@ -669,7 +669,7 @@
           "spec": {
             "tree_id": "lc2_combat_carrier_4wd_v1",
             "root_link": "base_link",
-            "source": "fixtures/cad/lc2_combat_carrier_4wd_v1.urdf",
+            "source": "dogfood_platform/robot_models/urdf/lc2_combat_carrier_4wd_v1.urdf",
             "joints": [
               {
                 "name": "compute_vault_fixed",
@@ -878,7 +878,7 @@
               "iron_hal_fixture": "manipulator_lc2_iron_hal_v1",
               "memory_map_id": "lc2_baremetal_memory_map_v0",
               "mcu_class": "ATSAMD21RT",
-              "bench_urdf": "fixtures/cad/lc2_bench_1dof_v1.urdf",
+              "bench_urdf": "dogfood_platform/robot_models/urdf/lc2_bench_1dof_v1.urdf",
               "fw_feed": {
                 "map_id": "lc2_baremetal_memory_map_v0",
                 "slot_overrides": {
@@ -2390,7 +2390,7 @@
           "torso_spine_2dof_v1": {
             "dof": 2,
             "role": "torso_spine",
-            "source_urdf": "fixtures/cad/torso_spine_2dof_v1.urdf",
+            "source_urdf": "dogfood_platform/robot_models/urdf/torso_spine_2dof_v1.urdf",
             "fk": {
               "source_id": "manipulator_rust_serial_chain_se3_v1",
               "verdict": "MANIPULATOR_FK_SE3_PASS",
@@ -2407,7 +2407,7 @@
           "head_neck_pan_tilt_v1": {
             "dof": 2,
             "role": "head_neck",
-            "source_urdf": "fixtures/cad/head_neck_pan_tilt_v1.urdf",
+            "source_urdf": "dogfood_platform/robot_models/urdf/head_neck_pan_tilt_v1.urdf",
             "fk": {
               "source_id": "manipulator_rust_serial_chain_se3_v1",
               "verdict": "MANIPULATOR_FK_SE3_PASS",
@@ -2424,7 +2424,7 @@
           "gripper_parallel_1dof_v1": {
             "dof": 1,
             "role": "gripper_tool",
-            "source_urdf": "fixtures/cad/gripper_parallel_1dof_v1.urdf",
+            "source_urdf": "dogfood_platform/robot_models/urdf/gripper_parallel_1dof_v1.urdf",
             "fk": {
               "source_id": "manipulator_rust_serial_chain_se3_v1",
               "verdict": "MANIPULATOR_FK_SE3_PASS",

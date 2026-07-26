@@ -8,7 +8,7 @@
     "hexapod_leg_from_urdf_v1": {
       "geometry_class": "serial_revolute_se3",
       "dof": 3,
-      "source_urdf": "fixtures/cad/hexapod_leg_3dof_v1.urdf",
+      "source_urdf": "dogfood_platform/robot_models/urdf/hexapod_leg_3dof_v1.urdf",
       "root_link": "body_mount",
       "ee_frame": "foot_link",
       "appendage_role": "locomotion_leg",

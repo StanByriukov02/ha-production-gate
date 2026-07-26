@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any
 
 _REPO = Path(__file__).resolve().parents[1]
-_BIND = _REPO / "fixtures" / "twin" / "ha_field_world_bind_v1.json"
+_BIND = _REPO / "fixtures" / "open_registry" / "field" / "ha_field_world_bind_v1.json"
 
 
 def load_field_bind() -> dict[str, Any]:

@@ -1,7 +1,7 @@
 {
   "patch_id": "hexapod_leg_urdf_morphology_patch_v1",
   "chain_id": "hexapod_leg_3dof_v1",
-  "source_urdf": "fixtures/cad/hexapod_leg_3dof_v1.urdf",
+  "source_urdf": "dogfood_platform/robot_models/urdf/hexapod_leg_3dof_v1.urdf",
   "link_lengths_m": [0.055, 0.12, 0.095],
   "se3_joints": [
     {
