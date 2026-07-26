@@ -1,53 +1,17 @@
-# Start here — Production Gate
+# Start here
 
-## What this is
+HA Production Gate is a Dual physics check: Safe must allow, Hostile must refuse. Rust owns the gate; Python runs the ritual.
 
-One CLI ritual. Not an app. Not ROS.
-
-You run it → you get a **board + JSON** that says:
-
-- **Safe** world: physics gate ALLOW  
-- **Hostile** world: physics gate REFUSE  
-
-If Hostile still allows → **FAIL**. That is the product.
-
-Rust decides the gate. Python wires the run. Soft · not MEASURED · not HIL.
-
-README screenshots = companion desk (workshop). **This clone does not open that UI.**
-
----
-
-## What you get after PASS
-
-1. Terminal board with eight PASS/FAIL lines  
-2. `results/runtime/platform_loop/PRODUCTION_GATE_BOARD_LATEST.md`  
-3. Kit under TEMP (outside the repo): Dual JSON + board  
-
-**Human meaning:** a receipt that your stack can refuse under Hostile conditions — teaching Dual, not a lab certificate.
-
----
-
-## Run
-
-```text
+```bash
 ./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
 ```
 
-Expect: `PRODUCTION_GATE_RITUAL_PASS`
+Expect `PRODUCTION_GATE_RITUAL_PASS` and a board at `results/runtime/platform_loop/PRODUCTION_GATE_BOARD_LATEST.md`.
 
-| Must see | Meaning |
-|----------|---------|
-| Safe `physics_pass=true` | teaching Safe allows |
-| Hostile `physics_pass=false` | same stack refuses |
-| named `epsilon` | honesty labels stay honest |
-| kit outside repo | TEMP re-read on this machine |
+| You should see | Meaning |
+|----------------|---------|
+| Safe `physics_pass=true` | Safe world allows |
+| Hostile `physics_pass=false` | Hostile world refuses |
+| Named `epsilon` on the receipt | Honesty labels stay attached |
 
----
-
-## Honesty
-
-| We show | We do not claim |
-|---------|-----------------|
-| Dual + Rust gate + receipt | MEASURED · OTP · product_ready · HIL · “certified” |
-
-Send the board or the first FAIL line.
+Full face: [`README.md`](README.md) · canon: [`docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md`](docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md)
