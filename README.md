@@ -2,10 +2,16 @@
 
 **Before you ship a robot / autonomy / mission physics claim — Dual · sealed receipt · named ε · refuse.**
 
-[![CI](https://github.com/StanByriukov02/ha-production-gate/actions/workflows/ci.yml/badge.svg)](https://github.com/StanByriukov02/ha-production-gate/actions/workflows/ci.yml)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-yellow.svg)](https://www.python.org/downloads/)
-[![Rust](https://img.shields.io/badge/rust-required-orange.svg)](https://www.rust-lang.org/)
+[![CI](https://img.shields.io/github/actions/workflow/status/StanByriukov02/ha-production-gate/ci.yml?branch=main&label=CI)](https://github.com/StanByriukov02/ha-production-gate/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/StanByriukov02/ha-production-gate?include_prereleases&sort=semver&label=version)](https://github.com/StanByriukov02/ha-production-gate/releases)
+[![License](https://img.shields.io/github/license/StanByriukov02/ha-production-gate)](LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/StanByriukov02/ha-production-gate)](https://github.com/StanByriukov02/ha-production-gate/commits/main)
+[![Issues](https://img.shields.io/github/issues/StanByriukov02/ha-production-gate)](https://github.com/StanByriukov02/ha-production-gate/issues)
+
+[![Python](https://img.shields.io/badge/python-3.11%2B-yellow?logo=python&logoColor=white)](https://www.python.org/downloads/)
+[![Rust](https://img.shields.io/badge/rust-required-orange?logo=rust&logoColor=white)](https://www.rust-lang.org/)
+[![Ritual](https://img.shields.io/badge/ritual-Dual%20·%20seal%20·%20ε%20·%20refuse-0ea5e9)](START_HERE_PRODUCTION_GATE_V1.md)
+[![Honesty](https://img.shields.io/badge/honesty-not%20MEASURED-critical)](#what-this-is-not)
 
 Teams still go green on sim without a Dual world, a sealed refuse bit, or named honesty.
 This repo is one ritual that makes the lie expensive.
@@ -149,3 +155,16 @@ Stanislav Byriukov — Hardware Atom / Production Gate
 
 Regards,  
 Stan
+
+---
+
+## Badge contract (why these cells exist)
+
+Live shields beat static stickers: CI / version / last-commit / issues change when the repo is alive.  
+That is a **trust heuristic** in 2026 GitHub — not magic, not a substitute for a working Quick Start.
+
+| Keep | Skip (for this repo) |
+|------|----------------------|
+| CI · version · license · last commit · issues | Fake “Skills: 150” / vanity social walls |
+| Honesty / ritual labels that match the product | “Works with 12 AI tools” marketing rows |
+| Badges that can go **red** when broken | Always-green stickers with no backend |
