@@ -1,0 +1,50 @@
+{
+  "schema": "ha_sinkage_dual_bench_v1",
+  "proof_tier": "SOFT_TEACHING_DUAL",
+  "not": [
+    "MEASURED",
+    "HIL",
+    "field_OTP",
+    "NASA_certified"
+  ],
+  "body_preset": "lunar_scout",
+  "g_mps2": 1.62,
+  "contact_width_b_m": 0.025,
+  "contact_area_m2": 0.00225,
+  "sinkage_mm_max_traverse": 18.0,
+  "oracle": "ha_physics_gate_bekker",
+  "equation": "p = (kc/b + k_phi) * z^n   =>   z = (p / (kc/b + k_phi))^(1/n)",
+  "safe": {
+    "soil_id": "lunar_firm_proxy",
+    "sinkage_mm": 5.184,
+    "sinkage_risk": false,
+    "drawbar_pull_n": 37.733,
+    "compaction_resistance_n": 1.68,
+    "traverse_feasible": true,
+    "physics_pass": true,
+    "current_allowed": true
+  },
+  "hostile": {
+    "soil_id": "lunar_soft_proxy",
+    "sinkage_mm": 135.539,
+    "sinkage_risk": true,
+    "drawbar_pull_n": 8.919,
+    "compaction_resistance_n": 51.664,
+    "traverse_feasible": false,
+    "physics_pass": false,
+    "current_allowed": false
+  },
+  "bekker_dual": {
+    "rc_safe_n": 1.68,
+    "rc_hostile_n": 51.664,
+    "sink_safe_mm": 5.184,
+    "sink_hostile_mm": 135.539,
+    "drawbar_safe_n": 37.733,
+    "drawbar_hostile_n": 8.919,
+    "safe_soil_id": "lunar_firm_proxy",
+    "hostile_soil_id": "lunar_soft_proxy"
+  },
+  "ritual_verdict": "PRODUCTION_GATE_RITUAL_PASS",
+  "captured_utc": "2026-07-26T16:59:10Z",
+  "reproduce": "ha-production-gate  # then read dual_*.json bekker leaves"
+}

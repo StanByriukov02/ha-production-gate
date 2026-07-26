@@ -160,6 +160,8 @@ ha-production-gate
 
 Walkthrough: [`docs/examples/01_dual_ritual_lunar_scout.md`](docs/examples/01_dual_ritual_lunar_scout.md)
 
+**Sinkage Dual tip:** Safe `lunar_firm_proxy` ≈ **5.2 mm** ALLOW · Hostile `lunar_soft_proxy` ≈ **136 mm** REFUSE (cap 18 mm) — [`docs/examples/06_sinkage_dual_bench.md`](docs/examples/06_sinkage_dual_bench.md).
+
 ---
 
 ### 2) Read the Dual kit like a reviewer
