@@ -3,7 +3,7 @@
   "oracle": "CITED_BIND",
   "gate": "G2_env",
   "world_id": "W_chamber_v0",
-  "vault_canon": "06_2BRAIN/DOGFOOD/domains/physics/ORACLE_SEC_D2_ARENA_ENV.md",
+  "vault_canon": "public_teaching_bind",
   "evidence_stack": [
     {"id": "E1", "source": "ORACLE_SEC_D2", "role": "h_c=0 when P < 1e-5 Torr", "cite": "ORACLE_SEC_D2"},
     {"id": "E2", "source": "JSC Chamber A class", "role": "35 K BB cold shroud sink", "cite": "ORACLE_SEC_D2"},

@@ -90,10 +90,10 @@
   "radiation_fet_hop": "m-hop-radiation-fet",
   "radiation_coeff_bind": "results/platform_bpass/moon/RADIATION_FET_COEFF_BIND_v1.json",
   "lc2_harness": "dogfood_platform.lunar_lc2_package_harness_v1",
-  "engine_vault_hub": "06_2BRAIN/DOGFOOD/domains/moon/engine/W_MOON_SHACKLETON_ENGINE_INDEX_V1.md",
+  "engine_vault_hub": "public_teaching_bind",
   "w_chip_coupling_contract": "results/platform_bpass/universe/world_chip_coupling_v1.json",
   "corridor_version": "v1_6",
   "realism_maturity_register": "results/platform_bpass/moon/MOON_REALISM_MATURITY_v1.json",
-  "realism_vault_canon": "06_2BRAIN/DOGFOOD/domains/moon/engine/MOON_UNIVERSE_REALISM_MATURITY_V1.md",
-  "l0_canon": "06_2BRAIN/DOGFOOD/domains/moon/SHACKLETON_PRIMARY_SOURCES_L0_V1.md"
+  "realism_vault_canon": "public_teaching_bind",
+  "l0_canon": "public_teaching_bind"
 }

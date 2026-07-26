@@ -2,7 +2,7 @@
   "bind_id": "env_state_physics_method_bind_v1",
   "oracle": "CITED_BIND",
   "gate": "U4",
-  "vault_spec": "06_2BRAIN/DOGFOOD/chain/UNIVERSE_ENV_STATE_PHYSICS_AXES_BUILD_V1.md",
+  "vault_spec": "public_teaching_bind",
   "role": "завтра не угадывать — каждая физическая ось → именованный harness + bind + v1 scope",
   "scope_note": "v1 = 1D column + lumped L5 where noted — NOT claim of full T(x,y,z,t) FEM",
   "methods": [

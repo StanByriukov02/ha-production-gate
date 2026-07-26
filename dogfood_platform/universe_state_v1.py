@@ -11,7 +11,7 @@ from typing import Any
 _REPO = Path(__file__).resolve().parents[1]
 _LAW_REGISTRY = _REPO / "results" / "platform_bpass" / "universe" / "law_registry_v1.json"
 _BUS_SCHEMA = _REPO / "results" / "platform_bpass" / "universe" / "universe_state_bus_schema_v1.json"
-_VAULT_CANON = "06_2BRAIN/DOGFOOD/chain/UNIVERSE_KERNEL_V0_SPEC_V1.md"
+_VAULT_CANON = "public_teaching_bind"
 
 _HASH_RE = re.compile(r"^sha256:[0-9a-f]{64}$")
 

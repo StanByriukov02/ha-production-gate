@@ -4,7 +4,7 @@
   "oracle": "CITED_BIND",
   "gate": "U1",
   "version": 1,
-  "vault_canon": "06_2BRAIN/DOGFOOD/chain/UNIVERSE_KERNEL_V0_SPEC_V1.md",
+  "vault_canon": "public_teaching_bind",
   "law_registry": "results/platform_bpass/universe/law_registry_v1.json",
   "env_driver_bind": "results/platform_bpass/universe/ENV_DRIVER_BIND_v1.json",
   "scale_classes": [

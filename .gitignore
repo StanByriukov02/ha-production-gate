@@ -22,3 +22,13 @@ _msg_filter.py
 scratch/
 *.local.json
 *.local.md
+
+# never publish outbound drafts / extract receipts
+SURFACE_MANIFEST.json
+SURFACE_MANIFEST*.json
+docs/strike/
+docs/**/strike*/
+docs/**/*DRAFT*
+docs/**/*SHOW_HN*
+docs/assets/_candidates/
+docs/assets/_ref_*/

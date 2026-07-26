@@ -3,7 +3,7 @@
   "oracle": "CITED_BIND",
   "gate": "U3",
   "catalog_ref": "results/platform_bpass/universe/EVENT_CATALOG_BIND_v1.json",
-  "vault_canon": "06_2BRAIN/DOGFOOD/chain/UNIVERSE_KERNEL_V0_SPEC_V1.md",
+  "vault_canon": "public_teaching_bind",
   "storm_composition_rule": "concurrent env state on universe_state_v1 · overlap schedule · intensity_scale on adversarial params",
   "composition_modes": [
     "sequential",

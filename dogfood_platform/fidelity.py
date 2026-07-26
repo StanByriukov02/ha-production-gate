@@ -78,7 +78,7 @@ class FidelityContract:
 
     world_id: str
     hops: list[PhysicsHop] = field(default_factory=list)
-    canon: str = "06_2BRAIN/DOGFOOD/chain/PLATFORM_FOUNDATION_GATE_V1.md"
+    canon: str = "public_teaching_bind"
 
     def to_dict(self) -> dict[str, Any]:
         return {

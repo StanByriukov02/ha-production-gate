@@ -1,6 +1,6 @@
 {
   "bind_id": "material_physics_bind_v0",
-  "status": "DRAFT",
+  "status": "OPEN_TEACHING",
   "product_ready": false,
   "registry": "fixtures/open_seed/ROBOT_MATERIALS_REGISTRY_v1.json",
   "physics_oracle": "W_regolith_robot_v0",

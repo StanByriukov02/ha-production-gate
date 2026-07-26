@@ -2,7 +2,7 @@
   "bind_id": "radiation_fet_coeff_bind_v1",
   "oracle": "CITED_BIND",
   "calibration_id": "RADIATION_FET_CALIBRATION_20260618",
-  "vault_canon": "06_2BRAIN/DOGFOOD/domains/moon/engine/W_MOON_SHACKLETON_V0_SPEC_DRAFT.md",
+  "vault_canon": "public_teaching_bind",
   "workload_class": "W0_nominal_nMOS_same_as_EXP-M4-01",
   "coeffs": {
     "dose_mv_per_gy": {

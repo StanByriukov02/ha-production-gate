@@ -1,6 +1,6 @@
 {
   "contract_id": "LieIntegratorPort_v0",
-  "status": "DRAFT",
+  "status": "OPEN_TEACHING",
   "product_ready": false,
   "purpose": "Plug-in Lie group integrator for SE(3) pose steps — exp map on manifold, not R^n Euler",
   "parent_spec": "docs/agent_workflow/NEWTON_X_LIE_INTEGRATOR_SPEC_v0.md",

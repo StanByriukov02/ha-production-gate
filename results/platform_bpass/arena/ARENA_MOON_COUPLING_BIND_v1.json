@@ -18,6 +18,6 @@
     "electrostatic_gain": 0.15,
     "maps_to": "q_particle_proxy_mult"
   },
-  "vault_parent": "06_2BRAIN/DOGFOOD/domains/physics/ORACLE_SEC_D2_ARENA_ENV.md",
+  "vault_parent": "public_teaching_bind",
   "falsifier": "moon-coupled transport and D2 must exceed vacuum baseline at rim_sun; nowcast must attach charging_proxy when use_nowcast"
 }

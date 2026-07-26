@@ -2,7 +2,7 @@
   "bind_id": "env_driver_bind_v1",
   "oracle": "CITED_BIND",
   "role": "R3 typical numbers — solar · vacuum/thermal · dust/charge driver bands",
-  "vault_canon": "06_2BRAIN/DOGFOOD/chain/UNIVERSE_KERNEL_V0_SPEC_V1.md",
+  "vault_canon": "public_teaching_bind",
   "driver_axes": {
     "solar": {
       "solar_constant_w_m2": {"typical": 1361.0, "band": [1300.0, 1420.0], "cite": "SK-12"},

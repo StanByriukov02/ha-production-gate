@@ -1,7 +1,7 @@
 {
   "coupling_id": "chip_mechanical_to_fab_v1",
   "version": 1,
-  "vault_canon": "06_2BRAIN/DOGFOOD/chain/UNIVERSE_CHIP_WORLD_V1.md",
+  "vault_canon": "public_teaching_bind",
   "source_hop": "u-hop-mechanical",
   "source_law": "L_HAMILTON",
   "slice_id": "CouplingSlice_v1",

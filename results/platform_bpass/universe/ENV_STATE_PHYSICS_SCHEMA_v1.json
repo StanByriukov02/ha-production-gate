@@ -2,7 +2,7 @@
   "schema_id": "env_state_physics_schema_v1",
   "version": 2,
   "gate": "U4",
-  "vault_spec": "06_2BRAIN/DOGFOOD/chain/UNIVERSE_ENV_STATE_PHYSICS_AXES_BUILD_V1.md",
+  "vault_spec": "public_teaching_bind",
   "method_bind": "ENV_STATE_PHYSICS_METHOD_BIND_v1.json",
   "required_top_level": [
     "regime_id",
