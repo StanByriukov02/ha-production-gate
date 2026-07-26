@@ -25,6 +25,25 @@ Honesty: **not MEASURED** · soft ≠ OTP · **not** product_ready · **not** NA
 
 ---
 
+## What it looks like
+
+**This public repo’s core action is the CLI gate** (`ha-production-gate`).  
+The screens below are the companion **Start here** desk from the Hardware Atom vertical — so you see the Dual / World / Mission surface a human actually works in (teaching desk · not MEASURED · not Isaac GT).
+
+<p align="center">
+  <img src="docs/assets/desk-world.png" alt="Start here · World — Dual Safe/Hostile sinkage bed" width="920" />
+</p>
+
+<p align="center"><sub><b>World</b> — change one condition · see policies diverge · Hostile sinkage inject on Moon field</sub></p>
+
+<p align="center">
+  <img src="docs/assets/desk-mission.png" alt="Start here · Mission — Safe vs Hostile sinkage on lunar globe" width="920" />
+</p>
+
+<p align="center"><sub><b>Mission</b> — same Dual numbers on the globe · Safe 10.7 mm vs Hostile 779.5 mm sinkage (Δ visible)</sub></p>
+
+---
+
 ## What you get
 
 | You see | Meaning |
@@ -95,7 +114,7 @@ Sample board: [`docs/examples/PRODUCTION_GATE_BOARD_SAMPLE.md`](docs/examples/PR
 - Someone building a robot who needs to prove **to themselves** that a claim is allowed to ship
 - Robotics / sim engineers (ROS, Gazebo, Nav2, MoveIt world)
 - SPX / Tesla / new-robot-company engineers who want a pre-merge refuse habit
-- Not a GUI app · not a twin viewer · not a cloud SaaS
+- People who want to **see** Dual in a desk (World / Mission screens above) — and still run the stranger-checkable CLI
 
 One face for every level. No “simple mode for beginners / serious mode for NASA.”
 
