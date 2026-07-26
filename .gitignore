@@ -11,3 +11,6 @@ results/runtime/
 .vscode/
 
 SURFACE_MANIFEST.json
+
+# local screenshot scratch — never ship empty/squashed MCP panes as heroes
+docs/assets/_candidates/

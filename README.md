@@ -41,17 +41,13 @@ What you do **not** get elsewhere for free: a shared, stranger-checkable **physi
 
 ## What it looks like
 
-Full desktop viewport (**1440×900**) — companion Start here desk. Not a cropped IDE pane.
+Companion **Start here** desk — Dual Safe/Hostile on one condition change. Product window, not an empty splash.
 
-![World — Dual Safe/Hostile sinkage bed](docs/assets/desk-world.png)
+![World — Dual Hostile sinkage · RUN TICK](docs/assets/hero-world.png)
 
-**World** — change one condition · policies diverge · Hostile sinkage on Moon field
+![Body / World viewer — LAW · gripper · Hostile sinkage](docs/assets/hero-body.png)
 
-![Mission — Safe vs Hostile sinkage on lunar globe](docs/assets/desk-mission.png)
-
-**Mission** — Dual on the globe · Safe vs Hostile sinkage Δ visible
-
-Public clone core action remains the gate CLI. These frames are the physics surface humans work in.
+Public clone core action remains the gate CLI. These frames are the surface humans work in.
 
 ---
 
