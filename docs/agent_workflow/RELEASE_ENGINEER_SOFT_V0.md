@@ -1,7 +1,7 @@
 # Soft release — engineer Production Gate v0
 
 **Status:** SOFT RELEASE PREP · 2026-07-26  
-**Not:** product_ready · MEASURED · soft-mint OTP · public launch as finished product  
+**Not:** product_ready · MEASURED · soft-mint OTP · finished product claim  
 
 ---
 
@@ -27,7 +27,7 @@ ha-release-engineer
 
 1. Link/clone + `START_HERE_PRODUCTION_GATE_V1.md`  
 2. Or zip of `results/runtime/release_engineer/LATEST/`  
-3. Ask one question after run: *if we shut this off tomorrow, do you lose a week of knowing?*
+3. Ask whether the ritual is worth keeping in their review habit
 
 ## PASS bar for soft release
 
@@ -37,13 +37,8 @@ ha-release-engineer
 | `F_physics_world_stack_complete` | yes |
 | Board + kit present | yes |
 | Soft-mint MEASURED | refused |
-| Vault / journal in pack | **no** |
-
-## After first stranger
-
-Log: name/role (or anon) · PASS/FAIL · devastated Y/N · one quote.  
-Pivot only if devastated=N.
+| Private journals in pack | **no** |
 
 ## Marker
 
-`RELEASE_ENGINEER_SOFT_V0` · `NO_PRIESTHOOD` · `CHEAPER_THAN_DOUBT`
+`RELEASE_ENGINEER_SOFT_V0`

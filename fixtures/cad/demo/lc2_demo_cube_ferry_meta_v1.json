@@ -1,8 +1,0 @@
-{
-  "artifact_id": "lc2_demo_cube_ferry_v1",
-  "scene_class": "TEACHING_ONLY",
-  "not_joint_housing": true,
-  "not_lc2_mount": true,
-  "honesty": "ADAM infra reference \u2014 cube ferry A->B \u00b7 isolated demo scene",
-  "parent_bench": "fixtures/cad/lc2_joint_housing_v1.step"
-}

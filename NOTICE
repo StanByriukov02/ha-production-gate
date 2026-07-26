@@ -1,6 +1,9 @@
 HA Production Gate
 Copyright 2026 Stanislav Byriukov
 
-Hardware Atom Production Gate soft release.
-Physics oracle in Rust · Dual · seal · named ε · refuse.
-Honesty: not MEASURED · soft ≠ OTP · Python is glue.
+HA Production Gate soft release.
+
+Honesty defaults for this soft release:
+- Physics gate boolean is owned by the Rust oracle (ha-physics-gate).
+- Python packages in this tree are ritual glue, not a substitute PASS path.
+- Dual teaching runs are not field-MEASURED and are not OTP/attestation.

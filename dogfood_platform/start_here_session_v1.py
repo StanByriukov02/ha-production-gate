@@ -19,9 +19,9 @@ from pathlib import Path
 from typing import Any
 
 _REPO = Path(__file__).resolve().parents[1]
-_TWIN = _REPO / "fixtures" / "twin"
+_TWIN = _REPO / "results" / "runtime" / "desk"
 _RUNTIME = _REPO / "results" / "runtime"
-_EE = Path.home() / "evidence_engine"
+_EE = _REPO.parent / "evidence_engine"
 _EE_ART = _EE / "artifacts" / "dogfood_cinema_live"
 
 SESSION_NAME = "start_here_session_v1.json"

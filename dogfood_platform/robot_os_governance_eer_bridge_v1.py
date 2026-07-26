@@ -1,7 +1,7 @@
 """Bridge dogfood governance traces → evidence_engine eer-0.1 receipts.
 
-Optional sibling package: c:\\Users\\dammi\\evidence_engine
-TABU: claim receipt without verify · import hardware_atom from evidence_engine.
+Optional sibling package: ../evidence_engine (not required for Production Gate).
+TABU: claim receipt without verify · treat optional sibling as this clone's install.
 """
 from __future__ import annotations
 

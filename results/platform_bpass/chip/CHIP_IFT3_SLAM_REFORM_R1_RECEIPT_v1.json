@@ -1,7 +1,7 @@
 {
   "receipt_id": "CHIP_IFT3_SLAM_REFORM_R1_RECEIPT_v1",
   "timestamp_utc": "2026-07-02T11:15:32.557990+00:00",
-  "canon": "docs/HwatomOrgOS/05_OPERATOR_PLAST/_REGISTERS/CHIP_IFT3_SLAM_DIGITAL_TWIN_SCOPE_V1.md",
+  "canon": "CHIP_IFT3_SLAM_DIGITAL_TWIN_SCOPE_V1.md",
   "track": "LUNAR_CHIP_IFT3",
   "phase": "TIER-C-SLAM-R1",
   "ladder_layer": "L3_pose_backend_resample",

@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any
 
 _REPO = Path(__file__).resolve().parents[1]
-_TWIN = _REPO / "fixtures" / "twin"
+_TWIN = _REPO / "results" / "runtime" / "desk"
 _PROJECTS = _REPO / "results" / "runtime" / "robot_projects"
 _PROJECTS_ROOT = _PROJECTS
 _ACTIVE = _PROJECTS / "_active.json"

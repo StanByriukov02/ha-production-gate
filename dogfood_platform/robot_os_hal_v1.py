@@ -4,7 +4,7 @@ Interfaces: PoseSource · ActuationSink · EnergyLedger · MissionClock
 proof_tier: HAL_SIM_SLICE (implementations) — not MEASURED · not iron LC-2 drivers.
 
 TABU: claim drivers on real hardware · claim VI-2 bus MEASURED.
-Canon cites: fixtures/twin/robot_brain_architecture_v1.json (L_bus_vi2 · L_actuation_lc2).
+HAL layers: L_bus_vi2 · L_actuation_lc2 (sim slice — not MEASURED field hardware).
 """
 from __future__ import annotations
 

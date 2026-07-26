@@ -310,7 +310,7 @@
           },
           "qemu_probe": {
             "qemu_path": null,
-            "gcc_path": "C:\\msys64\\mingw64\\bin\\gcc.EXE",
+            "gcc_path": "gcc",
             "tier": "STRUCTURAL_SKIP",
             "verdict": "SKIP",
             "machine": "netduinoplus2",
@@ -868,7 +868,7 @@
             "fw_feed_map": "lc2_baremetal_memory_map_v0",
             "qemu_probe": {
               "qemu_path": null,
-              "gcc_path": "C:\\msys64\\mingw64\\bin\\gcc.EXE",
+              "gcc_path": "gcc",
               "tier": "STRUCTURAL_SKIP",
               "verdict": "SKIP",
               "machine": "netduinoplus2",
@@ -917,7 +917,7 @@
               },
               "qemu_probe": {
                 "qemu_path": null,
-                "gcc_path": "C:\\msys64\\mingw64\\bin\\gcc.EXE",
+                "gcc_path": "gcc",
                 "tier": "STRUCTURAL_SKIP",
                 "verdict": "SKIP",
                 "machine": "netduinoplus2",

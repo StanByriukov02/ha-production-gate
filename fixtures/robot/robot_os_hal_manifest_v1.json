@@ -11,8 +11,9 @@
   ],
   "architecture_cites": [
     {
-      "artifact": "fixtures/twin/robot_brain_architecture_v1.json",
-      "layers": ["L_bus_vi2", "L_actuation_lc2"]
+      "artifact": "dogfood_platform/robot_os_hal_v1.py",
+      "layers": ["L_bus_vi2", "L_actuation_lc2"],
+      "note": "sim-slice HAL layers — not a twin browser scene"
     }
   ],
   "live_state_binding": {

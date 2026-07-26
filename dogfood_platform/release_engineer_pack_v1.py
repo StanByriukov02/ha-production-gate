@@ -104,7 +104,6 @@ def build_release_engineer_pack(*, write: bool = True) -> dict[str, Any]:
                 "not_measured": True,
                 "not_product_ready": True,
                 "soft_release": True,
-                "not_spx_nasa_adoption": True,
                 "epsilon": ["ε_desk_not_world", "ε_no_external_engineer_yet"],
             },
             "tabu": ["MEASURED", "OTP", "product_ready", "soft_mint", "vault paths"],

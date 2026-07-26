@@ -11,16 +11,23 @@ Thanks for caring about Production Gate.
 ## Dev loop
 
 ```bash
-pip install -e ".[smoke]"
+pip install -e .
 # build the five release bins (see README Quick Start)
 ha-production-gate
+```
+
+Optional import smoke:
+
+```bash
+pip install -e ".[smoke]"
+pytest
 ```
 
 ## PR rules
 
 - One concern per PR.
-- Do not add vault paths, operator journals, or NIW packets.
-- Do not expand scope into the full private Hardware Atom workshop.
+- Do not add private workshop paths, journals, or personal packets to this public tree.
+- Do not expand scope into private workshop trees outside this clone.
 - CI must stay green (`ha-production-gate` PASS).
 
 ## Code of conduct

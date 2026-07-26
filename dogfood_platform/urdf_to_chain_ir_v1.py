@@ -256,7 +256,7 @@ def compile_urdf_to_chain_spec(
 
 
 def validate_urdf_compiler_falsifiers() -> dict[str, Any]:
-    urdf = "fixtures/cad/lc2_bench_1dof_v1.urdf"
+    urdf = "dogfood_platform/robot_models/urdf/lc2_bench_1dof_v1.urdf"
     tree = parse_urdf_tree(_REPO / urdf)
     flat = flatten_revolute_chain(tree, ee_link="hip_output_link")
     compiled = compile_urdf_to_chain_spec(

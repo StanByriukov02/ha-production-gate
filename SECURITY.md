@@ -17,5 +17,5 @@ Do **not** open a public issue for an active honesty bypass until we confirm a f
 
 ## Scope
 
-In scope: Dual refuse integrity · seal · named ε · stranger kit reverify.  
-Out of scope: soft-mint MEASURED claims · private workshop leaks · social-engineering for immigration materials.
+In scope: Dual refuse integrity, seal flags, named ε, kit re-verify outside the repo tree.  
+Out of scope: upgrading soft teaching runs to MEASURED claims; social-engineering requests.

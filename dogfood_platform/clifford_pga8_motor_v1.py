@@ -1,45 +1,23 @@
-"""Canonical PGA8 spatial motor128 — portable engine lever (INVENT P7.1).
+"""Canonical PGA8 spatial motor128 — portable engine lever.
 
-Single Python entry for twin · robot · REFORM offload · oracle/cxx/rust device.
-Iron truth remains SV; this layer is the host/runtime motor type per codec §6.
+Host/runtime motor type for optional Clifford kinematics paths.
+Default backend is the pure-Python oracle in this package.
 """
 from __future__ import annotations
 
-import importlib.util
 import os
 import subprocess
-import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
 _REPO = Path(__file__).resolve().parents[1]
-_ORACLE_PATH = _REPO / "scripts" / "chip" / "clifford_pga8_oracle_v0.py"
 _BLADE_NAMES = ("s", "e1", "e2", "e3", "e12", "e23", "e31", "e123")
 
 
-def _ensure_production_crown_backend() -> None:
-    if os.environ.get("CLIFFORD_BACKEND"):
-        return
-    if str(_REPO) not in sys.path:
-        sys.path.insert(0, str(_REPO))
-    try:
-        from scripts.chip.clifford_production_crown_env_v0 import apply_production_crown_env
-
-        apply_production_crown_env()
-    except Exception:
-        pass
-
-
-_ensure_production_crown_backend()
-
-
 def _load_oracle():
-    spec = importlib.util.spec_from_file_location("clifford_pga8_oracle_v0", _ORACLE_PATH)
-    if spec is None or spec.loader is None:
-        raise RuntimeError("oracle missing")
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
+    from dogfood_platform import clifford_pga8_oracle_v0 as mod
+
     return mod
 
 
@@ -110,21 +88,9 @@ class MotorPGA8:
 
 
 def _verilator_cli(cmd: str, a_hex: str, b_hex: str | None = None) -> str | None:
-    if str(_REPO) not in __import__("sys").path:
-        __import__("sys").path.insert(0, str(_REPO))
-    from scripts.chip.clifford_verilator_mmio_session_v0 import run_verilator_mmio_request
-
-    if cmd == "norm":
-        req = {"cmd": "norm", "rs1_hex": a_hex}
-    elif cmd == "reverse":
-        req = {"cmd": "reverse", "rs1_hex": a_hex}
-    elif b_hex is not None and cmd in ("geo_prod", "sandwich"):
-        req = {"cmd": cmd, "rs1_hex": a_hex, "rs2_hex": b_hex}
-    else:
-        return None
-    resp = run_verilator_mmio_request(req)
-    got = resp.get("rd_hex")
-    return str(got) if got else None
+    # Verilator / FPGA host path lives outside this public surface.
+    _ = (cmd, a_hex, b_hex)
+    return None
 
 
 def _dispatch_unary(op: str, a: MotorPGA8) -> MotorPGA8:

@@ -10,7 +10,15 @@ results/runtime/
 .idea/
 .vscode/
 
+# Local extract / operator scratch — never ship on the public face
 SURFACE_MANIFEST.json
-
-# local screenshot scratch — never ship empty/squashed MCP panes as heroes
+SURFACE_MANIFEST*.json
+_candidates/
 docs/assets/_candidates/
+_ref_*/
+**/_ref_*/
+.git-rewrite/
+_msg_filter.py
+scratch/
+*.local.json
+*.local.md

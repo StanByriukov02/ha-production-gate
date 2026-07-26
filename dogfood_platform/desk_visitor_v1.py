@@ -3,7 +3,7 @@
 Contract:
 - First open on this machine → clean Start here (no leftover probe crater).
 - Returning open → restore their last desk scene / active project locally.
-- Never phone home. Vault is ~/.hardware_atom only.
+- Never phone home. Vault is ~/.ha-production-gate only.
 
 TABU: cloud identity · MEASURED · product_ready.
 """
@@ -23,7 +23,7 @@ def visitor_path() -> Path:
     override = (os.environ.get("HA_DESK_VISITOR") or "").strip()
     if override:
         return Path(override).expanduser()
-    return Path.home() / ".hardware_atom" / _VAULT_NAME
+    return Path.home() / ".ha-production-gate" / _VAULT_NAME
 
 
 def _read() -> dict[str, Any]:

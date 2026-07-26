@@ -15,11 +15,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
-from dogfood_platform.clifford_pga8_motor_v1 import MotorPGA8
-from scripts.chip.clifford_motor7_pga8_bridge_v0 import (
+from dogfood_platform.clifford_motor7_pga8_bridge_v0 import (
     motor7_quat_to_pga8_rotor,
     pga8_rotor_to_motor7_quat,
 )
+from dogfood_platform.clifford_pga8_motor_v1 import MotorPGA8
 
 if TYPE_CHECKING:
     from dogfood_platform.slam_se3_motor_v1 import Motor, Vec3

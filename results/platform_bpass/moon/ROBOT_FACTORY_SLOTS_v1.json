@@ -133,7 +133,7 @@
       "unit": "firmware_path",
       "tier": "CITED_BIND",
       "environment_id": "earth_lab_298k",
-      "bind": "docs/HwatomOrgOS/06_2BRAIN/DOGFOOD/domains/engineering/LC2_JOINT_CONTROLLER_FIXTURE_V1.md",
+      "bind": "LC2_JOINT_CONTROLLER_FIXTURE_V1.md",
       "formula": null
     },
     "ROBOT_ACTUATOR_J_PER_FOC_STEP_UJ": {
@@ -252,7 +252,7 @@
       "unit": "fw_class",
       "tier": "CITED_BIND",
       "environment_id": "earth_lab_298k",
-      "bind": "docs/HwatomOrgOS/06_2BRAIN/DOGFOOD/domains/engineering/LC2_JOINT_CONTROLLER_FIXTURE_V1.md",
+      "bind": "LC2_JOINT_CONTROLLER_FIXTURE_V1.md",
       "formula": "FOC ISR hot block \u2014 no RTOS preemption"
     },
     "ROBOT_MINI_TEST_FIXTURE_SPEC": {
@@ -1487,5 +1487,5 @@
   },
   "phase": "P5",
   "timestamp_utc": "2026-07-24T10:12:33.254266+00:00",
-  "canon": "docs/HwatomOrgOS/05_OPERATOR_PLAST/_REGISTERS/ROBOT_FACTORY_IFT1_VISION_V1.md"
+  "canon": "ROBOT_FACTORY_IFT1_VISION_V1.md"
 }

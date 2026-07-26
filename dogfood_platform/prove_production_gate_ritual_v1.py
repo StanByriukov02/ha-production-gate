@@ -400,7 +400,6 @@ def run_production_gate_ritual(*, write_receipt: bool = True) -> dict[str, Any]:
         "honesty": {
             "not_measured": True,
             "not_product_ready": True,
-            "not_spx_nasa_adoption": True,
             "proof_tier": PROOF_TIER,
             "epsilon": [
                 "ε_desk_not_world",

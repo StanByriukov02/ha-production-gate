@@ -9,7 +9,7 @@
 **A Dual physics check for robot and autonomy claims.**  
 Run the same stack in a **Safe** world and a **Hostile** world. Safe must **allow**. Hostile must **refuse**. You walk away with a sealed board, JSON receipts, and a kit another engineer can re-read.
 
-Works as a CLI ritual today. The hero below is the companion Dual desk from Hardware Atom — same idea in UI form.
+Works as a CLI ritual today. The hero below is the companion Dual desk UI — same idea in visual form.
 
 <p align="center">
   <img src="docs/assets/hero-world.png" alt="Dual desk — Hostile sinkage on lunar field">
@@ -28,7 +28,7 @@ This repository ships a **runnable Production Gate surface**:
 | **Rust physics cores** | `ha_physics_gate`, `ha_silicon_fuse`, `ha_energy_ledger`, `ha_body_identity`, `universe_kinematic`, plus `ha_artifact_law`, `universe_scale`, `ha_iron_attestation` |
 | **Bekker / terramech oracle** | `ha-physics-gate bekker-eval` and related thermometers (sinkage, shear, thermal, dust, …) |
 | **Python glue** | `dogfood_platform/` — project desk, Dual run, seal, kit staging |
-| **Fixtures** | Open registry / seed + teaching Dual soils for `lunar_scout` |
+| **Fixtures** | Open registry / seed + teaching Dual soils for `lunar_scout` ([`fixtures/README.md`](fixtures/README.md)) |
 | **Examples** | Board sample, Dual walkthrough, kit reading, Rust gate CLI — [`docs/examples/`](docs/examples/) |
 | **Soft release pack** | `ha-release-engineer` → staged zip-ready folder under `results/runtime/release_engineer/LATEST/` |
 | **CI** | Ubuntu job builds five bins and runs the same ritual on every `main` push |
@@ -251,7 +251,7 @@ Guide: [`docs/examples/05_no_python_gate_fallback.md`](docs/examples/05_no_pytho
 
 ### Companion desk (visual)
 
-- World / Body Dual UI (screenshots in `docs/assets/`) shows the same Safe/Hostile story humans click in the workshop desk — the **install path of this repo remains the CLI**
+- The hero screenshot is the companion Dual desk UI — same Safe/Hostile idea. The **supported install path of this repo remains the CLI**.
 
 ---
 
@@ -259,23 +259,31 @@ Guide: [`docs/examples/05_no_python_gate_fallback.md`](docs/examples/05_no_pytho
 
 ```text
 ha-production-gate/
-├── crates/                      # Rust physics & attestation cores
-│   ├── ha_physics_gate/         # gate emit/validate + Bekker + thermometers
-│   ├── ha_silicon_fuse/         # C/Rust fuse path
+├── crates/                         # Rust physics & attestation cores
+│   ├── ha_physics_gate/            # gate emit/validate + Bekker + thermometers
+│   ├── ha_silicon_fuse/            # C/Rust fuse path
 │   ├── ha_energy_ledger/
 │   ├── ha_body_identity/
 │   ├── universe_kinematic/
 │   ├── ha_artifact_law/
 │   ├── universe_scale/
 │   └── ha_iron_attestation/
-├── dogfood_platform/            # Python ritual + Dual desk glue
-├── scripts/bootstrap.sh|.ps1    # cold path
-├── fixtures/                    # open seed / twin / soils
-├── results/platform_bpass/      # frozen teaching bind receipts (needed for Dual paths)
-├── docs/examples/               # detailed walkthroughs
+├── dogfood_platform/               # Python ritual + Dual desk glue (+ portable Clifford oracle)
+├── scripts/bootstrap.sh|.ps1       # cold-path build → install → run
+├── fixtures/                       # teaching inputs (see fixtures/README.md)
+│   ├── open_registry/              # env / terramech catalog JSON
+│   ├── open_seed/                  # materials / bind seeds
+│   └── robot/                      # lunar_scout recipes + HAL manifests
+├── results/platform_bpass/         # frozen teaching bind receipts Dual paths read
+├── results/runtime/                # gitignored — boards, kits, desk scratch from local runs
+├── docs/examples/                  # detailed walkthroughs (SAS-style)
+├── docs/assets/hero-world.png      # README hero (Dual desk)
+├── tests/                          # tiny import smoke; CI truth is ha-production-gate
 ├── START_HERE_PRODUCTION_GATE_V1.md
-└── README.md                    # you are here
+└── README.md                       # you are here
 ```
+
+`results/platform_bpass/` stays in-tree on purpose: Dual teaching modules load moon/universe/robot bind receipts from these frozen fixtures. They are teaching receipts, not live CI outputs.
 
 ---
 
@@ -340,7 +348,7 @@ Stages `HOW_TO_RUN.md`, board, kit, and manifest under `results/runtime/release_
 |---------|--------------|-----|
 | `FileNotFoundError` for `ha-physics-gate` | Bins not built | Run bootstrap / five `cargo build --release` lines |
 | `ha_silicon_fuse` link errors on Windows | No MSVC | Install VS Build Tools with C++ workload |
-| Ritual PASS locally, stranger fail | Author `target/` present | Cold clone + bootstrap on a clean machine |
+| Ritual PASS locally, fail on a clean clone | Author `target/` present | Cold clone + bootstrap on a clean machine |
 | Encoding garbage on Windows console | cp1251 | `PYTHONIOENCODING=utf-8` (CI sets this) |
 | Long first build | Cold cargo | Expected; `Cargo.lock` keeps the graph pinned |
 
@@ -360,8 +368,8 @@ No. Soft teaching Dual. See honesty ladder: [`docs/agent_workflow/PHYSICS_OS_KER
 **Can Python soft-mint the gate if Rust is missing?**  
 No. Missing bin fails closed.
 
-**Where is the private workshop?**  
-This public surface is `ha-production-gate`. You do not need a private `hardware_atom` tree to run the ritual.
+**Do I need another monorepo to run this?**  
+No. Clone this repository, bootstrap, and run `ha-production-gate`.
 
 ---
 
@@ -388,4 +396,4 @@ See [`SECURITY.md`](SECURITY.md).
 
 Apache License 2.0 — [`LICENSE`](LICENSE)
 
-**Maintainer:** Stanislav Byriukov — Hardware Atom / Production Gate
+**Maintainer:** Stanislav Byriukov — Production Gate

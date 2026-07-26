@@ -9,7 +9,7 @@ from typing import Any
 _REPO = Path(__file__).resolve().parents[1]
 _MOON = _REPO / "results" / "platform_bpass" / "moon"
 _SLOTS = _MOON / "ROBOT_FACTORY_SLOTS_v1.json"
-_CANON = "docs/HwatomOrgOS/05_OPERATOR_PLAST/_REGISTERS/ROBOT_FACTORY_IFT1_VISION_V1.md"
+_CANON = "ROBOT_FACTORY_IFT1_VISION_V1.md"
 
 
 def load_slots() -> dict[str, Any]:
