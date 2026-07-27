@@ -1,0 +1,101 @@
+name: bins
+
+# Publish prebuilt Dual oracle bins as mutable tag bins-latest.
+# Strangers: pip install -e . && ha-ensure-bins && ha-dual-socket
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            plat: linux-x86_64
+          - os: windows-latest
+            plat: windows-x86_64
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build Dual bins
+        shell: bash
+        run: |
+          cargo build -p ha_physics_gate --release
+          cargo build -p ha_silicon_fuse --release
+          cargo build -p ha_energy_ledger --release
+          cargo build -p ha_body_identity --release
+          cargo build -p universe_kinematic --release --bin manipulator_kinematics_step
+
+      - name: Pack zip
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import pathlib, zipfile, os, sys
+          plat = os.environ["PLAT"]
+          release = pathlib.Path("target/release")
+          stems = [
+              "ha-physics-gate",
+              "ha-silicon-fuse",
+              "ha-energy-ledger",
+              "ha-body-identity",
+              "manipulator_kinematics_step",
+          ]
+          suffix = ".exe" if sys.platform == "win32" else ""
+          out = pathlib.Path(f"ha-bins-{plat}.zip")
+          with zipfile.ZipFile(out, "w", compression=zipfile.ZIP_DEFLATED) as zf:
+              for stem in stems:
+                  src = release / f"{stem}{suffix}"
+                  if not src.is_file():
+                      raise SystemExit(f"missing {src}")
+                  zf.write(src, arcname=src.name)
+          print("wrote", out, "bytes", out.stat().st_size)
+          PY
+        env:
+          PLAT: ${{ matrix.plat }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ha-bins-${{ matrix.plat }}
+          path: ha-bins-${{ matrix.plat }}.zip
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          pattern: ha-bins-*
+          merge-multiple: true
+
+      - name: Publish bins-latest release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          ls -la dist
+          if gh release view bins-latest --repo StanByriukov02/ha-production-gate >/dev/null 2>&1; then
+            gh release delete bins-latest --repo StanByriukov02/ha-production-gate --yes
+          fi
+          gh api -X DELETE "repos/StanByriukov02/ha-production-gate/git/refs/tags/bins-latest" || true
+          gh release create bins-latest dist/ha-bins-*.zip \
+            --repo StanByriukov02/ha-production-gate \
+            --title "Prebuilt Dual bins (bins-latest)" \
+            --notes "Auto-built Dual oracle bins for ha-ensure-bins / pip-first path. Platforms: linux-x86_64, windows-x86_64. Soft teaching Dual — not MEASURED." \
+            --prerelease

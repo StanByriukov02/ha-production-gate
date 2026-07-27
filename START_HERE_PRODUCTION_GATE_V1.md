@@ -3,26 +3,24 @@
 **Fail mobility claims that only look green on firm soil.**
 
 ```bash
+git clone https://github.com/StanByriukov02/ha-production-gate.git
+cd ha-production-gate
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -e .
+ha-ensure-bins                                      # Dual bins without Cargo when published
+ha-dual-socket --preset open_diffbot
+```
+
+Or one script (prebuilt → cargo fallback → socket → ritual):
+
+```bash
 ./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
-# primary wow: ha-dual-socket --preset open_diffbot → DUAL_SOCKET_PASS
-# then CI ritual: ha-production-gate
 ```
 
-Docker (after first image build):
-
-```bash
-docker compose run --rm dual
-```
-
-Local desk:
-
-```bash
-ha-desk
-# http://127.0.0.1:8765
-```
+Docker: `docker compose run --rm dual` · Desk: `ha-desk`
 
 | Next | Open |
 |------|------|
 | Full face | [`README.md`](README.md) |
-| Socket walkthrough | [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md) |
+| Socket | [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md) |
 | Dual method | [`docs/DUAL_REFUSE.md`](docs/DUAL_REFUSE.md) |

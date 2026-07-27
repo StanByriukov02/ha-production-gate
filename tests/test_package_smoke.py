@@ -27,7 +27,10 @@ def test_open_registry_diffbot_urdf_present() -> None:
     assert urdf.is_file()
 
 
-def test_desk_index_present() -> None:
-    from pathlib import Path
+def test_ensure_bins_platform_id() -> None:
+    from dogfood_platform import ensure_bins_v1 as eb
 
-    assert (Path(__file__).resolve().parents[1] / "desk" / "index.html").is_file()
+    pid = eb.platform_id()
+    assert "-" in pid
+    assert eb.asset_name().startswith("ha-bins-")
+    assert callable(eb.main)

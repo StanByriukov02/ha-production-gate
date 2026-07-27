@@ -1,4 +1,4 @@
-# Cold path (Windows): build Rust bins → venv → install → Dual socket → CI ritual.
+# Cold path (Windows): prefer prebuilt bins → Dual socket → CI ritual.
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot
 Set-Location $Root
@@ -9,15 +9,7 @@ function Need([string]$Name) {
   }
 }
 
-Need cargo
 Need python
-
-Write-Host "==> cargo release bins (physics oracle — not pip-only yet)"
-cargo build -p ha_physics_gate --release
-cargo build -p ha_silicon_fuse --release
-cargo build -p ha_energy_ledger --release
-cargo build -p ha_body_identity --release
-cargo build -p universe_kinematic --release --bin manipulator_kinematics_step
 
 Write-Host "==> python venv + install"
 if (-not (Test-Path .venv)) {
@@ -25,6 +17,18 @@ if (-not (Test-Path .venv)) {
 }
 & .\.venv\Scripts\python.exe -m pip install -U pip
 & .\.venv\Scripts\python.exe -m pip install -e .
+
+Write-Host "==> Dual oracle bins (prebuilt preferred)"
+& .\.venv\Scripts\ha-ensure-bins.exe
+if ($LASTEXITCODE -ne 0) {
+  Write-Host "prebuilt miss — falling back to cargo"
+  Need cargo
+  cargo build -p ha_physics_gate --release
+  cargo build -p ha_silicon_fuse --release
+  cargo build -p ha_energy_ledger --release
+  cargo build -p ha_body_identity --release
+  cargo build -p universe_kinematic --release --bin manipulator_kinematics_step
+}
 
 Write-Host "==> Dual socket (primary wow — open_diffbot)"
 & .\.venv\Scripts\ha-dual-socket.exe --preset open_diffbot

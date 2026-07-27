@@ -28,6 +28,7 @@ Homepage = "https://github.com/StanByriukov02/ha-production-gate"
 Issues = "https://github.com/StanByriukov02/ha-production-gate/issues"
 
 [project.scripts]
+ha-ensure-bins = "dogfood_platform.ensure_bins_v1:main"
 ha-production-gate = "dogfood_platform.prove_production_gate_ritual_v1:main"
 ha-dual-socket = "dogfood_platform.dual_socket_v1:main"
 ha-desk = "dogfood_platform.desk_app_v1:main"

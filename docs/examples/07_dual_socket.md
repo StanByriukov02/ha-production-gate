@@ -9,7 +9,8 @@ This is the **insert point**. The lunar `ha-production-gate` ritual remains CI t
 ## Commands
 
 ```bash
-./scripts/bootstrap.sh    # once — builds Rust + Dual socket + CI ritual
+./scripts/bootstrap.sh    # once — pip + ensure-bins (or cargo) + Dual socket + CI ritual
+ha-ensure-bins
 ha-dual-socket --preset open_diffbot
 ```
 

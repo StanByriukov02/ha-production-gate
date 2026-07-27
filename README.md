@@ -13,13 +13,20 @@ Fail mobility claims that only look green on **firm soil**.
 Same URDF body · two soils · **Safe must allow · Hostile must refuse** · Rust Bekker oracle · board you can paste.
 
 ```bash
-./scripts/bootstrap.sh          # Rust bins + Dual socket wow + CI ritual
-# Windows: .\scripts\bootstrap.ps1
+git clone https://github.com/StanByriukov02/ha-production-gate.git
+cd ha-production-gate
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -e .
+ha-ensure-bins                 # download Dual bins (no Cargo) — or cargo fallback via bootstrap
+ha-dual-socket --preset open_diffbot
+ha-desk                        # http://127.0.0.1:8765
+```
 
-# or Docker (first build compiles crates — then fast):
-docker compose run --rm dual
+One-shot scripts (prebuilt bins preferred, Cargo only if download misses):
 
-ha-desk                         # local UI · http://127.0.0.1:8765
+```bash
+./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
+docker compose run --rm dual    # after image build
 ```
 
 Not a Gazebo plugin. Not a ROS package. A **referee** on open_diffbot or your URDF.
@@ -28,7 +35,7 @@ Not a Gazebo plugin. Not a ROS package. A **referee** on open_diffbot or your UR
   <img src="docs/assets/hero-dual-socket.svg" alt="Dual socket — Safe 8.72 mm allow · Hostile 84.99 mm refuse" width="960">
 </p>
 
-**Taste (what bootstrap / `ha-dual-socket` should print):**
+**Taste (what `ha-dual-socket` should print):**
 
 ```text
 verdict: DUAL_SOCKET_PASS
@@ -43,10 +50,12 @@ Hostile  soil=soft_hostile   sinkage_mm=84.99  pass=False allowed=False
 | Layer | What you get |
 |-------|----------------|
 | **Dual socket** | `ha-dual-socket` — `--preset open_diffbot` or `--urdf your.urdf` → sinkage board |
+| **Ensure bins** | `ha-ensure-bins` — download Dual oracle bins from `bins-latest` (skip Cargo) |
 | **Dual desk** | `ha-desk` — local UI (`desk/index.html`) · pick body · Run Dual |
 | **CI ritual** | `ha-production-gate` — full falsifier ritual (`lunar_scout` teaching) |
-| **Bootstrap** | `scripts/bootstrap.sh` / `.ps1` — build Rust bins → install → ritual |
-| **Rust oracle** | `ha-physics-gate` Bekker + thermometers |
+| **Bootstrap** | `scripts/bootstrap.sh` / `.ps1` — pip → ensure-bins (or cargo) → socket → ritual |
+| **Docker** | `docker compose run --rm dual` |
+| **Rust oracle** | `ha-physics-gate` Bekker + thermometers (prebuilt or cargo) |
 | **Open bodies** | `fixtures/open_registry/urdf/` — diffbot / rrbot / skidsteer / arm4 |
 | **Examples** | [`docs/examples/`](docs/examples/) — ritual, kit, **socket**, sinkage bench |
 
@@ -92,6 +101,7 @@ A traverse claim that only ever ran on firm soil can look healthy forever. Hosti
 |---------|-------------|
 | Dual Bekker referee + local desk | Gazebo / Chrono soil plugin |
 | URDF → board | Nav2 node / `ros2 launch` stack |
+| `ha-ensure-bins` prebuilts (linux/windows x86_64) | Universal pip wheel with embedded Rust (not yet) |
 | Teaching contact geometry | MEASURED CAD inertia / flight soil ID |
 | Rust oracle, fail-closed | Pure-Python soft PASS |
 
@@ -99,26 +109,37 @@ A traverse claim that only ever ran on firm soil can look healthy forever. Hosti
 
 ## Quick start
 
+**Pip-first (no Cargo when `bins-latest` is published):**
+
 ```bash
 git clone https://github.com/StanByriukov02/ha-production-gate.git
 cd ha-production-gate
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -e .
+ha-ensure-bins
+ha-dual-socket --preset open_diffbot
+```
+
+**Bootstrap** (same: prebuilt preferred, Cargo fallback, then socket + ritual):
+
+```bash
 ./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
 ```
 
-Bootstrap **ends on Dual socket** (`DUAL_SOCKET_PASS` on `open_diffbot`), then runs the CI ritual.
-
-Docker (one command after image build):
+**Docker** (after image build):
 
 ```bash
 docker compose run --rm dual
 ```
 
-Local desk:
+**Desk:**
 
 ```bash
 ha-desk
-# http://127.0.0.1:8765 — Run Dual on open_diffbot or upload a URDF
+# http://127.0.0.1:8765
 ```
+
+If `ha-ensure-bins` says download failed: install [Rust](https://rustup.rs/) and re-run bootstrap (builds five Dual bins once).
 
 Short entry: [`START_HERE_PRODUCTION_GATE_V1.md`](START_HERE_PRODUCTION_GATE_V1.md) · method: [`docs/DUAL_REFUSE.md`](docs/DUAL_REFUSE.md) · socket: [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md)
 
