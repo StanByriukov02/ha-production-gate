@@ -1,0 +1,79 @@
+{
+  "schema": "ha_open_registry_v1",
+  "status": "OPEN_TEACHING",
+  "honesty": [
+    "not MEASURED",
+    "not product_ready",
+    "not OEM endorsement",
+    "ROS entries: tutorial-class open bodies (diffbot/rrbot/\u2026)",
+    "bring-your-own URDF via ha-dual-socket / desk"
+  ],
+  "entries": [
+    {
+      "id": "ros_diffbot",
+      "brand": "ROS ecosystem",
+      "product": "diffbot (tutorial-class)",
+      "class": "mobile_base",
+      "open_body": true,
+      "open_site_data": false,
+      "urdf": "urdf/ros_diffbot_v1.urdf",
+      "root_link": "base_link",
+      "ee_link": "wheel_left_link",
+      "known_public": [
+        "classic ROS differential-drive teaching pattern",
+        "body open; site ops still absent"
+      ],
+      "expected_verdict": "ARENA_EXISTS_OPEN_BODY_ONLY",
+      "build_here": true
+    },
+    {
+      "id": "ros_rrbot",
+      "brand": "ROS / Gazebo ecosystem",
+      "product": "rrbot 2-DoF (tutorial-class)",
+      "class": "manipulator",
+      "open_body": true,
+      "open_site_data": false,
+      "urdf": "urdf/ros_rrbot_2dof_v1.urdf",
+      "root_link": "base_link",
+      "ee_link": "tool_link",
+      "known_public": [
+        "Gazebo classic RRBot-style open arm pattern",
+        "body open; site ops still absent"
+      ],
+      "expected_verdict": "ARENA_EXISTS_OPEN_BODY_ONLY",
+      "build_here": true
+    },
+    {
+      "id": "ros_arm4_planar",
+      "brand": "ROS ecosystem",
+      "product": "4-DoF planar arm (open teaching)",
+      "class": "manipulator",
+      "open_body": true,
+      "open_site_data": false,
+      "urdf": "urdf/ros_arm4_planar_v1.urdf",
+      "root_link": "base_link",
+      "ee_link": "ee_link",
+      "known_public": [
+        "open planar arm for build-here fleet loop"
+      ],
+      "expected_verdict": "ARENA_EXISTS_OPEN_BODY_ONLY",
+      "build_here": true
+    },
+    {
+      "id": "ros_skidsteer",
+      "brand": "ROS ecosystem",
+      "product": "skid-steer cart (tutorial-class)",
+      "class": "mobile_base",
+      "open_body": true,
+      "open_site_data": false,
+      "urdf": "urdf/ros_skidsteer_v1.urdf",
+      "root_link": "base_link",
+      "ee_link": "track_left_link",
+      "known_public": [
+        "open skid-steer teaching body for soil Dual traverse"
+      ],
+      "expected_verdict": "ARENA_EXISTS_OPEN_BODY_ONLY",
+      "build_here": true
+    }
+  ]
+}

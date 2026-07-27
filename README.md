@@ -6,39 +6,36 @@
 [![Rust](https://img.shields.io/badge/physics_oracle-Rust-b45309)](crates/ha_physics_gate)
 [![Python](https://img.shields.io/badge/ritual_glue-Python_3.11%2B-3776AB)](dogfood_platform)
 
-**A Dual physics check for robot and autonomy claims.**  
-Run the same stack in a **Safe** world and a **Hostile** world. Safe must **allow**. Hostile must **refuse**. You walk away with a sealed board, JSON receipts, and a kit another engineer can re-read.
+**Production Gate**
 
-Works as a CLI ritual today. The hero below is the companion Dual desk UI — same idea in visual form.
+Same robot body. Two soils. **Safe must allow. Hostile must refuse.**
+
+Not a Gazebo plugin yet. Not a ROS package yet. A **socket** you can run today: open ROS tutorial body or **your URDF** → Dual Bekker board (Rust oracle).
+
+```bash
+./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
+ha-dual-socket --preset open_diffbot
+# or
+ha-desk                         # local Dual desk → http://127.0.0.1:8765
+```
 
 <p align="center">
-  <img src="docs/assets/hero-world.png" alt="Dual desk — Hostile sinkage on lunar field">
+  <img src="docs/assets/hero-world.png" alt="Dual desk — Safe vs Hostile sinkage">
 </p>
 
 ---
 
 ## What's included
 
-This repository ships a **runnable Production Gate surface**:
-
 | Layer | What you get |
 |-------|----------------|
-| **Ritual CLI** | `ha-production-gate` — Dual Safe/Hostile run + 8 falsifiers + board |
-| **Bootstrap** | `scripts/bootstrap.sh` / `scripts/bootstrap.ps1` — build bins → install → run |
-| **Rust physics cores** | `ha_physics_gate`, `ha_silicon_fuse`, `ha_energy_ledger`, `ha_body_identity`, `universe_kinematic`, plus `ha_artifact_law`, `universe_scale`, `ha_iron_attestation` |
-| **Bekker / terramech oracle** | `ha-physics-gate bekker-eval` and related thermometers (sinkage, shear, thermal, dust, …) |
-| **Python glue** | `dogfood_platform/` — project desk, Dual run, seal, kit staging |
-| **Fixtures** | Open registry / seed + teaching Dual soils for `lunar_scout` ([`fixtures/README.md`](fixtures/README.md)) |
-| **Examples** | Board sample, Dual walkthrough, kit reading, Rust gate CLI — [`docs/examples/`](docs/examples/) |
-| **Soft release pack** | `ha-release-engineer` → staged zip-ready folder under `results/runtime/release_engineer/LATEST/` |
-| **CI** | Ubuntu job builds five bins and runs the same ritual on every `main` push |
-
-Each successful run produces:
-
-- Terminal board (`PRODUCTION_GATE_RITUAL_PASS` / `_FAIL`)
-- `results/runtime/platform_loop/PRODUCTION_GATE_BOARD_LATEST.md`
-- `results/runtime/platform_loop/PRODUCTION_GATE_RITUAL_LATEST_v1.json`
-- Kit mirror: `results/runtime/production_gate_kits/LATEST/` (`dual_safe.json`, `dual_hostile.json`, …)
+| **Dual socket** | `ha-dual-socket` — `--preset open_diffbot` or `--urdf your.urdf` → sinkage board |
+| **Dual desk** | `ha-desk` — local UI (`desk/index.html`) · pick body · Run Dual |
+| **CI ritual** | `ha-production-gate` — full falsifier ritual (`lunar_scout` teaching) |
+| **Bootstrap** | `scripts/bootstrap.sh` / `.ps1` — build Rust bins → install → ritual |
+| **Rust oracle** | `ha-physics-gate` Bekker + thermometers |
+| **Open bodies** | `fixtures/open_registry/urdf/` — diffbot / rrbot / skidsteer / arm4 |
+| **Examples** | [`docs/examples/`](docs/examples/) — ritual, kit, **socket**, sinkage bench |
 
 ---
 
@@ -68,17 +65,17 @@ Each successful run produces:
 
 A stack that only ever runs in a friendly world can look healthy forever. Dual forces a condition change: Hostile must burn.
 
+### Start from a body you recognize
+
+`open_diffbot` is a ROS tutorial-class wheeled base. Or pass `--urdf` with contact kind overrides. Teaching geometry — not MEASURED CAD inertia.
+
 ### Keep the oracle out of soft-mint scripts
 
-The gate boolean is emitted/validated by **Rust** (`ha-physics-gate`). Python cannot substitute a pure-Python PASS if the bin is missing.
+Gate bits come from **Rust** (`ha-physics-gate`). Missing bin → fail closed.
 
-### Leave a receipt, not a slide
+### Honest scope
 
-Named honesty (`ε`), Dual JSON, and a board you can paste into a review thread.
-
-### One shared ritual
-
-Same command for a student building a first rover claim and for an engineer checking a refuse habit before a merge conversation.
+Soft teaching Dual. **Not** a drop-in Nav2/Gazebo plugin (yet). **Not** field MEASURED. The desk and socket exist so robotics people have a real insert point — not a lunar screenshot alone.
 
 ---
 
@@ -90,16 +87,22 @@ cd ha-production-gate
 ./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
 ```
 
-Success looks like:
+Bootstrap ends on the CI ritual (`PRODUCTION_GATE_RITUAL_PASS`). Then run the **socket**:
 
-```text
-verdict: PRODUCTION_GATE_RITUAL_PASS
-[PASS] F_dual_safe_allow_hostile_refuse
-[PASS] F_hostile_current_refuse
-…
+```bash
+ha-dual-socket --preset open_diffbot
 ```
 
-Short entry: [`START_HERE_PRODUCTION_GATE_V1.md`](START_HERE_PRODUCTION_GATE_V1.md)
+Expect `DUAL_SOCKET_PASS` and a Safe vs Hostile sinkage table.
+
+Local desk:
+
+```bash
+ha-desk
+# opens http://127.0.0.1:8765 — Run Dual on open_diffbot or upload a URDF
+```
+
+Short entry: [`START_HERE_PRODUCTION_GATE_V1.md`](START_HERE_PRODUCTION_GATE_V1.md) · method: [`docs/DUAL_REFUSE.md`](docs/DUAL_REFUSE.md)
 
 ### Manual path (same steps bootstrap runs)
 
@@ -114,7 +117,8 @@ python -m venv .venv
 # Windows: .venv\Scripts\activate
 # Unix:    source .venv/bin/activate
 pip install -e .
-ha-production-gate
+ha-dual-socket --preset open_diffbot
+ha-production-gate   # CI ritual
 ```
 
 ---
@@ -137,9 +141,25 @@ Unix CI image: `ubuntu-latest` with Python 3.12 + stable Rust (see [`.github/wor
 
 Full write-ups live under [`docs/examples/`](docs/examples/). Below are the same workflows compressed for the front page.
 
-### 1) Full Dual ritual (`lunar_scout`)
+### 1) Dual socket — ROS-shaped body or your URDF
 
-**Goal:** Prove Safe allows and Hostile refuses on the teaching lunar scout preset.
+**Goal:** Insert point for robotics — not only the lunar teaching ritual.
+
+```bash
+ha-dual-socket --preset open_diffbot
+# or
+ha-dual-socket --urdf path/to/your_robot.urdf --kind wheeled_base
+ha-desk
+```
+
+Expect `DUAL_SOCKET_PASS` and Safe vs Hostile `sinkage_mm` on the board.  
+Walkthrough: [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md)
+
+---
+
+### 2) Full Dual ritual (`lunar_scout`) — CI truth
+
+**Goal:** Prove Safe allows and Hostile refuses on the teaching lunar scout preset (CI / bootstrap).
 
 ```bash
 ./scripts/bootstrap.sh
@@ -164,7 +184,7 @@ Walkthrough: [`docs/examples/01_dual_ritual_lunar_scout.md`](docs/examples/01_du
 
 ---
 
-### 2) Read the Dual kit like a reviewer
+### 3) Read the Dual kit like a reviewer
 
 **Goal:** Open Safe vs Hostile gate fields and explain the refuse to someone else.
 
@@ -189,7 +209,7 @@ Guide: [`docs/examples/02_reading_the_kit.md`](docs/examples/02_reading_the_kit.
 
 ---
 
-### 3) Call the Rust Bekker oracle directly
+### 4) Call the Rust Bekker oracle directly
 
 **Goal:** Evaluate sinkage from the ON-grounded soil catalog without running the full ritual.
 
@@ -203,7 +223,7 @@ Guide: [`docs/examples/03_rust_physics_gate_cli.md`](docs/examples/03_rust_physi
 
 ---
 
-### 4) Stage a soft release pack
+### 5) Stage a soft release pack
 
 **Goal:** Bundle board + kit for an engineer handoff folder.
 
@@ -217,7 +237,7 @@ Guide: [`docs/examples/04_soft_release_pack.md`](docs/examples/04_soft_release_p
 
 ---
 
-### 5) Fail closed when the oracle bin is missing
+### 6) Fail closed when the oracle bin is missing
 
 **Goal:** Confirm there is no pure-Python gate fallback.
 
@@ -251,9 +271,15 @@ Guide: [`docs/examples/05_no_python_gate_fallback.md`](docs/examples/05_no_pytho
 - Kit outside the repo tree for “receipt left the workshop folder”
 - Board markdown you can paste into issues or email
 
-### Companion desk (visual)
+### Dual desk (local app)
 
-- The hero screenshot is the companion Dual desk UI — same Safe/Hostile idea. The **supported install path of this repo remains the CLI**.
+```bash
+ha-desk
+```
+
+Serves [`desk/index.html`](desk/index.html) on `127.0.0.1:8765`. Pick `open_diffbot` or upload a URDF → Run Dual. Local only.
+
+The README hero is a Dual scene still; the **supported desk path is `ha-desk`**.
 
 ---
 
@@ -263,26 +289,27 @@ Guide: [`docs/examples/05_no_python_gate_fallback.md`](docs/examples/05_no_pytho
 ha-production-gate/
 ├── crates/                         # Rust physics & attestation cores
 │   ├── ha_physics_gate/            # gate emit/validate + Bekker + thermometers
-│   ├── ha_silicon_fuse/            # C/Rust fuse path
+│   ├── ha_silicon_fuse/
 │   ├── ha_energy_ledger/
 │   ├── ha_body_identity/
 │   ├── universe_kinematic/
 │   ├── ha_artifact_law/
 │   ├── universe_scale/
 │   └── ha_iron_attestation/
-├── dogfood_platform/               # Python ritual + Dual desk glue (+ portable Clifford oracle)
-├── scripts/bootstrap.sh|.ps1       # cold-path build → install → run
+├── dogfood_platform/               # Python socket · desk server · ritual glue
+├── desk/index.html                 # Dual desk UI (served by ha-desk)
+├── scripts/bootstrap.sh|.ps1       # cold-path build → install → ritual
 ├── fixtures/                       # teaching inputs (see fixtures/README.md)
-│   ├── open_registry/              # env / terramech catalog JSON
-│   ├── open_seed/                  # materials / bind seeds
-│   └── robot/                      # lunar_scout recipes + HAL manifests
-├── results/platform_bpass/         # frozen teaching bind receipts Dual paths read
-├── results/runtime/                # gitignored — boards, kits, desk scratch from local runs
-├── docs/examples/                  # detailed walkthroughs (SAS-style)
-├── docs/assets/hero-world.png      # README hero (Dual desk)
-├── tests/                          # tiny import smoke; CI truth is ha-production-gate
+│   ├── open_registry/              # env / terramech + REGISTRY + urdf/
+│   ├── open_seed/
+│   └── robot/
+├── results/platform_bpass/         # frozen teaching bind receipts
+├── results/runtime/                # gitignored — boards, kits, BYO URDF scratch
+├── docs/examples/
+├── docs/assets/hero-world.png
+├── tests/
 ├── START_HERE_PRODUCTION_GATE_V1.md
-└── README.md                       # you are here
+└── README.md
 ```
 
 `results/platform_bpass/` stays in-tree on purpose: Dual teaching modules load moon/universe/robot bind receipts from these frozen fixtures. They are teaching receipts, not live CI outputs.
@@ -359,10 +386,10 @@ Stages `HOW_TO_RUN.md`, board, kit, and manifest under `results/runtime/release_
 ## FAQ
 
 **Is this a ROS package?**  
-No. It is a Dual physics ritual + Rust oracle. ROS/Gazebo bridges are future work.
+Not yet. Socket today: open tutorial URDF / your URDF → Dual board. ROS/Gazebo plugin bridges are future work.
 
-**Does the screenshot mean I get a GUI from this clone?**  
-The screenshot is the companion Dual desk. This repo’s supported install path is the CLI (`ha-production-gate`).
+**Is there a GUI?**  
+Yes — local only: `ha-desk` → `http://127.0.0.1:8765`. CLI twin: `ha-dual-socket`.
 
 **Is a PASS field-MEASURED?**  
 No. Soft teaching Dual. See honesty ladder: [`docs/agent_workflow/PHYSICS_OS_KERNEL_V0.md`](docs/agent_workflow/PHYSICS_OS_KERNEL_V0.md).
@@ -371,7 +398,7 @@ No. Soft teaching Dual. See honesty ladder: [`docs/agent_workflow/PHYSICS_OS_KER
 No. Missing bin fails closed.
 
 **Do I need another monorepo to run this?**  
-No. Clone this repository, bootstrap, and run `ha-production-gate`.
+No. Clone this repository, bootstrap, then `ha-dual-socket` / `ha-desk` / `ha-production-gate`.
 
 ---
 

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!-- Gazebo/ROS tutorial-class 2-DoF arm · open teaching body · not UR/ABB OEM -->
+<robot name="ros_rrbot_2dof_v1">
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.06" length="0.1"/></geometry>
+      <material name="base"><color rgba="0.4 0.4 0.45 1"/></material>
+    </visual>
+  </link>
+
+  <link name="link1">
+    <visual>
+      <origin xyz="0 0 0.2" rpy="0 0 0"/>
+      <geometry><box size="0.05 0.05 0.4"/></geometry>
+      <material name="l1"><color rgba="0.2 0.55 0.35 1"/></material>
+    </visual>
+  </link>
+  <joint name="joint1" type="revolute">
+    <parent link="base_link"/><child link="link1"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="50" velocity="2"/>
+  </joint>
+
+  <link name="link2">
+    <visual>
+      <origin xyz="0 0 0.175" rpy="0 0 0"/>
+      <geometry><box size="0.04 0.04 0.35"/></geometry>
+      <material name="l2"><color rgba="0.55 0.35 0.2 1"/></material>
+    </visual>
+  </link>
+  <joint name="joint2" type="revolute">
+    <parent link="link1"/><child link="link2"/>
+    <origin xyz="0 0 0.4" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.57" upper="1.57" effort="40" velocity="2"/>
+  </joint>
+
+  <link name="tool_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><sphere radius="0.025"/></geometry>
+      <material name="tool"><color rgba="0.8 0.2 0.2 1"/></material>
+    </visual>
+  </link>
+  <joint name="tool_joint" type="fixed">
+    <parent link="link2"/><child link="tool_link"/>
+    <origin xyz="0 0 0.35" rpy="0 0 0"/>
+  </joint>
+</robot>

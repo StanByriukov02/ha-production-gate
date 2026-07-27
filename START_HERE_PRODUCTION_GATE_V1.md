@@ -1,15 +1,19 @@
 # Start here
 
-**HA Production Gate** — Dual physics check: Safe must allow, Hostile must refuse. Rust owns the gate; Python runs the ritual.
+**HA Production Gate** — same body, two soils. Safe allow · Hostile refuse.
 
 ```bash
 ./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
+ha-dual-socket --preset open_diffbot
+# or local desk:
+ha-desk
 ```
 
-Expect `PRODUCTION_GATE_RITUAL_PASS`.
+Expect `DUAL_SOCKET_PASS`. CI ritual remains `ha-production-gate` → `PRODUCTION_GATE_RITUAL_PASS`.
 
 | Next | Open |
 |------|------|
-| Full face + TOC | [`README.md`](README.md) |
-| Example walkthroughs | [`docs/examples/`](docs/examples/) |
-| Ritual canon | [`docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md`](docs/agent_workflow/PRODUCTION_GATE_RITUAL_V1.md) |
+| Full face | [`README.md`](README.md) |
+| Socket walkthrough | [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md) |
+| Dual method | [`docs/DUAL_REFUSE.md`](docs/DUAL_REFUSE.md) |
+| Examples index | [`docs/examples/`](docs/examples/) |

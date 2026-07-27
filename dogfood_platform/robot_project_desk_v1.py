@@ -351,9 +351,14 @@ def attach_body_from_open_registry(
         chain_id=f"open_registry_{registry_id}_v1",
     )
     body = dict(doc.get("body") or {})
-    body["preset_id"] = preset_id or (
-        "open_rrbot" if registry_id == "ros_rrbot" else f"open_{registry_id}"
-    )
+    # Map registry ids → contact presets (must match body_contact_geometry_v1).
+    _REG_PRESET = {
+        "ros_rrbot": "open_rrbot",
+        "ros_diffbot": "open_diffbot",
+        "ros_skidsteer": "open_diffbot",  # wheeled_base teaching contact
+        "ros_arm4_planar": "open_rrbot",
+    }
+    body["preset_id"] = preset_id or _REG_PRESET.get(registry_id) or f"open_{registry_id}"
     body["open_registry_id"] = registry_id
     body["checks_pass"] = True
     doc["body"] = body
@@ -551,8 +556,18 @@ def attach_body_from_urdf(
     ee_link: str | None = None,
     world_id: str = "earth_lab_1g",
     label: str | None = None,
+    model_kind: str | None = None,
+    preset_id: str | None = None,
+    mass_kg: float | None = None,
+    n_contacts: float | None = None,
+    contact_width_m: float | None = None,
+    contact_length_m: float | None = None,
 ) -> dict[str, Any]:
-    """Attach a URDF as desk body (compile to chain IR). Not MEASURED / not Isaac GT."""
+    """Attach a URDF as desk body (compile to chain IR). Not MEASURED / not Isaac GT.
+
+    Optional contact_* / model_kind / preset_id feed Bekker Dual via body_contact_geometry_v1
+    so a stranger body changes sinkage — not labels only.
+    """
     import shutil
 
     from dogfood_platform.urdf_to_chain_ir_v1 import compile_urdf_to_chain_spec
@@ -613,7 +628,7 @@ def attach_body_from_urdf(
 
     bind_body_to_silicon_fuse(project_id, str(identity.get("body_sha256") or ""))
     doc = get_project(project_id)
-    doc["body"] = {
+    body: dict[str, Any] = {
         "kind": "urdf",
         "label": display,
         "world_id": world_id,
@@ -627,6 +642,19 @@ def attach_body_from_urdf(
         "summary": summary,
         "identity": identity,
     }
+    if model_kind:
+        body["model_kind"] = str(model_kind).strip().lower()
+    if preset_id:
+        body["preset_id"] = str(preset_id).strip()
+    if mass_kg is not None:
+        body["mass_kg"] = float(mass_kg)
+    if n_contacts is not None:
+        body["n_contacts"] = float(n_contacts)
+    if contact_width_m is not None:
+        body["contact_width_m"] = float(contact_width_m)
+    if contact_length_m is not None:
+        body["contact_length_m"] = float(contact_length_m)
+    doc["body"] = body
     return _save_project(doc)
 
 

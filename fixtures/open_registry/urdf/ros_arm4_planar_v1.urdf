@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!-- Open 4-DoF planar manipulator · build-here fleet · not OEM -->
+<robot name="ros_arm4_planar_v1">
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.07" length="0.1"/></geometry>
+      <material name="base"><color rgba="0.35 0.35 0.4 1"/></material>
+    </visual>
+  </link>
+  <link name="link1">
+    <visual>
+      <origin xyz="0.1 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.2 0.04 0.04"/></geometry>
+      <material name="l1"><color rgba="0.2 0.55 0.4 1"/></material>
+    </visual>
+  </link>
+  <joint name="joint1" type="revolute">
+    <parent link="base_link"/><child link="link1"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="40" velocity="2"/>
+  </joint>
+  <link name="link2">
+    <visual>
+      <origin xyz="0.09 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.18 0.035 0.035"/></geometry>
+      <material name="l2"><color rgba="0.55 0.4 0.2 1"/></material>
+    </visual>
+  </link>
+  <joint name="joint2" type="revolute">
+    <parent link="link1"/><child link="link2"/>
+    <origin xyz="0.2 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.5" upper="2.5" effort="30" velocity="2"/>
+  </joint>
+  <link name="link3">
+    <visual>
+      <origin xyz="0.07 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.14 0.03 0.03"/></geometry>
+      <material name="l3"><color rgba="0.3 0.45 0.55 1"/></material>
+    </visual>
+  </link>
+  <joint name="joint3" type="revolute">
+    <parent link="link2"/><child link="link3"/>
+    <origin xyz="0.18 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.5" upper="2.5" effort="20" velocity="2.5"/>
+  </joint>
+  <link name="ee_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><sphere radius="0.02"/></geometry>
+      <material name="ee"><color rgba="0.8 0.2 0.2 1"/></material>
+    </visual>
+  </link>
+  <joint name="joint4" type="revolute">
+    <parent link="link3"/><child link="ee_link"/>
+    <origin xyz="0.14 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="10" velocity="3"/>
+  </joint>
+</robot>

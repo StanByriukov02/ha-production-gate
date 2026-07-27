@@ -25,11 +25,18 @@ cd ha-production-gate
 
 Expect `PRODUCTION_GATE_RITUAL_PASS`. Board + examples: [`examples/`](examples/).
 
-**Physics tip (sinkage):** same `lunar_scout` under Moon `g` — Safe firm proxy ~5 mm ALLOW · Hostile soft proxy ~136 mm REFUSE (traverse cap 18 mm). Table + frozen JSON: [`examples/06_sinkage_dual_bench.md`](examples/06_sinkage_dual_bench.md).
+**Robotics socket (preferred stranger entry):**
+
+```bash
+ha-dual-socket --preset open_diffbot
+ha-desk
+```
+
+**Physics tip (sinkage, lunar teaching ritual):** same `lunar_scout` under Moon `g` — Safe firm proxy ~5 mm ALLOW · Hostile soft proxy ~136 mm REFUSE. Table: [`examples/06_sinkage_dual_bench.md`](examples/06_sinkage_dual_bench.md).
 
 ## Honesty
 
-Soft teaching Dual · not field MEASURED · not HIL · not OTP · seal flag on receipt ≠ TPM · CLI ritual (README desk image is companion visual only).
+Soft teaching Dual · not field MEASURED · not HIL · not OTP · seal flag on receipt ≠ TPM · socket + desk are local teaching tools (not a Gazebo/ROS plugin yet).
 
 ## Falsifiers
 

@@ -10,6 +10,7 @@ Detailed walkthroughs for HA Production Gate — same spirit as a skills-repo �
 | 04 | [Soft release pack](04_soft_release_pack.md) | Stage handoff folder |
 | 05 | [No Python gate fallback](05_no_python_gate_fallback.md) | Fail closed without Rust bin |
 | 06 | [Sinkage Dual bench](06_sinkage_dual_bench.md) | Safe ~5 mm vs Hostile ~136 mm + gate bits |
+| 07 | [Dual socket](07_dual_socket.md) | `open_diffbot` / your URDF → Dual board |
 | — | [Board sample](PRODUCTION_GATE_BOARD_SAMPLE.md) | Example PASS board |
 | — | [Frozen bench JSON](sinkage_dual_bench_lunar_scout_v1.json) | Numbers from a PASS ritual |
 
