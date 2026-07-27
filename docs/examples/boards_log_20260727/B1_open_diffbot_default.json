@@ -1,0 +1,63 @@
+{
+  "schema": "ha_dual_socket_v1",
+  "proof_tier": "DUAL_SOCKET_SLICE",
+  "timestamp_utc": "2026-07-27T16:43:04.313892+00:00",
+  "verdict": "DUAL_SOCKET_PASS",
+  "body": {
+    "mode": "preset",
+    "preset": "open_diffbot",
+    "world_id": "earth_lab_open"
+  },
+  "contact": {
+    "mass_kg": 48.0,
+    "n_contacts": 4.0,
+    "contact_width_m": 0.055,
+    "contact_length_m": 0.09,
+    "contact_area_m2": 0.019799999999999998,
+    "source": "preset:open_diffbot",
+    "owned": false,
+    "ground_pressure_kpa": 23.781818181818185,
+    "contact_width_b_m": 0.055
+  },
+  "soils": {
+    "safe_id": "firm_lab",
+    "hostile_id": "soft_hostile",
+    "owned_path": null,
+    "catalog": null
+  },
+  "safe": {
+    "soil_id": "firm_lab",
+    "sinkage_mm": 8.72,
+    "sinkage_risk": false,
+    "drawbar_pull_n": 304.071,
+    "traverse_feasible": true,
+    "physics_pass": true,
+    "current_allowed": true,
+    "g_mps2": 9.81,
+    "ground_pressure_kpa": 23.781818181818185,
+    "contact_width_b_m": 0.055,
+    "contact_area_m2": 0.019799999999999998
+  },
+  "hostile": {
+    "soil_id": "soft_hostile",
+    "sinkage_mm": 84.986,
+    "sinkage_risk": true,
+    "drawbar_pull_n": 97.087,
+    "traverse_feasible": false,
+    "physics_pass": false,
+    "current_allowed": false,
+    "g_mps2": 9.81,
+    "ground_pressure_kpa": 23.781818181818185,
+    "contact_width_b_m": 0.055,
+    "contact_area_m2": 0.019799999999999998
+  },
+  "dual_ok": true,
+  "honesty": {
+    "soft_teaching": true,
+    "not_measured": true,
+    "not_gazebo_plugin": true,
+    "not_ros_package_yet": true,
+    "socket": "URDF|open preset + optional owned soils \u2192 Dual Bekker refuse",
+    "owned_soils": false
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schema": "ha_dual_boards_log_v1",
+  "frozen_utc": "2026-07-27T16:44:03.525517+00:00",
+  "count": 5,
+  "boards": [
+    {
+      "file": "B1_open_diffbot_default.json",
+      "verdict": "DUAL_SOCKET_PASS",
+      "body": {
+        "mode": "preset",
+        "preset": "open_diffbot",
+        "world_id": "earth_lab_open"
+      },
+      "safe_soil": "firm_lab",
+      "safe_mm": 8.72,
+      "hostile_soil": "soft_hostile",
+      "hostile_mm": 84.986,
+      "safe_pass": true
+    },
+    {
+      "file": "B2_skid_owned_08.json",
+      "verdict": "DUAL_SOCKET_PASS",
+      "body": {
+        "mode": "urdf",
+        "urdf": "fixtures/open_registry/urdf/ros_skidsteer_v1.urdf",
+        "world_id": "earth_lab_open",
+        "model_kind": "wheeled_base",
+        "owned_soils": {
+          "path": "C:\\Users\\dammi\\ha-production-gate\\fixtures\\open_registry\\terramech\\dual_owned_soils_skidsteer_v1.json",
+          "safe": "skid_firm_owned",
+          "hostile": "skid_soft_owned",
+          "g_mps2": 9.81,
+          "catalog": "C:\\Users\\dammi\\ha-production-gate\\results\\runtime\\owned_soils\\owned_bekker_catalog_v1.json"
+        }
+      },
+      "safe_soil": "skid_firm_owned",
+      "safe_mm": 9.546,
+      "hostile_soil": "skid_soft_owned",
+      "hostile_mm": 69.118,
+      "safe_pass": true
+    },
+    {
+      "file": "B3_fetch_fail_09.json",
+      "verdict": "DUAL_SOCKET_FAIL",
+      "body": {
+        "mode": "urdf",
+        "urdf": "fixtures/open_registry/urdf/_external/fetch.urdf",
+        "world_id": "earth_lab_open",
+        "model_kind": "wheeled_base",
+        "owned_soils": {
+          "path": "C:\\Users\\dammi\\ha-production-gate\\fixtures\\open_registry\\terramech\\dual_owned_soils_fetch_v1.json",
+          "safe": "fetch_firm_owned",
+          "hostile": "fetch_soft_owned",
+          "g_mps2": 9.81,
+          "catalog": "C:\\Users\\dammi\\ha-production-gate\\results\\runtime\\owned_soils\\owned_bekker_catalog_v1.json"
+        }
+      },
+      "safe_soil": "fetch_firm_owned",
+      "safe_mm": 36.982,
+      "hostile_soil": "fetch_soft_owned",
+      "hostile_mm": 700.643,
+      "safe_pass": false
+    },
+    {
+      "file": "B4_diffbot_embedded_owned.json",
+      "verdict": "DUAL_SOCKET_PASS",
+      "body": {
+        "mode": "preset",
+        "preset": "open_diffbot",
+        "world_id": "earth_lab_open",
+        "owned_soils": {
+          "path": "C:\\Users\\dammi\\ha-production-gate\\fixtures\\open_registry\\terramech\\dual_owned_soils_embedded_v1.json",
+          "safe": "my_firm",
+          "hostile": "my_soft",
+          "g_mps2": 9.81,
+          "catalog": "C:\\Users\\dammi\\ha-production-gate\\results\\runtime\\owned_soils\\owned_bekker_catalog_v1.json"
+        }
+      },
+      "safe_soil": "my_firm",
+      "safe_mm": 8.72,
+      "hostile_soil": "my_soft",
+      "hostile_mm": 84.986,
+      "safe_pass": true
+    },
+    {
+      "file": "B5_diffbot_skid_soils.json",
+      "verdict": "DUAL_SOCKET_PASS",
+      "body": {
+        "mode": "preset",
+        "preset": "open_diffbot",
+        "world_id": "earth_lab_open",
+        "owned_soils": {
+          "path": "C:\\Users\\dammi\\ha-production-gate\\fixtures\\open_registry\\terramech\\dual_owned_soils_skidsteer_v1.json",
+          "safe": "skid_firm_owned",
+          "hostile": "skid_soft_owned",
+          "g_mps2": 9.81,
+          "catalog": "C:\\Users\\dammi\\ha-production-gate\\results\\runtime\\owned_soils\\owned_bekker_catalog_v1.json"
+        }
+      },
+      "safe_soil": "skid_firm_owned",
+      "safe_mm": 9.546,
+      "hostile_soil": "skid_soft_owned",
+      "hostile_mm": 69.118,
+      "safe_pass": true
+    }
+  ],
+  "rule": "PASS not required \u2014 FAIL boards count as truth before hardware"
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "ha_dual_socket_v1",
+  "proof_tier": "DUAL_SOCKET_SLICE",
+  "timestamp_utc": "2026-07-27T16:43:28.743802+00:00",
+  "verdict": "DUAL_SOCKET_FAIL",
+  "body": {
+    "mode": "urdf",
+    "urdf": "fixtures/open_registry/urdf/_external/fetch.urdf",
+    "world_id": "earth_lab_open",
+    "model_kind": "wheeled_base",
+    "owned_soils": {
+      "path": "C:\\Users\\dammi\\ha-production-gate\\fixtures\\open_registry\\terramech\\dual_owned_soils_fetch_v1.json",
+      "safe": "fetch_firm_owned",
+      "hostile": "fetch_soft_owned",
+      "g_mps2": 9.81,
+      "catalog": "C:\\Users\\dammi\\ha-production-gate\\results\\runtime\\owned_soils\\owned_bekker_catalog_v1.json"
+    }
+  },
+  "contact": {
+    "mass_kg": 95.0,
+    "n_contacts": 2.0,
+    "contact_width_m": 0.1,
+    "contact_length_m": 0.05,
+    "contact_area_m2": 0.010000000000000002,
+    "source": "kind:wheeled_base+override+override+override+override",
+    "owned": true,
+    "ground_pressure_kpa": 93.19499999999998,
+    "contact_width_b_m": 0.1
+  },
+  "soils": {
+    "safe_id": "fetch_firm_owned",
+    "hostile_id": "fetch_soft_owned",
+    "owned_path": "C:\\Users\\dammi\\ha-production-gate\\fixtures\\open_registry\\terramech\\dual_owned_soils_fetch_v1.json",
+    "catalog": "C:\\Users\\dammi\\ha-production-gate\\results\\runtime\\owned_soils\\owned_bekker_catalog_v1.json"
+  },
+  "safe": {
+    "soil_id": "fetch_firm_owned",
+    "sinkage_mm": 36.982,
+    "sinkage_risk": true,
+    "drawbar_pull_n": 543.38,
+    "traverse_feasible": false,
+    "physics_pass": false,
+    "current_allowed": false,
+    "g_mps2": 9.81,
+    "ground_pressure_kpa": 93.19499999999998,
+    "contact_width_b_m": 0.1,
+    "contact_area_m2": 0.010000000000000002
+  },
+  "hostile": {
+    "soil_id": "fetch_soft_owned",
+    "sinkage_mm": 700.643,
+    "sinkage_risk": true,
+    "drawbar_pull_n": 170.862,
+    "traverse_feasible": false,
+    "physics_pass": false,
+    "current_allowed": false,
+    "g_mps2": 9.81,
+    "ground_pressure_kpa": 93.19499999999998,
+    "contact_width_b_m": 0.1,
+    "contact_area_m2": 0.010000000000000002
+  },
+  "dual_ok": false,
+  "honesty": {
+    "soft_teaching": true,
+    "not_measured": true,
+    "not_gazebo_plugin": true,
+    "not_ros_package_yet": true,
+    "socket": "URDF|open preset + optional owned soils \u2192 Dual Bekker refuse",
+    "owned_soils": true
+  }
+}
