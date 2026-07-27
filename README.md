@@ -8,20 +8,30 @@
 
 **Production Gate**
 
-Same robot body. Two soils. **Safe must allow. Hostile must refuse.**
+Fail mobility claims that only look green on **firm soil**.
 
-Not a Gazebo plugin yet. Not a ROS package yet. A **socket** you can run today: open ROS tutorial body or **your URDF** → Dual Bekker board (Rust oracle).
+Same URDF body · two soils · **Safe must allow · Hostile must refuse** · Rust Bekker oracle · board you can paste.
 
 ```bash
-./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
+./scripts/bootstrap.sh          # needs Rust — builds physics bins (not pip-only yet)
 ha-dual-socket --preset open_diffbot
-# or
-ha-desk                         # local Dual desk → http://127.0.0.1:8765
+# → DUAL_SOCKET_PASS · Safe sinkage_mm vs Hostile sinkage_mm
+ha-desk                         # local UI · http://127.0.0.1:8765
 ```
 
+Not a Gazebo plugin. Not a ROS package. A **referee** you can run on an open diffbot or your URDF today.
+
 <p align="center">
-  <img src="docs/assets/hero-world.png" alt="Dual desk — Safe vs Hostile sinkage">
+  <img src="docs/assets/hero-world.png" alt="Dual — Safe vs Hostile sinkage">
 </p>
+
+**Taste (what you should see):**
+
+```text
+verdict: DUAL_SOCKET_PASS
+Safe     soil=firm_lab       sinkage_mm=8.72   pass=True  allowed=True
+Hostile  soil=soft_hostile   sinkage_mm=84.99  pass=False allowed=False
+```
 
 ---
 
@@ -61,21 +71,26 @@ ha-desk                         # local Dual desk → http://127.0.0.1:8765
 
 ## Why use this
 
-### Catch “always green” physics claims
+### You get a number, not a sermon
 
-A stack that only ever runs in a friendly world can look healthy forever. Dual forces a condition change: Hostile must burn.
+Safe vs Hostile **sinkage_mm** + gate bits on a body you chose. Paste the board into a review. Soft teaching — not field MEASURED.
 
-### Start from a body you recognize
+### Catch “always green” mobility stories
 
-`open_diffbot` is a ROS tutorial-class wheeled base. Or pass `--urdf` with contact kind overrides. Teaching geometry — not MEASURED CAD inertia.
+A traverse claim that only ever ran on firm soil can look healthy forever. Hostile must refuse.
 
-### Keep the oracle out of soft-mint scripts
+### Speak robotics entry, not only lunar ritual
 
-Gate bits come from **Rust** (`ha-physics-gate`). Missing bin → fail closed.
+`open_diffbot` is a ROS tutorial-class base. Or `--urdf your.urdf`. CI still uses `ha-production-gate` (`lunar_scout`) as the full falsifier ritual.
 
-### Honest scope
+### Honest scope (read this)
 
-Soft teaching Dual. **Not** a drop-in Nav2/Gazebo plugin (yet). **Not** field MEASURED. The desk and socket exist so robotics people have a real insert point — not a lunar screenshot alone.
+| This is | This is not |
+|---------|-------------|
+| Dual Bekker referee + local desk | Gazebo / Chrono soil plugin |
+| URDF → board | Nav2 node / `ros2 launch` stack |
+| Teaching contact geometry | MEASURED CAD inertia / flight soil ID |
+| Rust oracle, fail-closed | Pure-Python soft PASS |
 
 ---
 
