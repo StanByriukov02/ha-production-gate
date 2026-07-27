@@ -26,6 +26,8 @@ from typing import Any
 _REPO = Path(__file__).resolve().parents[1]
 _SOILS = _REPO / "fixtures" / "open_registry" / "terramech" / "bekker_soils_on_v1.json"
 _BIN_STEM = "ha-physics-gate"
+# Process-wide catalog for owned Dual runs (embeds call physics_row_for_dual without catalog=).
+_CATALOG_OVERRIDE: Path | None = None
 
 PROOF_TIER = "TERRAMECH_BEKKER_ON_SLICE"
 ORACLE = "ha_physics_gate_bekker"
@@ -74,8 +76,20 @@ def find_ha_physics_gate_bin() -> Path:
     )
 
 
+def set_bekker_catalog_override(path: Path | None) -> Path | None:
+    """Set/clear process catalog override. Returns previous path."""
+    global _CATALOG_OVERRIDE
+    prev = _CATALOG_OVERRIDE
+    _CATALOG_OVERRIDE = path.resolve() if path is not None else None
+    return prev
+
+
+def active_bekker_catalog() -> Path:
+    return _CATALOG_OVERRIDE or _SOILS
+
+
 def load_bekker_catalog(path: Path | None = None) -> dict[str, Any]:
-    p = path or _SOILS
+    p = path or active_bekker_catalog()
     return json.loads(p.read_text(encoding="utf-8"))
 
 
@@ -103,7 +117,7 @@ def evaluate_soil(
         catalog_path = Path(tmp_f.name)
         tmp = catalog_path
     else:
-        catalog_path = _SOILS
+        catalog_path = active_bekker_catalog()
         tmp = None
 
     args = [
@@ -153,7 +167,7 @@ def evaluate_pressure_from_z(
 ) -> dict[str, Any]:
     """Rust Bekker p(z) — inverse of evaluate_soil z(p)."""
     bin_path = find_ha_physics_gate_bin()
-    catalog_path = catalog or _SOILS
+    catalog_path = catalog or active_bekker_catalog()
     args = [
         str(bin_path),
         "bekker-from-z",
@@ -190,10 +204,12 @@ def physics_row_for_dual(
     ground_pressure_kpa: float | None = None,
     contact_width_b_m: float | None = None,
     contact_area_m2: float | None = None,
+    catalog: dict[str, Any] | Path | None = None,
 ) -> dict[str, Any]:
     """Shape expected by Newton-X Dual probe — Bekker + shear + drawbar from Rust."""
     ev = evaluate_soil(
         soil_id,
+        catalog=catalog,
         ground_pressure_kpa=ground_pressure_kpa,
         contact_width_b_m=contact_width_b_m,
         contact_area_m2=contact_area_m2,

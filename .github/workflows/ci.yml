@@ -37,6 +37,13 @@ jobs:
           PYTHONIOENCODING: utf-8
         run: ha-dual-socket --preset open_diffbot
 
+      - name: Dual socket owned soils
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          ha-dual-socket --preset open_diffbot \
+            --soils fixtures/open_registry/terramech/dual_owned_soils_embedded_v1.json
+
       - name: Production Gate ritual (CI falsifiers)
         env:
           PYTHONIOENCODING: utf-8

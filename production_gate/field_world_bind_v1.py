@@ -93,7 +93,16 @@ def physics_pair_for_field(
     from production_gate.terramech_bekker_on_v1 import physics_row_for_dual
 
     lane = dual_soils_for(globe=globe, world_id=world_id, field_bind=field_bind)
+    if isinstance(field_bind, dict) and field_bind.get("g_mps2") is not None:
+        lane["g_mps2"] = float(field_bind["g_mps2"])
     g = float(lane["g_mps2"])
+    catalog = None
+    if isinstance(field_bind, dict):
+        raw_cat = field_bind.get("bekker_catalog") or field_bind.get("catalog")
+        if raw_cat:
+            catalog = Path(str(raw_cat))
+            if not catalog.is_file():
+                raise FileNotFoundError(f"bekker_catalog not found: {catalog}")
     contact = contact_from_body(body)
     load = bekker_load_from_contact(contact, g_mps2=g)
     p_kpa = float(load["ground_pressure_kpa"])
@@ -105,6 +114,7 @@ def physics_pair_for_field(
         ground_pressure_kpa=p_kpa,
         contact_width_b_m=b_m,
         contact_area_m2=area_m2,
+        catalog=catalog,
     )
     hostile = physics_row_for_dual(
         str(lane["hostile_soil_id"]),
@@ -112,6 +122,7 @@ def physics_pair_for_field(
         ground_pressure_kpa=p_kpa,
         contact_width_b_m=b_m,
         contact_area_m2=area_m2,
+        catalog=catalog,
     )
     # E2: Earth globe attaches Terzaghi + wind Dual (not lunar theater alone).
     from production_gate.earth_lane_embed_v1 import attach_earth_lane_to_physics, is_earth_globe

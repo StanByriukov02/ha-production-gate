@@ -27,6 +27,21 @@ def test_open_registry_diffbot_urdf_present() -> None:
     assert urdf.is_file()
 
 
+def test_owned_soils_loader() -> None:
+    from pathlib import Path
+
+    from production_gate.dual_owned_soils_v1 import SCHEMA, load_owned_soils
+
+    root = Path(__file__).resolve().parents[1]
+    pack = load_owned_soils(
+        root / "fixtures" / "open_registry" / "terramech" / "dual_owned_soils_embedded_v1.json"
+    )
+    assert pack["schema"] == SCHEMA
+    assert pack["safe_soil_id"] == "my_firm"
+    assert pack["hostile_soil_id"] == "my_soft"
+    assert pack["contact"]["mass_kg"] == 48.0
+
+
 def test_ensure_bins_platform_id() -> None:
     from production_gate import ensure_bins_v1 as eb
 
@@ -34,3 +49,4 @@ def test_ensure_bins_platform_id() -> None:
     assert "-" in pid
     assert eb.asset_name().startswith("ha-bins-")
     assert callable(eb.main)
+

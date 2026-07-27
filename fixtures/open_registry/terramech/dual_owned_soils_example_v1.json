@@ -1,0 +1,18 @@
+{
+  "schema": "ha_dual_owned_soils_v1",
+  "label": "Example owned Dual — teaching anchors with explicit contact",
+  "g_mps2": 9.81,
+  "safe": "firm_lab",
+  "hostile": "soft_hostile",
+  "contact": {
+    "mass_kg": 48.0,
+    "n_contacts": 4.0,
+    "contact_width_m": 0.055,
+    "contact_length_m": 0.09
+  },
+  "honesty": {
+    "not_measured": true,
+    "owned_by_stranger": true,
+    "note": "Ids resolve against default Bekker catalog — replace safe/hostile or embed soils{} with your Bevameter-class numbers"
+  }
+}

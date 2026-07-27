@@ -1,0 +1,55 @@
+# Copy-paste Dual CI bit for your repo (or keep as reference).
+# Job: fail the PR unless Safe ALLOW + Hostile REFUSE on the body you care about.
+#
+# Usage in your robotics repo:
+#   1. pip install ha-production-gate  (or git+https://github.com/StanByriukov02/ha-production-gate.git)
+#   2. put your URDF + dual_owned_soils JSON in the repo
+#   3. point --urdf / --soils at those paths
+#
+# This workflow also runs inside ha-production-gate CI as the owned-soils proof.
+
+name: dual-socket
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  dual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Production Gate
+        run: pip install -e .
+
+      - name: Build Bekker oracle
+        run: cargo build -p ha_physics_gate --release
+
+      - name: Dual socket — open_diffbot + owned soils
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          ha-dual-socket \
+            --preset open_diffbot \
+            --soils fixtures/open_registry/terramech/dual_owned_soils_example_v1.json
+
+      - name: Dual socket — embedded owned soils
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          ha-dual-socket \
+            --preset open_diffbot \
+            --soils fixtures/open_registry/terramech/dual_owned_soils_embedded_v1.json

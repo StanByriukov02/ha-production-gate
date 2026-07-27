@@ -19,6 +19,8 @@ python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\act
 pip install -e .
 ha-ensure-bins                 # download Dual bins (no Cargo) — or cargo fallback via bootstrap
 ha-dual-socket --preset open_diffbot
+ha-dual-socket --preset open_diffbot \
+  --soils fixtures/open_registry/terramech/dual_owned_soils_embedded_v1.json
 ha-desk                        # http://127.0.0.1:8765
 ```
 

@@ -1,0 +1,52 @@
+{
+  "schema": "ha_dual_owned_soils_v1",
+  "label": "Owned Dual with embedded soils (edit these numbers)",
+  "g_mps2": 9.81,
+  "safe": "my_firm",
+  "hostile": "my_soft",
+  "soils": {
+    "my_firm": {
+      "label": "My firm (edit me)",
+      "role": "owned_safe",
+      "n": 1.0,
+      "kc": 40.0,
+      "k_phi": 2000.0,
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 3.0,
+        "phi_deg": 30.0,
+        "K_m": 0.02,
+        "j_m_default": 0.05,
+        "note": "owned teaching shear — not MEASURED"
+      },
+      "note": "owned Safe — replace with your numbers"
+    },
+    "my_soft": {
+      "label": "My soft hostile (edit me)",
+      "role": "owned_hostile",
+      "n": 0.8,
+      "kc": 5.0,
+      "k_phi": 80.0,
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 0.5,
+        "phi_deg": 15.0,
+        "K_m": 0.04,
+        "j_m_default": 0.05,
+        "note": "owned teaching shear — not MEASURED"
+      },
+      "note": "owned Hostile — replace with your numbers"
+    }
+  },
+  "contact": {
+    "mass_kg": 48.0,
+    "n_contacts": 4.0,
+    "contact_width_m": 0.055,
+    "contact_length_m": 0.09
+  },
+  "honesty": {
+    "not_measured": true,
+    "owned_by_stranger": true,
+    "note": "Embedded soils merge into the Bekker catalog for Rust oracle eval"
+  }
+}
