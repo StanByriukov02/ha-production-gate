@@ -10,40 +10,44 @@
 
 Fail mobility claims that only look green on **firm soil**.
 
-Same URDF body · two soils · **Safe must allow · Hostile must refuse** · Rust Bekker oracle · board you can paste.
+Same body · two soils · **Safe must allow · Hostile must refuse** · Rust Bekker oracle.
+
+### Worked example — open skid-steer + owned soils
+
+Not our teaching defaults (`firm_lab` / `soft_hostile`). Soil ids you control.
+
+| Lane | Soil | sinkage_mm | Gate |
+|------|------|------------|------|
+| Safe | `skid_firm_owned` | **9.546** | ALLOW |
+| Hostile | `skid_soft_owned` | **69.118** | REFUSE |
+
+```bash
+pip install -e .
+ha-ensure-bins
+ha-dual-socket \
+  --urdf fixtures/open_registry/urdf/ros_skidsteer_v1.urdf \
+  --kind wheeled_base \
+  --soils fixtures/open_registry/terramech/dual_owned_soils_skidsteer_v1.json
+```
+
+Reproduce · frozen JSON: [`docs/examples/08_stranger_urdf_owned_soils.md`](docs/examples/08_stranger_urdf_owned_soils.md)
+
+<p align="center">
+  <img src="docs/assets/hero-dual-socket.svg" alt="Dual socket — Safe allow · Hostile refuse" width="960">
+</p>
 
 ```bash
 git clone https://github.com/StanByriukov02/ha-production-gate.git
 cd ha-production-gate
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -e .
-ha-ensure-bins                 # download Dual bins (no Cargo) — or cargo fallback via bootstrap
-ha-dual-socket --preset open_diffbot
-ha-dual-socket --preset open_diffbot \
-  --soils fixtures/open_registry/terramech/dual_owned_soils_embedded_v1.json
-ha-desk                        # http://127.0.0.1:8765
+ha-ensure-bins
+ha-desk                        # optional · http://127.0.0.1:8765
 ```
 
-One-shot scripts (prebuilt bins preferred, Cargo only if download misses):
+`open_diffbot` preset: `ha-dual-socket --preset open_diffbot` · bootstrap: `./scripts/bootstrap.sh` · Docker: `docker compose run --rm dual`
 
-```bash
-./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
-docker compose run --rm dual    # after image build
-```
-
-Not a Gazebo plugin. Not a ROS package. A **referee** on open_diffbot or your URDF.
-
-<p align="center">
-  <img src="docs/assets/hero-dual-socket.svg" alt="Dual socket — Safe 8.72 mm allow · Hostile 84.99 mm refuse" width="960">
-</p>
-
-**Taste (what `ha-dual-socket` should print):**
-
-```text
-verdict: DUAL_SOCKET_PASS
-Safe     soil=firm_lab       sinkage_mm=8.72   pass=True  allowed=True
-Hostile  soil=soft_hostile   sinkage_mm=84.99  pass=False allowed=False
-```
+Not a Gazebo plugin. Not a ROS package. A **referee** on an open URDF — or yours.
 
 ---
 
@@ -59,7 +63,7 @@ Hostile  soil=soft_hostile   sinkage_mm=84.99  pass=False allowed=False
 | **Docker** | `docker compose run --rm dual` |
 | **Rust oracle** | `ha-physics-gate` Bekker + thermometers (prebuilt or cargo) |
 | **Open bodies** | `fixtures/open_registry/urdf/` — diffbot / rrbot / skidsteer / arm4 |
-| **Examples** | [`docs/examples/`](docs/examples/) — ritual, kit, **socket**, sinkage bench |
+| **Examples** | [`docs/examples/`](docs/examples/) — **08 stranger Dual**, socket, sinkage bench, ritual |
 
 ---
 
@@ -182,19 +186,18 @@ Unix CI image: `ubuntu-latest` with Python 3.12 + stable Rust (see [`.github/wor
 
 Full write-ups live under [`docs/examples/`](docs/examples/). Below are the same workflows compressed for the front page.
 
-### 1) Dual socket — ROS-shaped body or your URDF
+### 1) Dual socket — stranger body + owned soils
 
-**Goal:** Insert point for robotics — not only the lunar teaching ritual.
+**Goal:** Your URDF (or open skid-steer) · soil ids you own · Safe ALLOW / Hostile REFUSE.
 
 ```bash
-ha-dual-socket --preset open_diffbot
-# or
-ha-dual-socket --urdf path/to/your_robot.urdf --kind wheeled_base
-ha-desk
+ha-dual-socket \
+  --urdf fixtures/open_registry/urdf/ros_skidsteer_v1.urdf \
+  --kind wheeled_base \
+  --soils fixtures/open_registry/terramech/dual_owned_soils_skidsteer_v1.json
 ```
 
-Expect `DUAL_SOCKET_PASS` and Safe vs Hostile `sinkage_mm` on the board.  
-Walkthrough: [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md) · stranger proof: [`docs/examples/08_stranger_urdf_owned_soils.md`](docs/examples/08_stranger_urdf_owned_soils.md)
+Walkthrough: [`docs/examples/08_stranger_urdf_owned_soils.md`](docs/examples/08_stranger_urdf_owned_soils.md) · socket API: [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md)
 
 ---
 
