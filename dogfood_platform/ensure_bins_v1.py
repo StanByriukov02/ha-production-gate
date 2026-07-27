@@ -197,7 +197,7 @@ def main(argv: list[str] | None = None) -> int:
         if doc.get("ok") and doc.get("action") == "already_present":
             print(f"bins already present under {doc.get('out_dir')} ({doc.get('platform')})")
         elif doc.get("ok"):
-            print(f"downloaded {doc.get('platform')} bins → {doc.get('out_dir')}")
+            print(f"downloaded {doc.get('platform')} bins -> {doc.get('out_dir')}")
             print("extracted:", ", ".join(doc.get("extracted") or []))
         else:
             print(f"ensure-bins FAILED ({doc.get('error')})", file=sys.stderr)
