@@ -1,0 +1,154 @@
+{
+  "playbench_id": "lunar_robot_material_playbench_v1",
+  "playbench_version": 4,
+  "focus": "robot_subsystem_material_physics_combinations",
+  "world_oracle": "W_regolith_robot_v0",
+  "registry": "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json",
+  "articulation_bind": "results/platform_bpass/moon/ROBOT_ARTICULATION_BIND_v1.json",
+  "dust_bind": "results/platform_bpass/moon/DUST_INGRESS_BIND_v1.json",
+  "terramech_bind": "results/platform_bpass/moon/ROBOT_TERRAMECH_CORPUS_BIND_v1.json",
+  "wear_crown": "CXX_DUAL_EVAL_RAIL",
+  "iron_tier": "IRON_SIM_MMIO",
+  "robot_subsystems": {
+    "frame": {
+      "material_id": "al_6061_t6_extrusion",
+      "bind": "ROBOT_MATERIALS_REGISTRY_v1.materials.frame"
+    },
+    "wheel_tread": {
+      "variants": ["pu_ester_shore_70a", "pu_ester_shore_90a", "pu_ester_shore_95a"],
+      "bind": "registry.material_variants.wheel_tread"
+    },
+    "wheel_bearing": {
+      "material_id": "ss_440c_sealed_deep_groove",
+      "joint_tier": "wheel_bearing",
+      "bind": "ROBOT_ARTICULATION_BIND_v1"
+    },
+    "joint_seal_physics": {
+      "classes": ["B1", "B2", "B3", "B4", "B5"],
+      "bind": "DUST_INGRESS_BIND_v1"
+    },
+    "env_enclosure_seal": {
+      "classes": ["B1", "B2", "B3"],
+      "slot": "ROBOT_ENV_DUST_SEAL_CLASS",
+      "note": "dual slot — LSIC labyrinth vs articulation lip seal"
+    },
+    "joint_tiers": {
+      "hip_actuator": {"default_seal": "B2", "label": "primary_actuator_gap"},
+      "wrist_joint": {"default_seal": "B3", "label": "secondary_articulation"},
+      "wheel_bearing": {"default_seal": "B2", "label": "wheel_hub_seal"},
+      "reducer_slot": {"default_seal": "B4", "label": "gearbox_ingress_path"}
+    }
+  },
+  "nominal_chassis": {
+    "label": "IFT-2 R1 registry anchor",
+    "rover_mass_kg": 50.0,
+    "wheel_diameter_cm": 20.0,
+    "wheel_width_cm": 8.0,
+    "n_wheels": 4,
+    "frame_material_id": "al_6061_t6_extrusion",
+    "wheel_bearing_material_id": "ss_440c_sealed_deep_groove"
+  },
+  "subsystem_axes": {
+    "tread_profile": [null, "pu_shore_70a", "pu_shore_95a"],
+    "traverse_seal_class": ["B1", "B2", "B3", "B4", "B5"],
+    "joint_tier": ["hip_actuator", "wrist_joint", "wheel_bearing", "reducer_slot"],
+    "joint_seal_override": [null, "B1", "B5"],
+    "env_seal_class": ["B1", "B2", "B3"],
+    "bearing_class": ["LOOSE", "MEDIUM", "DENSE"],
+    "zone": ["massif_traverse", "rim_sun", "psr_floor"]
+  },
+  "smoke_axes": {
+    "tread_profile": [null, "pu_shore_70a"],
+    "traverse_seal_class": ["B1", "B5"],
+    "joint_tier": ["hip_actuator", "reducer_slot"],
+    "joint_seal_override": [null],
+    "env_seal_class": ["B2"],
+    "bearing_class": ["MEDIUM"],
+    "zone": ["massif_traverse"]
+  },
+  "quick_axes": {
+    "tread_profile": [null, "pu_shore_70a", "pu_shore_95a"],
+    "traverse_seal_class": ["B1", "B3", "B5"],
+    "joint_tier": ["hip_actuator", "reducer_slot"],
+    "joint_seal_override": [null],
+    "env_seal_class": ["B1", "B2"],
+    "bearing_class": ["LOOSE", "MEDIUM"],
+    "zone": ["massif_traverse", "psr_floor"]
+  },
+  "load_envelopes": {
+    "traverse_nominal": {
+      "label": "Nominal traverse 416 m · 30 sol mission proxy",
+      "step_m": 416.67,
+      "mission_sols": 30.0,
+      "meters_per_sol": 100.0,
+      "duty_on": 0.5,
+      "nand2_n_tr": 4.0,
+      "cleaning_duty": 0.25
+    },
+    "excavator_disturb": {
+      "label": "ISRU disturb · high duty short leg",
+      "step_m": 25.0,
+      "mission_sols": 20.0,
+      "meters_per_sol": 50.0,
+      "duty_on": 0.78,
+      "nand2_n_tr": 8.0,
+      "cleaning_duty": 0.1
+    },
+    "psr_patrol": {
+      "label": "PSR patrol · low cleaning duty",
+      "step_m": 200.0,
+      "mission_sols": 40.0,
+      "meters_per_sol": 80.0,
+      "duty_on": 0.4,
+      "nand2_n_tr": 4.0,
+      "cleaning_duty": 0.05,
+      "zone_override": "psr_floor"
+    },
+    "rim_climb": {
+      "label": "Rim sun climb · photoemission loft zone",
+      "step_m": 120.0,
+      "mission_sols": 25.0,
+      "meters_per_sol": 60.0,
+      "duty_on": 0.62,
+      "nand2_n_tr": 5.5,
+      "cleaning_duty": 0.2,
+      "zone_override": "rim_sun"
+    },
+    "construct_sustained": {
+      "label": "Construct sustained · 72 MHz class duty",
+      "step_m": 50.0,
+      "mission_sols": 35.0,
+      "meters_per_sol": 40.0,
+      "duty_on": 0.72,
+      "nand2_n_tr": 6.0,
+      "cleaning_duty": 0.15
+    }
+  },
+  "smoke_loads": ["traverse_nominal"],
+  "quick_loads": ["traverse_nominal", "excavator_disturb"],
+  "full_loads": ["traverse_nominal", "excavator_disturb", "psr_patrol", "rim_climb", "construct_sustained"],
+  "scenarios_fixture": "fixtures/robot/lunar_robot_material_scenarios_v1.json",
+  "physics_chain_layers": [
+    "L0_terramech_sinkage_bearing",
+    "L1_tread_contact_patch",
+    "L2_traverse_dust_seal",
+    "L3_joint_tier_articulation",
+    "L4_env_enclosure_seal",
+    "L5_mission_dust_accumulation",
+    "L6_abrasion_stress_mult",
+    "L7_combined_ingress",
+    "L8_radiation_vth",
+    "L9_cxx_wear_crown"
+  ],
+  "t5_floor": 10.0,
+  "honesty": {
+    "sim_not_measured": true,
+    "cxx_crown_not_python": true,
+    "iron_sim_mmio": true,
+    "subsystem_parts_from_registry": true,
+    "dual_seal_slot_documented": true,
+    "cited_bind_physics_chain": true,
+    "teaching_playbench": true
+  },
+  "tabu": "claim field Shackleton verified · robot archetype census · product_ready"
+}

@@ -1,7 +1,7 @@
 {
   "zone_table_id": "robot_material_zone_table_v1",
   "parent_bind": "results/platform_bpass/moon/DUST_INGRESS_BIND_v1.json",
-  "harness_module": "dogfood_platform.lunar_dust_ingress_v1",
+  "harness_module": "production_gate.lunar_dust_ingress_v1",
   "zones": {
     "rim_sun": {
       "site_zone": "rim_sun",

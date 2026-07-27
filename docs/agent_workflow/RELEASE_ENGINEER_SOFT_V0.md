@@ -18,7 +18,7 @@ Command: `ha-production-gate` · pack: `results/runtime/release_engineer/LATEST/
 ## Build the pack
 
 ```text
-python -m dogfood_platform.release_engineer_pack_v1
+python -m production_gate.release_engineer_pack_v1
 # or after pip install -e .
 ha-release-engineer
 ```

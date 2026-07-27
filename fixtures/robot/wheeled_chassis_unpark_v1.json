@@ -1,7 +1,7 @@
 {
   "unpark_id": "wheeled_chassis_unpark_v1",
   "motion_bus": "wheeled_chassis_compose",
-  "operator_priority": "DOGFOOD_ACTIVE",
+  "operator_priority": "GATE_ACTIVE",
   "honesty": {
     "not_lunar_north_star": true,
     "earth_carrier_only": true

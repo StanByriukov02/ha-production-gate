@@ -9,7 +9,7 @@
     "results/platform_bpass/moon/VACUUM_RADIATIVE_BC_BIND_v1.json",
     "results/platform_bpass/moon/THERMAL_TRANSIENT_BIND_v1.json"
   ],
-  "integrator": "dogfood_platform.universe_env_thermal_column_v1.step_column_implicit_1d",
+  "integrator": "production_gate.universe_env_thermal_column_v1.step_column_implicit_1d",
   "ephemeris": {
     "primary": "JPL_HORIZONS_API",
     "fallback": "THERMAL_TRANSIENT_BIND_lunar_half_period_h + SITE_GEOMETRY_illumination"

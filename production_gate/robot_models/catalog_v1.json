@@ -1,0 +1,93 @@
+{
+  "schema": "ha_robot_models_catalog_v1",
+  "status": "OPEN_DEMO_SLICE",
+  "honesty": [
+    "not MEASURED",
+    "not product_ready",
+    "not full digital twin",
+    "soft stub != OTP",
+    "sim_slice bodies for engineer entry",
+    "World pane: URDF primitive body viewer + teaching sinkage demo",
+    "STL/DAE mesh files are stub boxes — not Isaac GT"
+  ],
+  "principle": "install → list/resolve → simulate/attach before iron",
+  "models": [
+    {
+      "id": "lc2_bench_1dof_v1",
+      "name": "LC-2 hip qual bench (1 DoF)",
+      "kind": "bench",
+      "urdf": "urdf/lc2_bench_1dof_v1.urdf",
+      "root_link": "base_link",
+      "ee_link": "hip_output_link",
+      "dof": 1,
+      "twin_hint": "gate_twin_urdf_a4_v1",
+      "what_changes": "project body identity + chain desk_urdf_lc2_bench… · World pane stays sinkage teaching"
+    },
+    {
+      "id": "hexapod_leg_3dof_v1",
+      "name": "Hexapod leg (3 DoF)",
+      "kind": "appendage",
+      "urdf": "urdf/hexapod_leg_3dof_v1.urdf",
+      "root_link": "body_mount",
+      "ee_link": "foot_link",
+      "dof": 3,
+      "twin_hint": "appendage_urdf_create_v1",
+      "what_changes": "3-DoF leg chain · root body_mount · ee foot_link"
+    },
+    {
+      "id": "gripper_parallel_1dof_v1",
+      "name": "Parallel gripper (1 DoF)",
+      "kind": "end_effector",
+      "urdf": "urdf/gripper_parallel_1dof_v1.urdf",
+      "root_link": "gripper_base_link",
+      "ee_link": "finger_link",
+      "dof": 1,
+      "twin_hint": null,
+      "what_changes": "gripper chain · root gripper_base_link"
+    },
+    {
+      "id": "head_neck_pan_tilt_v1",
+      "name": "Head / neck pan-tilt",
+      "kind": "appendage",
+      "urdf": "urdf/head_neck_pan_tilt_v1.urdf",
+      "root_link": "neck_base_link",
+      "ee_link": "sensor_mount_link",
+      "dof": 2,
+      "twin_hint": null,
+      "what_changes": "pan/tilt neck · ee sensor_mount_link"
+    },
+    {
+      "id": "torso_spine_2dof_v1",
+      "name": "Torso spine (2 DoF)",
+      "kind": "appendage",
+      "urdf": "urdf/torso_spine_2dof_v1.urdf",
+      "root_link": "pelvis_link",
+      "ee_link": "chest_mount_link",
+      "dof": 2,
+      "twin_hint": null,
+      "what_changes": "spine yaw/pitch · root pelvis_link"
+    },
+    {
+      "id": "prismatic_slide_v1",
+      "name": "Prismatic slide",
+      "kind": "appendage",
+      "urdf": "urdf/prismatic_slide_v1.urdf",
+      "root_link": "base_link",
+      "ee_link": "slide_link",
+      "dof": 1,
+      "twin_hint": null,
+      "what_changes": "prismatic joint · ee slide_link"
+    },
+    {
+      "id": "lc2_combat_carrier_4wd_v1",
+      "name": "LC-2 combat carrier 4WD",
+      "kind": "chassis",
+      "urdf": "urdf/lc2_combat_carrier_4wd_v1.urdf",
+      "root_link": "base_link",
+      "ee_link": "wheel_fl_link",
+      "dof": 1,
+      "twin_hint": "gate_twin_robot_chassis_r1_bind_v1",
+      "what_changes": "4WD chassis · serial slice uses one continuous wheel (FL); not full branched 4-DoF FK"
+    }
+  ]
+}

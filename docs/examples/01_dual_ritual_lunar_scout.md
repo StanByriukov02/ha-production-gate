@@ -9,7 +9,7 @@ Run the Production Gate end-to-end and obtain `PRODUCTION_GATE_RITUAL_PASS` with
 - CLI: `ha-production-gate`
 - Preset body: `lunar_scout`
 - Oracle: Rust `ha-physics-gate`
-- Glue: `dogfood_platform/prove_production_gate_ritual_v1.py`
+- Glue: `production_gate/prove_production_gate_ritual_v1.py`
 
 ## Steps
 

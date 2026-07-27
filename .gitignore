@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 target/
-dogfood_platform.egg-info/
+production_gate.egg-info/
 *.egg-info/
 results/runtime/
 .DS_Store

@@ -17,6 +17,6 @@
     "reduction_vs_unshielded_dose_equivalent_pct": 35.0,
     "reduction_vs_unshielded_absorbed_pct": 25.0
   },
-  "harness_module": "dogfood_platform.lunar_radiation_shield_v1",
+  "harness_module": "production_gate.lunar_radiation_shield_v1",
   "falsifier": "SPE dose PASS below 4 g/cm2 row; GCR must remain WEAK_SHIELD above 10 g/cm2 SPE band"
 }

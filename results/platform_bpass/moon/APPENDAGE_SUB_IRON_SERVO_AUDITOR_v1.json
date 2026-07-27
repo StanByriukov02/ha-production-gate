@@ -6,43 +6,43 @@
   "findings": [
     {
       "severity": "MEDIUM",
-      "file": "dogfood_platform/robot_appendage_foc_firmware_hil_slice_gate_v1.py",
+      "file": "production_gate/robot_appendage_foc_firmware_hil_slice_gate_v1.py",
       "line": 25,
       "detail": "FOC firmware HIL gate receipt lacks honesty block (structural/teaching/not_rt_servo/not_field_verified). Verdict PASS could be misread as iron FOC closure; smoke only checks file/linker/QEMU structural presence."
     },
     {
       "severity": "MEDIUM",
-      "file": "dogfood_platform/robot_appendage_field_calibration_slice_gate_v1.py",
+      "file": "production_gate/robot_appendage_field_calibration_slice_gate_v1.py",
       "line": 25,
       "detail": "Field calibration gate receipt has no honesty tier. Unlike phase-P calibration gate (TEACHING/not_field_verified), S-phase PASS omits teaching-vs-iron disclosure despite FIELD_CALIBRATION_TEACHING_CYCLE oracle and v0 fixture tabu."
     },
     {
       "severity": "MEDIUM",
-      "file": "dogfood_platform/robot_multi_appendage_field_servo_slice_gate_v1.py",
+      "file": "production_gate/robot_multi_appendage_field_servo_slice_gate_v1.py",
       "line": 16,
       "detail": "Multi-appendage field servo gate receipt omits honesty and deferred_ids. AD_IRON_HIL_PHASE_LOCK is enforced only inside smoke checks, not propagated to moon receipt per plan rule that PASS phases carry known gaps."
     },
     {
       "severity": "MEDIUM",
-      "file": "dogfood_platform/appendage_foc_firmware_hil_v1.py",
+      "file": "production_gate/appendage_foc_firmware_hil_v1.py",
       "line": 57,
       "detail": "F_memory_map_match falsifier is computed then unconditionally overwritten with mmap map_id only, weakening iron-HAL cross-bind verification theater risk in structural HIL receipt."
     },
     {
       "severity": "LOW",
-      "file": "dogfood_platform/appendage_field_calibration_cycle_v1.py",
+      "file": "production_gate/appendage_field_calibration_cycle_v1.py",
       "line": 35,
       "detail": "q_meas is synthesized from q_cmd and teaching_backlash_rad fixture truth, not encoder/iron contact measurement. Pipeline receipt converges to teaching oracle; honest in module docstring but 'field' naming is receipt-tier theater without gate honesty."
     },
     {
       "severity": "LOW",
-      "file": "dogfood_platform/multi_appendage_field_servo_v1.py",
+      "file": "production_gate/multi_appendage_field_servo_v1.py",
       "line": 91,
       "detail": "Shared servo_tick index only; per-appendage dt diverges (dt_sim 5ms vs dt_iron 50us). F_dt_diverge check documents gap; no cross-stack MMIO phase sync — correctly deferred AD_IRON_HIL_PHASE_LOCK."
     },
     {
       "severity": "LOW",
-      "file": "dogfood_platform/appendage_foc_rt_loop_v1.py",
+      "file": "production_gate/appendage_foc_rt_loop_v1.py",
       "line": 47,
       "detail": "FOC RT burst is Python for-loop over ManipulatorLc2IronHal.tick_foc_isr, not hardware kHz ISR. Module/gate label teaching_proxy_not_flight_servo; burst payload lacks explicit not_rt_servo flag."
     }

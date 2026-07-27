@@ -45,7 +45,7 @@
       "reads": ["primary_phase", "subsystem_status", "cryo_service_temp_k"],
       "writes": ["permeation_phi", "permeation_m_dot_kg_s", "thermal_stress_mv"],
       "bind": "results/platform_bpass/universe/ROCKET_ENGINE_ENV_SEED_v1.json",
-      "runner": "dogfood_platform.world_rocket_v0",
+      "runner": "production_gate.world_rocket_v0",
       "gate": "P4"
     }
   },

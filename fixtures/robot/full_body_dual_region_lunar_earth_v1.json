@@ -9,7 +9,7 @@
     {"region_id": "torso", "role": "torso_spine", "chain_id": "torso_spine_2dof_v1", "proof_tier": "TORSO_SPINE_MECHANICAL_SLICE", "operator_priority": "P1", "lunar_north_star": true},
     {"region_id": "arm", "role": "manipulator_arm", "chain_id": "lunar_manipulator_chain_scout_3dof_v1", "proof_tier": "APPENDAGE_KINEMATICS_OS_SLICE", "operator_priority": "P0", "lunar_north_star": true},
     {"region_id": "hexapod", "role": "locomotion_leg", "compose": "hexapod_body", "leg_count": 6, "proof_tier": "HEXAPOD_BODY_COMPOSE_SLICE", "operator_priority": "P0", "lunar_north_star": true},
-    {"region_id": "earth_carrier", "role": "wheel_axle", "compose": "wheeled_chassis", "proof_tier": "WHEELED_CHASSIS_UNPARK_SLICE", "operator_priority": "DOGFOOD_ACTIVE", "lunar_north_star": false}
+    {"region_id": "earth_carrier", "role": "wheel_axle", "compose": "wheeled_chassis", "proof_tier": "WHEELED_CHASSIS_UNPARK_SLICE", "operator_priority": "GATE_ACTIVE", "lunar_north_star": false}
   ],
   "deferred_ids": ["AF_WIZARD_UI", "MEASURED_ROLLING_SLIP", "MEASURED_IRON_MMIO_PHASE_SYNC"]
 }

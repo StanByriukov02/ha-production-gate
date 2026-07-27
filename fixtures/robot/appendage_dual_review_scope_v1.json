@@ -17,16 +17,16 @@
     "docs/agent_workflow/APPENDAGE_DUAL_REVIEW_MODES_V1.md",
     "fixtures/robot/kinematic_chain_ir_v0.json",
     "results/platform_bpass/robot/kinematic_chain_ir_patch_v1.json",
-    "dogfood_platform/kinematic_chain_ir_v1.py",
-    "dogfood_platform/urdf_to_chain_ir_v1.py",
+    "production_gate/kinematic_chain_ir_v1.py",
+    "production_gate/urdf_to_chain_ir_v1.py",
     "crates/universe_kinematic/src/serial_chain_se3.rs",
-    "dogfood_platform/se3_planar_parity_v1.py",
-    "dogfood_platform/hexapod_gait_bus_v1.py",
-    "dogfood_platform/hexapod_foot_contact_v1.py",
-    "dogfood_platform/appendage_registry_persist_v1.py"
+    "production_gate/se3_planar_parity_v1.py",
+    "production_gate/hexapod_gait_bus_v1.py",
+    "production_gate/hexapod_foot_contact_v1.py",
+    "production_gate/appendage_registry_persist_v1.py"
   ],
   "pytest_glob": "tests/test_appendage_os_*.py",
-  "factory_gate": "dogfood_platform/robot_appendage_os_factory_signoff_v1.py",
+  "factory_gate": "production_gate/robot_appendage_os_factory_signoff_v1.py",
   "tabu": [
     "product_ready without receipt",
     "silent canon edit of kinematic_chain_ir_v0.json",

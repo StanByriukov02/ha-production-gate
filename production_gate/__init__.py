@@ -1,0 +1,34 @@
+"""Production Gate — fidelity · receipts · scheduler shell."""
+
+# HARD (win32): block console-flash children process-wide before any spawn path.
+from production_gate.win_hidden_subprocess_v1 import (  # noqa: E402
+    install_global_no_console_flash,
+)
+
+install_global_no_console_flash()
+
+from production_gate.fidelity import (
+    EpsilonSlot,
+    FidelityContract,
+    PhysicsHop,
+    RegionTag,
+    w0_default_contract,
+)
+from production_gate.receipts import ExperimentReceipt, ReceiptStore
+from production_gate.scheduler import ChainRun, SchedulerShell, StageSpec
+from production_gate.stages_w0 import w0_default_workload, w0_mock_stage_specs
+
+__all__ = [
+    "ChainRun",
+    "EpsilonSlot",
+    "ExperimentReceipt",
+    "FidelityContract",
+    "PhysicsHop",
+    "ReceiptStore",
+    "RegionTag",
+    "SchedulerShell",
+    "StageSpec",
+    "w0_default_contract",
+    "w0_default_workload",
+    "w0_mock_stage_specs",
+]

@@ -46,6 +46,6 @@
     "psr_gradient_multiplier_2_4km": 3.0,
     "cite": ["GOOSSENS-L0-01", "GOOSSENS-L0-02", "GOOSSENS-L0-04", "GOOSSENS-L0-05"]
   },
-  "harness_module": "dogfood_platform.lunar_site_burial_v1",
+  "harness_module": "production_gate.lunar_site_burial_v1",
   "falsifier": "thickness sweep lc2→habitat must monotonically increase areal column and thermal_index"
 }

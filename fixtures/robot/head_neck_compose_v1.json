@@ -1,7 +1,7 @@
 {
   "compose_id": "head_neck_compose_v1",
   "chain_id": "head_neck_pan_tilt_v1",
-  "urdf": "dogfood_platform/robot_models/urdf/head_neck_pan_tilt_v1.urdf",
+  "urdf": "production_gate/robot_models/urdf/head_neck_pan_tilt_v1.urdf",
   "root_link": "neck_base_link",
   "ee_frame": "sensor_mount_link",
   "appendage_role": "head_neck",

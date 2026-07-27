@@ -29,9 +29,9 @@
     "on_manifold": "boolean"
   },
   "engine_truth": {
-    "reference_impl": "dogfood_platform/lie_integrator_port_v1.py",
+    "reference_impl": "production_gate/lie_integrator_port_v1.py",
     "rust_spike": "crates/universe_kinematic/src/cga_rotor3.rs",
-    "motor_compose": "dogfood_platform/slam_se3_motor_v1.py"
+    "motor_compose": "production_gate/slam_se3_motor_v1.py"
   },
   "tabu": "claim Newton-X symplectic platform shipped · claim MEASURED robot · forced normalize as production path"
 }

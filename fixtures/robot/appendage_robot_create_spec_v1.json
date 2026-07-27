@@ -18,6 +18,6 @@
   ],
   "emit": {
     "compose_fixture": "fixtures/robot/appendage_robot_compose_v1.json",
-    "factory_gate": "dogfood_platform.robot_appendage_os_factory_signoff_v1"
+    "factory_gate": "production_gate.robot_appendage_os_factory_signoff_v1"
   }
 }

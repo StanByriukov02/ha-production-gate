@@ -42,6 +42,6 @@
     "adapt_closure": "GAP_MR_11_ADAPT_CLOSURE_v1.json",
     "falsifier": "KLS-1 @30mm must fall inside LOOSE or MEDIUM q_c_30mm_kPa_band; must diverge from Li-only row at same depth"
   },
-  "harness_module": "dogfood_platform.lunar_regolith_bearing_v1",
+  "harness_module": "production_gate.lunar_regolith_bearing_v1",
   "source_slug": "intake-c2-kim-jass-kls"
 }

@@ -25,6 +25,6 @@
     "note": "low Sun at Shackleton-class rim — not noon equator flux; steady T at rim_effective K"
   },
   "model": "q_net_bind = epsilon*sigma*(T_surf^4 - T_sky^4) - (1-albedo)*S*illum_frac*oblique_scale; q_in_surface = -q_net_bind",
-  "harness_module": "dogfood_platform.lunar_thermal_l5_v1",
+  "harness_module": "production_gate.lunar_thermal_l5_v1",
   "falsifier": "rim radiative q_net > psr q_net at matched emissivity; albedo branch changes effective swing"
 }

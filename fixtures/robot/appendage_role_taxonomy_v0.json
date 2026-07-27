@@ -41,7 +41,7 @@
     },
     "wheel_axle": {
       "body_region": "locomotion",
-      "operator_priority": "DOGFOOD_ACTIVE",
+      "operator_priority": "GATE_ACTIVE",
       "lunar_north_star": false,
       "note": "Earth bench carrier · terramech/material bus — not lunar scout locomotion",
       "typical_dof": [1],
@@ -89,41 +89,41 @@
   },
   "motion_buses": {
     "appendage_stack_integrator": {
-      "module": "dogfood_platform/appendage_stack_integrator_v1.py",
+      "module": "production_gate/appendage_stack_integrator_v1.py",
       "status": "PASS",
       "roles": ["manipulator_arm", "gripper_tool", "torso_spine", "bench_joint"]
     },
     "hexapod_gait_bus": {
-      "module": "dogfood_platform/hexapod_gait_bus_v1.py",
+      "module": "production_gate/hexapod_gait_bus_v1.py",
       "status": "PASS",
       "roles": ["locomotion_leg"]
     },
     "hexapod_body_compose": {
-      "module": "dogfood_platform/hexapod_body_compose_v1.py",
+      "module": "production_gate/hexapod_body_compose_v1.py",
       "status": "PASS",
       "roles": ["locomotion_leg"]
     },
     "wheeled_chassis_compose": {
-      "module": "dogfood_platform/wheeled_chassis_compose_v1.py",
+      "module": "production_gate/wheeled_chassis_compose_v1.py",
       "status": "PASS",
       "target_phase": "BA",
-      "operator_priority": "DOGFOOD_ACTIVE",
+      "operator_priority": "GATE_ACTIVE",
       "roles": ["wheel_axle"]
     },
     "pan_tilt_bus": {
-      "module": "dogfood_platform/head_neck_pan_tilt_v1.py",
+      "module": "production_gate/head_neck_pan_tilt_v1.py",
       "status": "PASS",
       "target_phase": "AM",
       "roles": ["head_neck"]
     },
     "biped_gait_bus": {
-      "module": "dogfood_platform/biped_leg_compose_v1.py",
+      "module": "production_gate/biped_leg_compose_v1.py",
       "status": "PASS",
       "target_phase": "AN",
       "roles": ["locomotion_leg"]
     },
     "terramech_wheel_locomotion": {
-      "module": "dogfood_platform/lunar_wheel_locomotion_v1.py",
+      "module": "production_gate/lunar_wheel_locomotion_v1.py",
       "status": "PASS",
       "roles": ["wheel_axle"],
       "note": "physics sinkage/ingress — not joint-space rolling crown yet"

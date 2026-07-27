@@ -6,7 +6,7 @@
   "appendages": [
     {
       "appendage_id": "leg_0",
-      "urdf": "dogfood_platform/robot_models/urdf/hexapod_leg_3dof_v1.urdf",
+      "urdf": "production_gate/robot_models/urdf/hexapod_leg_3dof_v1.urdf",
       "root_link": "body_mount",
       "ee_link": "foot_link",
       "chain_id": "hexapod_leg_from_urdf_v1",
@@ -17,6 +17,6 @@
     }
   ],
   "emit": {
-    "factory_gate": "dogfood_platform.robot_appendage_os_factory_signoff_v1"
+    "factory_gate": "production_gate.robot_appendage_os_factory_signoff_v1"
   }
 }

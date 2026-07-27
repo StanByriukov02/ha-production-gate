@@ -28,18 +28,18 @@ Homepage = "https://github.com/StanByriukov02/ha-production-gate"
 Issues = "https://github.com/StanByriukov02/ha-production-gate/issues"
 
 [project.scripts]
-ha-ensure-bins = "dogfood_platform.ensure_bins_v1:main"
-ha-production-gate = "dogfood_platform.prove_production_gate_ritual_v1:main"
-ha-dual-socket = "dogfood_platform.dual_socket_v1:main"
-ha-desk = "dogfood_platform.desk_app_v1:main"
-ha-release-engineer = "dogfood_platform.release_engineer_pack_v1:main"
+ha-ensure-bins = "production_gate.ensure_bins_v1:main"
+ha-production-gate = "production_gate.prove_production_gate_ritual_v1:main"
+ha-dual-socket = "production_gate.dual_socket_v1:main"
+ha-desk = "production_gate.desk_app_v1:main"
+ha-release-engineer = "production_gate.release_engineer_pack_v1:main"
 
 [tool.setuptools.packages.find]
-include = ["dogfood_platform*"]
+include = ["production_gate*"]
 exclude = ["tests*", "results*", "scratch*"]
 
 [tool.setuptools.package-data]
-dogfood_platform = ["py.typed", "robot_models/*.json", "robot_models/urdf/*.urdf"]
+production_gate = ["py.typed", "robot_models/*.json", "robot_models/urdf/*.urdf"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

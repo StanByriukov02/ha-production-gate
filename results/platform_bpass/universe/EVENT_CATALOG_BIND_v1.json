@@ -39,7 +39,7 @@
         "chip_fet",
         "chip_wear"
       ],
-      "backend": "dogfood_platform.lunar_radiation_fet_v1",
+      "backend": "production_gate.lunar_radiation_fet_v1",
       "driver_vector": {
         "solar": 0.0,
         "vacuum_thermal": 1.0,
@@ -74,7 +74,7 @@
       "coupling_targets": [
         "chip_fet"
       ],
-      "backend": "dogfood_platform.lunar_radiation_fet_v1",
+      "backend": "production_gate.lunar_radiation_fet_v1",
       "driver_vector": {
         "solar": 0.2,
         "vacuum_thermal": 0.8,
@@ -104,7 +104,7 @@
       "coupling_targets": [
         "chip_wear"
       ],
-      "backend": "dogfood_platform.exp_m4_01",
+      "backend": "production_gate.exp_m4_01",
       "driver_vector": {
         "solar": 0.0,
         "vacuum_thermal": 0.5,
@@ -135,7 +135,7 @@
         "panel_dut",
         "regolith_coupon"
       ],
-      "backend": "dogfood_platform.lunar_dust_ingress_v1",
+      "backend": "production_gate.lunar_dust_ingress_v1",
       "driver_vector": {
         "solar": 0.3,
         "vacuum_thermal": 0.0,
@@ -167,7 +167,7 @@
         "chip_wear",
         "habitat_thermal"
       ],
-      "backend": "dogfood_platform.lunar_regolith_thermal_v1",
+      "backend": "production_gate.lunar_regolith_thermal_v1",
       "driver_vector": {
         "solar": 0.0,
         "vacuum_thermal": 1.0,
@@ -198,7 +198,7 @@
       "coupling_targets": [
         "chip_fet"
       ],
-      "backend": "dogfood_platform.exp_m1_02_negf_tile_v1",
+      "backend": "production_gate.exp_m1_02_negf_tile_v1",
       "driver_vector": {
         "solar": 0.0,
         "vacuum_thermal": 0.3,
@@ -227,7 +227,7 @@
       "coupling_targets": [
         "chip_fet"
       ],
-      "backend": "dogfood_platform.exp_m1_03_seed_bank_v1",
+      "backend": "production_gate.exp_m1_03_seed_bank_v1",
       "driver_vector": {
         "solar": 0.0,
         "vacuum_thermal": 0.0,
@@ -256,7 +256,7 @@
       "coupling_targets": [
         "panel_dut"
       ],
-      "backend": "dogfood_platform.arena.eds_2r_sense_v1",
+      "backend": "production_gate.arena.eds_2r_sense_v1",
       "driver_vector": {
         "solar": 0.1,
         "vacuum_thermal": 0.0,
@@ -286,7 +286,7 @@
       "coupling_targets": [
         "robot_wheel"
       ],
-      "backend": "dogfood_platform.lunar_wheel_locomotion_v1",
+      "backend": "production_gate.lunar_wheel_locomotion_v1",
       "driver_vector": {
         "solar": 0.1,
         "vacuum_thermal": 0.0,
@@ -317,7 +317,7 @@
       "coupling_targets": [
         "robot_joint"
       ],
-      "backend": "dogfood_platform.lunar_robot_articulation_v1",
+      "backend": "production_gate.lunar_robot_articulation_v1",
       "driver_vector": {
         "solar": 0.2,
         "vacuum_thermal": 0.0,
@@ -348,7 +348,7 @@
       "coupling_targets": [
         "panel_dut"
       ],
-      "backend": "dogfood_platform.chamber.chamber_dust_coupon_v1",
+      "backend": "production_gate.chamber.chamber_dust_coupon_v1",
       "driver_vector": {
         "solar": 0.5,
         "vacuum_thermal": 0.3,
@@ -380,7 +380,7 @@
         "panel_dut",
         "regolith_coupon"
       ],
-      "backend": "dogfood_platform.arena.eds_2r_transport_v1",
+      "backend": "production_gate.arena.eds_2r_transport_v1",
       "driver_vector": {
         "solar": 0.2,
         "vacuum_thermal": 0.0,
@@ -412,7 +412,7 @@
         "habitat_thermal",
         "panel_dut"
       ],
-      "backend": "dogfood_platform.lunar_thermal_l5_v1",
+      "backend": "production_gate.lunar_thermal_l5_v1",
       "driver_vector": {
         "solar": 0.8,
         "vacuum_thermal": 0.9,
@@ -443,7 +443,7 @@
       "coupling_targets": [
         "robot_wheel"
       ],
-      "backend": "dogfood_platform.lunar_regolith_bearing_v1",
+      "backend": "production_gate.lunar_regolith_bearing_v1",
       "driver_vector": {
         "solar": 0.0,
         "vacuum_thermal": 0.2,
@@ -474,7 +474,7 @@
       "coupling_targets": [
         "habitat_thermal"
       ],
-      "backend": "dogfood_platform.lunar_psr_thermal_column_v1",
+      "backend": "production_gate.lunar_psr_thermal_column_v1",
       "driver_vector": {
         "solar": 0.0,
         "vacuum_thermal": 1.0,
@@ -505,7 +505,7 @@
       "coupling_targets": [
         "panel_dut"
       ],
-      "backend": "dogfood_platform.arena.maxwell_g1_v1",
+      "backend": "production_gate.arena.maxwell_g1_v1",
       "driver_vector": {
         "solar": 0.0,
         "vacuum_thermal": 0.0,
@@ -537,7 +537,7 @@
         "robot_joint",
         "chip_wear"
       ],
-      "backend": "dogfood_platform.world_regolith_robot_v0",
+      "backend": "production_gate.world_regolith_robot_v0",
       "driver_vector": {
         "solar": 0.3,
         "vacuum_thermal": 0.2,
@@ -575,7 +575,7 @@
         "habitat_thermal",
         "robot_joint"
       ],
-      "backend": "dogfood_platform.world_moon_shackleton_v1",
+      "backend": "production_gate.world_moon_shackleton_v1",
       "driver_vector": {
         "solar": 0.4,
         "vacuum_thermal": 0.5,
@@ -609,7 +609,7 @@
         "habitat_thermal",
         "chip_fet"
       ],
-      "backend": "dogfood_platform.lunar_thermal_l5_v1",
+      "backend": "production_gate.lunar_thermal_l5_v1",
       "driver_vector": {
         "solar": 1.0,
         "vacuum_thermal": 0.6,
@@ -641,7 +641,7 @@
         "panel_dut",
         "regolith_coupon"
       ],
-      "backend": "dogfood_platform.world_chamber_v0",
+      "backend": "production_gate.world_chamber_v0",
       "driver_vector": {
         "solar": 0.4,
         "vacuum_thermal": 1.0,
@@ -673,7 +673,7 @@
         "chip_wear",
         "habitat_thermal"
       ],
-      "backend": "dogfood_platform.lunar_lc2_duty_bind_v1",
+      "backend": "production_gate.lunar_lc2_duty_bind_v1",
       "driver_vector": {
         "solar": 0.5,
         "vacuum_thermal": 0.7,
@@ -705,7 +705,7 @@
         "panel_dut",
         "regolith_coupon"
       ],
-      "backend": "dogfood_platform.world_arena_w1_v1",
+      "backend": "production_gate.world_arena_w1_v1",
       "driver_vector": {
         "solar": 0.5,
         "vacuum_thermal": 0.4,
@@ -737,7 +737,7 @@
         "habitat_thermal",
         "robot_wheel"
       ],
-      "backend": "dogfood_platform.lunar_site_burial_v1",
+      "backend": "production_gate.lunar_site_burial_v1",
       "driver_vector": {
         "solar": 0.2,
         "vacuum_thermal": 0.6,
@@ -769,7 +769,7 @@
         "chip_wear",
         "chip_fet"
       ],
-      "backend": "dogfood_platform.universe_kernel_v1",
+      "backend": "production_gate.universe_kernel_v1",
       "driver_vector": {
         "solar": 0.0,
         "vacuum_thermal": 0.3,
@@ -799,7 +799,7 @@
         "panel_dut",
         "habitat_thermal"
       ],
-      "backend": "dogfood_platform.lunar_micrometeoroid_threat_v1",
+      "backend": "production_gate.lunar_micrometeoroid_threat_v1",
       "driver_vector": {
         "solar": 0.0,
         "vacuum_thermal": 0.0,
@@ -831,7 +831,7 @@
         "chip_fet",
         "chip_wear"
       ],
-      "backend": "dogfood_platform.lunar_radiation_shield_v1",
+      "backend": "production_gate.lunar_radiation_shield_v1",
       "driver_vector": {
         "solar": 1.0,
         "vacuum_thermal": 0.2,
@@ -862,7 +862,7 @@
       "coupling_targets": [
         "chip_fet"
       ],
-      "backend": "dogfood_platform.lunar_radiation_proxy_v1",
+      "backend": "production_gate.lunar_radiation_proxy_v1",
       "driver_vector": {
         "solar": 0.1,
         "vacuum_thermal": 0.0,
@@ -893,7 +893,7 @@
         "habitat_thermal",
         "panel_dut"
       ],
-      "backend": "dogfood_platform.lunar_thermal_l5_v1",
+      "backend": "production_gate.lunar_thermal_l5_v1",
       "driver_vector": {
         "solar": 0.9,
         "vacuum_thermal": 1.0,
@@ -926,7 +926,7 @@
         "chip_fet",
         "habitat_thermal"
       ],
-      "backend": "dogfood_platform.lunar_thermal_l5_v1",
+      "backend": "production_gate.lunar_thermal_l5_v1",
       "driver_vector": {
         "solar": 1.0,
         "vacuum_thermal": 0.8,
@@ -957,7 +957,7 @@
         "robot_joint",
         "chip_wear"
       ],
-      "backend": "dogfood_platform.universe_backend_native_v1",
+      "backend": "production_gate.universe_backend_native_v1",
       "driver_vector": {
         "solar": 0.0,
         "vacuum_thermal": 0.0,
@@ -989,7 +989,7 @@
         "chip_fet",
         "chip_wear"
       ],
-      "backend": "dogfood_platform.universe_kernel_v1",
+      "backend": "production_gate.universe_kernel_v1",
       "driver_vector": {
         "solar": 0.0,
         "vacuum_thermal": 0.0,
@@ -1022,7 +1022,7 @@
         "robot_wheel",
         "chip_wear"
       ],
-      "backend": "dogfood_platform.world_regolith_robot_v0",
+      "backend": "production_gate.world_regolith_robot_v0",
       "driver_vector": {
         "solar": 0.4,
         "vacuum_thermal": 0.3,
@@ -1055,7 +1055,7 @@
       "scale_class": "macro",
       "law_id": "L_AERO_ACOUSTIC",
       "coupling_targets": [],
-      "backend": "dogfood_platform.rocket_ascent_load_v1",
+      "backend": "production_gate.rocket_ascent_load_v1",
       "driver_vector": {
         "atmosphere": 1.0,
         "acoustic": 1.0,
@@ -1086,6 +1086,6 @@
     "stratify_by_scale": true,
     "seed_canon": "UNIVERSE_EVENT_CAMPAIGN_v1"
   },
-  "harness_module": "dogfood_platform.universe_event_sampler_v1",
+  "harness_module": "production_gate.universe_event_sampler_v1",
   "falsifier": "each scale_class represented · event applies within typical_numbers band · coupling target receives epsilon"
 }

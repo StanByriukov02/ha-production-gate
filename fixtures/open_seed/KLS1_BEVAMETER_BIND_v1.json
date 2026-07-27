@@ -36,6 +36,6 @@
     "plate_70mm": 28.5,
     "plate_75mm": 29.2
   },
-  "harness_module": "dogfood_platform.lunar_regolith_bearing_v1",
+  "harness_module": "production_gate.lunar_regolith_bearing_v1",
   "source_slug": "intake-c2-kim-jass-kls"
 }

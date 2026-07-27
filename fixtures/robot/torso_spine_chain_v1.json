@@ -1,6 +1,6 @@
 {
   "chain_id": "torso_spine_2dof_v1",
-  "urdf": "dogfood_platform/robot_models/urdf/torso_spine_2dof_v1.urdf",
+  "urdf": "production_gate/robot_models/urdf/torso_spine_2dof_v1.urdf",
   "root_link": "pelvis_link",
   "ee_frame": "chest_mount_link",
   "appendage_role": "torso_spine",

@@ -58,6 +58,6 @@
       "cite": ["SK-07", "SK-10"]
     }
   ],
-  "harness_module": "dogfood_platform.lunar_site_geometry_v1",
+  "harness_module": "production_gate.lunar_site_geometry_v1",
   "falsifier": "weighted path_km > depth/sin(15°) at massif segment; rim_duty > 0.5 for LC-2 default embed"
 }

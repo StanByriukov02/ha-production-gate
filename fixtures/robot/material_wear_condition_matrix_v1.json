@@ -1,6 +1,6 @@
 {
   "matrix_id": "material_wear_condition_matrix_v1",
-  "parent_bus": "docs/agent_workflow/DOGFOOD_MATERIAL_PHYSICS_BUS_V0.md",
+  "parent_bus": "docs/agent_workflow/GATE_MATERIAL_PHYSICS_BUS_V0.md",
   "material_bind": "fixtures/robot/material_physics_bind_v0.json",
   "wear_vectors_ref": "fixtures/chip/coupling_cell_wear_vectors_v1.json",
   "axes": {

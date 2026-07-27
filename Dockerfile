@@ -23,7 +23,7 @@ COPY --from=rust /src/target/release/ha-body-identity /app/target/release/ha-bod
 COPY --from=rust /src/target/release/manipulator_kinematics_step /app/target/release/manipulator_kinematics_step
 
 COPY pyproject.toml README.md ./
-COPY dogfood_platform ./dogfood_platform
+COPY production_gate ./production_gate
 COPY fixtures ./fixtures
 COPY results/platform_bpass ./results/platform_bpass
 COPY desk ./desk

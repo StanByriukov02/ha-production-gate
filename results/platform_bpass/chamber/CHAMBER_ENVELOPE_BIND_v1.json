@@ -38,6 +38,6 @@
     "dut_cp_j_kg_k": 900.0,
     "dut_rho_kg_m3": 2700.0
   },
-  "harness_module": "dogfood_platform.chamber.chamber_envelope_v1",
+  "harness_module": "production_gate.chamber.chamber_envelope_v1",
   "falsifier": "T_DUT soak must approach mode target within 10%; P must reach base; h_c=0 in vacuum"
 }

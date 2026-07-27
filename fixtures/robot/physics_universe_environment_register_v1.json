@@ -27,7 +27,7 @@
       "venus_thermal_sweep": false
     },
     "mission": {
-      "label": "Earth · Moon · Orbit — dogfood assembly lab",
+      "label": "Earth · Moon · Orbit — gate assembly lab",
       "worlds": ["earth_lab_1g", "lunar_regolith_surface", "vacuum_orbit_microg"],
       "assembly_lab": true
     },

@@ -42,6 +42,6 @@
     "accumulation_saturation_g_m2": 2.0,
     "cite": ["BENAROYA-L0-04", "STUBBS-2007-L0-06"]
   },
-  "harness_module": "dogfood_platform.lunar_dust_ingress_v1",
+  "harness_module": "production_gate.lunar_dust_ingress_v1",
   "falsifier": "B5 open joint + zero mitigation must raise wear stress_mult vs B1 + full mitigation at same zone"
 }

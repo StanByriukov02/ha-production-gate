@@ -12,6 +12,6 @@ Teaching and open-seed inputs for Dual. Nothing here is field-MEASURED.
 | `robot/` | Assembly recipes / HAL for presets such as `lunar_scout` |
 | `cad/scout/` | Minimal scout fact JSON for mechanical slices |
 
-Assembly URDFs also live under `dogfood_platform/robot_models/urdf/`.
+Assembly URDFs also live under `production_gate/robot_models/urdf/`.
 
 Runtime scratch (BYO URDF, boards, kits) → `results/runtime/` (gitignored).

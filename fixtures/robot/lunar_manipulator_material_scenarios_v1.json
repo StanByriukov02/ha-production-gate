@@ -1,0 +1,95 @@
+{
+  "scenarios_id": "lunar_manipulator_material_scenarios_v1",
+  "version": 1,
+  "scenarios": [
+    {
+      "scenario_id": "sample_arm_cfrp_b1_vial",
+      "label": "Sample arm CFRP · B1 vial · soft pad",
+      "stack": {
+        "arm_alloy_id": "cfrp_m55j_tube",
+        "arm_dof_preset_id": "scout_3dof",
+        "gripper_pad_id": "pu_shore_70a_soft",
+        "coupling_profile_id": "sample_vial_b1",
+        "joint_tier": "wrist_joint",
+        "joint_seal_override": "B1",
+        "zone": "massif_traverse",
+        "scout_preset_id": "lunar_scout_35"
+      },
+      "duty_id": "sample_pick"
+    },
+    {
+      "scenario_id": "isru_scoop_mg_bucket",
+      "label": "ISRU scoop · Mg arm · bucket B2",
+      "stack": {
+        "arm_alloy_id": "mg_we43_thixomold",
+        "arm_dof_preset_id": "isru_4dof",
+        "gripper_pad_id": "ceramic_scoop_edge",
+        "coupling_profile_id": "isru_bucket_b2",
+        "joint_tier": "elbow_joint",
+        "joint_seal_override": null,
+        "zone": "massif_traverse",
+        "scout_preset_id": "lunar_scout_35"
+      },
+      "duty_id": "isru_scoop_disturb"
+    },
+    {
+      "scenario_id": "tool_steel_jaw_open_mount",
+      "label": "Tool steel jaw · open mount B5",
+      "stack": {
+        "arm_alloy_id": "al_6061_t6_extrusion",
+        "arm_dof_preset_id": "scout_3dof",
+        "gripper_pad_id": "h13_tool_steel_jaw",
+        "coupling_profile_id": "open_tool_mount_b5",
+        "joint_tier": "gripper_actuator",
+        "joint_seal_override": null,
+        "zone": "rim_sun",
+        "scout_preset_id": "lunar_micro_28"
+      },
+      "duty_id": "tool_repeat"
+    },
+    {
+      "scenario_id": "nbr_finger_psr_hitch",
+      "label": "NBR sealed finger · PSR · hitch latch",
+      "stack": {
+        "arm_alloy_id": "al_li_2195_t81",
+        "arm_dof_preset_id": "stub_2dof",
+        "gripper_pad_id": "nbr_sealed_finger_b2",
+        "coupling_profile_id": "hitch_latch_b3",
+        "joint_tier": "coupling_clamp",
+        "joint_seal_override": "B1",
+        "zone": "psr_floor",
+        "scout_preset_id": "lunar_ultra_22"
+      },
+      "duty_id": "sample_pick"
+    },
+    {
+      "scenario_id": "bind_wrist_vs_gripper_tier",
+      "label": "Falsifier path · wrist vs gripper actuator",
+      "stack": {
+        "arm_alloy_id": "al_6061_t6_extrusion",
+        "arm_dof_preset_id": "scout_3dof",
+        "gripper_pad_id": "pu_shore_90a_firm",
+        "coupling_profile_id": "sample_vial_b1",
+        "joint_tier": "gripper_actuator",
+        "joint_seal_override": null,
+        "zone": "massif_traverse"
+      },
+      "duty_id": "sample_pick"
+    },
+    {
+      "scenario_id": "light_alloy_ultra_sample",
+      "label": "Ultra-light scout · CFRP 2-DOF sample stub",
+      "stack": {
+        "arm_alloy_id": "cfrp_m55j_tube",
+        "arm_dof_preset_id": "stub_2dof",
+        "gripper_pad_id": "nbr_sealed_finger_b2",
+        "coupling_profile_id": "sample_vial_b1",
+        "joint_tier": "wrist_joint",
+        "joint_seal_override": "B1",
+        "zone": "massif_traverse",
+        "scout_preset_id": "lunar_ultra_22"
+      },
+      "duty_id": "sample_pick"
+    }
+  ]
+}

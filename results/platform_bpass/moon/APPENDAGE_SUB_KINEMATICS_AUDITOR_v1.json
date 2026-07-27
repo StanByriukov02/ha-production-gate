@@ -6,13 +6,13 @@
   "findings": [
     {
       "severity": "LOW",
-      "file": "dogfood_platform/hexapod_gait_bus_v1.py",
+      "file": "production_gate/hexapod_gait_bus_v1.py",
       "line": 141,
       "detail": "F_tripod_gait is tautological (gait_name == 'tripod'); real alternation falsifier is F_tripod_stance_group_alternate which passes after int(phase*2)%2 fix."
     },
     {
       "severity": "LOW",
-      "file": "dogfood_platform/hexapod_foot_contact_v1.py",
+      "file": "production_gate/hexapod_foot_contact_v1.py",
       "line": 30,
       "detail": "is_stance_leg always uses tripod stance_groups default; wave gait has no stance_groups — contact stance wrong if wave+contact integrated; smoke gates tripod only."
     },

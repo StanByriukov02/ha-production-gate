@@ -4,7 +4,7 @@
   "product_ready": false,
   "registry": "fixtures/open_seed/ROBOT_MATERIALS_REGISTRY_v1.json",
   "physics_oracle": "W_regolith_robot_v0",
-  "module": "dogfood_platform.material_physics_port_v1",
+  "module": "production_gate.material_physics_port_v1",
   "variants": {
     "scout_default_medium": {
       "material_keys": ["wheel_tread", "joint_seal"],

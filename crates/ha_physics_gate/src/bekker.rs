@@ -6,7 +6,7 @@
 //! Compaction resistance (uniform track pressure, Wong §2.5.1):
 //! Rc = b/(n+1) * (kc/b + k_phi) * z^(n+1)
 //!
-//! Source: VPS ON dogfood_corpus …/onnx-op-wong-theory-ground-vehicles-2001
+//! Source: Wong / Bekker terramechanics (theory-ground-vehicles lineage)
 
 use serde_json::{json, Value};
 use std::fs;

@@ -11,7 +11,7 @@
   ],
   "architecture_cites": [
     {
-      "artifact": "dogfood_platform/robot_os_hal_v1.py",
+      "artifact": "production_gate/robot_os_hal_v1.py",
       "layers": ["L_bus_vi2", "L_actuation_lc2"],
       "note": "sim-slice HAL layers — not a twin browser scene"
     }
@@ -42,7 +42,7 @@
       "module_id": "robot_os_hal_v1",
       "layer": "L5_HAL",
       "tier": "ABSTRACT_INTERFACE",
-      "artifact": "dogfood_platform/robot_os_hal_v1.py",
+      "artifact": "production_gate/robot_os_hal_v1.py",
       "exports": [
         "PoseSource",
         "ActuationSink",
@@ -57,7 +57,7 @@
       "module_id": "robot_os_hal_sim_v1",
       "layer": "L5_HAL",
       "tier": "HAL_SIM_SLICE",
-      "artifact": "dogfood_platform/robot_os_hal_sim_v1.py",
+      "artifact": "production_gate/robot_os_hal_sim_v1.py",
       "exports": [
         "build_sim_hal_stack",
         "load_sim_hal_stack",
@@ -75,7 +75,7 @@
       "module_id": "fleet_live_state_v1",
       "layer": "L3_LIVE_BUS",
       "tier": "LIVE_STATE_JSON",
-      "artifact": "dogfood_platform/fleet_live_state_v1.py",
+      "artifact": "production_gate/fleet_live_state_v1.py",
       "exports": ["read_state", "update_state", "empty_state"],
       "deps": []
     },
@@ -83,18 +83,18 @@
       "module_id": "robot_os_kernel_v1",
       "layer": "L5_KERNEL",
       "tier": "SIM_KERNEL_SLICE",
-      "artifact": "dogfood_platform/robot_os_kernel_v1.py",
+      "artifact": "production_gate/robot_os_kernel_v1.py",
       "exports": ["RobotOsKernel", "HalHooks"],
       "deps": ["robot_os_sched_policy_v1"]
     }
   ],
   "kernel_integration": {
-    "kernel_module": "dogfood_platform/robot_os_kernel_v1.py",
+    "kernel_module": "production_gate/robot_os_kernel_v1.py",
     "hook_class": "HalHooks",
-    "wire_entrypoint": "dogfood_platform.robot_os_hal_sim_v1.attach_sim_hal_to_kernel",
+    "wire_entrypoint": "production_gate.robot_os_hal_sim_v1.attach_sim_hal_to_kernel",
     "tick_path": "RobotOsKernel.tick_state → HalHooks.on_tick_before/after → HAL sim",
     "scheduler_tier": "SIM_KERNEL_SLICE",
-    "carrier_runtime": "dogfood_platform/robot_carrier_sim_runtime_v1.py"
+    "carrier_runtime": "production_gate/robot_carrier_sim_runtime_v1.py"
   },
   "synthesis": {
     "honest_tier": "HAL_SIM_SLICE",

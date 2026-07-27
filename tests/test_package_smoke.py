@@ -4,14 +4,14 @@ from __future__ import annotations
 
 
 def test_ritual_module_importable() -> None:
-    from dogfood_platform import prove_production_gate_ritual_v1 as ritual
+    from production_gate import prove_production_gate_ritual_v1 as ritual
 
     assert ritual.SCHEMA == "ha_production_gate_ritual_v1"
     assert callable(ritual.main)
 
 
 def test_dual_socket_module_importable() -> None:
-    from dogfood_platform import dual_socket_v1 as sock
+    from production_gate import dual_socket_v1 as sock
 
     assert sock.SCHEMA == "ha_dual_socket_v1"
     assert callable(sock.main)
@@ -28,7 +28,7 @@ def test_open_registry_diffbot_urdf_present() -> None:
 
 
 def test_ensure_bins_platform_id() -> None:
-    from dogfood_platform import ensure_bins_v1 as eb
+    from production_gate import ensure_bins_v1 as eb
 
     pid = eb.platform_id()
     assert "-" in pid

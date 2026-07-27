@@ -71,8 +71,8 @@
   },
   "regolith_bearing": {
     "default_class": "MEDIUM",
-    "closure": "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/GAP_MR_11_ADAPT_CLOSURE_v1.json",
-    "module": "dogfood_platform.lunar_regolith_bearing_v1"
+    "closure": "data/gate_corpus/moon-world/W_MOON_STUDY_V1/GAP_MR_11_ADAPT_CLOSURE_v1.json",
+    "module": "production_gate.lunar_regolith_bearing_v1"
   },
   "regolith_rho_hop": "m-hop-regolith-rho-variant",
   "fgm_shell_hop": "m-hop-fgm-shell-variant",
@@ -89,7 +89,7 @@
   "lc2_duty_hop": "m-hop-lc2-duty-bind",
   "radiation_fet_hop": "m-hop-radiation-fet",
   "radiation_coeff_bind": "results/platform_bpass/moon/RADIATION_FET_COEFF_BIND_v1.json",
-  "lc2_harness": "dogfood_platform.lunar_lc2_package_harness_v1",
+  "lc2_harness": "production_gate.lunar_lc2_package_harness_v1",
   "engine_vault_hub": "public_teaching_bind",
   "w_chip_coupling_contract": "results/platform_bpass/universe/world_chip_coupling_v1.json",
   "corridor_version": "v1_6",

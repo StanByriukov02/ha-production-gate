@@ -255,7 +255,7 @@
       ]
     }
   ],
-  "harness_module": "dogfood_platform.universe_storm_engine_v1",
-  "state_harness": "dogfood_platform.universe_storm_state_v1",
+  "harness_module": "production_gate.universe_storm_engine_v1",
+  "state_harness": "production_gate.universe_storm_state_v1",
   "falsifier": "macro/cosmic events must not hit generic_pass · concurrent overlap_peak >= 1 on multi-event storms"
 }

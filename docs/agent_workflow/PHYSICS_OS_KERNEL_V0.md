@@ -76,7 +76,7 @@ Primary motion = simplify ritual · not deepen packs.
 ## Smoke
 
 ```text
-python -m dogfood_platform.prove_physics_os_kernel_v1
+python -m production_gate.prove_physics_os_kernel_v1
 # must include F_kernel_sealed_in_ha_runtime
 ```
 

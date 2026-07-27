@@ -70,6 +70,6 @@
     "polar_envelope_k": [250.0, 330.0],
     "falsifier": "k(330K) <= k(250K) for same branch; or k_ref outside Heiken band"
   },
-  "harness_module": "dogfood_platform.lunar_regolith_thermal_v1",
-  "porosity_module": "dogfood_platform.lunar_regolith_porosity_v1"
+  "harness_module": "production_gate.lunar_regolith_thermal_v1",
+  "porosity_module": "production_gate.lunar_regolith_porosity_v1"
 }

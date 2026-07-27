@@ -13,7 +13,7 @@
     "fixtures/open_seed/LSIC_SELINE_INTEGRATION_CHAIN_v1.json",
     "fixtures/open_seed/LSIC_ZHENG_INTEGRATION_CHAIN_v1.json"
   ],
-  "operator_synthesis": "fixtures/open_seed/LSIC_SELINE_DOGFOOD_OPERATOR_SYNTHESIS_v1.json",
+  "operator_synthesis": "fixtures/open_seed/LSIC_SELINE_GATE_OPERATOR_SYNTHESIS_v1.json",
   "scenario_matrix_hooks": ["S2", "S5", "S6"],
   "on_retrieve": {
     "notebook": "moon-study",
@@ -104,7 +104,7 @@
     "status": "PARK",
     "flip_tier_when": "SELINE/LEIA public CRISP+FaNS spectra → replace L0-SEL-01 mid with MEASURED"
   },
-  "harness_module": "dogfood_platform.lunar_albedo_dose_v1",
+  "harness_module": "production_gate.lunar_albedo_dose_v1",
   "feeds": {
     "lunar_space_weather": "incident_dose_regime from L0-ZHENG-04/05",
     "radiation_proxy": "D_anchor annual Gy",

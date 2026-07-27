@@ -4,7 +4,7 @@
 [![Version](https://img.shields.io/github/v/release/StanByriukov02/ha-production-gate?include_prereleases&sort=semver&label=version)](https://github.com/StanByriukov02/ha-production-gate/releases)
 [![License](https://img.shields.io/github/license/StanByriukov02/ha-production-gate)](LICENSE)
 [![Rust](https://img.shields.io/badge/physics_oracle-Rust-b45309)](crates/ha_physics_gate)
-[![Python](https://img.shields.io/badge/ritual_glue-Python_3.11%2B-3776AB)](dogfood_platform)
+[![Python](https://img.shields.io/badge/Python_3.11%2B-3776AB)](production_gate)
 
 **Production Gate**
 
@@ -296,7 +296,7 @@ Guide: [`docs/examples/05_no_python_gate_fallback.md`](docs/examples/05_no_pytho
 
 - Pre-merge habit: “show me Safe allow + Hostile refuse on this claim”
 - Teaching labs: students run Dual before presenting a rover physics story
-- Internal dogfood: same ritual CI runs on every push
+- Internal gate: same ritual CI runs on every push
 
 ### Physics / terramech exploration
 
@@ -335,7 +335,7 @@ ha-production-gate/
 │   ├── ha_artifact_law/
 │   ├── universe_scale/
 │   └── ha_iron_attestation/
-├── dogfood_platform/               # Python socket · desk server · ritual glue
+├── production_gate/               # Python socket · desk server · ritual glue
 ├── desk/index.html                 # Dual desk UI (served by ha-desk)
 ├── Dockerfile · docker-compose.yml # one-command Dual socket image
 ├── scripts/bootstrap.sh|.ps1       # cold-path → socket wow → ritual

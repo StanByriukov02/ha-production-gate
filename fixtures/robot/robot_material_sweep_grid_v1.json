@@ -4,7 +4,7 @@
   "on_grounding_binds": [
     "results/platform_bpass/moon/DUST_INGRESS_BIND_v1.json",
     "results/platform_bpass/moon/ROBOT_TERRAMECH_CORPUS_BIND_v1.json",
-    "data/dogfood_corpus/moon-world/W_MOON_STUDY_V1/GAP_MR_11_ADAPT_CLOSURE_v1.json",
+    "data/gate_corpus/moon-world/W_MOON_STUDY_V1/GAP_MR_11_ADAPT_CLOSURE_v1.json",
     "results/platform_bpass/moon/ROBOT_MATERIALS_REGISTRY_v1.json"
   ],
   "on_retrieve_queries": [
@@ -12,7 +12,7 @@
     "dust seal joint ingress Benaroya lip seal",
     "regolith bearing loose dense penetration resistance"
   ],
-  "on_notebook": "dogfood-moon-world",
+  "on_notebook": "gate-moon-world",
   "axes": {
     "zone": ["rim_sun", "massif_traverse", "psr_floor"],
     "bearing_class": ["LOOSE", "MEDIUM", "DENSE"],

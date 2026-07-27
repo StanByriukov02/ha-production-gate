@@ -9,7 +9,7 @@
       "deferred_id": "AK_WHEELED_CHASSIS_COMPOSE",
       "title": "Wheeled chassis compose — 4WD bus + terramech hook",
       "status": "PASS",
-      "operator_priority": "DOGFOOD_ONLY",
+      "operator_priority": "GATE_ONLY",
       "operator_note": "Earth carrier / material bus — not lunar scout morphology. Unpark when earth-carrier compose needed.",
       "deliverable": "4WD kinematic tree compose bus · per-wheel q_cmd · terramech traverse bind",
       "engine": "wheeled_chassis_compose_v1",
@@ -18,7 +18,7 @@
       "oracle": "FOUR_WD_TREE_TERRAMECH_BIND",
       "depends": ["N_kinematic_tree", "lunar_wheel_locomotion_v1", "urdf_to_kinematic_tree_v1"],
       "fixtures": [
-        "dogfood_platform/robot_models/urdf/lc2_combat_carrier_4wd_v1.urdf",
+        "production_gate/robot_models/urdf/lc2_combat_carrier_4wd_v1.urdf",
         "fixtures/robot/wheeled_chassis_compose_v1.json"
       ],
       "falsifiers": [
@@ -44,7 +44,7 @@
       "oracle": "TORSO_SPINE_REGISTRY_FK",
       "depends": ["I_serial_chain_se3", "J_urdf_to_chain_ir", "AC_mount_se3", "AJ_role_taxonomy"],
       "fixtures": [
-        "dogfood_platform/robot_models/urdf/torso_spine_2dof_v1.urdf",
+        "production_gate/robot_models/urdf/torso_spine_2dof_v1.urdf",
         "fixtures/robot/torso_spine_chain_v1.json"
       ],
       "falsifiers": [
@@ -71,7 +71,7 @@
       "oracle": "PAN_TILT_LOOK_AT_TEACHING",
       "depends": ["I_serial_chain_se3", "AC_mount_se3", "T_stack_integrator"],
       "fixtures": [
-        "dogfood_platform/robot_models/urdf/head_neck_pan_tilt_v1.urdf",
+        "production_gate/robot_models/urdf/head_neck_pan_tilt_v1.urdf",
         "fixtures/robot/head_neck_compose_v1.json"
       ],
       "falsifiers": [
@@ -124,7 +124,7 @@
       "oracle": "GRIPPER_EE_COMPOSE_GRASP",
       "depends": ["H_chain_ir", "M_contact_friction", "Y_multi_compose", "AC_mount_se3"],
       "fixtures": [
-        "dogfood_platform/robot_models/urdf/gripper_parallel_1dof_v1.urdf",
+        "production_gate/robot_models/urdf/gripper_parallel_1dof_v1.urdf",
         "fixtures/robot/gripper_subchain_compose_v1.json"
       ],
       "falsifiers": [
@@ -221,7 +221,7 @@
       "depends": ["AB_hexapod_leg", "J_urdf_to_chain_ir", "U_se3_planar_parity"],
       "fixtures": [
         "fixtures/robot/hexapod_leg_chain_v1.json",
-        "dogfood_platform/robot_models/urdf/hexapod_leg_3dof_v1.urdf"
+        "production_gate/robot_models/urdf/hexapod_leg_3dof_v1.urdf"
       ],
       "falsifiers": [
         "F_aligned_crown_parity",
@@ -324,7 +324,7 @@
       "deferred_id": "ROLLING_KINEMATICS_CROWN",
       "title": "Rolling kinematics crown — ω·r falsifier",
       "status": "PASS",
-      "operator_priority": "DOGFOOD_ONLY",
+      "operator_priority": "GATE_ONLY",
       "deliverable": "ω·r ground speed teaching · traverse time proxy · slip deferred",
       "engine": "rolling_kinematics_crown_v1",
       "gate": "robot_rolling_kinematics_crown_slice_gate_v1",
@@ -373,11 +373,11 @@
     "BA": {
       "phase_id": "BA",
       "deferred_id": "AK_WHEELED_CHASSIS_UNPARK",
-      "title": "AK unpark — earth carrier DOGFOOD_ACTIVE",
+      "title": "AK unpark — earth carrier GATE_ACTIVE",
       "status": "PASS",
-      "operator_priority": "DOGFOOD_ACTIVE",
+      "operator_priority": "GATE_ACTIVE",
       "operator_note": "Earth carrier / material bus — not lunar scout. Unparked with rolling crown bind.",
-      "deliverable": "fixture DOGFOOD_ACTIVE · rolling crown · motion bus wheel_axle route",
+      "deliverable": "fixture GATE_ACTIVE · rolling crown · motion bus wheel_axle route",
       "engine": "wheeled_chassis_unpark_v1",
       "gate": "robot_wheeled_chassis_unpark_slice_gate_v1",
       "proof_tier": "WHEELED_CHASSIS_UNPARK_SLICE",
@@ -387,7 +387,7 @@
         "fixtures/robot/wheeled_chassis_compose_v1.json",
         "fixtures/robot/wheeled_chassis_unpark_v1.json"
       ],
-      "falsifiers": ["F_dogfood_active", "F_rolling_crown_bind", "F_terramech_still_bound", "F_not_lunar_scout"],
+      "falsifiers": ["F_gate_active", "F_rolling_crown_bind", "F_terramech_still_bound", "F_not_lunar_scout"],
       "deferred": ["MEASURED_ROLLING_SLIP"],
       "tabu": ["claim lunar rover on wheels"]
     },
@@ -616,17 +616,17 @@
     },
     "BM": {
       "phase_id": "BM",
-      "deferred_id": "BM_DOGFOOD_ROBOT_HARDWARE_ASSEMBLY_LAB",
-      "title": "Dogfood robot hardware assembly lab — Earth · Moon · Orbit",
+      "deferred_id": "BM_ROBOT_HARDWARE_ASSEMBLY_LAB",
+      "title": "Gate robot hardware assembly lab — Earth · Moon · Orbit",
       "status": "PASS",
       "operator_priority": "P0",
       "deliverable": "3 recipes: earth bench carrier · lunar scout field · orbit thermal bus · stranger run",
-      "engine": "dogfood_robot_hardware_assembly_lab_v1",
-      "gate": "robot_dogfood_robot_hardware_assembly_lab_slice_gate_v1",
-      "proof_tier": "DOGFOOD_ROBOT_HARDWARE_ASSEMBLY_LAB_SLICE",
+      "engine": "robot_hardware_assembly_lab_v1",
+      "gate": "robot_hardware_assembly_lab_slice_gate_v1",
+      "proof_tier": "ROBOT_HARDWARE_ASSEMBLY_LAB_SLICE",
       "oracle": "EARTH_MOON_ORBIT_ASSEMBLE_TEST",
       "depends": ["BL_physics_universe_depth", "Z_create_cli", "AQ_full_body"],
-      "fixtures": ["fixtures/robot/dogfood_robot_hardware_assembly_lab_v1.json"],
+      "fixtures": ["fixtures/robot/robot_hardware_assembly_lab_v1.json"],
       "falsifiers": [
         "F_earth_recipe_pass",
         "F_lunar_recipe_pass",
@@ -642,7 +642,7 @@
     {"priority": "P1", "phases": ["AL", "AM"], "note": "torso then head — separate phases, separate gates"},
     {"priority": "P2", "phases": ["AP"], "note": "after ≥2 role buses exist"},
     {"priority": "P3", "phases": ["AQ"], "note": "integrate AP + all regions"},
-    {"priority": "DOGFOOD_ACTIVE", "phases": ["BA", "AX"], "note": "earth carrier unparked · rolling crown — not lunar north star"},
+    {"priority": "GATE_ACTIVE", "phases": ["BA", "AX"], "note": "earth carrier unparked · rolling crown — not lunar north star"},
     {"priority": "PARK", "phases": [], "note": "AK unparked to BA · PARK list empty"}
   ]
 }

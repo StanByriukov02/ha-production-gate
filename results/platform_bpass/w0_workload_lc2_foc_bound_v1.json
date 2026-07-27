@@ -49,7 +49,7 @@
   "v_gs_on_v": 1.2,
   "v_th_v": 0.4771,
   "temperature_k": 298.15,
-  "temperature_cite": "DOGFOOD_WORLD_CONTRACT_W0_V1 — die T nominal",
+  "temperature_cite": "GATE_WORLD_CONTRACT_W0_V1 — die T nominal",
   "guardband_regime": "G_W0_op",
   "guardband_delta_vth_mv": 48.06,
   "guardband_cite": {

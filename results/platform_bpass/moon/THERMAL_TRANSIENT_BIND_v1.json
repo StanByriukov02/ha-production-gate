@@ -22,7 +22,7 @@
     "habitat_shield": 2.55
   },
   "lumped_model": "A_transient = A_steady / sqrt(1 + (omega*tau)^2); phi = atan(omega*tau); tau = rho*cp*L/k_eff",
-  "l1_baseline": "dogfood_platform.lunar_package_thermal_path_v1",
-  "harness_module": "dogfood_platform.lunar_thermal_l5_v1",
+  "l1_baseline": "production_gate.lunar_package_thermal_path_v1",
+  "harness_module": "production_gate.lunar_thermal_l5_v1",
   "falsifier": "thin LC-2 stack: L1 and L5 agree within 10%; thick habitat: L5 swing < L1 by >=15%"
 }

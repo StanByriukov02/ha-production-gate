@@ -20,6 +20,6 @@
     "depth_4m_k": 30.0,
     "cite": ["MARTINEZ-LPSC-L0-06", "MARTINEZ-LPSC-L0-05"]
   },
-  "harness_module": "dogfood_platform.lunar_psr_thermal_column_v1",
+  "harness_module": "production_gate.lunar_psr_thermal_column_v1",
   "falsifier": "cryo k at 80K must be < legacy k at 80K; subsurface delta must be >0 at 2m"
 }

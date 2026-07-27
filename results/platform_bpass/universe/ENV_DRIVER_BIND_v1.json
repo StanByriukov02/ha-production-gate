@@ -43,5 +43,5 @@
       "dust_charge_typical": "coupon loading 0.05–1.5 g/m²"
     }
   ],
-  "harness_module": "dogfood_platform.universe_event_sampler_v1"
+  "harness_module": "production_gate.universe_event_sampler_v1"
 }
