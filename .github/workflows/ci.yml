@@ -53,6 +53,17 @@ jobs:
             --kind wheeled_base \
             --soils fixtures/open_registry/terramech/dual_owned_soils_skidsteer_v1.json
 
+      - name: Dual socket third-party Fetch URDF
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          ha-dual-socket \
+            --urdf fixtures/open_registry/urdf/_external/fetch.urdf \
+            --root-link base_link \
+            --ee-link gripper_link \
+            --kind wheeled_base \
+            --soils fixtures/open_registry/terramech/dual_owned_soils_fetch_v1.json
+
       - name: Production Gate ritual (CI falsifiers)
         env:
           PYTHONIOENCODING: utf-8
