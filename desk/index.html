@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Production Gate · Dual desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;650&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg0: #0c0f12;
@@ -14,7 +17,8 @@
       --safe: #3ecf8e;
       --hostile: #ff6b4a;
       --accent: #c4a574;
-      --mono: "IBM Plex Mono", "Cascadia Code", ui-monospace, monospace;
+      --warn: #e6b84d;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
       --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,8 +27,8 @@
       font-family: var(--sans);
       color: var(--ink);
       background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(196, 165, 116, 0.12), transparent 55%),
-        radial-gradient(900px 500px at 100% 0%, rgba(62, 207, 142, 0.08), transparent 50%),
+        radial-gradient(1100px 520px at 8% -8%, rgba(196, 165, 116, 0.11), transparent 55%),
+        radial-gradient(800px 420px at 100% 0%, rgba(62, 207, 142, 0.06), transparent 48%),
         linear-gradient(165deg, var(--bg0), var(--bg1) 55%, #0a0d10);
     }
     .wrap {
@@ -45,21 +49,22 @@
       font-weight: 650;
       letter-spacing: -0.03em;
       line-height: 1.1;
-      max-width: 16ch;
+      max-width: 18ch;
       margin-bottom: 12px;
     }
     .lede {
       color: var(--muted);
       font-size: 16px;
-      line-height: 1.45;
-      max-width: 42ch;
-      margin-bottom: 36px;
+      line-height: 1.5;
+      max-width: 46ch;
+      margin-bottom: 28px;
     }
+    .lede strong { color: var(--ink); font-weight: 600; }
     .panel {
       border-top: 1px solid var(--line);
       padding-top: 28px;
       display: grid;
-      gap: 20px;
+      gap: 18px;
     }
     label {
       display: block;
@@ -79,7 +84,7 @@
       font: 14px/1.3 var(--sans);
       border-radius: 2px;
     }
-    select:focus { outline: 1px solid var(--accent); }
+    select:focus, input[type="file"]:focus { outline: 1px solid var(--accent); }
     .row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -91,7 +96,7 @@
       flex-wrap: wrap;
       gap: 12px;
       align-items: center;
-      margin-top: 8px;
+      margin-top: 4px;
     }
     button {
       appearance: none;
@@ -102,7 +107,10 @@
       padding: 14px 22px;
       border-radius: 2px;
       cursor: pointer;
+      transition: transform 120ms ease, opacity 120ms ease;
     }
+    button:hover:not(:disabled) { transform: translateY(-1px); }
+    button:active:not(:disabled) { transform: translateY(0); }
     button:disabled { opacity: 0.45; cursor: wait; }
     button.ghost {
       background: transparent;
@@ -110,13 +118,23 @@
       border: 1px solid var(--line);
     }
     .hint { font-size: 13px; color: var(--muted); }
+    .filechip {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      min-height: 1.2em;
+    }
     .results {
-      margin-top: 12px;
+      margin-top: 8px;
       display: none;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
-    .results.show { display: grid; }
+    .results.show { display: grid; animation: rise 280ms ease both; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     @media (max-width: 720px) { .results { grid-template-columns: 1fr; } }
     .lane {
       border: 1px solid var(--line);
@@ -141,40 +159,61 @@
       font-variant-numeric: tabular-nums;
     }
     .sub { margin-top: 8px; color: var(--muted); font-size: 13px; line-height: 1.4; }
+    .meta {
+      display: none;
+      margin-top: 4px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.22);
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .meta.show { display: block; animation: rise 280ms ease both; }
     .verdict {
-      margin-top: 18px;
+      margin-top: 6px;
       font-family: var(--mono);
       font-size: 13px;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       display: none;
+      padding: 12px 14px;
+      border-left: 3px solid var(--line);
     }
-    .verdict.show { display: block; }
+    .verdict.show { display: block; animation: rise 240ms ease both; }
+    .verdict.pass { border-color: var(--safe); color: var(--safe); }
+    .verdict.fail { border-color: var(--warn); color: var(--warn); }
     .foot {
       margin-top: 40px;
       padding-top: 18px;
       border-top: 1px solid var(--line);
       color: var(--muted);
       font-size: 12px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .foot a { color: var(--accent); }
+    .foot code { font-family: var(--mono); font-size: 11px; }
     .err {
       display: none;
-      margin-top: 14px;
+      margin-top: 8px;
       color: var(--hostile);
       font-size: 14px;
       white-space: pre-wrap;
     }
     .err.show { display: block; }
+    @media (prefers-reduced-motion: reduce) {
+      button, .results.show, .meta.show, .verdict.show { transition: none; animation: none; }
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <p class="brand">Production Gate</p>
+    <p class="brand">Production Gate · v0.2</p>
     <h1>Dual desk</h1>
     <p class="lede">
-      Same body, two soils. Safe must allow. Hostile must refuse.
-      Open a ROS-shaped body — or drop your URDF.
+      Same body · two soils · Safe must allow · Hostile must refuse.
+      <strong>PASS is not the goal</strong> — truth before hardware is.
+      Drop a URDF and optional soils JSON.
     </p>
 
     <section class="panel">
@@ -186,11 +225,29 @@
         <div>
           <label for="urdf">Or your URDF</label>
           <input id="urdf" type="file" accept=".urdf,text/xml" />
+          <p class="filechip" id="urdf-chip"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="soils">Owned soils JSON (optional)</label>
+          <input id="soils" type="file" accept=".json,application/json" />
+          <p class="filechip" id="soils-chip"></p>
+        </div>
+        <div>
+          <label for="kind">Contact kind (URDF)</label>
+          <select id="kind">
+            <option value="wheeled_base" selected>wheeled_base</option>
+            <option value="chassis">chassis</option>
+            <option value="hexapod">hexapod</option>
+            <option value="arm">arm</option>
+            <option value="bench">bench</option>
+          </select>
         </div>
       </div>
       <div class="actions">
         <button id="run" type="button">Run Dual</button>
-        <button id="clear" class="ghost" type="button">Clear file</button>
+        <button id="clear" class="ghost" type="button">Clear files</button>
         <span class="hint" id="status">Local only · soft teaching · not MEASURED</span>
       </div>
       <p class="err" id="err"></p>
@@ -207,23 +264,30 @@
         </div>
       </div>
       <p class="verdict" id="verdict"></p>
+      <div class="meta" id="meta"></div>
     </section>
 
     <p class="foot">
-      CLI twin: <code>ha-dual-socket --preset open_diffbot</code>
-      · ritual CI still uses <code>ha-production-gate</code>
+      CLI: <code>ha-dual-socket --urdf robot.urdf --soils soils.json</code>
+      · examples <a href="https://github.com/StanByriukov02/ha-production-gate/blob/main/docs/examples/08_stranger_urdf_owned_soils.md">08 Dual</a>
+      · <a href="https://github.com/StanByriukov02/ha-production-gate/blob/main/docs/examples/09_external_fetch_owned_soils.md">09 FAIL truth</a>
       · <a href="https://github.com/StanByriukov02/ha-production-gate">repo</a>
     </p>
   </main>
   <script>
     const presetEl = document.getElementById("preset");
     const urdfEl = document.getElementById("urdf");
+    const soilsEl = document.getElementById("soils");
+    const kindEl = document.getElementById("kind");
+    const urdfChip = document.getElementById("urdf-chip");
+    const soilsChip = document.getElementById("soils-chip");
     const runEl = document.getElementById("run");
     const clearEl = document.getElementById("clear");
     const statusEl = document.getElementById("status");
     const errEl = document.getElementById("err");
     const resultsEl = document.getElementById("results");
     const verdictEl = document.getElementById("verdict");
+    const metaEl = document.getElementById("meta");
 
     async function loadPresets() {
       const r = await fetch("/api/presets");
@@ -246,15 +310,29 @@
     function fmtLane(elMm, elSub, lane) {
       const mm = lane && lane.sinkage_mm;
       elMm.textContent = mm == null ? "—" : Number(mm).toFixed(3) + " mm";
+      const allowed = lane.current_allowed;
+      const gate = allowed === true ? "ALLOW" : allowed === false ? "REFUSE" : "—";
       elSub.textContent = [
         "soil " + (lane.soil_id || "—"),
+        gate,
         "pass=" + lane.physics_pass,
-        "allowed=" + lane.current_allowed,
       ].join(" · ");
     }
 
+    function syncChips() {
+      const u = urdfEl.files && urdfEl.files[0];
+      const s = soilsEl.files && soilsEl.files[0];
+      urdfChip.textContent = u ? u.name : "";
+      soilsChip.textContent = s ? s.name : "";
+    }
+
+    urdfEl.addEventListener("change", syncChips);
+    soilsEl.addEventListener("change", syncChips);
+
     clearEl.addEventListener("click", () => {
       urdfEl.value = "";
+      soilsEl.value = "";
+      syncChips();
       statusEl.textContent = "Using open body preset";
     });
 
@@ -262,16 +340,19 @@
       showErr("");
       runEl.disabled = true;
       statusEl.textContent = "Running Dual…";
+      verdictEl.classList.remove("show", "pass", "fail");
+      metaEl.classList.remove("show");
       try {
-        let body = { preset: presetEl.value };
-        const file = urdfEl.files && urdfEl.files[0];
-        if (file) {
-          const text = await file.text();
-          body = {
-            urdf_name: file.name,
-            urdf_text: text,
-            kind: "wheeled_base",
-          };
+        const body = { preset: presetEl.value, kind: kindEl.value };
+        const urdf = urdfEl.files && urdfEl.files[0];
+        if (urdf) {
+          body.urdf_name = urdf.name;
+          body.urdf_text = await urdf.text();
+        }
+        const soils = soilsEl.files && soilsEl.files[0];
+        if (soils) {
+          body.soils_name = soils.name;
+          body.soils_text = await soils.text();
         }
         const r = await fetch("/api/dual", {
           method: "POST",
@@ -291,9 +372,20 @@
           document.getElementById("hostile-sub"),
           j.hostile || {}
         );
-        verdictEl.textContent = j.verdict || "";
-        verdictEl.classList.add("show");
-        statusEl.textContent = j.ok ? "Dual PASS" : "Dual FAIL — read Hostile lane";
+        const pass = j.verdict === "DUAL_SOCKET_PASS";
+        verdictEl.textContent = pass
+          ? (j.verdict + " — Dual separated")
+          : (j.verdict + " — Gate truth (claim did not clear)");
+        verdictEl.classList.add("show", pass ? "pass" : "fail");
+        const c = j.contact || {};
+        const s = j.soils || {};
+        metaEl.innerHTML =
+          "contact · mass " + (c.mass_kg ?? "—") + " kg · n " + (c.n_contacts ?? "—") +
+          " · " + (c.contact_width_m ?? "—") + " × " + (c.contact_length_m ?? "—") + " m" +
+          "<br>soils · safe " + (s.safe_id || "—") + " · hostile " + (s.hostile_id || "—") +
+          (s.owned_path ? " · owned" : "");
+        metaEl.classList.add("show");
+        statusEl.textContent = pass ? "Dual PASS" : "Dual FAIL — still a valid Gate answer";
       } catch (e) {
         showErr(String(e.message || e));
         statusEl.textContent = "Failed";

@@ -64,7 +64,12 @@ class DeskHandler(BaseHTTPRequestHandler):
                 {
                     "ok": True,
                     "app": "ha-dual-desk",
-                    "honesty": {"local_only": True, "not_measured": True},
+                    "version": "0.2.0",
+                    "honesty": {
+                        "local_only": True,
+                        "not_measured": True,
+                        "pass_not_required": True,
+                    },
                 }
             )
             self._send(code, raw, ct)
@@ -96,7 +101,19 @@ class DeskHandler(BaseHTTPRequestHandler):
                 preset = payload.get("preset")
                 urdf_text = payload.get("urdf_text")
                 urdf_name = str(payload.get("urdf_name") or "upload.urdf")
+                soils_text = payload.get("soils_text")
+                soils_name = str(payload.get("soils_name") or "owned_soils.json")
                 model_kind = payload.get("kind") or payload.get("model_kind") or "wheeled_base"
+                soils_path: str | None = None
+                if soils_text:
+                    soils_dir = _REPO / "results" / "runtime" / "byo_soils"
+                    soils_dir.mkdir(parents=True, exist_ok=True)
+                    safe_s = "".join(
+                        c if c.isalnum() or c in "._-" else "_" for c in soils_name
+                    )[:120]
+                    sdest = soils_dir / (safe_s or "owned_soils.json")
+                    sdest.write_text(str(soils_text), encoding="utf-8")
+                    soils_path = str(sdest)
                 if urdf_text:
                     scratch = _REPO / "results" / "runtime" / "byo_urdf"
                     scratch.mkdir(parents=True, exist_ok=True)
@@ -105,6 +122,7 @@ class DeskHandler(BaseHTTPRequestHandler):
                     dest.write_text(str(urdf_text), encoding="utf-8")
                     doc = run_dual_socket(
                         urdf=str(dest),
+                        soils=soils_path,
                         model_kind=str(model_kind),
                         mass_kg=payload.get("mass_kg"),
                         n_contacts=payload.get("n_contacts"),
@@ -114,8 +132,13 @@ class DeskHandler(BaseHTTPRequestHandler):
                         ee_link=payload.get("ee_link"),
                     )
                 else:
-                    doc = run_dual_socket(preset=str(preset or "open_diffbot"))
-                code, raw, ct = _json_bytes({"ok": doc.get("verdict") == "DUAL_SOCKET_PASS", **doc})
+                    doc = run_dual_socket(
+                        preset=str(preset or "open_diffbot"),
+                        soils=soils_path,
+                    )
+                code, raw, ct = _json_bytes(
+                    {"ok": doc.get("verdict") == "DUAL_SOCKET_PASS", **doc}
+                )
                 self._send(code, raw, ct)
             except Exception as exc:  # noqa: BLE001
                 code, raw, ct = _json_bytes({"ok": False, "error": str(exc)}, 500)

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ha-production-gate"
-version = "0.1.0"
-description = "Production Gate for robot physics claims — Dual · sealed receipt · named ε · refuse"
+version = "0.2.0"
+description = "Production Gate — Dual Bekker truth before hardware (URDF + owned soils · PASS not required)"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Apache-2.0" }

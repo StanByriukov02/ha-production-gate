@@ -1,6 +1,7 @@
 # HA Production Gate
 
 [![CI](https://img.shields.io/github/actions/workflow/status/StanByriukov02/ha-production-gate/ci.yml?branch=main&label=CI)](https://github.com/StanByriukov02/ha-production-gate/actions/workflows/ci.yml)
+[![Dual](https://img.shields.io/github/actions/workflow/status/StanByriukov02/ha-production-gate/dual-socket.yml?branch=main&label=dual)](https://github.com/StanByriukov02/ha-production-gate/actions/workflows/dual-socket.yml)
 [![Version](https://img.shields.io/github/v/release/StanByriukov02/ha-production-gate?include_prereleases&sort=semver&label=version)](https://github.com/StanByriukov02/ha-production-gate/releases)
 [![License](https://img.shields.io/github/license/StanByriukov02/ha-production-gate)](LICENSE)
 [![Rust](https://img.shields.io/badge/physics_oracle-Rust-b45309)](crates/ha_physics_gate)
@@ -43,7 +44,7 @@ cd ha-production-gate
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -e .
 ha-ensure-bins
-ha-desk                        # optional · http://127.0.0.1:8765
+ha-desk                        # optional · http://127.0.0.1:8765 · URDF + soils JSON
 ```
 
 `open_diffbot` preset: `ha-dual-socket --preset open_diffbot` · bootstrap: `./scripts/bootstrap.sh` · Docker: `docker compose run --rm dual`
