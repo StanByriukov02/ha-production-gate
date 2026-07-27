@@ -1,6 +1,6 @@
 {
   "schema": "ha_dual_owned_soils_v1",
-  "label": "External Fetch Robotics URDF — owned Safe/Hostile (not HA teaching soils)",
+  "label": "External Fetch URDF — declared contact (not massaged for PASS)",
   "g_mps2": 9.81,
   "safe": "fetch_firm_owned",
   "hostile": "fetch_soft_owned",
@@ -41,13 +41,14 @@
   "contact": {
     "mass_kg": 95.0,
     "n_contacts": 2.0,
-    "contact_width_m": 0.12,
-    "contact_length_m": 0.18
+    "contact_width_m": 0.1,
+    "contact_length_m": 0.05
   },
   "honesty": {
     "not_measured": true,
     "owned_by_stranger": true,
-    "body_source": "Fetch Robotics fetch.urdf (fetch_ros / fetch_description) — third-party, meshes not shipped",
-    "note": "Contact pads are teaching overrides — Fetch CAD inertia not used as MEASURED load"
+    "pass_not_required": true,
+    "body_source": "Fetch Robotics fetch.urdf (fetch_ros) — third-party",
+    "note": "Contact is a declared teaching patch — NOT widened to force Dual PASS. If Safe refuses, that is the Gate working."
   }
 }

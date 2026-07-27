@@ -1,11 +1,12 @@
 {
   "schema": "ha_example_09_external_fetch_owned_soils_v1",
   "example": "09",
-  "body_upstream": "https://github.com/fetchrobotics/fetch_ros (fetch_description/robots/fetch.urdf melodic-devel)",
+  "product_lesson": "PASS is not the product. FAIL with declared contact is Gate truth before hardware.",
+  "body_upstream": "https://github.com/fetchrobotics/fetch_ros (fetch.urdf melodic-devel)",
   "captured_from": "ha_dual_socket_v1",
-  "verdict": "DUAL_SOCKET_PASS",
-  "timestamp_utc": "2026-07-27T16:09:23.223254+00:00",
-  "frozen_utc": "2026-07-27T16:09:54.452074+00:00",
+  "verdict": "DUAL_SOCKET_FAIL",
+  "timestamp_utc": "2026-07-27T16:14:28.983749+00:00",
+  "frozen_utc": "2026-07-27T16:14:51.525923+00:00",
   "body": {
     "mode": "urdf",
     "urdf": "fixtures/open_registry/urdf/_external/fetch.urdf",
@@ -22,47 +23,47 @@
   "contact": {
     "mass_kg": 95.0,
     "n_contacts": 2.0,
-    "contact_width_m": 0.12,
-    "contact_length_m": 0.18,
-    "contact_area_m2": 0.043199999999999995,
+    "contact_width_m": 0.1,
+    "contact_length_m": 0.05,
+    "contact_area_m2": 0.010000000000000002,
     "source": "kind:wheeled_base+override+override+override+override",
     "owned": true,
-    "ground_pressure_kpa": 21.57291666666667,
-    "contact_width_b_m": 0.12
+    "ground_pressure_kpa": 93.19499999999998,
+    "contact_width_b_m": 0.1
   },
   "soils": {
     "safe_id": "fetch_firm_owned",
     "hostile_id": "fetch_soft_owned",
     "owned_path": "fixtures/open_registry/terramech/dual_owned_soils_fetch_v1.json",
-    "catalog": "runtime owned catalog"
+    "catalog": "C:\\Users\\dammi\\ha-production-gate\\results\\runtime\\owned_soils\\owned_bekker_catalog_v1.json"
   },
   "safe": {
     "soil_id": "fetch_firm_owned",
-    "sinkage_mm": 8.805,
-    "sinkage_risk": false,
-    "drawbar_pull_n": 640.899,
-    "traverse_feasible": true,
-    "physics_pass": true,
-    "current_allowed": true,
-    "g_mps2": 9.81,
-    "ground_pressure_kpa": 21.57291666666667,
-    "contact_width_b_m": 0.12,
-    "contact_area_m2": 0.043199999999999995
-  },
-  "hostile": {
-    "soil_id": "fetch_soft_owned",
-    "sinkage_mm": 117.009,
+    "sinkage_mm": 36.982,
     "sinkage_risk": true,
-    "drawbar_pull_n": 181.259,
+    "drawbar_pull_n": 543.38,
     "traverse_feasible": false,
     "physics_pass": false,
     "current_allowed": false,
     "g_mps2": 9.81,
-    "ground_pressure_kpa": 21.57291666666667,
-    "contact_width_b_m": 0.12,
-    "contact_area_m2": 0.043199999999999995
+    "ground_pressure_kpa": 93.19499999999998,
+    "contact_width_b_m": 0.1,
+    "contact_area_m2": 0.010000000000000002
   },
-  "dual_ok": true,
+  "hostile": {
+    "soil_id": "fetch_soft_owned",
+    "sinkage_mm": 700.643,
+    "sinkage_risk": true,
+    "drawbar_pull_n": 170.862,
+    "traverse_feasible": false,
+    "physics_pass": false,
+    "current_allowed": false,
+    "g_mps2": 9.81,
+    "ground_pressure_kpa": 93.19499999999998,
+    "contact_width_b_m": 0.1,
+    "contact_area_m2": 0.010000000000000002
+  },
+  "dual_ok": false,
   "reproduce": {
     "commands": [
       "ha-dual-socket --urdf fixtures/open_registry/urdf/_external/fetch.urdf --root-link base_link --ee-link gripper_link --kind wheeled_base --soils fixtures/open_registry/terramech/dual_owned_soils_fetch_v1.json"
@@ -70,11 +71,10 @@
   },
   "honesty": {
     "third_party_urdf": true,
-    "not_ha_authored_body": true,
-    "meshes_not_shipped": true,
+    "pass_not_required": true,
+    "not_massaged_for_green": true,
     "soft_teaching": true,
     "not_measured": true,
-    "contact_teaching_override": true,
     "not_oem_endorsement": true
   }
 }

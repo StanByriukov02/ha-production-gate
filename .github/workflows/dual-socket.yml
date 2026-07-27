@@ -55,13 +55,18 @@ jobs:
             --kind wheeled_base \
             --soils fixtures/open_registry/terramech/dual_owned_soils_skidsteer_v1.json
 
-      - name: Dual socket — third-party Fetch URDF (Example 09)
+      - name: Dual socket — third-party Fetch URDF (Example 09 · expect FAIL)
         env:
           PYTHONIOENCODING: utf-8
         run: |
+          set +e
           ha-dual-socket \
             --urdf fixtures/open_registry/urdf/_external/fetch.urdf \
             --root-link base_link \
             --ee-link gripper_link \
             --kind wheeled_base \
             --soils fixtures/open_registry/terramech/dual_owned_soils_fetch_v1.json
+          code=$?
+          set -e
+          test "$code" -eq 1
+          python -c "import json; from pathlib import Path; d=json.loads(Path('results/runtime/platform_loop/DUAL_SOCKET_LATEST_v1.json').read_text()); assert d['verdict']=='DUAL_SOCKET_FAIL'"

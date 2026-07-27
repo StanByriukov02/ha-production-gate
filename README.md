@@ -31,7 +31,7 @@ ha-dual-socket \
 ```
 
 Reproduce · frozen JSON: [`docs/examples/08_stranger_urdf_owned_soils.md`](docs/examples/08_stranger_urdf_owned_soils.md)  
-Also third-party body: Fetch Robotics URDF → [`docs/examples/09_external_fetch_owned_soils.md`](docs/examples/09_external_fetch_owned_soils.md)
+Also third-party body: Fetch Robotics URDF → [`docs/examples/09_external_fetch_owned_soils.md`](docs/examples/09_external_fetch_owned_soils.md) (**FAIL** under declared contact — Gate truth, not a broken demo)
 
 <p align="center">
   <img src="docs/assets/hero-dual-socket.svg" alt="Dual socket — Safe allow · Hostile refuse" width="960">
