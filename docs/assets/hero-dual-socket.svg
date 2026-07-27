@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-label="Dual socket Safe vs Hostile sinkage">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c0f12"/>
+      <stop offset="100%" stop-color="#141a20"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="420" fill="url(#bg)"/>
+  <text x="48" y="56" fill="#c4a574" font-family="ui-monospace, Consolas, monospace" font-size="14" letter-spacing="3">PRODUCTION GATE · DUAL SOCKET</text>
+  <text x="48" y="100" fill="#e8eef4" font-family="Segoe UI, system-ui, sans-serif" font-size="34" font-weight="650">open_diffbot · Safe allow · Hostile refuse</text>
+  <text x="48" y="136" fill="#8b9aab" font-family="Segoe UI, system-ui, sans-serif" font-size="16">Same body · two soils · Rust Bekker oracle</text>
+
+  <rect x="48" y="180" width="410" height="180" rx="4" fill="rgba(0,0,0,0.35)" stroke="rgba(62,207,142,0.45)"/>
+  <text x="72" y="220" fill="#3ecf8e" font-family="ui-monospace, Consolas, monospace" font-size="14" letter-spacing="2">SAFE · firm_lab</text>
+  <text x="72" y="280" fill="#e8eef4" font-family="Segoe UI, system-ui, sans-serif" font-size="56" font-weight="650">8.72 mm</text>
+  <text x="72" y="320" fill="#8b9aab" font-family="ui-monospace, Consolas, monospace" font-size="14">pass=true · allowed=true</text>
+
+  <rect x="502" y="180" width="410" height="180" rx="4" fill="rgba(0,0,0,0.35)" stroke="rgba(255,107,74,0.5)"/>
+  <text x="526" y="220" fill="#ff6b4a" font-family="ui-monospace, Consolas, monospace" font-size="14" letter-spacing="2">HOSTILE · soft_hostile</text>
+  <text x="526" y="280" fill="#e8eef4" font-family="Segoe UI, system-ui, sans-serif" font-size="56" font-weight="650">84.99 mm</text>
+  <text x="526" y="320" fill="#8b9aab" font-family="ui-monospace, Consolas, monospace" font-size="14">pass=false · allowed=false</text>
+</svg>

@@ -9,8 +9,14 @@ This is the **insert point**. The lunar `ha-production-gate` ritual remains CI t
 ## Commands
 
 ```bash
-./scripts/bootstrap.sh    # once — builds Rust + installs entry points
+./scripts/bootstrap.sh    # once — builds Rust + Dual socket + CI ritual
 ha-dual-socket --preset open_diffbot
+```
+
+Docker:
+
+```bash
+docker compose run --rm dual
 ```
 
 Your URDF:

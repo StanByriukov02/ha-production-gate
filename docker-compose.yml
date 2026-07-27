@@ -1,0 +1,12 @@
+# One-command Dual wow (RoverDevKit-style). Needs Docker with build + network for crates.io.
+# Usage:
+#   docker compose run --rm dual
+#   docker compose up --build dual
+
+services:
+  dual:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ha-production-gate:dual
+    command: ["ha-dual-socket", "--preset", "open_diffbot"]

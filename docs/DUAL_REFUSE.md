@@ -21,9 +21,10 @@ If Hostile still allows, the ritual fails.
 git clone https://github.com/StanByriukov02/ha-production-gate.git
 cd ha-production-gate
 ./scripts/bootstrap.sh    # Windows: .\scripts\bootstrap.ps1
+# or: docker compose run --rm dual
 ```
 
-Expect `PRODUCTION_GATE_RITUAL_PASS`. Board + examples: [`examples/`](examples/).
+Expect Dual socket `DUAL_SOCKET_PASS` (then CI ritual). Board + examples: [`examples/`](examples/).
 
 **Robotics socket (preferred stranger entry):**
 

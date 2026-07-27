@@ -1,0 +1,10 @@
+.git
+.venv
+target
+results/runtime
+**/__pycache__
+*.pyc
+.pytest_cache
+docs/assets/_candidates
+**/*.png
+!docs/assets/hero-dual-socket.svg

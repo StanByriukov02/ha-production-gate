@@ -1,4 +1,4 @@
-# Cold path (Windows): build Rust physics bins → venv → install → run gate ritual.
+# Cold path (Windows): build Rust bins → venv → install → Dual socket → CI ritual.
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot
 Set-Location $Root
@@ -12,7 +12,7 @@ function Need([string]$Name) {
 Need cargo
 Need python
 
-Write-Host "==> cargo release bins"
+Write-Host "==> cargo release bins (physics oracle — not pip-only yet)"
 cargo build -p ha_physics_gate --release
 cargo build -p ha_silicon_fuse --release
 cargo build -p ha_energy_ledger --release
@@ -26,5 +26,14 @@ if (-not (Test-Path .venv)) {
 & .\.venv\Scripts\python.exe -m pip install -U pip
 & .\.venv\Scripts\python.exe -m pip install -e .
 
-Write-Host "==> ha-production-gate"
+Write-Host "==> Dual socket (primary wow — open_diffbot)"
+& .\.venv\Scripts\ha-dual-socket.exe --preset open_diffbot
+if ($LASTEXITCODE -ne 0) { throw "ha-dual-socket failed" }
+
+Write-Host "==> CI ritual (lunar_scout falsifiers)"
 & .\.venv\Scripts\ha-production-gate.exe
+if ($LASTEXITCODE -ne 0) { throw "ha-production-gate failed" }
+
+Write-Host ""
+Write-Host "OK — next: ha-desk   # local Dual UI on http://127.0.0.1:8765"
+Write-Host "     or:  ha-dual-socket --urdf path\to\your.urdf --kind wheeled_base"

@@ -32,7 +32,15 @@ jobs:
           cargo build -p ha_body_identity --release
           cargo build -p universe_kinematic --release --bin manipulator_kinematics_step
 
-      - name: Run Production Gate
+      - name: Dual socket (robotics wow)
+        env:
+          PYTHONIOENCODING: utf-8
+        run: ha-dual-socket --preset open_diffbot
+
+      - name: Production Gate ritual (CI falsifiers)
         env:
           PYTHONIOENCODING: utf-8
         run: ha-production-gate
+
+      - name: Smoke tests
+        run: pytest -q

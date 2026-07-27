@@ -13,19 +13,22 @@ Fail mobility claims that only look green on **firm soil**.
 Same URDF body · two soils · **Safe must allow · Hostile must refuse** · Rust Bekker oracle · board you can paste.
 
 ```bash
-./scripts/bootstrap.sh          # needs Rust — builds physics bins (not pip-only yet)
-ha-dual-socket --preset open_diffbot
-# → DUAL_SOCKET_PASS · Safe sinkage_mm vs Hostile sinkage_mm
+./scripts/bootstrap.sh          # Rust bins + Dual socket wow + CI ritual
+# Windows: .\scripts\bootstrap.ps1
+
+# or Docker (first build compiles crates — then fast):
+docker compose run --rm dual
+
 ha-desk                         # local UI · http://127.0.0.1:8765
 ```
 
-Not a Gazebo plugin. Not a ROS package. A **referee** you can run on an open diffbot or your URDF today.
+Not a Gazebo plugin. Not a ROS package. A **referee** on open_diffbot or your URDF.
 
 <p align="center">
-  <img src="docs/assets/hero-world.png" alt="Dual — Safe vs Hostile sinkage">
+  <img src="docs/assets/hero-dual-socket.svg" alt="Dual socket — Safe 8.72 mm allow · Hostile 84.99 mm refuse" width="960">
 </p>
 
-**Taste (what you should see):**
+**Taste (what bootstrap / `ha-dual-socket` should print):**
 
 ```text
 verdict: DUAL_SOCKET_PASS
@@ -102,22 +105,22 @@ cd ha-production-gate
 ./scripts/bootstrap.sh          # Windows: .\scripts\bootstrap.ps1
 ```
 
-Bootstrap ends on the CI ritual (`PRODUCTION_GATE_RITUAL_PASS`). Then run the **socket**:
+Bootstrap **ends on Dual socket** (`DUAL_SOCKET_PASS` on `open_diffbot`), then runs the CI ritual.
+
+Docker (one command after image build):
 
 ```bash
-ha-dual-socket --preset open_diffbot
+docker compose run --rm dual
 ```
-
-Expect `DUAL_SOCKET_PASS` and a Safe vs Hostile sinkage table.
 
 Local desk:
 
 ```bash
 ha-desk
-# opens http://127.0.0.1:8765 — Run Dual on open_diffbot or upload a URDF
+# http://127.0.0.1:8765 — Run Dual on open_diffbot or upload a URDF
 ```
 
-Short entry: [`START_HERE_PRODUCTION_GATE_V1.md`](START_HERE_PRODUCTION_GATE_V1.md) · method: [`docs/DUAL_REFUSE.md`](docs/DUAL_REFUSE.md)
+Short entry: [`START_HERE_PRODUCTION_GATE_V1.md`](START_HERE_PRODUCTION_GATE_V1.md) · method: [`docs/DUAL_REFUSE.md`](docs/DUAL_REFUSE.md) · socket: [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md)
 
 ### Manual path (same steps bootstrap runs)
 
@@ -313,7 +316,8 @@ ha-production-gate/
 │   └── ha_iron_attestation/
 ├── dogfood_platform/               # Python socket · desk server · ritual glue
 ├── desk/index.html                 # Dual desk UI (served by ha-desk)
-├── scripts/bootstrap.sh|.ps1       # cold-path build → install → ritual
+├── Dockerfile · docker-compose.yml # one-command Dual socket image
+├── scripts/bootstrap.sh|.ps1       # cold-path → socket wow → ritual
 ├── fixtures/                       # teaching inputs (see fixtures/README.md)
 │   ├── open_registry/              # env / terramech + REGISTRY + urdf/
 │   ├── open_seed/
