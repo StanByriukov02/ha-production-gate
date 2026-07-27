@@ -143,7 +143,7 @@ ha-desk
 
 If `ha-ensure-bins` says download failed: install [Rust](https://rustup.rs/) and re-run bootstrap (builds five Dual bins once).
 
-Short entry: [`START_HERE_PRODUCTION_GATE_V1.md`](START_HERE_PRODUCTION_GATE_V1.md) · method: [`docs/DUAL_REFUSE.md`](docs/DUAL_REFUSE.md) · socket: [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md)
+Short entry: [`START_HERE_PRODUCTION_GATE_V1.md`](START_HERE_PRODUCTION_GATE_V1.md) · method: [`docs/DUAL_REFUSE.md`](docs/DUAL_REFUSE.md) · socket: [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md) · stranger Dual: [`docs/examples/08_stranger_urdf_owned_soils.md`](docs/examples/08_stranger_urdf_owned_soils.md)
 
 ### Manual path (same steps bootstrap runs)
 
@@ -194,7 +194,7 @@ ha-desk
 ```
 
 Expect `DUAL_SOCKET_PASS` and Safe vs Hostile `sinkage_mm` on the board.  
-Walkthrough: [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md)
+Walkthrough: [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md) · stranger proof: [`docs/examples/08_stranger_urdf_owned_soils.md`](docs/examples/08_stranger_urdf_owned_soils.md)
 
 ---
 

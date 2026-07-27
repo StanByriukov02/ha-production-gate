@@ -104,4 +104,4 @@ Soils examples: `fixtures/open_registry/terramech/dual_owned_soils_*.json`
 
 Soft teaching Dual · teaching contact unless you pass owned contact · not MEASURED CAD · not a Gazebo plugin · not a ROS package yet.
 
-Next: [01_dual_ritual_lunar_scout.md](01_dual_ritual_lunar_scout.md) · [06_sinkage_dual_bench.md](06_sinkage_dual_bench.md)
+Next: [08 Stranger URDF + owned soils](08_stranger_urdf_owned_soils.md) · [01 ritual](01_dual_ritual_lunar_scout.md) · [06 Sinkage bench](06_sinkage_dual_bench.md)

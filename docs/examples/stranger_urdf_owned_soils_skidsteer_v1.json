@@ -1,0 +1,80 @@
+{
+  "schema": "ha_example_08_stranger_urdf_owned_soils_v1",
+  "example": "08",
+  "captured_from": "ha_dual_socket_v1",
+  "verdict": "DUAL_SOCKET_PASS",
+  "timestamp_utc": "2026-07-27T15:44:41.579740+00:00",
+  "frozen_utc": "2026-07-27T15:45:11.183454+00:00",
+  "body": {
+    "mode": "urdf",
+    "urdf": "fixtures/open_registry/urdf/ros_skidsteer_v1.urdf",
+    "world_id": "earth_lab_open",
+    "model_kind": "wheeled_base",
+    "owned_soils": {
+      "path": "fixtures/open_registry/terramech/dual_owned_soils_skidsteer_v1.json",
+      "safe": "skid_firm_owned",
+      "hostile": "skid_soft_owned",
+      "g_mps2": 9.81,
+      "catalog": "results/runtime/owned_soils/owned_bekker_catalog_v1.json (runtime)"
+    }
+  },
+  "contact": {
+    "mass_kg": 62.0,
+    "n_contacts": 4.0,
+    "contact_width_m": 0.07,
+    "contact_length_m": 0.12,
+    "contact_area_m2": 0.033600000000000005,
+    "source": "kind:wheeled_base+override+override+override+override",
+    "owned": true,
+    "ground_pressure_kpa": 18.101785714285715,
+    "contact_width_b_m": 0.07
+  },
+  "soils": {
+    "safe_id": "skid_firm_owned",
+    "hostile_id": "skid_soft_owned",
+    "owned_path": "fixtures/open_registry/terramech/dual_owned_soils_skidsteer_v1.json",
+    "catalog": "runtime owned catalog (see honesty)"
+  },
+  "safe": {
+    "soil_id": "skid_firm_owned",
+    "sinkage_mm": 9.546,
+    "sinkage_risk": false,
+    "drawbar_pull_n": 386.793,
+    "traverse_feasible": true,
+    "physics_pass": true,
+    "current_allowed": true,
+    "g_mps2": 9.81,
+    "ground_pressure_kpa": 18.101785714285715,
+    "contact_width_b_m": 0.07,
+    "contact_area_m2": 0.033600000000000005
+  },
+  "hostile": {
+    "soil_id": "skid_soft_owned",
+    "sinkage_mm": 69.118,
+    "sinkage_risk": true,
+    "drawbar_pull_n": 110.741,
+    "traverse_feasible": false,
+    "physics_pass": false,
+    "current_allowed": false,
+    "g_mps2": 9.81,
+    "ground_pressure_kpa": 18.101785714285715,
+    "contact_width_b_m": 0.07,
+    "contact_area_m2": 0.033600000000000005
+  },
+  "dual_ok": true,
+  "reproduce": {
+    "commands": [
+      "pip install -e .",
+      "ha-ensure-bins",
+      "ha-dual-socket --urdf fixtures/open_registry/urdf/ros_skidsteer_v1.urdf --kind wheeled_base --soils fixtures/open_registry/terramech/dual_owned_soils_skidsteer_v1.json"
+    ]
+  },
+  "honesty": {
+    "soft_teaching": true,
+    "not_measured": true,
+    "soil_ids_not_teaching_defaults": true,
+    "body_not_open_diffbot_preset": true,
+    "not_gazebo_plugin": true,
+    "not_ros_package_yet": true
+  }
+}

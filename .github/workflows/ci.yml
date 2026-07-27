@@ -44,6 +44,15 @@ jobs:
           ha-dual-socket --preset open_diffbot \
             --soils fixtures/open_registry/terramech/dual_owned_soils_embedded_v1.json
 
+      - name: Dual socket stranger URDF + owned soils
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          ha-dual-socket \
+            --urdf fixtures/open_registry/urdf/ros_skidsteer_v1.urdf \
+            --kind wheeled_base \
+            --soils fixtures/open_registry/terramech/dual_owned_soils_skidsteer_v1.json
+
       - name: Production Gate ritual (CI falsifiers)
         env:
           PYTHONIOENCODING: utf-8

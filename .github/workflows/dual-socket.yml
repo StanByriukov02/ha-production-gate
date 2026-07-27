@@ -46,10 +46,11 @@ jobs:
             --preset open_diffbot \
             --soils fixtures/open_registry/terramech/dual_owned_soils_example_v1.json
 
-      - name: Dual socket — embedded owned soils
+      - name: Dual socket — stranger URDF + owned soils (Example 08)
         env:
           PYTHONIOENCODING: utf-8
         run: |
           ha-dual-socket \
-            --preset open_diffbot \
-            --soils fixtures/open_registry/terramech/dual_owned_soils_embedded_v1.json
+            --urdf fixtures/open_registry/urdf/ros_skidsteer_v1.urdf \
+            --kind wheeled_base \
+            --soils fixtures/open_registry/terramech/dual_owned_soils_skidsteer_v1.json

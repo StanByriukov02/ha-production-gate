@@ -1,0 +1,52 @@
+{
+  "schema": "ha_dual_owned_soils_v1",
+  "label": "Example 08 — skid-steer stranger body · owned Safe/Hostile (not firm_lab/soft_hostile)",
+  "g_mps2": 9.81,
+  "safe": "skid_firm_owned",
+  "hostile": "skid_soft_owned",
+  "soils": {
+    "skid_firm_owned": {
+      "label": "Owned firm for skid Dual (edit me)",
+      "role": "owned_safe",
+      "n": 1.05,
+      "kc": 38.0,
+      "k_phi": 1850.0,
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 2.8,
+        "phi_deg": 29.0,
+        "K_m": 0.022,
+        "j_m_default": 0.05,
+        "note": "owned teaching shear — not MEASURED"
+      },
+      "note": "Example 08 Safe — not default firm_lab id"
+    },
+    "skid_soft_owned": {
+      "label": "Owned soft hostile for skid Dual (edit me)",
+      "role": "owned_hostile",
+      "n": 0.75,
+      "kc": 4.5,
+      "k_phi": 70.0,
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 0.4,
+        "phi_deg": 14.0,
+        "K_m": 0.045,
+        "j_m_default": 0.05,
+        "note": "owned teaching shear — not MEASURED"
+      },
+      "note": "Example 08 Hostile — not default soft_hostile id"
+    }
+  },
+  "contact": {
+    "mass_kg": 62.0,
+    "n_contacts": 4.0,
+    "contact_width_m": 0.07,
+    "contact_length_m": 0.12
+  },
+  "honesty": {
+    "not_measured": true,
+    "owned_by_stranger": true,
+    "note": "Public stranger-shaped Dual: open skid-steer URDF + owned soil ids ≠ teaching defaults"
+  }
+}
