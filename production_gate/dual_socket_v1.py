@@ -184,6 +184,7 @@ def run_dual_socket(
                 ):
                     doc_b = get_project(pid)
                     body = dict(doc_b.get("body") or {})
+                    body["contact_override"] = True
                     if mass_kg is not None:
                         body["mass_kg"] = float(mass_kg)
                     if n_contacts is not None:
@@ -266,7 +267,7 @@ def run_dual_socket(
             "soft_teaching": True,
             "not_measured": True,
             "not_gazebo_plugin": True,
-            "not_ros_package_yet": True,
+            "thin_ros2_wrapper": "ros2/ha_dual_ros2 · ha-dual-ros2 CLI",
             "socket": "URDF|open preset + optional owned soils → Dual Bekker refuse",
             "owned_soils": bool(owned_pack),
         },
@@ -311,7 +312,7 @@ Catalog: `{doc["soils"].get("catalog") or "fixtures/.../bekker_soils_on_v1.json"
 
 ## Honesty
 
-soft teaching Dual · not MEASURED · owned soils when provided · not a ROS/Gazebo plugin yet · Rust Bekker oracle
+soft teaching Dual · not MEASURED · owned soils when provided · thin ros2 wrapper available (T5) · Rust Bekker oracle
 """
         _BOARD.write_text(board + "\n", encoding="utf-8")
         doc["board_path"] = str(_BOARD)

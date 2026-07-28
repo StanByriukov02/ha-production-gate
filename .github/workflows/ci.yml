@@ -69,6 +69,21 @@ jobs:
           test "$code" -eq 1
           python -c "import json; from pathlib import Path; d=json.loads(Path('results/runtime/platform_loop/DUAL_SOCKET_LATEST_v1.json').read_text()); assert d['verdict']=='DUAL_SOCKET_FAIL'; assert d['safe']['physics_pass'] is False"
 
+      - name: Thin ros2 Dual bridge (T5)
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          ha-dual-ros2 \
+            --urdf fixtures/open_registry/urdf/ros_skidsteer_v1.urdf \
+            --kind wheeled_base \
+            --soils fixtures/open_registry/terramech/dual_owned_soils_skidsteer_v1.json
+          ha-dual-ros2 \
+            --robot-description-file fixtures/open_registry/urdf/ros_skidsteer_v1.urdf \
+            --kind wheeled_base \
+            --soils fixtures/open_registry/terramech/dual_owned_soils_skidsteer_v1.json
+          test -f results/runtime/platform_loop/HA_DUAL_ROS2_LATEST_v1.json
+          test -f ros2/ha_dual_ros2/package.xml
+
       - name: Production Gate ritual (CI falsifiers)
         env:
           PYTHONIOENCODING: utf-8

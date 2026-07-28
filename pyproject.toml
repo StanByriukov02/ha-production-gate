@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ha-production-gate"
-version = "0.2.0"
+version = "0.2.1"
 description = "Production Gate — Dual Bekker truth before hardware (URDF + owned soils · PASS not required)"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -31,7 +31,9 @@ Issues = "https://github.com/StanByriukov02/ha-production-gate/issues"
 ha-ensure-bins = "production_gate.ensure_bins_v1:main"
 ha-production-gate = "production_gate.prove_production_gate_ritual_v1:main"
 ha-dual-socket = "production_gate.dual_socket_v1:main"
+ha-dual-ros2 = "production_gate.ros2_dual_bridge_v1:main"
 ha-desk = "production_gate.desk_app_v1:main"
+ha-soils = "production_gate.soils_workbench_v1:main"
 ha-release-engineer = "production_gate.release_engineer_pack_v1:main"
 
 [tool.setuptools.packages.find]

@@ -646,14 +646,25 @@ def attach_body_from_urdf(
         body["model_kind"] = str(model_kind).strip().lower()
     if preset_id:
         body["preset_id"] = str(preset_id).strip()
-    if mass_kg is not None:
-        body["mass_kg"] = float(mass_kg)
-    if n_contacts is not None:
-        body["n_contacts"] = float(n_contacts)
-    if contact_width_m is not None:
-        body["contact_width_m"] = float(contact_width_m)
-    if contact_length_m is not None:
-        body["contact_length_m"] = float(contact_length_m)
+    explicit_contact = any(
+        v is not None
+        for v in (mass_kg, n_contacts, contact_width_m, contact_length_m)
+    )
+    if explicit_contact:
+        body["contact_override"] = True
+        if mass_kg is not None:
+            body["mass_kg"] = float(mass_kg)
+        if n_contacts is not None:
+            body["n_contacts"] = float(n_contacts)
+        if contact_width_m is not None:
+            body["contact_width_m"] = float(contact_width_m)
+        if contact_length_m is not None:
+            body["contact_length_m"] = float(contact_length_m)
+    else:
+        from production_gate.urdf_contact_extract_v1 import extract_contact_from_urdf
+
+        extracted = extract_contact_from_urdf(src)
+        body["urdf_contact"] = extracted
     doc["body"] = body
     return _save_project(doc)
 

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.1 — 2026-07-28
+
+Product cells T1–T5 on the public Gate face.
+
+### T5 — thin ros2 Dual
+- `ha-dual-ros2` — URDF path **or** `robot_description` XML → Dual
+- ament package `ros2/ha_dual_ros2` (optional `rclpy` node · launch)
+- Example 10 · CI smoke without Gazebo stack
+
+### Earlier in 0.2.x (held)
+- T1 URDF contact extract · T2 desk stand log · T3 soils workbench · T4 private dogfood (B)
+
 ## 0.2.0 — 2026-07-27
 
 Dogfood update: owned Dual inputs, stranger boards, desk truth UX.

@@ -1,9 +1,43 @@
 {
   "schema": "ha_dual_owned_soils_v1",
-  "label": "Example owned Dual — teaching anchors with explicit contact",
+  "label": "Example owned Dual — embedded soils + explicit contact (not firm_lab)",
   "g_mps2": 9.81,
-  "safe": "firm_lab",
-  "hostile": "soft_hostile",
+  "safe": "example_firm",
+  "hostile": "example_soft",
+  "soils": {
+    "example_firm": {
+      "label": "Example firm (edit me)",
+      "role": "owned_safe",
+      "n": 1.0,
+      "kc": 40.0,
+      "k_phi": 2000.0,
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 3.0,
+        "phi_deg": 30.0,
+        "K_m": 0.02,
+        "j_m_default": 0.05,
+        "note": "owned teaching shear — not MEASURED"
+      },
+      "note": "not firm_lab"
+    },
+    "example_soft": {
+      "label": "Example soft hostile (edit me)",
+      "role": "owned_hostile",
+      "n": 0.8,
+      "kc": 5.0,
+      "k_phi": 80.0,
+      "shear": {
+        "role": "teaching_janosi_hanamoto",
+        "c_kpa": 0.5,
+        "phi_deg": 15.0,
+        "K_m": 0.04,
+        "j_m_default": 0.05,
+        "note": "owned teaching shear — not MEASURED"
+      },
+      "note": "not soft_hostile"
+    }
+  },
   "contact": {
     "mass_kg": 48.0,
     "n_contacts": 4.0,
@@ -13,6 +47,7 @@
   "honesty": {
     "not_measured": true,
     "owned_by_stranger": true,
-    "note": "Ids resolve against default Bekker catalog — replace safe/hostile or embed soils{} with your Bevameter-class numbers"
+    "not_teaching_catalog_ids": true,
+    "note": "Owned Dual must embed soils — firm_lab/soft_hostile forbidden as safe/hostile"
   }
 }

@@ -74,6 +74,30 @@ class DeskHandler(BaseHTTPRequestHandler):
             )
             self._send(code, raw, ct)
             return
+        if path == "/api/runs":
+            from production_gate.desk_run_log_v1 import list_runs
+
+            code, raw, ct = _json_bytes({"ok": True, "runs": list_runs(limit=40)})
+            self._send(code, raw, ct)
+            return
+        if path == "/api/soils/template":
+            from production_gate.dual_owned_soils_v1 import make_owned_soils_template
+
+            pack = make_owned_soils_template()
+            code, raw, ct = _json_bytes({"ok": True, "pack": pack})
+            self._send(code, raw, ct)
+            return
+        if path.startswith("/api/runs/"):
+            from production_gate.desk_run_log_v1 import get_run
+
+            rid = path[len("/api/runs/") :].strip("/")
+            row = get_run(rid)
+            if row is None:
+                code, raw, ct = _json_bytes({"ok": False, "error": "run_not_found"}, 404)
+            else:
+                code, raw, ct = _json_bytes({"ok": True, "run": row})
+            self._send(code, raw, ct)
+            return
         # static under desk/
         rel = path.lstrip("/").replace("..", "")
         target = (_DESK_DIR / rel).resolve()
@@ -136,12 +160,94 @@ class DeskHandler(BaseHTTPRequestHandler):
                         preset=str(preset or "open_diffbot"),
                         soils=soils_path,
                     )
+                from production_gate.desk_run_log_v1 import save_run
+
+                saved = save_run(doc, label=str(payload.get("label") or "") or None)
                 code, raw, ct = _json_bytes(
-                    {"ok": doc.get("verdict") == "DUAL_SOCKET_PASS", **doc}
+                    {
+                        "ok": doc.get("verdict") == "DUAL_SOCKET_PASS",
+                        **doc,
+                        "saved_run": saved,
+                    }
                 )
                 self._send(code, raw, ct)
             except Exception as exc:  # noqa: BLE001
                 code, raw, ct = _json_bytes({"ok": False, "error": str(exc)}, 500)
+                self._send(code, raw, ct)
+            return
+
+        if path == "/api/runs/save":
+            try:
+                from production_gate.desk_run_log_v1 import save_run
+
+                board = payload.get("board") if isinstance(payload.get("board"), dict) else payload
+                saved = save_run(board, label=str(payload.get("label") or "") or None)
+                code, raw, ct = _json_bytes({"ok": True, "run": saved})
+                self._send(code, raw, ct)
+            except Exception as exc:  # noqa: BLE001
+                code, raw, ct = _json_bytes({"ok": False, "error": str(exc)}, 500)
+                self._send(code, raw, ct)
+            return
+
+        if path == "/api/runs/compare":
+            try:
+                from production_gate.desk_run_log_v1 import compare_runs
+
+                a = str(payload.get("a") or "")
+                b = str(payload.get("b") or "")
+                cmp = compare_runs(a, b)
+                code, raw, ct = _json_bytes(cmp)
+                self._send(code, raw, ct)
+            except FileNotFoundError as exc:
+                code, raw, ct = _json_bytes({"ok": False, "error": str(exc)}, 404)
+                self._send(code, raw, ct)
+            except Exception as exc:  # noqa: BLE001
+                code, raw, ct = _json_bytes({"ok": False, "error": str(exc)}, 500)
+                self._send(code, raw, ct)
+            return
+
+        if path == "/api/soils/validate":
+            try:
+                from production_gate.dual_owned_soils_v1 import parse_owned_soils_doc
+
+                pack_in = payload.get("pack") if isinstance(payload.get("pack"), dict) else payload
+                parsed = parse_owned_soils_doc(pack_in)
+                code, raw, ct = _json_bytes(
+                    {
+                        "ok": True,
+                        "safe": parsed["safe_soil_id"],
+                        "hostile": parsed["hostile_soil_id"],
+                        "g_mps2": parsed["g_mps2"],
+                        "soil_ids": sorted(parsed["soils"].keys()),
+                    }
+                )
+                self._send(code, raw, ct)
+            except Exception as exc:  # noqa: BLE001
+                code, raw, ct = _json_bytes({"ok": False, "error": str(exc)}, 400)
+                self._send(code, raw, ct)
+            return
+
+        if path == "/api/soils/duplicate":
+            try:
+                from production_gate.dual_owned_soils_v1 import (
+                    duplicate_soil,
+                    parse_owned_soils_doc,
+                )
+
+                pack_in = payload.get("pack")
+                if not isinstance(pack_in, dict):
+                    raise ValueError("pack object required")
+                out = duplicate_soil(
+                    pack_in,
+                    source_id=str(payload.get("from_id") or ""),
+                    new_id=str(payload.get("as_id") or ""),
+                    set_as=payload.get("set_as"),
+                )
+                parse_owned_soils_doc(out)
+                code, raw, ct = _json_bytes({"ok": True, "pack": out})
+                self._send(code, raw, ct)
+            except Exception as exc:  # noqa: BLE001
+                code, raw, ct = _json_bytes({"ok": False, "error": str(exc)}, 400)
                 self._send(code, raw, ct)
             return
 

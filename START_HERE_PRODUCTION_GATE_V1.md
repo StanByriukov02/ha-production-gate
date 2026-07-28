@@ -23,4 +23,5 @@ Docker: `docker compose run --rm dual` · Desk: `ha-desk`
 |------|------|
 | Full face | [`README.md`](README.md) |
 | Socket | [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md) |
+| Thin ros2 (T5) | [`docs/examples/10_thin_ros2_dual.md`](docs/examples/10_thin_ros2_dual.md) |
 | Dual method | [`docs/DUAL_REFUSE.md`](docs/DUAL_REFUSE.md) |

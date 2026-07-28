@@ -1,10 +1,9 @@
 # HA Production Gate
 
 [![CI](https://img.shields.io/github/actions/workflow/status/StanByriukov02/ha-production-gate/ci.yml?branch=main&label=CI)](https://github.com/StanByriukov02/ha-production-gate/actions/workflows/ci.yml)
-[![Dual](https://img.shields.io/github/actions/workflow/status/StanByriukov02/ha-production-gate/dual-socket.yml?branch=main&label=dual)](https://github.com/StanByriukov02/ha-production-gate/actions/workflows/dual-socket.yml)
-[![Version](https://img.shields.io/github/v/release/StanByriukov02/ha-production-gate?include_prereleases&sort=semver&label=version)](https://github.com/StanByriukov02/ha-production-gate/releases)
+[![Dual](https://img.shields.io/github/actions/workflow/status/StanByriukov02/ha-production-gate/dual-socket.yml?branch=main&label=dual%2Bros2)](https://github.com/StanByriukov02/ha-production-gate/actions/workflows/dual-socket.yml)
+[![Version](https://img.shields.io/badge/version-0.2.1-0ea5e9)](CHANGELOG.md)
 [![License](https://img.shields.io/github/license/StanByriukov02/ha-production-gate)](LICENSE)
-[![Rust](https://img.shields.io/badge/physics_oracle-Rust-b45309)](crates/ha_physics_gate)
 [![Python](https://img.shields.io/badge/Python_3.11%2B-3776AB)](production_gate)
 
 **Production Gate**
@@ -149,7 +148,7 @@ ha-desk
 
 If `ha-ensure-bins` says download failed: install [Rust](https://rustup.rs/) and re-run bootstrap (builds five Dual bins once).
 
-Short entry: [`START_HERE_PRODUCTION_GATE_V1.md`](START_HERE_PRODUCTION_GATE_V1.md) · method: [`docs/DUAL_REFUSE.md`](docs/DUAL_REFUSE.md) · socket: [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md) · stranger Dual: [`docs/examples/08_stranger_urdf_owned_soils.md`](docs/examples/08_stranger_urdf_owned_soils.md)
+Short entry: [`START_HERE_PRODUCTION_GATE_V1.md`](START_HERE_PRODUCTION_GATE_V1.md) · method: [`docs/DUAL_REFUSE.md`](docs/DUAL_REFUSE.md) · socket: [`docs/examples/07_dual_socket.md`](docs/examples/07_dual_socket.md) · thin ros2: [`docs/examples/10_thin_ros2_dual.md`](docs/examples/10_thin_ros2_dual.md) · stranger Dual: [`docs/examples/08_stranger_urdf_owned_soils.md`](docs/examples/08_stranger_urdf_owned_soils.md)
 
 ### Manual path (same steps bootstrap runs)
 

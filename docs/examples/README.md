@@ -13,6 +13,7 @@ Detailed walkthroughs for HA Production Gate — same spirit as a skills-repo �
 | 07 | [Dual socket](07_dual_socket.md) | `open_diffbot` / your URDF → Dual board |
 | 08 | [Stranger URDF + owned soils](08_stranger_urdf_owned_soils.md) | skid-steer URDF · soil ids ≠ teaching defaults |
 | 09 | [External Fetch URDF](09_external_fetch_owned_soils.md) | third-party Fetch · **FAIL is the lesson** (not massaged PASS) |
+| 10 | [Thin ros2 Dual (T5)](10_thin_ros2_dual.md) | `robot_description` / URDF → Dual · no Gazebo stack |
 | — | [Board sample](PRODUCTION_GATE_BOARD_SAMPLE.md) | Example PASS board |
 | — | [Frozen bench JSON](sinkage_dual_bench_lunar_scout_v1.json) | Numbers from a PASS ritual |
 | — | [Frozen Example 08 JSON](stranger_urdf_owned_soils_skidsteer_v1.json) | Owned soils + skid URDF Dual |

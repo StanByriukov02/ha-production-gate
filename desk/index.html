@@ -201,8 +201,96 @@
       white-space: pre-wrap;
     }
     .err.show { display: block; }
+    .stand {
+      margin-top: 10px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      gap: 14px;
+    }
+    .stand h2 {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .stand-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      max-height: 220px;
+      overflow: auto;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .stand-list li {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.22);
+      cursor: pointer;
+    }
+    .stand-list li:hover { border-color: rgba(196, 165, 116, 0.45); }
+    .stand-list li.sel { border-color: var(--accent); color: var(--ink); }
+    .stand-list .v-pass { color: var(--safe); }
+    .stand-list .v-fail { color: var(--warn); }
+    .compare {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .compare.show { display: grid; animation: rise 280ms ease both; }
+    .compare .col {
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+      background: rgba(0,0,0,0.22);
+      white-space: pre-wrap;
+    }
+    .compare .col.diff { border-color: rgba(230, 184, 77, 0.45); }
+    .diffs { font-family: var(--mono); font-size: 12px; color: var(--warn); min-height: 1em; }
+    .soils-bench {
+      border: 1px solid var(--line);
+      padding: 16px;
+      background: rgba(0,0,0,0.22);
+      display: grid;
+      gap: 12px;
+    }
+    .soils-bench h2 {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .soils-bench input[type="text"],
+    .soils-bench input[type="number"] {
+      width: 100%;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      padding: 10px 12px;
+      font: 13px/1.3 var(--mono);
+      border-radius: 2px;
+    }
+    .soils-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 720px) {
+      .compare { grid-template-columns: 1fr; }
+      .soils-grid { grid-template-columns: 1fr; }
+    }
+    .soil-card label { margin-top: 8px; }
+    .soil-card label:first-child { margin-top: 0; }
     @media (prefers-reduced-motion: reduce) {
-      button, .results.show, .meta.show, .verdict.show { transition: none; animation: none; }
+      button, .results.show, .meta.show, .verdict.show, .compare.show { transition: none; animation: none; }
     }
   </style>
 </head>
@@ -245,6 +333,52 @@
           </select>
         </div>
       </div>
+
+      <div class="soils-bench" id="soils-bench">
+        <h2>Soils workbench</h2>
+        <p class="hint">Template → edit n/kc/k_φ/shear/g → duplicate → Dual. Teaching ids firm_lab / soft_hostile blocked as «мои».</p>
+        <div class="actions">
+          <button id="soils-template" class="ghost" type="button">Load template</button>
+          <button id="soils-dup" class="ghost" type="button">Duplicate safe → new hostile</button>
+          <button id="soils-validate" class="ghost" type="button">Validate</button>
+          <button id="soils-download" class="ghost" type="button">Download JSON</button>
+          <button id="soils-clear" class="ghost" type="button">Clear pack</button>
+          <span class="hint" id="soils-status">no owned pack</span>
+        </div>
+        <div class="row">
+          <div>
+            <label for="soil-safe-id">Safe id</label>
+            <input id="soil-safe-id" type="text" autocomplete="off" />
+          </div>
+          <div>
+            <label for="soil-hostile-id">Hostile id</label>
+            <input id="soil-hostile-id" type="text" autocomplete="off" />
+          </div>
+        </div>
+        <div>
+          <label for="soil-g">g (m/s²)</label>
+          <input id="soil-g" type="number" step="0.01" />
+        </div>
+        <div class="soils-grid">
+          <div class="soil-card" id="soil-safe-card">
+            <label>Safe · n</label><input data-lane="safe" data-k="n" type="number" step="0.01" />
+            <label>kc</label><input data-lane="safe" data-k="kc" type="number" step="0.1" />
+            <label>k_phi</label><input data-lane="safe" data-k="k_phi" type="number" step="1" />
+            <label>shear c_kpa</label><input data-lane="safe" data-k="c_kpa" type="number" step="0.1" />
+            <label>phi_deg</label><input data-lane="safe" data-k="phi_deg" type="number" step="0.1" />
+            <label>K_m</label><input data-lane="safe" data-k="K_m" type="number" step="0.001" />
+          </div>
+          <div class="soil-card" id="soil-hostile-card">
+            <label>Hostile · n</label><input data-lane="hostile" data-k="n" type="number" step="0.01" />
+            <label>kc</label><input data-lane="hostile" data-k="kc" type="number" step="0.1" />
+            <label>k_phi</label><input data-lane="hostile" data-k="k_phi" type="number" step="1" />
+            <label>shear c_kpa</label><input data-lane="hostile" data-k="c_kpa" type="number" step="0.1" />
+            <label>phi_deg</label><input data-lane="hostile" data-k="phi_deg" type="number" step="0.1" />
+            <label>K_m</label><input data-lane="hostile" data-k="K_m" type="number" step="0.001" />
+          </div>
+        </div>
+      </div>
+
       <div class="actions">
         <button id="run" type="button">Run Dual</button>
         <button id="clear" class="ghost" type="button">Clear files</button>
@@ -265,10 +399,27 @@
       </div>
       <p class="verdict" id="verdict"></p>
       <div class="meta" id="meta"></div>
+
+      <div class="stand" id="stand">
+        <h2>Stand · local run log</h2>
+        <p class="hint">Each Dual run is saved here. Select two rows to compare body / soils / contact / verdict / mm.</p>
+        <div class="actions">
+          <button id="compare" class="ghost" type="button" disabled>Compare selected</button>
+          <button id="refresh-log" class="ghost" type="button">Refresh log</button>
+          <span class="hint" id="stand-hint">0 runs</span>
+        </div>
+        <ul class="stand-list" id="stand-list"></ul>
+        <p class="diffs" id="diffs"></p>
+        <div class="compare" id="compare-out">
+          <div class="col" id="cmp-a"></div>
+          <div class="col" id="cmp-b"></div>
+        </div>
+      </div>
     </section>
 
     <p class="foot">
-      CLI: <code>ha-dual-socket --urdf robot.urdf --soils soils.json</code>
+      CLI: <code>ha-soils template --out my_soils.json</code>
+      · <code>ha-dual-socket --urdf robot.urdf --soils soils.json</code>
       · examples <a href="https://github.com/StanByriukov02/ha-production-gate/blob/main/docs/examples/08_stranger_urdf_owned_soils.md">08 Dual</a>
       · <a href="https://github.com/StanByriukov02/ha-production-gate/blob/main/docs/examples/09_external_fetch_owned_soils.md">09 FAIL truth</a>
       · <a href="https://github.com/StanByriukov02/ha-production-gate">repo</a>
@@ -288,6 +439,21 @@
     const resultsEl = document.getElementById("results");
     const verdictEl = document.getElementById("verdict");
     const metaEl = document.getElementById("meta");
+    const standList = document.getElementById("stand-list");
+    const standHint = document.getElementById("stand-hint");
+    const compareEl = document.getElementById("compare");
+    const refreshLogEl = document.getElementById("refresh-log");
+    const compareOut = document.getElementById("compare-out");
+    const cmpA = document.getElementById("cmp-a");
+    const cmpB = document.getElementById("cmp-b");
+    const diffsEl = document.getElementById("diffs");
+    const soilsStatus = document.getElementById("soils-status");
+    const soilSafeId = document.getElementById("soil-safe-id");
+    const soilHostileId = document.getElementById("soil-hostile-id");
+    const soilG = document.getElementById("soil-g");
+    const selected = [];
+    let ownedPack = null;
+    let soilsFromFile = false;
 
     async function loadPresets() {
       const r = await fetch("/api/presets");
@@ -323,17 +489,317 @@
       const u = urdfEl.files && urdfEl.files[0];
       const s = soilsEl.files && soilsEl.files[0];
       urdfChip.textContent = u ? u.name : "";
-      soilsChip.textContent = s ? s.name : "";
+      if (ownedPack && !soilsFromFile) soilsChip.textContent = "editor pack";
+      else soilsChip.textContent = s ? s.name : (ownedPack ? "editor pack" : "");
+    }
+
+    function laneFields(lane) {
+      const out = {};
+      for (const el of document.querySelectorAll('input[data-lane="' + lane + '"]')) {
+        out[el.dataset.k] = el.value === "" ? null : Number(el.value);
+      }
+      return out;
+    }
+
+    function fillLane(lane, row) {
+      const shear = (row && row.shear) || {};
+      const map = {
+        n: row && row.n,
+        kc: row && row.kc,
+        k_phi: row && row.k_phi,
+        c_kpa: shear.c_kpa,
+        phi_deg: shear.phi_deg,
+        K_m: shear.K_m,
+      };
+      for (const el of document.querySelectorAll('input[data-lane="' + lane + '"]')) {
+        const v = map[el.dataset.k];
+        el.value = v == null ? "" : v;
+      }
+    }
+
+    function setPackUI(pack) {
+      ownedPack = pack;
+      if (!pack) {
+        soilSafeId.value = "";
+        soilHostileId.value = "";
+        soilG.value = "";
+        fillLane("safe", {});
+        fillLane("hostile", {});
+        soilsStatus.textContent = "no owned pack";
+        syncChips();
+        return;
+      }
+      soilSafeId.value = pack.safe || "";
+      soilHostileId.value = pack.hostile || "";
+      soilG.value = pack.g_mps2 == null ? 9.81 : pack.g_mps2;
+      const soils = pack.soils || {};
+      fillLane("safe", soils[pack.safe] || {});
+      fillLane("hostile", soils[pack.hostile] || {});
+      soilsStatus.textContent = "owned · " + pack.safe + " / " + pack.hostile;
+      syncChips();
+    }
+
+    function readPackFromUI() {
+      if (!ownedPack && !soilSafeId.value && !soilHostileId.value) return null;
+      const safe = (soilSafeId.value || "").trim();
+      const hostile = (soilHostileId.value || "").trim();
+      const sf = laneFields("safe");
+      const hf = laneFields("hostile");
+      const pack = {
+        schema: "ha_dual_owned_soils_v1",
+        label: (ownedPack && ownedPack.label) || "Desk owned soils",
+        g_mps2: Number(soilG.value || 9.81),
+        safe,
+        hostile,
+        soils: {},
+        honesty: {
+          not_measured: true,
+          owned_by_stranger: true,
+          not_teaching_catalog_ids: true,
+        },
+      };
+      if (ownedPack && ownedPack.contact) pack.contact = ownedPack.contact;
+      pack.soils[safe] = {
+        label: safe + " (desk)",
+        role: "owned_safe",
+        n: sf.n,
+        kc: sf.kc,
+        k_phi: sf.k_phi,
+        shear: {
+          role: "teaching_janosi_hanamoto",
+          c_kpa: sf.c_kpa,
+          phi_deg: sf.phi_deg,
+          K_m: sf.K_m,
+          j_m_default: 0.05,
+          note: "owned teaching shear — not MEASURED",
+        },
+      };
+      pack.soils[hostile] = {
+        label: hostile + " (desk)",
+        role: "owned_hostile",
+        n: hf.n,
+        kc: hf.kc,
+        k_phi: hf.k_phi,
+        shear: {
+          role: "teaching_janosi_hanamoto",
+          c_kpa: hf.c_kpa,
+          phi_deg: hf.phi_deg,
+          K_m: hf.K_m,
+          j_m_default: 0.05,
+          note: "owned teaching shear — not MEASURED",
+        },
+      };
+      return pack;
+    }
+
+    function fmtRunLine(run) {
+      const body = run.body || {};
+      const who = body.urdf || body.preset || body.mode || "—";
+      const v = run.verdict || "—";
+      const cls = v === "DUAL_SOCKET_PASS" ? "v-pass" : "v-fail";
+      const mm =
+        "S " + (run.safe_mm == null ? "—" : Number(run.safe_mm).toFixed(2)) +
+        " · H " + (run.hostile_mm == null ? "—" : Number(run.hostile_mm).toFixed(2));
+      const c = run.contact || {};
+      return (
+        '<span class="' + cls + '">' + v.replace("DUAL_SOCKET_", "") + "</span>" +
+        " · " + who +
+        " · " + mm + " mm" +
+        " · src " + (c.source || "—") +
+        "<br>" + (run.timestamp_utc || run.id)
+      );
+    }
+
+    function fmtCompareCol(side) {
+      const c = side.contact || {};
+      const s = side.soils || {};
+      const b = side.body || {};
+      return [
+        "id " + (side.id || "—"),
+        "verdict " + (side.verdict || "—"),
+        "body " + (b.urdf || b.preset || b.mode || "—"),
+        "kind " + (b.model_kind || "—"),
+        "soils " + (s.safe_id || "—") + " / " + (s.hostile_id || "—") + (s.owned ? " · owned" : ""),
+        "contact mass " + (c.mass_kg ?? "—") + " n " + (c.n_contacts ?? "—"),
+        "  " + (c.contact_width_m ?? "—") + " × " + (c.contact_length_m ?? "—") + " · " + (c.source || "—"),
+        "safe_mm " + (side.safe_mm ?? "—"),
+        "hostile_mm " + (side.hostile_mm ?? "—"),
+      ].join("\n");
+    }
+
+    function syncSelectUI() {
+      compareEl.disabled = selected.length !== 2;
+      for (const li of standList.querySelectorAll("li")) {
+        li.classList.toggle("sel", selected.includes(li.dataset.id));
+      }
+    }
+
+    async function loadRuns() {
+      const r = await fetch("/api/runs");
+      const j = await r.json();
+      const runs = j.runs || [];
+      standHint.textContent = runs.length + " run" + (runs.length === 1 ? "" : "s") + " · local";
+      standList.innerHTML = "";
+      for (const run of runs) {
+        const li = document.createElement("li");
+        li.dataset.id = run.id;
+        li.innerHTML = fmtRunLine(run);
+        li.addEventListener("click", () => {
+          const id = run.id;
+          const ix = selected.indexOf(id);
+          if (ix >= 0) selected.splice(ix, 1);
+          else {
+            selected.push(id);
+            if (selected.length > 2) selected.shift();
+          }
+          syncSelectUI();
+        });
+        standList.appendChild(li);
+      }
+      selected.length = 0;
+      syncSelectUI();
+      compareOut.classList.remove("show");
+      diffsEl.textContent = "";
     }
 
     urdfEl.addEventListener("change", syncChips);
-    soilsEl.addEventListener("change", syncChips);
+    soilsEl.addEventListener("change", async () => {
+      const s = soilsEl.files && soilsEl.files[0];
+      if (!s) {
+        soilsFromFile = false;
+        syncChips();
+        return;
+      }
+      try {
+        const text = await s.text();
+        const pack = JSON.parse(text);
+        soilsFromFile = true;
+        setPackUI(pack);
+        showErr("");
+      } catch (e) {
+        showErr("soils JSON: " + (e.message || e));
+      }
+    });
+
+    document.getElementById("soils-template").addEventListener("click", async () => {
+      showErr("");
+      try {
+        const r = await fetch("/api/soils/template");
+        const j = await r.json();
+        if (!j.ok) throw new Error(j.error || "template failed");
+        soilsEl.value = "";
+        soilsFromFile = false;
+        setPackUI(j.pack);
+      } catch (e) {
+        showErr(String(e.message || e));
+      }
+    });
+
+    document.getElementById("soils-clear").addEventListener("click", () => {
+      soilsEl.value = "";
+      soilsFromFile = false;
+      setPackUI(null);
+    });
+
+    document.getElementById("soils-validate").addEventListener("click", async () => {
+      showErr("");
+      const pack = readPackFromUI();
+      if (!pack) {
+        showErr("no soils pack to validate");
+        return;
+      }
+      const r = await fetch("/api/soils/validate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pack }),
+      });
+      const j = await r.json();
+      if (!j.ok) {
+        showErr(j.error || "validate failed");
+        soilsStatus.textContent = "invalid";
+        return;
+      }
+      ownedPack = pack;
+      soilsStatus.textContent = "valid · " + j.safe + " / " + j.hostile;
+    });
+
+    document.getElementById("soils-dup").addEventListener("click", async () => {
+      showErr("");
+      const pack = readPackFromUI();
+      if (!pack) {
+        showErr("load template first");
+        return;
+      }
+      const newId = (pack.hostile || "my_soft") + "_dup";
+      const r = await fetch("/api/soils/duplicate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          pack,
+          from_id: pack.safe,
+          as_id: newId,
+          set_as: "hostile",
+        }),
+      });
+      const j = await r.json();
+      if (!j.ok) {
+        showErr(j.error || "duplicate failed");
+        return;
+      }
+      soilsFromFile = false;
+      setPackUI(j.pack);
+    });
+
+    document.getElementById("soils-download").addEventListener("click", () => {
+      const pack = readPackFromUI();
+      if (!pack) {
+        showErr("no pack to download");
+        return;
+      }
+      const blob = new Blob([JSON.stringify(pack, null, 2) + "\n"], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = (pack.safe || "owned") + "_soils.json";
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
 
     clearEl.addEventListener("click", () => {
       urdfEl.value = "";
       soilsEl.value = "";
+      soilsFromFile = false;
+      setPackUI(null);
       syncChips();
       statusEl.textContent = "Using open body preset";
+    });
+
+    refreshLogEl.addEventListener("click", () => {
+      loadRuns().catch((e) => showErr(String(e)));
+    });
+
+    compareEl.addEventListener("click", async () => {
+      if (selected.length !== 2) return;
+      showErr("");
+      try {
+        const r = await fetch("/api/runs/compare", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ a: selected[0], b: selected[1] }),
+        });
+        const j = await r.json();
+        if (!r.ok || j.error) throw new Error(j.error || ("HTTP " + r.status));
+        cmpA.textContent = fmtCompareCol(j.a || {});
+        cmpB.textContent = fmtCompareCol(j.b || {});
+        const keys = j.diff_keys || [];
+        cmpA.classList.toggle("diff", keys.length > 0);
+        cmpB.classList.toggle("diff", keys.length > 0);
+        diffsEl.textContent = keys.length
+          ? ("diff: " + keys.join(", "))
+          : "no diff on verdict / mm / body / contact / soils";
+        compareOut.classList.add("show");
+      } catch (e) {
+        showErr(String(e.message || e));
+      }
     });
 
     runEl.addEventListener("click", async () => {
@@ -349,10 +815,18 @@
           body.urdf_name = urdf.name;
           body.urdf_text = await urdf.text();
         }
-        const soils = soilsEl.files && soilsEl.files[0];
-        if (soils) {
-          body.soils_name = soils.name;
-          body.soils_text = await soils.text();
+        const pack = readPackFromUI();
+        if (pack) {
+          const vr = await fetch("/api/soils/validate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ pack }),
+          });
+          const vj = await vr.json();
+          if (!vj.ok) throw new Error(vj.error || "soils invalid");
+          ownedPack = pack;
+          body.soils_name = (pack.safe || "owned") + "_soils.json";
+          body.soils_text = JSON.stringify(pack, null, 2);
         }
         const r = await fetch("/api/dual", {
           method: "POST",
@@ -382,10 +856,15 @@
         metaEl.innerHTML =
           "contact · mass " + (c.mass_kg ?? "—") + " kg · n " + (c.n_contacts ?? "—") +
           " · " + (c.contact_width_m ?? "—") + " × " + (c.contact_length_m ?? "—") + " m" +
+          " · src " + (c.source || "—") +
           "<br>soils · safe " + (s.safe_id || "—") + " · hostile " + (s.hostile_id || "—") +
           (s.owned_path ? " · owned" : "");
         metaEl.classList.add("show");
-        statusEl.textContent = pass ? "Dual PASS" : "Dual FAIL — still a valid Gate answer";
+        const saved = j.saved_run;
+        statusEl.textContent = pass
+          ? ("Dual PASS · saved " + (saved && saved.id ? saved.id : "run"))
+          : ("Dual FAIL — Gate answer · saved " + (saved && saved.id ? saved.id : "run"));
+        await loadRuns();
       } catch (e) {
         showErr(String(e.message || e));
         statusEl.textContent = "Failed";
@@ -395,6 +874,7 @@
     });
 
     loadPresets().catch((e) => showErr(String(e)));
+    loadRuns().catch((e) => showErr(String(e)));
   </script>
 </body>
 </html>
